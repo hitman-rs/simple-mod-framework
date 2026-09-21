@@ -1,0 +1,412 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"definitions": {
+		"Manifest": {
+			"required": ["id", "name", "description", "authors", "version", "frameworkVersion"],
+			"allOf": [
+				{
+					"properties": {
+						"authors": {
+							"description": "A list of the mod's authors.",
+							"items": {
+								"type": "string"
+							},
+							"minItems": 1,
+							"type": "array"
+						},
+						"description": {
+							"description": "A description of the mod.",
+							"minLength": 1,
+							"type": "string"
+						},
+						"frameworkVersion": {
+							"description": "The version of the framework this mod has been tested against/designed for.",
+							"type": "string"
+						},
+						"id": {
+							"description": "An ID for the mod. Should follow capitalised reverse URI style (AuthorName.ModName). Don't include special characters; numbers and underscores are OK, though words should be separated by CamelCase.",
+							"type": "string"
+						},
+						"name": {
+							"description": "The name of the mod.",
+							"$ref": "#/definitions/NonEmptyString"
+						},
+						"options": {
+							"description": "Settings for the mod that can be enabled and disabled in the Mod Manager. Also, conditional options allow for certain elements of the mod to be automatically enabled/disabled based on, for example, other mods being installed.",
+							"items": {
+								"anyOf": [
+									{
+										"allOf": [
+											{
+												"properties": {
+													"enabledByDefault": {
+														"description": "Whether the option should be preselected upon installing the mod. Preselected options should deliver the \"advertised experience\". Mods with many settings should have the user select their own settings, or provide a conservative default.",
+														"type": "boolean"
+													},
+													"image": {
+														"description": "A thumbnail image for the option. Will appear when the user hovers over the option in the Mod Manager.",
+														"$ref": "#/definitions/NonEmptyString"
+													},
+													"name": {
+														"description": "The name of the option. Should not be duplicated. Will appear in the Mod Manager.",
+														"$ref": "#/definitions/NonEmptyString"
+													},
+													"tooltip": {
+														"description": "A tooltip for the option. Will appear when the user hovers over the option in the Mod Manager.",
+														"$ref": "#/definitions/NonEmptyString"
+													},
+													"type": {
+														"description": "The type of the option. Checkbox options appear as checkboxes in the Mod Manager.",
+														"enum": ["checkbox"],
+														"type": "string"
+													}
+												},
+												"required": ["type", "name"],
+												"type": "object"
+											},
+											{
+												"$ref": "#/definitions/ManifestOptionData"
+											}
+										]
+									},
+									{
+										"allOf": [
+											{
+												"properties": {
+													"enabledByDefault": {
+														"description": "Whether the option should be preselected upon installing the mod. Preselected options should deliver the \"advertised experience\". Mods with many settings should have the user select their own settings, or provide a conservative default.",
+														"type": "boolean"
+													},
+													"group": {
+														"description": "The name of the group the option is part of. Will appear in the Mod Manager. Should not include a colon.",
+														"$ref": "#/definitions/NonEmptyString"
+													},
+													"image": {
+														"description": "A thumbnail image for the option. Will appear when the user hovers over the option in the Mod Manager.",
+														"$ref": "#/definitions/NonEmptyString"
+													},
+													"name": {
+														"description": "The name of the option. Will appear in the Mod Manager. Select option names should not include a colon.",
+														"$ref": "#/definitions/NonEmptyString"
+													},
+													"tooltip": {
+														"description": "A tooltip for the option. Will appear when the user hovers over the option in the Mod Manager.",
+														"$ref": "#/definitions/NonEmptyString"
+													},
+													"type": {
+														"description": "The type of the option. Select options appear as radio buttons in the Mod Manager under a heading (the group name).",
+														"enum": ["select"],
+														"type": "string"
+													}
+												},
+												"required": ["type", "name", "group"],
+												"type": "object"
+											},
+											{
+												"$ref": "#/definitions/ManifestOptionData"
+											}
+										]
+									},
+									{
+										"allOf": [
+											{
+												"properties": {
+													"condition": {
+														"description": "A condition which will enable the option when met. Passed the framework config under the `config` global object. Refer to the Filtrex documentation at https://github.com/m93a/filtrex#expressions for syntax.",
+														"$ref": "#/definitions/NonEmptyString"
+													},
+													"name": {
+														"description": "The name of the option. Should not be duplicated. Purely for internal reference; conditional options are not shown to the user.",
+														"$ref": "#/definitions/NonEmptyString"
+													},
+													"type": {
+														"description": "The type of the option. Conditional options are enabled whenever a condition is met and disabled otherwise. They do not appear in the Mod Manager.",
+														"enum": ["conditional"],
+														"type": "string"
+													}
+												},
+												"required": ["type", "name", "condition"],
+												"type": "object"
+											},
+											{
+												"$ref": "#/definitions/ManifestOptionData"
+											}
+										]
+									}
+								]
+							},
+							"type": "array"
+						},
+						"updateCheck": {
+							"description": "A link to an update JSON (must be HTTPS). Information on this can be found in the Mod Updates documentation page.",
+							"minLength": 1,
+							"type": "string"
+						},
+						"version": {
+							"description": "The mod's version, using semantic versioning (X.Y.Z) - this means that new features increment the second number, fixes increment the third number and only huge changes that could break compatibility should increment the first number.",
+							"type": "string"
+						}
+					},
+					"type": "object"
+				},
+				{
+					"$ref": "#/definitions/ManifestOptionData"
+				}
+			]
+		},
+		"NonEmptyString": {
+			"type": "string",
+			"minLength": 1
+		},
+		"Dependency": {
+			"properties": {
+				"portFromChunk1": {
+					"type": "boolean"
+				},
+				"RuntimeID": {
+					"$ref": "#/definitions/NonEmptyString"
+				},
+				"toChunk": {
+					"type": "number"
+				}
+			},
+			"type": "object"
+		},
+		"PackageDefinitionPartition": {
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"parent": {
+					"type": "string"
+				},
+				"partitionType": {
+					"type": "string"
+				},
+				"type": {
+					"const": "partition"
+				}
+			},
+			"type": "object"
+		},
+		"PackageDefinitionEntity": {
+			"properties": {
+				"partition": {
+					"description": "The partition to add the entity/scene under.",
+					"type": "string"
+				},
+				"path": {
+					"type": "string"
+				},
+				"type": {
+					"const": ["entity"]
+				}
+			},
+			"type": "object"
+		},
+		"NonEmptyStringArray": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/NonEmptyString"
+			}
+		},
+		"Dependencies": {
+			"description": "RuntimeIDs that will be ported to chunk0 or to a provided chunk.",
+			"items": {
+				"anyOf": [
+					{
+						"$ref": "#/definitions/Dependency"
+					},
+					{
+						"$ref": "#/definitions/NonEmptyString"
+					}
+				]
+			},
+			"type": "array"
+		},
+		"ModReferenceArray": {
+			"items": {
+				"anyOf": [
+					{
+						"items": [
+							{
+								"type": "string"
+							},
+							{
+								"type": "string"
+							}
+						],
+						"maxItems": 2,
+						"minItems": 2,
+						"type": "array"
+					},
+					{
+						"type": "string"
+					}
+				]
+			},
+			"type": "array"
+		},
+		"PackageDefinition": {
+			"items": {
+				"anyOf": [
+					{
+						"$ref": "#/definitions/PackageDefinitionPartition"
+					},
+					{
+						"$ref": "#/definitions/PackageDefinitionEntity"
+					}
+				]
+			},
+			"type": "array"
+		},
+		"ManifestOptionData": {
+			"properties": {
+				"blobsFolder": false,
+				"contentFolder": false,
+				"runtimePackages": false,
+				"blobsFolders": {
+					"description": "Folders with blobs that will be crawled and automatically deployed.",
+					"$ref": "#/definitions/NonEmptyStringArray"
+				},
+				"contentFolders": {
+					"description": "Folders with content files that will be crawled and automatically deployed.",
+					"$ref": "#/definitions/NonEmptyStringArray"
+				},
+				"dependencies": {
+					"$ref": "#/definitions/Dependencies"
+				},
+				"incompatibilities": {
+					"description": "Mod IDs (possibly accompanied by version ranges) that this mod will not function with.\nClients with these mods enabled will be prevented from using this mod.",
+					"$ref": "#/definitions/ModReferenceArray"
+				},
+				"loadAfter": {
+					"description": "Mod IDs (possibly accompanied by version ranges) this mod should load after.\nUsed in automatic sorting by the Mod Manager GUI.",
+					"$ref": "#/definitions/ModReferenceArray"
+				},
+				"loadBefore": {
+					"description": "Mod IDs (possibly accompanied by version ranges) this mod should load before.\nUsed in automatic sorting by the Mod Manager GUI.",
+					"$ref": "#/definitions/ModReferenceArray"
+				},
+				"localisation": {
+					"$ref": "#/definitions/Localisation",
+					"description": "Localisation for each supported language."
+				},
+				"localisationOverrides": {
+					"additionalProperties": {
+						"$ref": "#/definitions/Localisation"
+					},
+					"description": "Overridden localisation from the game files.",
+					"type": "object"
+				},
+				"localisedLines": {
+					"additionalProperties": {
+						"type": "string"
+					},
+					"description": "LINE files to create from localisation IDs.",
+					"type": "object"
+				},
+				"packagedefinition": {
+					"description": "Partitions and paths to add to packagedefinition.\nCustom chunks (partitions) are supported but discouraged; their support is very minimal and will cause compatibility problems",
+					"$ref": "#/definitions/PackageDefinition"
+				},
+				"requirements": {
+					"description": "Mod IDs (possibly accompanied by version ranges) that this mod depends on to function.\nClients without these mods enabled will be prevented from using this mod.",
+					"$ref": "#/definitions/ModReferenceArray"
+				},
+				"peacockPlugins": {
+					"description": "Paths to plugins that Peacock should load when this mod is deployed.",
+					"items": {
+						"type": "string"
+					},
+					"type": "array"
+				},
+				"scripts": {
+					"description": "Paths to TypeScript files that can alter deployment of the mod.\nThe first item is considered to be the entry point; it must export the necessary functions.\nAny additional files are transpiled but not used directly; they can be imported from the entry point.",
+					"items": {
+						"type": "string"
+					},
+					"type": "array"
+				},
+				"supportedPlatforms": {
+					"description": "Platforms that this mod supports.\nAll other platforms will be prevented from using this mod.\nUse this when a mod uses features that only some platforms support, such as Ghost Mode and Steam.",
+					"items": {
+						"$ref": "#/definitions/Platform"
+					},
+					"type": "array"
+				},
+				"thumbs": {
+					"description": "Commands to add to thumbs.dat after [Hitman5].",
+					"items": {
+						"type": "string"
+					},
+					"type": "array"
+				}
+			},
+			"type": "object"
+		},
+		"Platform": {
+			"enum": ["epic", "microsoft", "steam"],
+			"type": "string"
+		},
+		"Localisation": {
+			"properties": {
+				"chineseSimplified": {
+					"additionalProperties": {
+						"type": "string"
+					},
+					"type": "object"
+				},
+				"chineseTraditional": {
+					"additionalProperties": {
+						"type": "string"
+					},
+					"type": "object"
+				},
+				"english": {
+					"additionalProperties": {
+						"type": "string"
+					},
+					"type": "object"
+				},
+				"french": {
+					"additionalProperties": {
+						"type": "string"
+					},
+					"type": "object"
+				},
+				"german": {
+					"additionalProperties": {
+						"type": "string"
+					},
+					"type": "object"
+				},
+				"italian": {
+					"additionalProperties": {
+						"type": "string"
+					},
+					"type": "object"
+				},
+				"japanese": {
+					"additionalProperties": {
+						"type": "string"
+					},
+					"type": "object"
+				},
+				"russian": {
+					"additionalProperties": {
+						"type": "string"
+					},
+					"type": "object"
+				},
+				"spanish": {
+					"additionalProperties": {
+						"type": "string"
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		}
+	}
+}

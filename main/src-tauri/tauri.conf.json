@@ -1,0 +1,72 @@
+{
+	"$schema": "../node_modules/@tauri-apps/cli/schema.json",
+	"build": {
+		"beforeBuildCommand": "yarn build",
+		"beforeDevCommand": "yarn dev",
+		"frontendDist": "../build",
+		"devUrl": "http://localhost:5173"
+	},
+	"bundle": {
+		"active": true,
+		"category": "DeveloperTool",
+		"copyright": "",
+		"targets": ["app"],
+		"externalBin": ["qnjs"],
+		"icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"],
+		"windows": {
+			"certificateThumbprint": null,
+			"digestAlgorithm": "sha256",
+			"timestampUrl": ""
+		},
+		"longDescription": "",
+		"macOS": {
+			"entitlements": null,
+			"exceptionDomain": "",
+			"frameworks": [],
+			"providerShortName": null,
+			"signingIdentity": null
+		},
+		"shortDescription": "",
+		"linux": {
+			"deb": {
+				"depends": []
+			}
+		},
+		"createUpdaterArtifacts": false
+	},
+	"productName": "Simple Mod Framework",
+	"mainBinaryName": "Simple Mod Framework",
+	"identifier": "app.simple-mod-framework",
+	"plugins": {
+		"fs": {
+			"requireLiteralLeadingDot": false
+		},
+		"deep-link": {
+			"desktop": {
+				"schemes": ["simple-mod-framework"]
+			}
+		}
+	},
+	"app": {
+		"windows": [
+			{
+				"fullscreen": false,
+				"height": 650,
+				"resizable": true,
+				"title": "Simple Mod Framework",
+				"width": 1000,
+				"useHttpsScheme": true
+			}
+		],
+		"security": {
+			"assetProtocol": {
+				"scope": {
+					"allow": ["**"],
+					"requireLiteralLeadingDot": false
+				},
+				"enable": true
+			},
+			"csp": null
+		}
+	}
+}

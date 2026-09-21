@@ -1,0 +1,265 @@
+name: Artifact
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  # remove-old-artifacts:
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 10
+  #   permissions:
+  #     actions: write
+  #   steps:
+  #     - name: Remove old artifacts
+  #       uses: c-hive/gha-remove-artifacts@44fc7acaf1b3d0987da0e8d4707a989d80e9554b
+  #       with:
+  #         age: "1 day"
+  #         skip-recent: 10
+
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: "ubicloud-standard-8-ubuntu-2404"
+          - platform: "ptlm-runner"
+
+    runs-on: ${{ matrix.platform }}
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install Git for Windows and Zstd (Windows)
+        if: matrix.platform == 'ptlm-runner'
+        run: |
+          Invoke-WebRequest -Uri "https://github.com/git-for-windows/git/releases/download/v2.51.0.windows.2/Git-2.51.0.2-64-bit.exe" -OutFile "$env:TEMP\Git.exe"
+          Start-Process -FilePath "$env:TEMP\Git.exe" -ArgumentList "/VERYSILENT", "/NOCANCEL", "/NORESTART", "/SP-", "/SUPPRESSMSGBOXES", "/CLOSEAPPLICATIONS", "/FORCECLOSEAPPLICATIONS", "/NOICONS", "/COMPONENTS=assoc_sh" -Wait
+          echo "C:\Program Files\Git\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          Invoke-WebRequest -Uri "https://github.com/facebook/zstd/releases/download/v1.5.7/zstd-v1.5.7-win64.zip" -OutFile "$env:TEMP\zstd.zip"
+          Expand-Archive -Path "$env:TEMP\zstd.zip" -DestinationPath "$env:TEMP\zstd"
+          echo "$env:TEMP\zstd" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+
+      - name: Set up yarn
+        run: |
+          cd main
+          corepack enable
+          corepack install
+
+      - uses: actions/setup-node@v6
+        with:
+          cache: yarn
+          cache-dependency-path: main/yarn.lock
+
+      - name: Set up Rust (Linux)
+        uses: actions-rs/toolchain@b2417cde72dcf67f306c0ae8e0828a81bf0b189f
+        if: matrix.platform == 'ubicloud-standard-8-ubuntu-2404'
+        with:
+          profile: minimal
+          toolchain: nightly-2026-09-14
+          target: x86_64-unknown-linux-gnu
+          default: true
+
+      - name: Set up Rust (Windows)
+        uses: actions-rs/toolchain@b2417cde72dcf67f306c0ae8e0828a81bf0b189f
+        if: matrix.platform == 'ptlm-runner'
+        with:
+          profile: minimal
+          toolchain: nightly-2026-09-14
+          target: x86_64-pc-windows-msvc
+          components: llvm-tools
+          default: true
+
+      - name: Rust binary cache
+        uses: Swatinem/rust-cache@c19371144df3bb44fab255c43d04cbc2ab54d1c4
+        with:
+          cache-targets: false
+          cache-on-failure: true
+
+      - name: Rust target cache (Linux)
+        if: matrix.platform != 'ptlm-runner'
+        uses: actions/cache@v5
+        with:
+          key: build-target-${{ runner.os }}-${{ runner.arch }}-${{ github.workflow }}
+          path: |
+            target/**
+
+      - name: Rust target cache (Windows)
+        if: matrix.platform == 'ptlm-runner'
+        uses: gacts/run-and-post-run@598d7a875d5620e0457490555b5e18e46082aa47
+        with:
+          shell: pwsh
+          run: |
+            New-Item -Path "C:\cache\smf-target-${{ github.workflow }}" -ItemType Directory -Force
+            robocopy "C:\cache\smf-target-${{ github.workflow }}" target /E /MT:32 /Z /LOG:NUL; if ($lastexitcode -lt 8) { $global:LASTEXITCODE = $null }
+          post: |
+            robocopy target "C:\cache\smf-target-${{ github.workflow }}" /MIR /MT:32 /Z /LOG:NUL; if ($lastexitcode -lt 8) { $global:LASTEXITCODE = $null }
+
+      - name: Install cargo-pgo
+        run: cargo install cargo-pgo
+
+      - name: Install cargo-hold
+        run: cargo install cargo-hold
+
+      - name: Install Protoc
+        uses: arduino/setup-protoc@c65c819552d16ad3c9b72d9dfd5ba5237b9c906b
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install build dependencies (Linux)
+        if: matrix.platform == 'ubicloud-standard-8-ubuntu-2404'
+        uses: awalsh128/cache-apt-pkgs-action@acb598e5ddbc6f68a970c5da0688d2f3a9f04d05
+        with:
+          packages: libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf libarchive-dev
+          version: 1
+          execute_install_scripts: true
+
+      - name: Install vcpkg dependencies (Windows)
+        if: matrix.platform == 'ptlm-runner'
+        uses: johnwason/vcpkg-action@04c68c847bf5196ecaa72331ecf51208583916ef
+        with:
+          pkgs: libarchive
+          triplet: x64-windows-static-md
+          revision: 120deac3062162151622ca4860575a33844ba10b
+          token: ${{ github.token }}
+
+      - name: Install dependencies
+        run: |
+          cd main
+          yarn
+
+      - name: Get crate version
+        id: get-crate-version
+        uses: sravinet/toml-select@fe2e680f88a09851a0cd887dba0bbd19d3babe11
+        with:
+          file: simple-mod-framework/Cargo.toml
+          field: package.version
+
+      - name: Set Tauri version
+        uses: jossef/action-set-json-field@890d7642122dbb2833dddd2003659bb71a2b21fe
+        with:
+          file: main/src-tauri/tauri.conf.json
+          field: version
+          value: ${{ steps.get-crate-version.outputs.value }}
+
+      - name: Clean up build artifacts
+        run: cargo hold voyage --max-target-size 15G --preserve-cargo-binaries cargo-pgo
+
+      - name: Build (Unix)
+        if: matrix.platform != 'ptlm-runner'
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
+          CARGO_INCREMENTAL: 1
+        run: |
+          cd main
+          yarn tauri build
+          cp src-tauri/qnjs-x86_64-unknown-linux-gnu ../target/release/qnjs
+
+      - name: Build (Windows)
+        if: matrix.platform == 'ptlm-runner'
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
+          CARGO_INCREMENTAL: 1
+          VCPKG_ROOT: "${{ github.workspace }}/vcpkg"
+        run: |
+          cd main
+          yarn tauri build
+
+      # - name: Create ZIP (Windows)
+      #   if: matrix.platform == 'ptlm-runner'
+      #   uses: thedoctor0/zip-release@b57d897cb5d60cb78b51a507f63fa184cfe35554
+      #   with:
+      #     type: "zip"
+      #     filename: "build.zip"
+      #     directory: "target/release"
+      #     exclusions: "build deps examples incremental .fingerprint bundle nsis resources wix .cargo-* *.d *.pdb *.so"
+
+      # - name: Upload unoptimised artifact (Windows)
+      #   if: matrix.platform == 'ptlm-runner'
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: Windows (Unoptimised)
+      #     path: target/release/build.zip
+
+      # - name: Remove unnecessary artifacts
+      #   if: matrix.platform == 'ptlm-runner'
+      #   run: rm target/release/build.zip
+
+      - name: Clean up previous in-use marker (Windows)
+        if: matrix.platform == 'ptlm-runner'
+        run: |
+          $filePath = "C:/hitman/in-use"
+          if (Test-Path $filePath -PathType Leaf) {
+            $fileContent = Get-Content $filePath -Raw
+            if ($fileContent -eq "Simple Mod Framework") {
+              Remove-Item $filePath -Force -Verbose
+            }
+          }
+
+      - name: Check game install usable (Windows)
+        if: matrix.platform == 'ptlm-runner'
+        id: check-install
+        run: |
+          "result=${{ hashFiles('C:/hitman/updating') == '' && hashFiles('C:/hitman/in-use') == '' }}" >> $env:GITHUB_OUTPUT
+
+      - name: Prepare representative workload (Windows)
+        if: matrix.platform == 'ptlm-runner' && steps.check-install.outputs.result == 'true'
+        run: |
+          mkdir .\target\x86_64-pc-windows-msvc\release -Force
+          cd .\target\x86_64-pc-windows-msvc\release
+          Invoke-WebRequest -Uri "https://github.com/glacier-modding/Hitman-l10n-Hashes/releases/latest/download/hash_list.hmla" -OutFile tonytools_hash_list.hmla
+          copy ../../../.github/workload-config.json config.json
+          mkdir Mods -Force
+          npx -y degit https://github.com/glacier-modding/H3-Unofficial-Community-Patch Mods\GlacierOrganisation.CommunityPatches
+          echo "Simple Mod Framework" | Out-File -FilePath "C:\hitman\in-use" -Encoding utf8
+          cd ../../release
+          copy ..\x86_64-pc-windows-msvc\release\tonytools_hash_list.hmla tonytools_hash_list.hmla
+          & ".\Simple Mod Framework.exe" upgrade-mod "C:\hitman\HITMAN3\Retail" "..\x86_64-pc-windows-msvc\release\Mods\GlacierOrganisation.CommunityPatches"
+          rm tonytools_hash_list.hmla
+          rm config.json
+          rm -r Mods
+
+      - name: Build and optimise (Windows)
+        if: matrix.platform == 'ptlm-runner' && steps.check-install.outputs.result == 'true'
+        env:
+          CARGO_INCREMENTAL: 1
+          VCPKG_ROOT: "${{ github.workspace }}/vcpkg"
+        run: |
+          cargo pgo build -- --bin simple-mod-framework-main -F custom-protocol
+          & .\target\x86_64-pc-windows-msvc\release\simple-mod-framework-main.exe deploy
+          rm C:\hitman\in-use
+          rm .\target\x86_64-pc-windows-msvc\release\tonytools_hash_list.hmla
+          rm .\target\x86_64-pc-windows-msvc\release\config.json
+          rm -r .\target\x86_64-pc-windows-msvc\release\Mods
+          rm -r .\target\x86_64-pc-windows-msvc\release\cache
+          cargo pgo optimize build -- --bin simple-mod-framework-main -F custom-protocol
+          rm ".\target\release\Simple Mod Framework.exe"
+          move .\target\x86_64-pc-windows-msvc\release\simple-mod-framework-main.exe ".\target\release\Simple Mod Framework.exe"
+
+      - name: Clean up build artifacts
+        run: cargo hold voyage --max-target-size 15G --preserve-cargo-binaries cargo-pgo
+
+      - name: Create ZIP (Unix)
+        if: matrix.platform != 'ptlm-runner'
+        run: zip -r build.zip . -x "build/*" -x "deps/*" -x "examples/*" -x "incremental/*" -x ".fingerprint/*" -x "bundle/*" -x "nsis/*" -x "resources/*" -x "wix/*" -x ".cargo-*" -x "*.d" -x "*.pdb" -x "*.dll"
+        working-directory: target/release
+
+      - name: Create ZIP (Windows)
+        if: matrix.platform == 'ptlm-runner'
+        uses: thedoctor0/zip-release@b57d897cb5d60cb78b51a507f63fa184cfe35554
+        with:
+          type: "zip"
+          filename: "build.zip"
+          directory: "target/release"
+          exclusions: "build deps examples incremental .fingerprint bundle nsis resources wix .cargo-* *.d *.pdb *.so"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.platform == 'ptlm-runner' && 'Windows' || 'Linux' }}
+          path: target/release/build.zip
+
+      - name: Remove unnecessary artifacts
+        run: rm target/release/build.zip

@@ -1,0 +1,1225 @@
+// --- Chunk 0 Boot + PlayGo
+@partition name=super parent=none type=standard patchlevel=4
+// --- boot.packagedefinition
+[assembly:/common/globalresources.ini].resourceidx
+[assembly:/repository/pro.repo].repo
+[assembly:/_PRO/Scenes/Frontend/Boot.entity].entitytemplate
+[assembly:/_PRO/Scenes/Frontend/MainMenu.entity].entitytemplate
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_base.entity].entitytemplate
+[assembly:/_PRO/Scenes/OnlineOffline/default.entity].entitytemplate
+[assembly:/_pro/Scenes/frontend/VideoDatabase/videodatabase_evergreen.entity].entitytemplate
+// VR bricks
+// --- vr.packagedefinition
+// We include them also on platforms that don't support VR at the moment (keep that so we don't break anything)
+[assembly:/_pro/Scenes/Bricks/vr_setup.brick].entitytype
+[assembly:/_pro/Scenes/Bricks/evergreen_vr_setup.brick].entitytype
+// --- thefacility.packagedefinition
+[assembly:/_PRO/Scenes/Missions/TheFacility/_scene_mission_polarbear_intro_firsttime.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/TheFacility/_Scene_Mission_Polarbear_Module_002.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/TheFacility/_Scene_Mission_Polarbear_Module_002_B.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/TheFacility/_Scene_Mission_Polarbear_Module_005.entity].entitytemplate
+[assembly:/_pro/scenes/Missions/TheFacility/freestarterpack.brick].entitytype
+[assembly:/_pro/scenes/Missions/TheFacility/freestarterpack_arrival.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/TheFacility/_scene_mission_polarbear_002_contracts_creation_tutorial.entity].entitytemplate
+[assembly:/_pro/scenes/missions/thefacility/_scene_mission_polarbear_002_for_escalation_.entity].entitytemplate
+[assembly:/_pro/scenes/missions/thefacility/gameplay_contracts_creation_tutorial.brick].entitytype
+[assembly:/_pro/scenes/missions/thefacility/gamechangers_big_brother_cameras.brick].entitytype
+[assembly:/_pro/scenes/missions/thefacility/gamechangers_guard_enforcers.brick].entitytype
+[assembly:/_pro/scenes/missions/thefacility/gamechangers_snowdrop_items.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/TheFacility/_scene_polarbear_005.entity].entitytemplate
+[assembly:/_pro/scenes/missions/thefacility/gamechangers_safe_office.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_s2_chunk1.entity].entitytemplate
+// create contract
+[assembly:/_PRO/Scenes/Missions/TheFacility/createcontract_module_002_b.brick].entitytype
+// VR bricks
+[assembly:/_pro/scenes/missions/thefacility/vr_overrides_polarbear002.brick].entitytype
+[assembly:/_pro/scenes/missions/thefacility/vr_overrides_polarbear002_ps4_vr1.brick].entitytype
+[assembly:/_pro/scenes/missions/thefacility/vr_overrides_polarbear002_base.brick].entitytype
+[assembly:/_pro/scenes/missions/thefacility/vr_overrides_polarbear002_base_ps4_vr1.brick].entitytype
+[assembly:/_pro/scenes/missions/thefacility/vr_overrides_polarbear_graduation.brick].entitytype
+[assembly:/_pro/scenes/missions/thefacility/vr_overrides_polarbear_graduation_ps4_vr1.brick].entitytype
+[assembly:/_pro/scenes/missions/thefacility/vr_overrides_polarbear_arrival.brick].entitytype
+[assembly:/_pro/scenes/missions/thefacility/vr_overrides_polarbear_arrival_ps4_vr1.brick].entitytype
+[assembly:/_pro/scenes/missions/thefacility/vr_overrides_polarbear002_low_performance.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/thefacility/vr_tutorial_pc_graduation.brick].entitytype
+// --- VR tutorial scene
+[assembly:/_pro/scenes/missions/thefacility/_scene_mission_polarbear_module_005_vr_tutorial.entity].entitytemplate
+[assembly:/_pro/scenes/missions/thefacility/scene_vrtutorial.entity].entitytemplate
+[assembly:/_pro/scenes/missions/thefacility/mission_vrtutorial_psvr2.brick].entitytype
+// --- golden.packagedefinition
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/scene_gecko_basic.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/mission_gecko.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_gecko.entity].entitytemplate
+// escalations
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/scene_gecko_sheepsorrel.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/gamechanger_gecko_sheepssorrel_ovrall.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/gamechanger_gecko_sheepssorrel.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/gamechanger_gecko_sheepssorrel2.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/gamechanger_gecko_sheepssorrel3.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/scene_gecko_desertrose.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/golden_desertrose.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/golden_desertrose_level3.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/gamechanger_gecko_vine_base.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/scene_gecko_lunaria.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/golden_lunaria.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/golden_lunaria_level1.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/golden_lunaria_level2.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/golden_lunaria_level3.brick].entitytype
+//VR brick Lunaria
+[assembly:/_pro/scenes/missions/golden/mission_gecko/vr_overrides_lunaria.brick].entitytype
+[assembly:/_pro/scenes/missions/golden/mission_gecko/vr_overrides_lunaria_ps4_vr1.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/scene_gecko_angelica.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/golden_angelica.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/golden_angelica_level1.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/golden_angelica_level2.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/golden_angelica_level3.brick].entitytype
+//VR brick Lunaria
+[assembly:/_pro/scenes/missions/golden/mission_gecko/vr_overrides_angelica.brick].entitytype
+[assembly:/_pro/scenes/missions/golden/mission_gecko/vr_overrides_angelica_ps4_vr1.brick].entitytype
+// difficulty bricks
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/difficulty_easy_gecko.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/difficulty_hard_gecko.brick].entitytype
+// VR bricks
+[assembly:/_PRO/scenes/missions/golden/mission_gecko/vr_overrides_golden_gecko.brick].entitytype
+[assembly:/_PRO/scenes/missions/golden/mission_gecko/vr_overrides_golden_gecko_ps4_vr1.brick].entitytype
+[assembly:/_PRO/scenes/missions/golden/mission_gecko/vr_overrides_low_performance.brick].entitytype
+// elusive targets
+[assembly:/_PRO/Scenes/Missions/golden/mission_gecko/scene_gibson.entity].entitytemplate
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_gibson.entity].entitytemplate
+//VR brick Gibson
+[assembly:/_pro/scenes/missions/golden/mission_gecko/vr_overrides_golden_gibson.brick].entitytype
+[assembly:/_pro/scenes/missions/golden/mission_gecko/vr_overrides_golden_gibson_ps4_vr1.brick].entitytype
+// mission : hot_chess
+[assembly:/_pro/scenes/missions/golden/mission_gecko/scene_golden_hot_chess.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/golden/mission_gecko/mission_hot_chess.brick].entitytype
+[assembly:/_pro/scenes/missions/golden/mission_gecko/override_chess.brick].entitytype
+// mission : mild_chess
+[assembly:/_pro/scenes/missions/golden/mission_gecko/scene_golden_mild_chess.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/bricks/evergreen_hot_data.brick].entitytype
+[assembly:/_pro/scenes/missions/golden/mission_gecko/mission_mild_chess.brick].entitytype
+[assembly:/_pro/scenes/missions/golden/mission_gecko/override_chess.brick].entitytype
+[assembly:/_pro/scenes/missions/golden/mission_gecko/scenario_gecko_intel_benchmark.brick].entitytype
+[assembly:/_pro/scenes/missions/golden/mission_gecko/intel_8core_gecko.brick].entitytype
+// --- Chunk 1 Base
+@partition name=base parent=super type=standard patchlevel=4
+// --- render.packagedefinition
+[assembly:/_PRO/Scenes/Demo/Render/materialexamples.entity].entitytemplate
+[assembly:/_PRO/Scenes/Demo/Render/EmptyScene.entity].entitytemplate
+// --- Chunk 2 Season3
+@partition name=season3 parent=base type=standard patchlevel=4
+// --- Chunk 3 S3 Ancestral
+@partition name=ancestral parent=season3 type=standard patchlevel=4
+// --- ancestral.packagedefinition
+[assembly:/_PRO/Scenes/Missions/Ancestral/scene_bulldog.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Ancestral/mission_bulldog.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_bulldog.entity].entitytemplate
+// escalation
+[assembly:/_PRO/Scenes/Missions/Ancestral/scene_bulldog_fern.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Ancestral/ancestral_fern.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Ancestral/scene_smoothsnake.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/ancestral/mission_smoothsnake.brick].entitytype
+// VR brick smoothsnake
+[assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_smoothsnake.brick].entitytype
+[assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_smoothsnake_ps4_vr1.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/ancestral/scene_ancestral_harebell.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/ancestral/ancestral_harebell.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/ancestral/ancestral_harebell_level1.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/ancestral/ancestral_harebell_level2.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/ancestral/ancestral_harebell_level3.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/ancestral/scene_hollyhock.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/ancestral/ancestral_hollyhock.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/ancestral/ancestral_hollyhock_level1.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/ancestral/ancestral_hollyhock_level2.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/ancestral/ancestral_hollyhock_level3.brick].entitytype
+// difficulty bricks
+[assembly:/_PRO/Scenes/Missions/Ancestral/difficulty_easy_bulldog.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Ancestral/difficulty_hard_bulldog.brick].entitytype
+// VR bricks
+[assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_bulldog.brick].entitytype
+[assembly:/_pro/scenes/missions/ancestral/vr_overrides_ancestral_bulldog_ps4_vr1.brick].entitytype
+[assembly:/_pro/scenes/missions/ancestral/vr_overrides_low_performance.brick].entitytype
+// elusive targets
+[assembly:/_pro/scenes/missions/ancestral/elusive_bramble.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_bramble.entity].entitytemplate
+[assembly:/_PRO/scenes/missions/ancestral/scene_ancestral_vesper.entity].entitytemplate
+[assembly:/_PRO/scenes/missions/ancestral/elusive_vesper.brick].entitytype
+[assembly:/_PRO/scenes/missions/ancestral/outfits_vesper.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_vesper.entity].entitytemplate
+[assembly:/_pro/scenes/missions/ancestral/scene_filur.entity].entitytemplate
+[assembly:/_PRO/scenes/missions/ancestral/mission_filur.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_filur.entity].entitytemplate
+//arcade
+[assembly:/_PRO/Scenes/Missions/ancestral/gamechanger_bramble_additionalenforcers.brick].entitytype
+// mission : mild_bridge
+[assembly:/_pro/scenes/Missions/Ancestral/scene_ancestral_mild_bridge.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/Missions/Ancestral/mission_mild_bridge.brick].entitytype
+// mission : hot_bridge
+[assembly:/_pro/scenes/Missions/Ancestral/scene_ancestral_hot_bridge.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/Missions/Ancestral/mission_hot_bridge.brick].entitytype
+[assembly:/_pro/scenes/Missions/Ancestral/override_bridge.brick].entitytype
+[assembly:/_pro/scenes/missions/ancestral/scenario_bulldog_intel_benchmark.brick].entitytype
+[assembly:/_pro/scenes/missions/ancestral/intel_8core_bulldog.brick].entitytype
+[assembly:/_PRO/Scenes/demo/intel2020/intelcpudemo.entity].entitytemplate
+// --- Chunk 4 S3 Edgy
+@partition name=edgy parent=season3 type=standard patchlevel=4
+// --- edgy.packagedefinition
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/scene_fox_basic.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/mission_fox.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/scene_fox_contractcreation.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/fox_contractcreation.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_fox.entity].entitytemplate
+// escalations
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/edgy_grasssnake.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/scenario_grasssnake.brick].entitytype
+[assembly:/_PRO/Scenes/missions/edgy/mission_fox/scenario_grasssnake_level2.brick].entitytype
+[assembly:/_PRO/Scenes/missions/edgy/mission_fox/scenario_grasssnake_level3.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/scene_grasssnake.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/scene_fox_NightPhlox.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/edgy_nightphlox.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/scene_fox_smilax.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/scene_fox_smilax_level2.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/scene_fox_smilax_level3.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/edgy_smilax.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/edgy_smilax_level1.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/edgy_smilax_level2.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/edgy_smilax_level3.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/scene_fox_cornflower.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/edgy_cornflower.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/scene_ambrosia.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/scenario_ambrosia.brick].entitytype
+// difficulty bricks
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/difficulty_easy_fox.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/difficulty_hard_fox.brick].entitytype
+// VR bricks
+[assembly:/_pro/scenes/missions/edgy/mission_fox/vr_overrides_low_performance.brick].entitytype
+[assembly:/_pro/scenes/missions/edgy/mission_fox/vr_overrides_fox.brick].entitytype
+[assembly:/_pro/scenes/missions/edgy/mission_fox/vr_overrides_fox_ps4_vr1.brick].entitytype
+// elusive targets
+[assembly:/_pro/scenes/missions/Edgy/mission_fox/elusive_radler.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/scene_radler.entity].entitytemplate
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_radler.entity].entitytemplate
+[assembly:/_pro/scenes/missions/Edgy/mission_fox/elusive_tomorrowland.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Edgy/mission_fox/scene_fox_tomorrowland.entity].entitytemplate
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_tomorrowland.entity].entitytemplate
+// mission : hot_meyer
+[assembly:/_pro/scenes/missions/edgy/mission_fox/scene_edgy_hot_meyer.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/edgy/mission_fox/mission_hot_meyer.brick].entitytype
+[assembly:/_pro/scenes/missions/edgy/mission_fox/override_meyer.brick].entitytype
+// mission : mild meyer
+[assembly:/_pro/scenes/missions/edgy/mission_fox/scene_edgy_mild_meyer.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/edgy/mission_fox/mission_mild_meyer.brick].entitytype
+[assembly:/_pro/scenes/missions/edgy/mission_fox/override_meyer.brick].entitytype
+// --- Chunk 5 S3 Elegant
+@partition name=elegant parent=season3 type=standard patchlevel=4
+// --- elegant.packagedefinition
+[assembly:/_PRO/Scenes/Missions/Elegant/scene_llama.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Elegant/mission_llama.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Elegant/commentary_llama.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_llama.entity].entitytemplate
+// escalations
+[assembly:/_pro/scenes/missions/elegant/scene_whitedryas.entity].entitytemplate
+[assembly:/_pro/scenes/missions/elegant/scene_whitedryas_Level2.entity].entitytemplate
+[assembly:/_pro/scenes/missions/elegant/scene_whitedryas_level3.entity].entitytemplate
+[Assembly:/_PRO/Scenes/missions/elegant/gamechanger_whitedryas.brick].entitytype
+[Assembly:/_PRO/Scenes/missions/elegant/gamechanger_whitedryas_level2.brick].entitytype
+[Assembly:/_PRO/Scenes/missions/elegant/gamechanger_whitedryas_level3.brick].entitytype
+[assembly:/_pro/scenes/missions/elegant/scene_llama_jacaranda.entity].entitytemplate
+[Assembly:/_PRO/Scenes/missions/elegant/elegant_jacaranda.brick].entitytype
+[assembly:/_pro/scenes/missions/elegant/scene_frangipani.entity].entitytemplate
+[Assembly:/_PRO/Scenes/missions/elegant/scenario_frangipani.brick].entitytype
+[Assembly:/_PRO/Scenes/missions/elegant/scenario_frangipani_level1.brick].entitytype
+[Assembly:/_PRO/Scenes/missions/elegant/scenario_frangipani_level2.brick].entitytype
+[Assembly:/_PRO/Scenes/missions/elegant/scenario_frangipani_level3.brick].entitytype
+// difficulty bricks
+[assembly:/_PRO/Scenes/Missions/Elegant/difficulty_easy_llama.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Elegant/difficulty_hard_llama.brick].entitytype
+// VR bricks
+[assembly:/_pro/scenes/missions/elegant/vr_overrides_llama.brick].entitytype
+[assembly:/_pro/scenes/missions/elegant/vr_overrides_llama_ps4_vr1.brick].entitytype
+[assembly:/_pro/scenes/missions/elegant/vr_overrides_low_performance.brick].entitytype
+// elusive targets
+[assembly:/_pro/scenes/missions/elegant/elusive_jockeyclub.brick].entitytype
+[assembly:/_pro/scenes/missions/elegant/scene_llama_elusive_jockeyclub.entity].entitytemplate
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_jockeyclub.entity].entitytemplate
+[assembly:/_pro/scenes/missions/elegant/elusive_clerico.brick].entitytype
+[assembly:/_pro/scenes/missions/elegant/scene_llama_elusive_clerico.entity].entitytemplate
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_clerico.entity].entitytemplate
+//arcade
+[Assembly:/_PRO/Scenes/missions/elegant/gamechanger_clerico_additionalenforcers.brick].entitytype
+[Assembly:/_PRO/Scenes/missions/elegant/gamechanger_jockeyclub_additionalenforcers.brick].entitytype
+// mission : hot_sapo
+[assembly:/_pro/scenes/missions/elegant/scene_elegant_hot_sapo.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/elegant/mission_hot_sapo.brick].entitytype
+[assembly:/_pro/scenes/missions/elegant/override_sapo.brick].entitytype
+[assembly:/_pro/scenes/bricks/evergreen_hot_data.brick].entitytype
+// mission : mild_sapo
+[assembly:/_pro/scenes/missions/elegant/scene_elegant_mild_sapo.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/elegant/mission_mild_sapo.brick].entitytype
+[assembly:/_pro/scenes/missions/elegant/override_sapo.brick].entitytype
+// --- Chunk 6 S3 Wet
+@partition name=wet parent=season3 type=standard patchlevel=4
+// --- rat.packagedefinition
+[assembly:/_PRO/Scenes/missions/Wet/scene_rat_basic.entity].entitytemplate
+[assembly:/_PRO/Scenes/missions/Wet/mission_rat.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_rat.entity].entitytemplate
+[assembly:/_PRO/Scenes/missions/Wet/scene_wet_makoyana.entity].entitytemplate
+[assembly:/_PRO/Scenes/missions/Wet/scenario_makoyana.brick].entitytype
+[assembly:/_PRO/Scenes/missions/Wet/scenario_makoyana_level1.brick].entitytype
+[assembly:/_PRO/Scenes/missions/Wet/scenario_makoyana_level2.brick].entitytype
+[assembly:/_PRO/Scenes/missions/Wet/scenario_makoyana_level3.brick].entitytype
+// vr brick makoyana
+[assembly:/_PRO/Scenes/missions/Wet/vr_overrides_makoyana_level1.brick].entitytype
+[assembly:/_PRO/Scenes/missions/Wet/vr_overrides_makoyana_level1_ps4_vr1.brick].entitytype
+[assembly:/_PRO/Scenes/missions/Wet/vr_overrides_makoyana_level2.brick].entitytype
+[assembly:/_PRO/Scenes/missions/Wet/vr_overrides_makoyana_level2_ps4_vr1.brick].entitytype
+// difficulty bricks
+[assembly:/_PRO/Scenes/missions/Wet/difficulty_easy_rat.brick].entitytype
+[assembly:/_PRO/Scenes/missions/Wet/difficulty_hard_rat.brick].entitytype
+// escalations
+[assembly:/_PRO/Scenes/missions/Wet/wet_ginseng.brick].entitytype
+[assembly:/_PRO/Scenes/missions/Wet/scene_rat_ginseng.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Wet/scene_Wet_azalea.entity].entitytemplate
+[assembly:/_PRO/Scenes/missions/Wet/scenario_azalea.brick].entitytype
+[assembly:/_PRO/Scenes/missions/Wet/scenario_azalea_level1.brick].entitytype
+[assembly:/_PRO/Scenes/missions/Wet/scenario_azalea_level2.brick].entitytype
+[assembly:/_PRO/Scenes/missions/Wet/scenario_azalea_level3.brick].entitytype
+[assembly:/_PRO/Scenes/missions/Wet/scene_magnolia.entity].entitytemplate
+[assembly:/_PRO/Scenes/missions/Wet/escalation_magnolia.brick].entitytype
+[assembly:/_PRO/Scenes/missions/Wet/gamechanger_lockeddoors.brick].entitytype
+[assembly:/_PRO/Scenes/missions/Wet/gamechanger_swapcrowbars.brick].entitytype
+// vr bricks
+[assembly:/_pro/scenes/missions/wet/vr_overrides_rat.brick].entitytype
+[assembly:/_pro/scenes/missions/wet/vr_overrides_rat_ps4_vr1.brick].entitytype
+[assembly:/_pro/scenes/missions/Wet/vr_overrides_low_performance.brick].entitytype
+// elusive targets
+[assembly:/_PRO/scenes/missions/wet/scene_rat_elusive_redsnapper.entity].entitytemplate
+[assembly:/_pro/scenes/missions/wet/elusive_redsnapper.brick].entitytype
+[assembly:/_PRO/scenes/missions/wet/outfits_redsnapper.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_redsnapper.entity].entitytemplate
+[assembly:/_pro/scenes/missions/wet/scene_wet_lambic.entity].entitytemplate
+[assembly:/_pro/scenes/missions/wet/sound_lambic.brick].entitytype
+[assembly:/_pro/scenes/missions/wet/mission_lambic.brick].entitytype
+[assembly:/_pro/scenes/missions/wet/scenario_lambic.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_lambic.entity].entitytemplate
+// mission : mild_mahjong
+[assembly:/_pro/scenes/missions/wet/scene_wet_mild_mahjong.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/wet/mission_mild_mahjong.brick].entitytype
+// mission : hot_mahjong
+[assembly:/_pro/scenes/missions/wet/scene_wet_hot_mahjong.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/bricks/evergreen_hot_data.brick].entitytype
+[assembly:/_pro/scenes/missions/wet/mission_hot_mahjong.brick].entitytype
+// --- Chunk 7 S3 Trapped
+@partition name=trapped parent=season3 type=standard patchlevel=4
+// --- trapped.packagedefinition
+[assembly:/_PRO/Scenes/Missions/trapped/scene_wolverine.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/trapped/mission_wolverine.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_wolverine.entity].entitytemplate
+// escalations
+[assembly:/_pro/scenes/missions/trapped/scene_bellflower.entity].entitytemplate
+[assembly:/_pro/scenes/missions/trapped/gamechanger_bellflower_level1.brick].entitytype
+[assembly:/_pro/scenes/missions/trapped/gamechanger_bellflower_level2.brick].entitytype
+[assembly:/_pro/scenes/missions/trapped/gamechanger_bellflower_level3.brick].entitytype
+// difficulty bricks
+[assembly:/_pro/scenes/missions/trapped/difficulty_easy_trapped_wolverine.brick].entitytype
+[assembly:/_pro/scenes/missions/trapped/difficulty_hard_trapped_wolverine.brick].entitytype
+// VR bricks
+[assembly:/_PRO/Scenes/Missions/trapped/vr_overrides_wolverine.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/trapped/vr_overrides_wolverine_ps4_vr1.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/trapped/vr_overrides_wolverine_2.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/trapped/vr_overrides_wolverine_2_ps4_vr1.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/trapped/vr_overrides_bellflower.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/trapped/vr_overrides_bellflower_ps4_vr1.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/trapped/vr_overrides_low_performance.brick].entitytype
+// --- Chunk 8 Legacy
+@partition name=legacy parent=base type=standard patchlevel=4
+// --- Chunk 9 Season2
+@partition name=season2 parent=legacy type=standard patchlevel=4
+// --- Chunk 10 S2 Opulent
+@partition name=opulent parent=season2 type=standard patchlevel=4
+// --- opulent.packagedefinition
+[assembly:/_pro/scenes/missions/opulent/mission_stingray/scene_stingray_basic.entity].entitytemplate
+[assembly:/_pro/scenes/missions/opulent/mission_stingray/mission_stingray.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_stingray.entity].entitytemplate
+// difficulty bricks
+[assembly:/_pro/scenes/missions/opulent/mission_stingray/difficulty_easy_stingray.brick].entitytype
+[assembly:/_pro/scenes/missions/opulent/mission_stingray/difficulty_hard_stingray.brick].entitytype
+// VR bricks
+[assembly:/_pro/scenes/missions/opulent/mission_stingray/vr_overrides_stingray.brick].entitytype
+[assembly:/_pro/scenes/missions/opulent/mission_stingray/vr_overrides_stingray_ps4_vr1.brick].entitytype
+[assembly:/_pro/scenes/missions/opulent/mission_stingray/vr_overrides_low_performance.brick].entitytype
+// escalation levels
+[assembly:/_pro/scenes/missions/opulent/mission_stingray/gamechanger_opulent_arcticthyme.brick].entitytype
+[assembly:/_pro/scenes/missions/opulent/mission_stingray/gamechanger_opulent_arcticthyme_level3.brick].entitytype
+[assembly:/_pro/scenes/missions/opulent/mission_stingray/scene_stingray_arcticthyme.entity].entitytemplate
+// elusive targets
+[assembly:/_pro/scenes/missions/opulent/scene_greentini.entity].entitytemplate
+[assembly:/_pro/scenes/missions/opulent/mission_greentini.brick].entitytype
+[assembly:/_pro/scenes/missions/opulent/tutorial_greentini.brick].entitytype
+[assembly:/_pro/scenes/missions/opulent/vr_overrides_greentini.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_greentini.entity].entitytemplate
+// mission : mild_hilo
+[assembly:/_pro/scenes/missions/opulent/mission_stingray/scene_opulent_mild_hilo.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/opulent/mission_stingray/mission_mild_hilo.brick].entitytype
+[assembly:/_pro/scenes/missions/opulent/mission_stingray/override_hilo.brick].entitytype
+// mission : hot_hilo
+[assembly:/_pro/scenes/missions/opulent/mission_stingray/scene_opulent_hot_hilo.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/opulent/mission_stingray/mission_hot_hilo.brick].entitytype
+[assembly:/_pro/scenes/missions/opulent/mission_stingray/override_hilo.brick].entitytype
+[assembly:/_pro/scenes/bricks/evergreen_hot_data.brick].entitytype
+// --- Chunk 11 S2 Caged
+@partition name=caged parent=season2 type=standard patchlevel=4
+// --- caged.packagedefinition
+[assembly:/_pro/scenes/missions/caged/mission_falcon/scene_falcon_sniper.entity].entitytemplate
+[assembly:/_pro/scenes/missions/caged/mission_falcon/mission_falcon.brick].entitytype
+[assembly:/_pro/scenes/missions/caged/mission_falcon/singleplayer_falcon.brick].entitytype
+[assembly:/_pro/scenes/missions/caged/mission_falcon/multiplayer_falcon.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_falcon.entity].entitytemplate
+// --- Chunk 12 S2 Greedy
+@partition name=greedy parent=season2 type=standard patchlevel=4
+// --- greedy.packagedefinition
+[assembly:/_pro/scenes/missions/greedy/mission_raccoon/scene_raccoon_basic.entity].entitytemplate
+[assembly:/_pro/scenes/missions/greedy/mission_raccoon/mission_raccoon.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_raccoon.entity].entitytemplate
+// simulation quality bricks
+[assembly:/_pro/scenes/missions/greedy/mission_raccoon/intel_6core_racoon.brick].entitytype
+[assembly:/_pro/scenes/missions/greedy/mission_raccoon/intel_8core_racoon.brick].entitytype
+// difficulty bricks
+[assembly:/_pro/scenes/missions/greedy/mission_raccoon/difficulty_easy_raccoon.brick].entitytype
+[assembly:/_pro/scenes/missions/greedy/mission_raccoon/difficulty_hard_raccoon.brick].entitytype
+// --- VR bricks
+[assembly:/_PRO/scenes/missions/greedy/mission_raccoon/vr_overrides_raccoon.brick].entitytype
+[assembly:/_PRO/scenes/missions/greedy/mission_raccoon/vr_overrides_raccoon_ps4_vr1.brick].entitytype
+[assembly:/_pro/scenes/missions/greedy/mission_raccoon/vr_overrides_low_performance.brick].entitytype
+// escalation levels
+[assembly:/_pro/scenes/missions/Greedy/mission_raccoon/dandelion_raccoon.brick].entitytype
+[assembly:/_pro/scenes/missions/Greedy/mission_raccoon/scene_raccoon_basic_Dandelion.entity].entitytemplate
+// mission : hot_sapo
+[assembly:/_pro/scenes/missions/greedy/mission_raccoon/scene_raccoon_hot_blackjack.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/greedy/mission_raccoon/mission_hot_blackjack.brick].entitytype
+[assembly:/_pro/scenes/missions/greedy/mission_raccoon/override_blackjack.brick].entitytype
+[assembly:/_pro/scenes/bricks/evergreen_hot_data.brick].entitytype
+// mission : mild blackjack
+[assembly:/_pro/scenes/missions/greedy/mission_raccoon/scene_raccoon_mild_blackjack.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/greedy/mission_raccoon/mission_mild_blackjack.brick].entitytype
+[assembly:/_pro/scenes/missions/greedy/mission_raccoon/override_blackjack.brick].entitytype
+// --- Chunk 13 S2 Salty
+@partition name=salty parent=season2 type=standard patchlevel=4
+// --- salty.packagedefinition
+[assembly:/_pro/scenes/missions/salty/mission_seagull/scene_seagull.entity].entitytemplate
+[assembly:/_pro/scenes/missions/salty/mission_seagull/mission_seagull.brick].entitytype
+[assembly:/_pro/scenes/missions/salty/mission_seagull/multiplayer_seagull.brick].entitytype
+[assembly:/_pro/scenes/missions/salty/mission_seagull/singleplayer_seagull.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_seagull.entity].entitytemplate
+// --- Chunk 14 S2 Hawk
+@partition name=hawk parent=season2 type=standard patchlevel=4
+// --- hawk.packagedefinition
+[assembly:/_pro/scenes/missions/Hawk/mission_hawk.brick].entitytype
+[assembly:/_pro/scenes/missions/hawk/multiplayer_hawk.brick].entitytype
+[assembly:/_pro/scenes/missions/hawk/singleplayer_hawk.brick].entitytype
+[assembly:/_pro/scenes/missions/Hawk/scenario_hawk.brick].entitytype
+[assembly:/_pro/scenes/missions/Hawk/outfits_hawk.brick].entitytype
+[assembly:/_pro/scenes/missions/Hawk/sounddefs_hawk.brick].entitytype
+[assembly:/_pro/scenes/missions/Hawk/scene_hawk.entity].entitytemplate
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_hawk.entity].entitytemplate
+// simulation quality bricks
+[assembly:/_pro/scenes/missions/hawk/intel_6core_hawk.brick].entitytype
+[assembly:/_pro/scenes/missions/hawk/intel_8core_hawk.brick].entitytype
+// --- Chunk 15 S2 The Ark
+@partition name=theark parent=season2 type=standard patchlevel=4
+// --- theark.packagedefinition
+// mission : magpie
+[assembly:/_PRO/scenes/missions/theark/scene_magpie.entity].entitytemplate
+[assembly:/_PRO/scenes/missions/theark/mission_magpie.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_s2_06_magpie.entity].entitytemplate
+// difficulty bricks
+[assembly:/_pro/scenes/missions/theark/difficulty_easy_northsea_magpie.brick].entitytype
+[assembly:/_pro/scenes/missions/theark/difficulty_hard_northsea_magpie.brick].entitytype
+// VR bricks
+[assembly:/_pro/scenes/missions/theark/vr_overrides_magpie.brick].entitytype
+[assembly:/_pro/scenes/missions/theark/vr_overrides_magpie_ps4_vr1.brick].entitytype
+[assembly:/_pro/scenes/missions/theark/vr_overrides_low_performance.brick].entitytype
+// simulation quality bricks
+[assembly:/_pro/scenes/missions/theark/intel_6core_magpie.brick].entitytype
+[assembly:/_pro/scenes/missions/theark/intel_8core_magpie.brick].entitytype
+// elusive targets
+[assembly:/_PRO/scenes/missions/theark/elusive_goldendoublet.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_s2_goldendoublet.entity].entitytemplate
+[assembly:/_pro/scenes/missions/theark/elusive_skittlebomb.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_skittlebomb.entity].entitytemplate
+[assembly:/_pro/scenes/missions/theark/scene_penicillin.entity].entitytemplate
+[assembly:/_pro/scenes/missions/theark/elusive_penicillin.brick].entitytype
+[assembly:/_pro/scenes/missions/theark/scenario_penicillin.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_penicillin.entity].entitytemplate
+[assembly:/_pro/scenes/missions/theark/scene_pomada.entity].entitytemplate
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_pomada.entity].entitytemplate
+// escalation levels
+[assembly:/_pro/scenes/missions/theark/gamechanger_magpie_dahlia.brick].entitytype
+[assembly:/_pro/scenes/missions/theark/gamechanger_magpie_hogweed_hackable_laptop.brick].entitytype
+[assembly:/_pro/scenes/missions/theark/gamechanger_no_constant_glow.brick].entitytype
+[assembly:/_pro/scenes/missions/theark/gamechanger_magpie_heather_gargoyle_check.brick].entitytype
+[assembly:/_pro/scenes/missions/theark/gamechanger_magpie_heather_gibbet_check.brick].entitytype
+[assembly:/_pro/scenes/missions/theark/_scene_magpie_pansy.entity].entitytemplate
+[assembly:/_pro/scenes/missions/theark/_scene_magpie_lotus.entity].entitytemplate
+[assembly:/_pro/scenes/missions/theark/gamechanger_magpie_locked_jail_door.brick].entitytype
+[assembly:/_pro/scenes/missions/theark/gamechanger_magpie_guards_enforce_custodians.brick].entitytype
+[assembly:/_pro/scenes/missions/theark/gamechanger_no_briefcase_on_stairs.brick].entitytype
+//arcade
+[assembly:/_pro/scenes/missions/theark/gamechanger_goldendoublet_additionalenforcers.brick].entitytype
+// mission : hot_whist
+[assembly:/_pro/scenes/missions/theark/scene_magpie_hot_whist.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/theark/mission_hot_whist.brick].entitytype
+[assembly:/_pro/scenes/missions/theark/override_whist.brick].entitytype
+[assembly:/_pro/scenes/bricks/evergreen_hot_data.brick].entitytype
+// mission : mild_whist
+[assembly:/_pro/scenes/missions/theark/scene_magpie_mild_whist.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/theark/mission_mild_whist.brick].entitytype
+[assembly:/_pro/scenes/missions/theark/override_whist.brick].entitytype
+// --- Chunk 16 S2 Skunk
+@partition name=skunk parent=season2 type=standard patchlevel=4
+// --- skunk.packagedefinition
+// mission : skunk
+[assembly:/_pro/scenes/missions/skunk/scene_skunk.entity].entitytemplate
+[assembly:/_pro/scenes/missions/skunk/mission_skunk.brick].entitytype
+[assembly:/_pro/scenes/missions/skunk/outfits_skunk.brick].entitytype
+[assembly:/_pro/scenes/missions/skunk/sounddefs_skunk.brick].entitytype
+[assembly:/_pro/scenes/missions/skunk/scenario_skunk.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_s2_05_skunk.entity].entitytemplate
+// mission : gartersnake
+[assembly:/_pro/scenes/missions/skunk/scene_gartersnake.entity].entitytemplate
+[assembly:/_pro/scenes/missions/skunk/mission_gartersnake.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_gartersnake.entity].entitytemplate
+// difficulty bricks
+[assembly:/_pro/scenes/missions/skunk/difficulty_easy_vermont_skunk.brick].entitytype
+[assembly:/_pro/scenes/missions/skunk/difficulty_hard_vermont_skunk.brick].entitytype
+[assembly:/_pro/scenes/missions/skunk/difficulty_easy_vermont_gartersnake.brick].entitytype
+[assembly:/_pro/scenes/missions/skunk/difficulty_hard_vermont_gartersnake.brick].entitytype
+// VR bricks
+[assembly:/_pro/Scenes/missions/skunk/vr_overrides_skunk.brick].entitytype
+[assembly:/_pro/Scenes/missions/skunk/vr_overrides_skunk_ps4_vr1.brick].entitytype
+[assembly:/_pro/scenes/missions/skunk/vr_overrides_low_performance.brick].entitytype
+[assembly:/_pro/Scenes/missions/skunk/vr_overrides_gartersnake.brick].entitytype
+// simulation quality bricks
+[assembly:/_pro/scenes/missions/skunk/intel_6core_skunk.brick].entitytype
+[assembly:/_pro/scenes/missions/skunk/intel_8core_skunk.brick].entitytype
+// elusive targets
+[assembly:/_pro/scenes/missions/skunk/elusive_alabamaslammer.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_alabamaslammer.entity].entitytemplate
+// escalation levels
+[assembly:/_PRO/Scenes/Missions/skunk/gamechangers_myrtle.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/skunk/gamechangers_myrtle_mailman_tracker.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/skunk/gamechangers_gorse.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/skunk/gamechangers_gorse_donotkillspencer.brick].entitytype
+[assembly:/_pro/scenes/missions/skunk/gamechangers_baneberry_rob3rdhouse.brick].entitytype
+[assembly:/_pro/scenes/missions/skunk/gamechangers_baneberry_rob2houses.brick].entitytype
+[assembly:/_pro/scenes/missions/skunk/gamechangers_baneberry_tresspassingeverywhere.brick].entitytype
+[assembly:/_pro/scenes/missions/skunk/gamechangers_baneberry_usenodoors.brick].entitytype
+[assembly:/_pro/scenes/missions/skunk/gamechangers_claytonia.brick].entitytype
+// mission : hot_solitaire
+[assembly:/_pro/scenes/missions/skunk/scene_skunk_hot_solitaire.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/skunk/mission_hot_solitaire.brick].entitytype
+[assembly:/_pro/scenes/missions/skunk/override_solitaire.brick].entitytype
+[assembly:/_pro/scenes/bricks/evergreen_hot_data.brick].entitytype
+// mission : mild_solitaire
+[assembly:/_pro/scenes/missions/skunk/scene_skunk_mild_solitaire.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/skunk/mission_mild_solitaire.brick].entitytype
+[assembly:/_pro/scenes/missions/skunk/override_solitaire.brick].entitytype
+//arcade
+[assembly:/_pro/scenes/missions/skunk/gamechanger_alabamaslammer_additionalenforcers.brick].entitytype
+// --- Chunk 17 S2 Mumbai
+@partition name=mongoose parent=season2 type=standard patchlevel=4
+// --- mongoose.packagedefinition
+// mission : mongoose
+[assembly:/_pro/scenes/missions/mumbai/scene_mongoose.entity].entitytemplate
+[assembly:/_pro/scenes/missions/mumbai/mission_mongoose.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_s2_04_mongoose.entity].entitytemplate
+// mission : king cobra
+[assembly:/_pro/scenes/missions/mumbai/scene_kingcobra.entity].entitytemplate
+[assembly:/_pro/scenes/missions/mumbai/mission_kingcobra.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_kingcobra.entity].entitytemplate
+// difficulty bricks
+[assembly:/_pro/scenes/missions/mumbai/difficulty_easy_mumbai_mongoose.brick].entitytype
+[assembly:/_pro/scenes/missions/mumbai/difficulty_hard_mumbai_mongoose.brick].entitytype
+[assembly:/_pro/scenes/missions/mumbai/difficulty_hard_mumbai_kingcobra.brick].entitytype
+[assembly:/_pro/scenes/missions/mumbai/difficulty_easy_mumbai_kingcobra.brick].entitytype
+// VR bricks
+[assembly:/_pro/scenes/missions/mumbai/vr_overrides_mongoose.brick].entitytype
+[assembly:/_pro/scenes/missions/mumbai/vr_overrides_mongoose_ps4_vr1.brick].entitytype
+[assembly:/_pro/scenes/missions/mumbai/vr_overrides_low_performance.brick].entitytype
+[assembly:/_pro/scenes/missions/mumbai/vr_overrides_kingcobra.brick].entitytype
+// simulation quality bricks
+[assembly:/_pro/scenes/missions/mumbai/intel_6core_mongoose.brick].entitytype
+[assembly:/_pro/scenes/missions/mumbai/intel_8core_mongoose.brick].entitytype
+// escalation levels
+[assembly:/_pro/scenes/missions/mumbai/escalation_ashoka.brick].entitytype
+[assembly:/_pro/scenes/missions/mumbai/_scene_mongoose_ashoka.entity].entitytemplate
+[assembly:/_pro/scenes/missions/mumbai/gamechanger_protea_kashmirians_knowledge.brick].entitytype
+[assembly:/_pro/scenes/missions/mumbai/gamechanger_gloriosa.brick].entitytype
+[assembly:/_pro/scenes/missions/mumbai/gamechanger_gloriosa_cement_pits.brick].entitytype
+[assembly:/_pro/scenes/missions/mumbai/gamechanger_gloriosa_reinforced_container.brick].entitytype
+[assembly:/_pro/scenes/missions/mumbai/gamechanger_monkshood_holyman_override.brick].entitytype
+[assembly:/_pro/scenes/missions/mumbai/gamechanger_nutmeg_building_throw.brick].entitytype
+[assembly:/_pro/scenes/missions/mumbai/gamechanger_nutmeg_no_throwing.brick].entitytype
+// mission : hot_ludo
+[assembly:/_pro/scenes/missions/mumbai/scene_mongoose_hot_ludo.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/mumbai/mission_ludo.brick].entitytype
+// mission : mild_ludo
+[assembly:/_pro/scenes/missions/mumbai/scene_mongoose_mild_ludo.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/mumbai/mission_mild_ludo.brick].entitytype
+// --- Chunk 18 S2 Colombia
+@partition name=colombia parent=season2 type=standard patchlevel=4
+// --- colombia.packagedefinition
+// mission : hippo
+[assembly:/_PRO/Scenes/Missions/Colombia/scene_hippo.entity].entitytemplate
+[assembly:/_pro/scenes/missions/colombia/mission_hippo.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_s2_03_hippo.entity].entitytemplate
+// mission : anaconda
+[assembly:/_pro/scenes/missions/colombia/scene_anaconda.entity].entitytemplate
+[assembly:/_pro/scenes/missions/colombia/mission_anaconda.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_anaconda.entity].entitytemplate
+// difficulty bricks
+[assembly:/_pro/scenes/missions/colombia/difficulty_easy_columbia_hippo.brick].entitytype
+[assembly:/_pro/scenes/missions/colombia/difficulty_hard_columbia_hippo.brick].entitytype
+[assembly:/_pro/scenes/missions/colombia/difficulty_hard_columbia_anaconda.brick].entitytype
+[assembly:/_pro/scenes/missions/colombia/difficulty_easy_columbia_anaconda.brick].entitytype
+// VR bricks
+[assembly:/_pro/scenes/missions/colombia/vr_overrides_hippo.brick].entitytype
+[assembly:/_pro/scenes/missions/colombia/vr_overrides_hippo_ps4_vr1.brick].entitytype
+[assembly:/_PRO/scenes/missions/colombia/vr_overrides_low_performance.brick].entitytype
+[assembly:/_pro/scenes/missions/colombia/vr_overrides_anaconda.brick].entitytype
+// simulation quality bricks
+[assembly:/_pro/scenes/missions/colombia/intel_6core_hippo.brick].entitytype
+[assembly:/_pro/scenes/missions/colombia/intel_8core_hippo.brick].entitytype
+// bricks used for Ghost Mode
+[assembly:/_pro/scenes/missions/colombia/versus_entrance_colombia.brick].entitytype
+[assembly:/_pro/scenes/missions/colombia/versus_items_colombia.brick].entitytype
+[assembly:/_pro/scenes/missions/colombia/versus_targets_colombia.brick].entitytype
+// elusive targets
+[assembly:/_pro/scenes/missions/colombia/elusive_highball.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_s2_highball.entity].entitytemplate
+// escalation levels
+[assembly:/_PRO/Scenes/Missions/Colombia/gamechanger_hippo_wild_card_mansion_arrayan.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Colombia/gamechanger_hippo_arrayan.brick].entitytype
+[assembly:/_pro/scenes/missions/colombia/gamechanger_hippo_calluna.brick].entitytype
+[assembly:/_pro/scenes/missions/colombia/scene_hippo_calluna.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Colombia/gamechanger_hippo_hiding_in_lva.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Colombia/gamechanger_hippo_holly.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Colombia/gamechanger_hippo_titanumarum.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Colombia/gamechanger_hippo_kill_with_shaman_followers_active.brick].entitytype
+[assembly:/_pro/scenes/missions/colombia/scene_hippo_rafflesia.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Colombia/gamechanger_hippo_interrogationroom_locked.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Colombia/gamechanger_hippo_interrogator_adjustedloop.brick].entitytype
+[assembly:/_pro/scenes/missions/colombia/gamechanger_hippo_zinnia.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Colombia/gamechanger_hippo_laptop_cave.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Colombia/gamechanger_hippo_cameras_caves.brick].entitytype
+//arcade
+[assembly:/_PRO/Scenes/Missions/Colombia/gamechanger_highball_additionalenforcers.brick].entitytype
+//mission: mild trompo
+[assembly:/_pro/scenes/missions/colombia/scene_hippo_mild_trompo.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/colombia/mission_mild_trompo.brick].entitytype
+[assembly:/_pro/scenes/missions/colombia/override_trompo.brick].entitytype
+//mission: hot trompo
+[assembly:/_pro/scenes/missions/colombia/scene_hippo_hot_trompo.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/colombia/mission_hot_trompo.brick].entitytype
+[assembly:/_pro/scenes/missions/colombia/override_trompo.brick].entitytype
+[assembly:/_pro/scenes/bricks/evergreen_hot_data.brick].entitytype
+// --- Chunk 19 S2 Miami
+@partition name=miami parent=season2 type=standard patchlevel=4
+// --- miami.packagedefinition
+// mission : flamingo
+[assembly:/_PRO/Scenes/Missions/Miami/scene_flamingo.entity].entitytemplate
+[assembly:/_PRO/scenes/missions/miami/mission_flamingo.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_s2_base.entity].entitytemplate
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_s2_02_flamingo.entity].entitytemplate
+// mission : cottonmouth
+[assembly:/_pro/scenes/missions/miami/scene_cottonmouth.entity].entitytemplate
+[assembly:/_pro/scenes/missions/miami/mission_cottonmouth.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_cottonmouth.entity].entitytemplate
+// difficulty bricks
+[assembly:/_pro/scenes/missions/miami/difficulty_easy_miami_flamingo.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/difficulty_hard_miami_flamingo.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/difficulty_easy_miami_cottonmouth.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/difficulty_hard_miami_cottonmouth.brick].entitytype
+// VR bricks
+[assembly:/_pro/scenes/missions/miami/vr_overrides_flamingo.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/vr_overrides_flamingo_ps4_vr1.brick].entitytype
+[assembly:/_PRO/scenes/missions/miami/vr_overrides_low_performance.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/vr_overrides_cottonmouth.brick].entitytype
+// simulation quality bricks
+[assembly:/_pro/scenes/missions/miami/scenario_flamingo_intel_6cores.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/scenario_flamingo_intel_8cores.brick].entitytype
+// versus race bricks
+[assembly:/_pro/scenes/missions/miami/versus_targets_miami.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/versus_items_miami.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/versus_entrance_miami.brick].entitytype
+// elusive targets
+[assembly:/_pro/scenes/missions/miami/mission_sambuca.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/scene_et_sambuca.entity].entitytemplate
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_s2_sambuca.entity].entitytemplate
+// VR brick Sambuca
+[assembly:/_pro/scenes/missions/miami/vr_overrides_sambuca.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/vr_overrides_sambuca_ps4_vr1.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/scenario_sambuca2.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/scene_et_sambuca.entity].entitytemplate
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_s2_sambuca2.entity].entitytemplate
+// escalation levels
+[assembly:/_pro/scenes/missions/miami/lamium_remove_gardenshredder.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/gamechanger_flamingo_lamium_no_running.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/gamechanger_flamingo_lamium_unspotted_coach.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/escalation_crinum.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/gamechanger_flamingo_pentas_bodydump_wildcard.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/gamechanger__flamingo__aquarium_fish.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/gamechanger__flamingo__secured_aquarium.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/gamechanger__flamingo__additional__enforcers.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/gamechanger__flamingo__sticky_food_vendor.brick].entitytype
+// mission : hot_pinochle
+[assembly:/_pro/scenes/missions/miami/scene_flamingo_hot_pinochle.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/mission_hot_pinochle.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/override_pinochle.brick].entitytype
+[assembly:/_pro/scenes/bricks/evergreen_hot_data.brick].entitytype
+// mission : mild_pinochle
+[assembly:/_pro/scenes/missions/miami/scene_flamingo_mild_pinochle.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/mission_mild_pinochle.brick].entitytype
+[assembly:/_pro/scenes/missions/miami/override_pinochle.brick].entitytype
+// --- Chunk 20 S2 Sheep
+@partition name=sheep parent=season2 type=standard patchlevel=4
+// --- sheep.packagedefinition
+[assembly:/_PRO/scenes/missions/sheep/scene_sheep.entity].entitytemplate
+[assembly:/_PRO/scenes/missions/sheep/mission_sheep.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_s2_base.entity].entitytemplate
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_s2_01_sheep.entity].entitytemplate
+// difficulty bricks
+[assembly:/_pro/scenes/missions/sheep/difficulty_easy_newzealand_sheep.brick].entitytype
+[assembly:/_pro/scenes/missions/sheep/difficulty_hard_newzealand_sheep.brick].entitytype
+// VR bricks
+[assembly:/_pro/scenes/missions/sheep/vr_overrides_sheep.brick].entitytype
+[assembly:/_pro/scenes/missions/sheep/vr_overrides_sheep_ps4_vr1.brick].entitytype
+[assembly:/_pro/scenes/missions/sheep/vr_overrides_sheep_2.brick].entitytype
+[assembly:/_pro/scenes/missions/sheep/vr_overrides_sheep_2_ps4_vr1.brick].entitytype
+// simulation quality bricks
+[assembly:/_pro/scenes/missions/sheep/intel_6core_sheep.brick].entitytype
+[assembly:/_pro/scenes/missions/sheep/intel_8core_sheep.brick].entitytype
+// escalation levels
+[assembly:/_pro/scenes/missions/sheep/override_skipintro.brick].entitytype
+[assembly:/_pro/scenes/missions/sheep/gamechanger_sheep_opuntia.brick].entitytype
+[assembly:/_pro/scenes/missions/sheep/override_opuntia_halloween.brick].entitytype
+[assembly:/_pro/scenes/missions/sheep/scene_opuntia.entity].entitytemplate
+// elusive targets
+[assembly:/_PRO/scenes/missions/sheep/scene_adonis.entity].entitytemplate
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_s2_adonis.entity].entitytemplate
+//VR brick Adonis
+[assembly:/_pro/scenes/missions/sheep/vr_overrides_adonis.brick].entitytype
+[assembly:/_pro/scenes/missions/sheep/vr_overrides_adonis_ps4_vr1.brick].entitytype
+[assembly:/_pro/scenes/missions/sheep/vr_overrides_adonis_2.brick].entitytype
+[assembly:/_pro/scenes/missions/sheep/vr_overrides_adonis_2_ps4_vr1.brick].entitytype
+//arcade
+[assembly:/_pro/scenes/missions/sheep/gamechanger_adonis_additionalenforcers.brick].entitytype
+// --- Chunk 21 Season1
+@partition name=season1 parent=legacy type=standard patchlevel=4
+// --- Chunk 22 S1 Hokkaido
+@partition name=hokkaido parent=season1 type=standard patchlevel=4
+// --- hokkaido.packagedefinition
+// mission : snow crane
+[assembly:/_PRO/Scenes/Missions/Hokkaido/_Scene_Mission_SnowCrane.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Hokkaido/_Scene_SnowCrane.entity].entitytemplate
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dlc_6.entity].entitytemplate
+// mission : flu
+[assembly:/_PRO/Scenes/Missions/Hokkaido/_scene_flu.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Hokkaido/mission_guidance_flu.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Hokkaido/contractcreation_flu.brick].entitytype
+// difficulty bricks
+[assembly:/_pro/scenes/missions/hokkaido/difficulty_easy_hokkaido_snowcrane.brick].entitytype
+[assembly:/_pro/scenes/missions/hokkaido/difficulty_pro1_hokkaido_snowcrane.brick].entitytype
+// VR bricks
+[assembly:/_pro/scenes/missions/hokkaido/vr_overrides_snowcrane.brick].entitytype
+[assembly:/_pro/scenes/missions/hokkaido/vr_overrides_snowcrane_ps4_vr1.brick].entitytype
+[assembly:/_PRO/scenes/missions/hokkaido/vr_overrides_low_performance.brick].entitytype
+[assembly:/_PRO/scenes/missions/hokkaido/vr_overrides_flu_low_performance.brick].entitytype
+[assembly:/_PRO/scenes/missions/hokkaido/vr_agility_overrides_hokkaido_variations.brick].entitytype
+[assembly:/_PRO/scenes/missions/hokkaido/vr_overrides_flu.brick].entitytype
+[assembly:/_PRO/scenes/missions/hokkaido/vr_overrides_flu_ps4_vr1.brick].entitytype
+// mission : snow festival
+[assembly:/_pro/scenes/missions/hokkaido/scene_mamushi.entity].entitytemplate
+// elusive targets
+[assembly:/_PRO/Scenes/Missions/Hokkaido/_scene_moscowmule.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_moscowmule.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Hokkaido/_scene_dirtyoctopus.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dirtyoctopus.entity].entitytemplate
+[assembly:/_pro/scenes/missions/hokkaido/scene_bellini.entity].entitytemplate
+[assembly:/_pro/scenes/missions/hokkaido/mission_bellini.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_bellini.entity].entitytemplate
+// escalation levels
+[assembly:/_pro/scenes/missions/hokkaido/gamechanger_snowcrane_safe_sleeping_quarters.brick].entitytype
+[assembly:/_pro/scenes/missions/hokkaido/gamechanger_snowcrane_wildcard_kosumosu.brick].entitytype
+[assembly:/_pro/scenes/missions/hokkaido/gamechanger_snowcrane_wild_card_sakura.brick].entitytype
+[assembly:/_pro/scenes/missions/hokkaido/gamechanger_snowcrane_cameras.brick].entitytype
+[assembly:/_pro/scenes/missions/hokkaido/gamehanger_check_if_dexter_disguise_is_gone.brick].entitytype
+[assembly:/_pro/scenes/missions/hokkaido/gamechanger_snowcrane_tumbleweed.brick].entitytype
+[assembly:/_pro/scenes/missions/hokkaido/gamechanger_snowcrane_trespassers.brick].entitytype
+[assembly:/_pro/scenes/missions/Hokkaido/_scene_snowcrane_tumbleweed.entity].entitytemplate
+// mission : hot_shogi
+[assembly:/_pro/scenes/missions/hokkaido/scene_snowcrane_hot_shogi.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/hokkaido/mission_hot_shogi.brick].entitytype
+[assembly:/_pro/scenes/missions/hokkaido/override_shogi.brick].entitytype
+[assembly:/_pro/scenes/bricks/evergreen_hot_data.brick].entitytype
+// mission : mild_shogi
+[assembly:/_pro/scenes/missions/hokkaido/scene_snowcrane_mild_shogi.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/hokkaido/mission_mild_shogi.brick].entitytype
+[assembly:/_pro/scenes/missions/hokkaido/override_shogi.brick].entitytype
+// sarajevo six: seabreeze
+[assembly:/_PRO/Scenes/Missions/hokkaido/mission_hokkaido_ts6_seabreeze.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_s6_seabreeze.entity].entitytemplate
+// --- Chunk 23 S1 Colorado
+@partition name=colorado parent=season1 type=standard patchlevel=4
+// --- colorado_2.packagedefinition
+// mission : bull
+[assembly:/_PRO/Scenes/Missions/Colorado_2/_Scene_Mission_Bull.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Colorado_2/_scene_bull.entity].entitytemplate
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dlc_5.entity].entitytemplate
+// mission : rabies
+[assembly:/_PRO/Scenes/Missions/Colorado_2/scene_rabies.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Colorado_2/mission_rabies.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Colorado_2/scenario_rabies.brick].entitytype
+// difficulty bricks
+[assembly:/_pro/scenes/missions/colorado_2/difficulty_easy_colorado_bull.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Colorado_2/difficulty_pro1_bull.brick].entitytype
+// VR bricks
+[assembly:/_PRO/Scenes/missions/colorado_2/vr_overrides_bull.brick].entitytype
+[assembly:/_PRO/Scenes/missions/colorado_2/vr_overrides_bull_ps4_vr1.brick].entitytype
+[assembly:/_PRO/scenes/missions/colorado_2/vr_overrides_low_performance.brick].entitytype
+[assembly:/_PRO/Scenes/missions/colorado_2/vr_overrides_rabies.brick].entitytype
+// elusive targets
+[assembly:/_PRO/Scenes/Missions/Colorado_2/_scene_bushwacker.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_bushwacker.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Colorado_2/_scene_flirtini.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_flirtini.entity].entitytemplate
+// escalation levels
+[assembly:/_pro/scenes/missions/colorado_2/gamechanger_bull_deadly_stalker.brick].entitytype
+[assembly:/_pro/scenes/missions/colorado_2/gamechanger_bull_hackable_laptop_01.brick].entitytype
+[assembly:/_pro/scenes/missions/colorado_2/gamechanger_bull_hackable_laptop_02.brick].entitytype
+[assembly:/_pro/scenes/missions/colorado_2/gamechanger_wild_card_daisy.brick].entitytype
+[assembly:/_pro/scenes/missions/colorado_2/gamechanger_enhanced_enforcers_hacker.brick].entitytype
+[assembly:/_pro/scenes/missions/colorado_2/gamechanger_bull_enhanced_enforcers_milita_tech.brick].entitytype
+// mission : hot_spades
+[assembly:/_pro/scenes/missions/colorado_2/scene_bull_hot_spades.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/colorado_2/mission_hot_spades.brick].entitytype
+[assembly:/_pro/scenes/missions/Colorado_2/override_spades.brick].entitytype
+[assembly:/_pro/scenes/bricks/evergreen_hot_data.brick].entitytype
+// mission : mild_spades
+[assembly:/_pro/scenes/missions/colorado_2/scene_bull_mild_spades.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/Colorado_2/mission_mild_spades.brick].entitytype
+[assembly:/_pro/scenes/missions/Colorado_2/override_spades.brick].entitytype
+// sarajevo six: blackrussian
+[assembly:/_PRO/Scenes/Missions/Colorado_2/_scene_ts6_blackrussian.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_s6_blackrussian.entity].entitytemplate
+// --- Chunk 24 S1 Bangkok
+@partition name=bangkok parent=season1 type=standard patchlevel=4
+// --- bangkok.packagedefinition
+// mission : tiger
+[assembly:/_PRO/Scenes/Missions/Bangkok/_scene_tiger.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Bangkok/_Scene_Mission_Tiger.entity].entitytemplate
+// mission : zika
+[assembly:/_PRO/Scenes/Missions/Bangkok/scene_zika.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Bangkok/mission_guidance_zika.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Bangkok/outfits_zika.brick].entitytype
+[assembly:/_pro/scenes/missions/Bangkok/override_constantjeff.brick].entitytype
+// shared : tiger/zika
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dlc_3.entity].entitytemplate
+// difficulty bricks
+[assembly:/_pro/scenes/missions/bangkok/difficulty_easy_bangkok_tiger.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Bangkok/difficulty_pro1_bangkok_tiger.brick].entitytype
+// VR bricks
+[assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_bangkok.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_bangkok_ps4_vr1.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_low_performance.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/bangkok/vr_agility_overrides_bangkok_variations.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/bangkok/vr_overrides_zika.brick].entitytype
+// elusive targets
+[assembly:/_pro/scenes/missions/bangkok/mission_bangkok_brassmonkey.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_brass_monkey.entity].entitytemplate
+[assembly:/_pro/scenes/missions/bangkok/mission_bangkok_martini.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_martini.entity].entitytemplate
+[assembly:/_pro/scenes/missions/bangkok/mission_bangkok_bloodymary.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_bloodymary.entity].entitytemplate
+[assembly:/_pro/scenes/missions/bangkok/scene_baiju.entity].entitytemplate
+[assembly:/_pro/scenes/missions/bangkok/mission_baiju.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_baiju.entity].entitytemplate
+[assembly:/_pro/scenes/missions/bangkok/baiju_clean_hands.brick].entitytype
+// escalation levels
+[assembly:/_pro/scenes/missions/bangkok/gamechanger_targets_in_freezer.brick].entitytype
+[assembly:/_pro/scenes/missions/bangkok/gamechanger_wild_card_geranium.brick].entitytype
+[assembly:/_pro/scenes/missions/bangkok/gamechanger_enhanced_enforcers_exterminator_disguise.brick].entitytype
+[assembly:/_pro/scenes/missions/bangkok/gamechanger_enhanced_enforcers_groundskeeper_disguise.brick].entitytype
+[assembly:/_pro/scenes/missions/bangkok/gamechanger_extreme_security_basement.brick].entitytype
+[assembly:/_pro/scenes/missions/bangkok/gamechanger_garden_minefield.brick].entitytype
+[assembly:/_pro/scenes/missions/bangkok/gamechanger_delphinium_overrides.brick].entitytype
+// bonus bricks
+[assembly:/_pro/scenes/missions/bangkok/generic_beach_exit.brick].entitytype
+// mission : hot_sicbo
+[assembly:/_pro/scenes/missions/bangkok/scene_tiger_hot_sicbo.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/bangkok/mission_hot_sicbo.brick].entitytype
+[assembly:/_pro/scenes/missions/bangkok/override_sicbo.brick].entitytype
+[assembly:/_pro/scenes/bricks/evergreen_hot_data.brick].entitytype
+// mission : mild_sicbo
+[assembly:/_pro/scenes/missions/bangkok/scene_tiger_mild_sicbo.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/bangkok/mission_mild_sicbo.brick].entitytype
+[assembly:/_pro/scenes/missions/bangkok/override_sicbo.brick].entitytype
+// sarajevo six: gimlet
+[assembly:/_pro/scenes/missions/bangkok/mission_ts6_gimlet.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_s6_gimlet.entity].entitytemplate
+// --- Chunk 25 S1 Marrakesh
+@partition name=marrakesh parent=season1 type=standard patchlevel=4
+// --- marrakesh.packagedefinition
+// mission : spider
+[assembly:/_PRO/Scenes/Missions/Marrakesh/_Scene_Mission_Spider.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Marrakesh/_scene_spider.entity].entitytemplate
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dlc_2.entity].entitytemplate
+// mission : python
+[assembly:/_PRO/Scenes/Missions/Marrakesh/_Scene_Mission_Python.entity].entitytemplate
+[assembly:/_pro/scenes/missions/marrakesh/_scene_python.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Marrakesh/Mission_Python_Contract.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_python.entity].entitytemplate
+// difficulty bricks
+[assembly:/_pro/scenes/missions/marrakesh/difficulty_easy_marrakesh_spider.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/marrakesh/difficulty_pro1_marrakesh_spider.brick].entitytype
+// VR bricks
+[assembly:/_PRO/Scenes/missions/marrakesh/vr_overrides_spider.brick].entitytype
+[assembly:/_PRO/Scenes/missions/marrakesh/vr_overrides_spider_mission.brick].entitytype
+[assembly:/_PRO/Scenes/missions/marrakesh/vr_overrides_spider_ps4_vr1.brick].entitytype
+[assembly:/_PRO/scenes/missions/marrakesh/vr_overrides_low_performance.brick].entitytype
+[assembly:/_PRO/scenes/missions/marrakesh/vr_overrides_python.brick].entitytype
+[assembly:/_PRO/scenes/missions/marrakesh/vr_overrides_python_ps4_vr1.brick].entitytype
+[assembly:/_PRO/scenes/missions/marrakesh/vr_agility_overrides_marrakesh_variations.brick].entitytype
+[assembly:/_PRO/scenes/missions/marrakesh/vr_agility_overrides_marrakesh_variations_ps4_vr1.brick].entitytype
+// elusive targets
+[assembly:/_pro/scenes/missions/marrakesh/mission_marrakesh_hottoddy.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_hottoddy.entity].entitytemplate
+[assembly:/_pro/scenes/missions/marrakesh/mission_marrakesh_screwdriver.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dlc_2_screwdriver.entity].entitytemplate
+[assembly:/_pro/scenes/missions/marrakesh/Mission_Marrakesh_Cosmopolitan.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_cosmopolitan.entity].entitytemplate
+[assembly:/_pro/scenes/missions/marrakesh/mission_marrakesh_maitai.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_maitai.entity].entitytemplate
+// escalation levels
+[assembly:/_pro/scenes/missions/marrakesh/gamechangers_big_brother.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/gamechangers_safe_consulate_basement.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/gamechangers_tripwires_school_01.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/gamechanger_spider_waiters_enhanced_enforcers.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/gamechanger_amaranth_level_overrides.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/gamechanger_laptop_consulate02.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/gamechangers_laptop_consulate.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/gamechanger_break_and_enter_school.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/gamechanger_break_and_enter_school_02.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/gamechanger_level_wildcard_iris.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/gamechanger_market_and_street_guards_enforce_shopkeeper.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/gamechanger_minefield_market.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/gamechangers_Protesters_Military_Presence.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/gamechanger_milfoil_level_overwrite.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/gamechanger_spider_honeysuckle_wildcard.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/gamechanger_spider_safe_maintenence_room_street.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/gamechanger_wild_card_lupine.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/gamechanger_python_cereus_wild_card.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/gamechanger_python_safe.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/marrakesh/gamechanger_spider_hellebore.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/_scene_python_hellebore.entity].entitytemplate
+//arcade
+[assembly:/_PRO/Scenes/Missions/marrakesh/gamechanger_maitai_additionalenforcers.brick].entitytype
+// mission : hot_mancala
+[assembly:/_pro/scenes/missions/marrakesh/scene_spider_hot_mancala.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/mission_hot_mancala.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/override_mancala.brick].entitytype
+[assembly:/_pro/scenes/bricks/evergreen_hot_data.brick].entitytype
+// mission : mild_mancala
+[assembly:/_pro/scenes/missions/marrakesh/scene_spider_mild_mancala.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/mission_mild_mancala.brick].entitytype
+[assembly:/_pro/scenes/missions/marrakesh/override_mancala.brick].entitytype
+// sarajevo six: ginfizz
+[assembly:/_pro/scenes/missions/marrakesh/mission_marrakesh_ts6_ginfizz.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_s6_ginfizz.entity].entitytemplate
+// --- Chunk 26 S1 Coastal Town
+@partition name=coastaltown parent=season1 type=standard patchlevel=4
+// --- octopus.packagedefinition
+// mission : octopus
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Mission01.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/CoastalTown/_scene_octopus.entity].entitytemplate
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dlc_1.entity].entitytemplate
+// mission : ebola
+[assembly:/_PRO/Scenes/Missions/CoastalTown/scene_ebola.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/CoastalTown/mission_guidance_ebola.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/override_constantjeff.brick].entitytype
+// mission : copperhead
+[assembly:/_PRO/Scenes/Missions/CoastalTown/_Scene_Mission_Copperhead.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/CoastalTown/_scene_copperhead.entity].entitytemplate
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_copperhead.entity].entitytemplate
+// mission : mamba
+[assembly:/_PRO/Scenes/Missions/CoastalTown/_Scene_Mission_Mamba.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Coastaltown/Mission_Mamba_IntroseqIntelAndHandlerspeak.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/_scene_mamba.entity].entitytemplate
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_mamba.entity].entitytemplate
+[assembly:/_pro/scenes/missions/coastaltown/gamechanger_mamba_rose_wild_card.brick].entitytype
+// difficulty bricks
+[assembly:/_pro/scenes/missions/coastaltown/difficulty_easy_sapienza_octopus.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/octopus_pro1.brick].entitytype
+// VR bricks
+[assembly:/_pro/scenes/missions/coastaltown/vr_overrides_octopus.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/vr_overrides_octopus_mission.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/vr_overrides_octopus_ps4_vr1.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/vr_overrides_low_performance.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/vr_agility_overrides_coastaltown_variations.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/vr_agility_overrides_coastaltown_variations_ps4_vr1.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/vr_overrides_copperhead.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/vr_overrides_copperhead_ps4_vr1.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/vr_overrides_ebola.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/vr_overrides_ebola_ps4_vr1.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/vr_overrides_mamba.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/vr_overrides_mamba_ps4_vr1.brick].entitytype
+// elusive targets
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Mission_MintJulep.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dlc_1_mintjulep.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/CoastalTown/mission_sazerac.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dlc_1_sazerac.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/CoastalTown/mission_piscosour.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dlc_1_piscosour.entity].entitytemplate
+[assembly:/_pro/Scenes/Missions/CoastalTown/mission_quadruplerumandcoke.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dlc_1_quadruplerumandcoke.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Mission_HarveyWallbanger.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dlc_1_harveywallbanger.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/CoastalTown/mission_caipirinha.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_caipirinha.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Scenario_CorpseReviver.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_corpsereviver.entity].entitytemplate
+// escalation levels
+[assembly:/_PRO/Scenes/Missions/Coastaltown/Gamechangers_Opportunities_CustomTargets_Target001.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Coastaltown/Gamechangers_Opportunities_CustomTargets_Target002.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Coastaltown/Gamechangers_Opportunities_CustomTargets_Target003.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Coastaltown/Gamechangers_Opportunities_KillOpportunities_Opportunity001.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Coastaltown/Gamechangers_Gatekeepers_Friskzones.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Coastaltown/Gamechangers_Hazards_Stalker.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Coastaltown/Gamechangers_Objectives_Hackcomputer_01.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Coastaltown/Gamechangers_Objectives_Hackcomputer_02.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Coastaltown/Gamechangers_Objectives_Hackcomputer_03.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Coastaltown/Gamechangers_Objectives_Cleanup.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_TripWireMaze_01.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_TripWireMaze_02.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_TripWireMaze_03.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_TripWireMaze_04.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_TripWireMaze_05.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_TripWireMaze_Sniper.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_TripWireMaze_Agility.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_MineDisableInSafe_Church.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_MineDisableInSafe_Mansion.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_MineDisableInSafe_LawOffice.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_AllCameras.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_MansionCameras.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_TownCameras.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_SuperEnforcers_Octopus.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_BodyguardEvent.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_BodyguardShop.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_BodyguardSFX.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_LaserMineExitBlocking.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_Safe_Church.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_Safe_Mansion.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_Safe_LawOffice.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_HackableLaptop_Church.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_HackableLaptop_Mansion.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_HackableLaptop_LawOffice.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_MansionBodyguardsEnforceOwnDisguise.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_Octopus_ChurchNPCsUnconcioustimerLow.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/Gamechangers_LockAllDoors_Church.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/gamechangers_beach_and_square_civilians_are_guards.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/gamechangers_mansion_basement_enforcers.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/gamechangers_street_civilian_superenforcers.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/gamechangers_hackablelaptop_lab.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/CoastalTown/gamechangers_mansiongardenminefield.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/hyacinth_escalation_level_addition.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/gamechanger_wild_card_begonia.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/gamechanger_wild card_jasmine.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/gamechanger_wishing_well.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/gamechanger_octopus_sunflower_overrides.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/gamechanger_pistol_equipped.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/gamechanger_copperhead_cameras.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/gamechanger_copperhead_laptop.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/gamechanger_copperhead_mines_and_lasers.brick].entitytype
+[assembly:/_pro/scenes/missions/coastaltown/gamechanger_copperhead_wild_card_moon_flower.brick].entitytype
+//arcade
+[assembly:/_PRO/Scenes/Missions/CoastalTown/gamechanger_piscosour_additionalenforcers.brick].entitytype
+// mission : hot_bingo
+[assembly:/_pro/scenes/Missions/CoastalTown/scene_costaltown_hot_bingo.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/Missions/CoastalTown/mission_hot_bingo.brick].entitytype
+[assembly:/_pro/scenes/Missions/CoastalTown/override_bingo.brick].entitytype
+// mission : mild_bingo
+[assembly:/_pro/scenes/Missions/CoastalTown/scene_costaltown_mild_bingo.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/bricks/evergreen_hot_data.brick].entitytype
+[assembly:/_pro/scenes/Missions/CoastalTown/mission_mild_bingo.brick].entitytype
+[assembly:/_pro/scenes/Missions/CoastalTown/override_bingo.brick].entitytype
+// sarajevo six: mimosa
+[assembly:/_pro/scenes/missions/coastaltown/mission_ts6_mimosa.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_s6_mimosa.entity].entitytemplate
+// --- Chunk 27 S1 Paris
+@partition name=paris parent=season1 type=standard patchlevel=4
+// --- paris.packagedefinition
+// mission : fashion show
+[assembly:/_PRO/Scenes/Missions/Paris/_scene_paris.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Paris/_Scene_FashionShowHit_01.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Paris/_Scene_FashionShowHit_AMD.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Paris/_Scene_Tutorial_ContractCreationParis.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Paris/showstopper_story_content.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dlc_0.entity].entitytemplate
+// difficulty bricks
+[assembly:/_pro/scenes/missions/paris/difficulty_easy_paris_peacock.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/difficulty_pro1_paris_fashionshow.brick].entitytype
+// vr bricks
+[assembly:/_pro/scenes/missions/paris/vr_overrides_peacock.brick].entitytype
+[assembly:/_pro/scenes/missions/paris/vr_overrides_peacock_mission.brick].entitytype
+[assembly:/_pro/scenes/missions/paris/vr_overrides_peacock_ps4_vr1.brick].entitytype
+[assembly:/_pro/scenes/missions/paris/vr_agility_overrides_peacock.brick].entitytype
+[assembly:/_pro/scenes/missions/paris/vr_agility_overrides_peacock_ps4_vr1.brick].entitytype
+[assembly:/_pro/scenes/missions/paris/vr_overrides_low_performance.brick].entitytype
+[assembly:/_pro/scenes/missions/paris/vr_overrides_not_peacock.brick].entitytype
+[assembly:/_pro/scenes/missions/paris/vr_overrides_not_peacock_ps4_vr1.brick].entitytype
+// theme : christmas
+[assembly:/_PRO/Scenes/Missions/Paris/Location_parisnoel.brick].entitytype
+// elusive targets
+[assembly:/_PRO/Scenes/Missions/Paris/_scene_Kamikaze.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dlc_0_kamikaze.entity].entitytemplate
+[assembly:/_pro/scenes/missions/paris/_scene_kirroyal.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dlc_0_kirroyal.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Paris/_Scene_Margarita_01.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dlc_0_margarita.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Paris/_scene_Sakini.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dlc_0_sakini.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Paris/_Scene_Shandy.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dlc_0_shandy.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Paris/_Scene_TequilaSunrise_01.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dlc_0_tequilasunrise.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Paris/_Scene_WhiteRussian_01.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dlc_0_whiterussian.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Paris/_scene_Lumumba.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dlc_0_lumumba.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Paris/_scene_Mojito.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dlc_0_mojito.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Paris/_scene_frenchmartini.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Paris/scenario_frenchmartini.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_frenchmartini.entity].entitytemplate
+// escalation levels
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_AllCameras.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_Traps.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_TripwireMines.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_MineDisableInSafe.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_MineDisableInSafe_MuseumOffice.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_LaserMineExitBlocking.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_BodyguardBartenders.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_VIPSuperEnforcers.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_TripWireMaze_01.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_TripWireMaze_02.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_TripWireMaze_03.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_TripWireMaze_04.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_TripWireMaze_05.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_TripWireMaze_Sniper.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_TripWireMaze_Agility.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_IAGOSuperEnforcers.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_BodyguardLoungeWaiters.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_Safe_Basement.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_Safe_1stFloor.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_Safe_2ndFloor.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_HackableLaptop_Basement.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_HackableLaptop_1stFloor.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_HackableLaptop_2ndFloor.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/Gamechangers_PatrolGuardsSuperEnforcers.brick].entitytype
+[assembly:/_pro/scenes/missions/paris/gamechangers_modelsenforcemodels.brick].entitytype
+[assembly:/_pro/scenes/missions/paris/gamechangers_auctionstaffenforceowndisguise.brick].entitytype
+[assembly:/_pro/scenes/missions/paris/gamechangers_backgardenminefield.brick].entitytype
+[assembly:/_pro/scenes/missions/paris/cyclamen_level_addition.brick].entitytype
+[assembly:/_pro/scenes/missions/paris/gamechangers_wild_card_juniper.brick].entitytype
+[assembly:/_pro/scenes/missions/paris/gamechanger_nightshade_overrides.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/gamechangers_hawthorn_wild_card.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/Paris/gamechanger_pistol_equipped.brick].entitytype
+[assembly:/_PRO/Scenes/Missions/paris/gamechangers_peacock_torenia.brick].entitytype
+[assembly:/_pro/scenes/missions/paris/_scene_paris_torenia.entity].entitytemplate
+//arcade
+[assembly:/_PRO/Scenes/Missions/paris/gamechanger_margarita_additionalenforcers.brick].entitytype
+// mission : hot_craps
+[assembly:/_pro/scenes/missions/paris/scene_peacock_hot_craps.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/paris/mission_hot_craps.brick].entitytype
+[assembly:/_pro/scenes/missions/paris/override_craps.brick].entitytype
+// mission : mild_craps
+[assembly:/_pro/scenes/missions/paris/scene_peacock_mild_craps.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/paris/mission_mild_craps.brick].entitytype
+[assembly:/_pro/scenes/missions/paris/override_craps.brick].entitytype
+// sarajevo six: blueblazer
+[assembly:/_PRO/Scenes/Missions/Paris/_scene_ts6_blueblazer.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_s6_blueblazer.entity].entitytemplate
+// --- Chunk 28 S3 Rocky
+@partition name=dugong parent=season3 type=addon patchlevel=1
+// --- rocky.packagedefinition
+[assembly:/_PRO/Scenes/Missions/Rocky/scene_dugong.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Rocky/mission_dugong.brick].entitytype
+[assembly:/_pro/scenes/missions/rocky/difficulty_easy_dugong.brick].entitytype
+[assembly:/_pro/scenes/missions/rocky/difficulty_hard_dugong.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_dugong.entity].entitytemplate
+// VR bricks
+[assembly:/_pro/scenes/missions/rocky/vr_overrides_dugong.brick].entitytype
+[assembly:/_pro/scenes/missions/rocky/vr_overrides_dugong_ps4_vr1.brick].entitytype
+[assembly:/_PRO/scenes/missions/rocky/vr_overrides_low_performance.brick].entitytype
+// mission : hot_poker
+[assembly:/_pro/scenes/missions/rocky/scene_rocky_hot_poker.entity].entitytemplate
+[assembly:/_pro/scenes/missions/rocky/mission_hot_poker.brick].entitytype
+[assembly:/_pro/scenes/bricks/evergreen_hot_data.brick].entitytype
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/rocky/override_poker.brick].entitytype
+// mission : mild_poker
+[assembly:/_pro/scenes/missions/rocky/scene_rocky_mild_poker.entity].entitytemplate
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/scenes/missions/rocky/mission_mild_poker.brick].entitytype
+[assembly:/_pro/scenes/missions/rocky/override_poker.brick].entitytype
+// --- Chunk 29 S3 Snug
+@partition name=snug parent=season3 type=standard patchlevel=1
+// --- snug.packagedefinition
+[assembly:/_pro/scenes/bricks/evergreen_setup.brick].entitytype
+[assembly:/_pro/Scenes/frontend/VideoDatabase/videodatabase_evergreen_intro.entity].entitytemplate
+[assembly:/_pro/Scenes/frontend/VideoDatabase/videodatabase_evergreen_howto.entity].entitytemplate
+[assembly:/_pro/scenes/missions/snug/mission_vanilla.brick].entitytype
+[assembly:/_pro/scenes/missions/snug/scene_vanilla.entity].entitytemplate
+[assembly:/_pro/scenes/missions/snug/tod_vanilla_day.brick].entitytype
+[assembly:/_pro/scenes/missions/snug/tod_vanilla_morning.brick].entitytype
+[assembly:/_pro/scenes/missions/snug/tod_vanilla_night.brick].entitytype
+[assembly:/_pro/scenes/missions/snug/vr_overrides_vanilla.brick].entitytype
+[assembly:/_pro/scenes/missions/snug/vr_overrides_vanilla_low_performance.brick].entitytype
+// --- Chunk 30 S3 Golden
+@partition name=golden parent=season3 type=standard patchlevel=0
+

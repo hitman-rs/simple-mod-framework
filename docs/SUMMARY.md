@@ -1,0 +1,45 @@
+# Table of contents
+
+* [Welcome](README.md)
+* [What is a mod?](<README (1).md>)
+* [Structure of a mod](structure-of-a-mod.md)
+* [Manifest format](manifest-format.md)
+* [Content file substitution](content-file-substitution.md)
+* [Peacock integration](peacock-integration.md)
+* [Update checking](update-checking.md)
+* [Resource porting](resource-porting.md)
+* [RPKG mods](rpkg-mods.md)
+* [Mod template](mod-template.md)
+
+## Special file types
+
+* [entity.json](special-file-types/entity-json.md)
+* [entity.patch.json](special-file-types/entity.patch-json.md)
+* [repository.json](special-file-types/repository-json.md)
+* [unlockables.json](special-file-types/unlockables-json.md)
+* [JSON.patch.json](special-file-types/json.patch-json.md)
+* [contract.json](special-file-types/contract-json.md)
+* [Language files](special-file-types/language-files.md)
+* [localisation.patch.json](special-file-types/localisation.patch-json.md)
+* [material.json](special-file-types/material-json.md)
+* [material.entity.json](special-file-types/material.entity-json.md)
+* [texture.json](special-file-types/texture-json.md)
+* [sfx.wem](special-file-types/sfx.wem.md)
+* [sounddefs.json](special-file-types/sounddefs-json.md)
+* [sounddefs.patch.json](special-file-types/sounddefs.patch-json.md)
+* [behavior.txt](special-file-types/behavior.txt.md)
+* [aspect.entity.json](special-file-types/aspect.entity-json.md)
+
+## Migration from v2
+
+* [Migration from SMFv2](migration-from-v2/migration-from-smfv2.md)
+* [Mod IDs](migration-from-v2/mod-ids.md)
+* [Option IDs](migration-from-v2/option-ids.md)
+* [Update checking](migration-from-v2/update-checking.md)
+* [Dynamic resources](migration-from-v2/dynamic-resources.md)
+* [Dependencies](migration-from-v2/dependencies.md)
+* [Mod references](migration-from-v2/mod-references.md)
+* [Scripting and conditions](migration-from-v2/scripting-and-conditions.md)
+* [Mod archive (ZIP/RAR/7z) format](migration-from-v2/mod-archive-zip-rar-7z-format.md)
+* [Chunk folders](migration-from-v2/chunk-folders.md)
+* [Manifest and special file types](migration-from-v2/manifest-and-special-file-types.md)

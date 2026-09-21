@@ -1,0 +1,55 @@
+[package]
+name = "simple-mod-framework-core"
+version = "0.0.0"
+edition = "2024"
+
+[dependencies]
+simple-mod-framework-types.workspace = true
+
+arc-trait.workspace = true
+better-rune-derive.workspace = true
+biome_formatter.workspace = true
+biome_json_formatter.workspace = true
+biome_json_parser.workspace = true
+biome_parser.workspace = true
+biome_rowan.workspace = true
+biome_unicode_table.workspace = true
+color-eyre.workspace = true
+ecow = { workspace = true, features = ["serde"] }
+fn-wrap-err.workspace = true
+glacier-base.workspace = true
+glacier-ini.workspace = true
+glacier-commons = { workspace = true, features = [
+    "serde",
+    "specta",
+    "schemars",
+    "rpkg-rs-2",
+    "glacier-texture",
+    "tonytools",
+    "hash-list",
+    "rune",
+    "rkyv",
+    "macros",
+] }
+identity-hash.workspace = true
+indicatif.workspace = true
+itertools.workspace = true
+lazy-regex.workspace = true
+log.workspace = true
+md5.workspace = true
+papaya.workspace = true
+rand.workspace = true
+rayon.workspace = true
+relative-path = { workspace = true, features = ["serde"] }
+rkyv.workspace = true
+rpkg-rs = { workspace = true, features = ["rayon"] }
+rune.workspace = true
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true, features = ["preserve_order"] }
+serde_path_to_error.workspace = true
+serde-brief = { workspace = true, features = ["std"] }
+specta = { workspace = true, features = ["url", "indexmap"] }
+tracing.workspace = true
+tryvial.workspace = true
+velcro.workspace = true
+walkdir.workspace = true

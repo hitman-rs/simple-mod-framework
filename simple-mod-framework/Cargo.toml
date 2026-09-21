@@ -1,0 +1,141 @@
+[package]
+name = "simple-mod-framework"
+version = "3.0.0-beta.1"
+description = "A tool for managing HITMAN 3 mods."
+edition = "2024"
+publish = false
+
+[dependencies]
+simple-mod-framework-core.workspace = true
+simple-mod-framework-types.workspace = true
+
+aho-corasick.workspace = true
+anyhow.workspace = true
+better-rune-derive.workspace = true
+color-eyre.workspace = true
+crc32fast.workspace = true
+delegate.workspace = true
+dirs.workspace = true
+ecow = { workspace = true, features = ["serde"] }
+educe.workspace = true
+enum_dispatch.workspace = true
+facet.workspace = true
+fjall.workspace = true
+fn-wrap-err.workspace = true
+futures = { workspace = true, features = ["std", "executor"] }
+glacier-texture.workspace = true
+hitman-behavior.workspace = true
+glacier-base.workspace = true
+glacier-bin1 = { workspace = true, features = [
+    "all-games",
+    "all-types",
+    "tracing",
+] }
+glacier-commons = { workspace = true, features = [
+    "serde",
+    "specta",
+    "schemars",
+    "rpkg-rs-2",
+    "glacier-texture",
+    "tonytools",
+    "hash-list",
+    "rune",
+    "rkyv",
+] }
+glacier-formats = { workspace = true, features = [
+    "material",
+    "ores",
+    "wwev",
+    "sdef",
+    "texture",
+    "serde",
+    "rune",
+    "tracing",
+] }
+hrtime.workspace = true
+identity-hash.workspace = true
+image = { workspace = true, features = ["png", "tga"] }
+indexmap = { workspace = true, features = ["serde"] }
+indicatif-log-bridge.workspace = true
+indicatif.workspace = true
+ipc-channel.workspace = true
+itertools.workspace = true
+json-patch.workspace = true
+jsonschema.workspace = true
+lazy-regex.workspace = true
+linkme.workspace = true
+log.workspace = true
+md5.workspace = true
+mident.workspace = true
+papaya.workspace = true
+parking_lot = { workspace = true, features = ["hardware-lock-elision"] }
+pelite.workspace = true
+pico-args.workspace = true
+quickentity-rs = { workspace = true, features = [
+    "all-games",
+    "tracing",
+    "rune",
+] }
+rand.workspace = true
+ranked-semaphore.workspace = true
+rayon.workspace = true
+regex.workspace = true
+relative-path = { workspace = true, features = ["serde"] }
+reqwest.workspace = true
+rkyv.workspace = true
+rpkg-rs = { workspace = true, features = ["rayon"] }
+rune-modules = { workspace = true, features = ["json", "base64"] }
+rune.workspace = true
+schemars = { workspace = true, features = ["semver1", "url2", "indexmap2"] }
+semver = { workspace = true, features = ["serde"] }
+serde = { workspace = true, features = ["derive"] }
+serde_bytes.workspace = true
+serde_json = { workspace = true, features = ["preserve_order"] }
+serde_path_to_error.workspace = true
+serde-brief = { workspace = true, features = ["std"] }
+simdutf8.workspace = true
+skyscraper.workspace = true
+specta = { workspace = true, features = ["url", "indexmap"] }
+tokio = { workspace = true, features = ["fs", "macros", "rt-multi-thread"] }
+tonytools.workspace = true
+tracing-chrome.workspace = true
+tracing.workspace = true
+tryvial.workspace = true
+url = { workspace = true, features = ["serde"] }
+uuid.workspace = true
+velcro.workspace = true
+walkdir.workspace = true
+xxhash-rust = { workspace = true, features = ["xxh3"] }
+
+fern = { workspace = true, features = ["colored"], optional = true }
+tracing-subscriber = { workspace = true, features = [
+    "smallvec",
+    "fmt",
+    "ansi",
+    "std",
+], optional = true }
+tracing-error = { workspace = true, optional = true }
+mimalloc = { workspace = true, optional = true }
+
+rpkg-diff = { workspace = true, optional = true }
+
+[features]
+run = ["fern", "tracing-subscriber", "tracing-error", "mimalloc"]
+bench = ["rpkg-diff", "mimalloc"]
+rune-cli = ["rune/cli"]
+
+[dev-dependencies]
+divan.workspace = true
+
+[[bench]]
+name = "corpus"
+harness = false
+required-features = ["bench"]
+
+[[bin]]
+name = "simple-mod-framework"
+required-features = ["run"]
+
+[[bin]]
+name = "rune-cli"
+required-features = ["rune-cli"]

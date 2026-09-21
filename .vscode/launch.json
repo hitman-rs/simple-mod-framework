@@ -1,0 +1,30 @@
+{
+	"configurations": [
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "GUI",
+			"cwd": "${workspaceFolder}/main/src-tauri",
+			"program": "${workspaceFolder}/target/debug/simple-mod-framework-main",
+			"env": {
+				"RUST_BACKTRACE": "short"
+			},
+			"args": [],
+			"console": "integratedTerminal",
+			"preLaunchTask": "dev"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Deploy",
+			"cwd": "${workspaceFolder}/main/src-tauri",
+			"program": "${workspaceFolder}/target/debug/simple-mod-framework-main",
+			"env": {
+				"RUST_BACKTRACE": "short"
+			},
+			"args": ["deploy"],
+			"console": "integratedTerminal",
+			"preLaunchTask": "build:debug"
+		}
+	]
+}

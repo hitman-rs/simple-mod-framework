@@ -1,0 +1,35 @@
+name: Sync with Crowdin
+
+on:
+  schedule:
+    - cron: '10 8 * * *'
+
+  workflow_dispatch:
+
+jobs:
+  crowdin:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Download translations
+        uses: crowdin/github-action@52aa776766211d83d975df51f3b9c53c2f8ba35f
+        with:
+          download_bundle: 2
+          upload_sources: false
+          export_only_approved: true
+          push_translations: false
+          create_pull_request: false
+        env:
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@4a55954c782fc1ea30b9056cd3e7a2b40ca8887d
+        with:
+          commit_message: "l10n: update localisation\n\n[skip ci]"

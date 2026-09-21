@@ -1,0 +1,127 @@
+[workspace]
+members = ["simple-mod-framework", "main/src-tauri", "types", "upgrade", "core"]
+resolver = "3"
+
+[workspace.dependencies]
+simple-mod-framework = { path = "simple-mod-framework" }
+simple-mod-framework-types = { path = "types" }
+simple-mod-framework-upgrade = { path = "upgrade" }
+simple-mod-framework-core = { path = "core" }
+
+aho-corasick = "1.1.3"
+anyhow = "1.0.70"
+arc-trait = "0.1.2"
+base64 = "0.22.1"
+better-rune-derive = { git = "https://github.com/atampy25/better-rune-derive" }
+biome_formatter = "=0.5.7"
+biome_json_formatter = "=0.5.7"
+biome_json_parser = "=0.5.7"
+biome_parser = "=0.5.7"
+biome_rowan = "=0.5.7"
+biome_unicode_table = "=0.5.7"
+clap = "4.6.0"
+color-eyre = "0.6.2"
+compress-tools = "0.16.1"
+crc32fast = "1.3.2"
+delegate = "0.13.4"
+dirs = "6.0.0"
+divan = "0.1.21"
+duct = "1.1.0"
+ecow = "0.3.0"
+educe = "0.6.0"
+enum_dispatch = "0.3.13"
+facet = { version = "0.46.0", features = ["reflect"] }
+fern = "0.7.1"
+fjall = "3.0.0"
+fn-wrap-err = { git = "https://github.com/atampy25/fn-wrap-err" }
+fs_extra = "1.3.0"
+futures = { version = "0.3.31", default-features = false }
+glacier-base = "0.2.1"
+glacier-ini = "1.0.0"
+glacier-texture = "2.1.1"
+hitman-behavior = { git = "https://github.com/atampy25/hitman-behavior" }
+glacier-bin1 = { git = "https://github.com/atampy25/glacier-bin1" }
+glacier-commons = { git = "https://github.com/atampy25/glacier-commons" }
+glacier-formats = { git = "https://github.com/atampy25/glacier-formats" }
+hrtime = "0.2.0"
+identity-hash = "0.1.0"
+image = { version = "0.25.6", default-features = false }
+indexmap = "2.14.0"
+indicatif = "0.18.0"
+indicatif-log-bridge = "0.2.3"
+ipc-channel = "0.22.0"
+itertools = "0.15.0"
+json-patch = "4.2.0"
+jsonschema = "0.46.2"
+lazy-regex = "3.4.1"
+linkme = "0.3.33"
+log = "0.4.27"
+md5 = "0.8.0"
+mident = "0.0.1"
+mimalloc = "0.1.50"
+os_info = "3.8.2"
+papaya = "0.2.3"
+parking_lot = "0.12.1"
+pelite = "0.10.0"
+pico-args = "0.5.0"
+quickentity-3 = { git = "https://github.com/atampy25/quickentity-rs", branch = "v3.0", package = "quickentity-rs" }
+quickentity-31 = { git = "https://github.com/atampy25/quickentity-rs", package = "quickentity-rs" }
+quickentity-rs = { git = "https://github.com/atampy25/quickentity-rs", branch = "v3.2" }
+rand = "0.10.1"
+ranked-semaphore = "0.1.4"
+rapidhash = { version = "4.4.1", features = ["unsafe", "rand"] }
+rayon = "1.11.0"
+regex = "1.12.4"
+relative-path = "2.0.1"
+reqwest = { version = "0.13.4", features = ["blocking", "json", "query"] }
+rfd = { version = "0.17.2", default-features = false, features = ["gtk3"] }
+rkyv = "0.8.11"
+rpkg-diff = { git = "https://github.com/atampy25/rpkg-diff" }
+rpkg-rs = { git = "https://github.com/dafitius/rpkg-rs", branch = "v2" }
+rune = { git = "https://github.com/rune-rs/rune", rev = "a8c4f97" }
+rune-modules = { git = "https://github.com/rune-rs/rune", rev = "a8c4f97" }
+schemars = "1.2.1"
+semver = "1.0.20"
+serde = "1.0.219"
+serde_bytes = "0.11.15"
+serde_json = "1.0.128"
+serde_json5 = "0.2.1"
+serde_path_to_error = "0.1.16"
+serde_with = "3.21.0"
+serde-brief = "0.2.0"
+simdutf8 = "0.1.4"
+skyscraper = "0.7.0"
+specta = "=2.0.0-rc.24"
+specta-typescript = "0.0.11"
+static_init = "1.0.4"
+tempfile = "3.27.0"
+tokio = "1.47.1"
+tonytools = { git = "https://github.com/AnthonyFuller/tonytools-rs" }
+tracing = "0.1.40"
+tracing-chrome = { path = "tracing-chrome" }
+tracing-error = "0.2.0"
+tracing-subscriber = { version = "0.3.17", default-features = false }
+tryvial = "0.2.0"
+typify = "0.7.0"
+url = "2.4.1"
+uuid = "1.23.3"
+validated_newtype = "0.1.1"
+vec1 = "1.12.1"
+velcro = "0.5.4"
+walkdir = "2.5.0"
+windows-sys = "0.61.2"
+xxhash-rust = "0.8.15"
+zip_archive = "1.2.2"
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.dev.package.glacier-bin1]
+debug = false
+
+[profile.dev]
+opt-level = 1

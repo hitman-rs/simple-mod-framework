@@ -1,0 +1,81 @@
+[package]
+name = "simple-mod-framework-main"
+version = "0.0.0"
+edition = "2024"
+description = "The frontend for the Simple Mod Framework."
+default-run = "simple-mod-framework-main"
+publish = false
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+simple-mod-framework = { workspace = true, features = ["run"] }
+simple-mod-framework-core.workspace = true
+simple-mod-framework-types.workspace = true
+simple-mod-framework-upgrade.workspace = true
+
+tauri = { version = "2", features = ["protocol-asset", "devtools"] }
+tauri-plugin-clipboard-manager = "2"
+tauri-plugin-deep-link = "2.4.3"
+tauri-plugin-dialog = "2"
+tauri-plugin-fs = { version = "2", features = ["watch"] }
+tauri-plugin-http = "=2.6.1"
+tauri-plugin-os = "2"
+tauri-plugin-process = "2"
+tauri-plugin-shell = "2"
+tauri-plugin-single-instance = "2.3.4"
+tauri-plugin-upload = "2"
+tauri-specta = { git = "https://github.com/atampy25/tauri-specta", features = [
+    "typescript",
+    "derive",
+] }
+
+base64.workspace = true
+clap.workspace = true
+color-eyre.workspace = true
+compress-tools.workspace = true
+duct.workspace = true
+fs_extra.workspace = true
+glacier-base.workspace = true
+glacier-ini.workspace = true
+glacier-commons = { workspace = true, features = [
+    "serde",
+    "specta",
+    "schemars",
+    "rpkg-rs-2",
+    "tonytools",
+    "hash-list",
+    "hash-list-download",
+    "game-detection",
+] }
+ipc-channel.workspace = true
+mimalloc.workspace = true
+os_info.workspace = true
+reqwest.workspace = true
+rfd.workspace = true
+rpkg-rs.workspace = true
+schemars = { workspace = true, features = [
+    "semver1",
+    "url2",
+    "uuid1",
+    "indexmap2",
+] }
+serde_json = { workspace = true, features = ["preserve_order"] }
+serde-brief.workspace = true
+serde.workspace = true
+specta = { workspace = true, features = ["url", "uuid", "indexmap"] }
+specta-typescript.workspace = true
+tonytools.workspace = true
+tryvial.workspace = true
+windows-sys = { workspace = true, features = ["Win32_System_Threading"] }
+zip_archive.workspace = true
+fn-wrap-err.workspace = true
+
+[features]
+# this feature is used for production builds or when `devPath` points to the filesystem and the built-in dev server is disabled.
+# If you use cargo directly instead of tauri's cli you can use this feature flag to switch between tauri's `dev` and `build` modes.
+# DO NOT REMOVE!!
+custom-protocol = ["tauri/custom-protocol"]

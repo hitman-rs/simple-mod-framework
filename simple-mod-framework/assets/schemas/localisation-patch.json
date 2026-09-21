@@ -1,0 +1,58 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "object",
+	"properties": {
+		"id": {
+			"type": "string"
+		},
+		"lines": {
+			"type": "object",
+			"patternProperties": {
+				"^.+$": {
+					"type": "object",
+					"properties": {
+						"english": {
+							"type": "string"
+						},
+						"french": {
+							"type": "string"
+						},
+						"italian": {
+							"type": "string"
+						},
+						"german": {
+							"type": "string"
+						},
+						"spanish": {
+							"type": "string"
+						},
+						"spanishMexico": {
+							"type": "string"
+						},
+						"portugueseBrazil": {
+							"type": "string"
+						},
+						"polish": {
+							"type": "string"
+						},
+						"russian": {
+							"type": "string"
+						},
+						"chineseSimplified": {
+							"type": "string"
+						},
+						"chineseTraditional": {
+							"type": "string"
+						},
+						"japanese": {
+							"type": "string"
+						}
+					},
+					"minProperties": 1
+				}
+			}
+		}
+	},
+	"additionalProperties": false,
+	"required": ["id", "lines"]
+}

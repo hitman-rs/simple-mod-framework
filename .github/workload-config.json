@@ -1,0 +1,57 @@
+{
+	"gamePath": "C:\\hitman\\HITMAN3\\Retail",
+	"developerMode": false,
+	"deployOrder": ["GlacierOrganisation.CommunityPatches"],
+	"modOptions": {
+		"GlacierOrganisation.CommunityPatches": {
+			"change-this-to-something-else-30c29cbb0d1ed833": {
+				"type": "boolean",
+				"value": true
+			},
+			"change-this-to-something-else-18f80450ffa483ef": {
+				"type": "boolean",
+				"value": true
+			},
+			"change-this-to-something-else-97cc966cb36613ca": {
+				"type": "boolean",
+				"value": true
+			},
+			"change-this-to-something-else-314ca1f3faf5443": {
+				"type": "boolean",
+				"value": true
+			},
+			"change-this-to-something-else-602fa9994cd85dd8": {
+				"type": "boolean",
+				"value": false
+			},
+			"change-this-to-something-else-7c29c6b659a5ad91": {
+				"type": "boolean",
+				"value": true
+			},
+			"change-this-to-something-else-1602a2f52c8c5396": {
+				"type": "boolean",
+				"value": true
+			},
+			"change-this-to-something-else-7c936a59b86eaf4f": {
+				"type": "boolean",
+				"value": false
+			},
+			"change-this-to-something-else-ff7fe706254ab97e": {
+				"type": "boolean",
+				"value": true
+			}
+		}
+	},
+	"profiles": {},
+	"onlineServices": false,
+	"skipIntro": true,
+	"useAlternativeOutputDirectory": "Output",
+	"autoDisableDynres": true,
+	"uiLocale": "en",
+	"bootScene": null,
+	"gui": {
+		"firstTimeUser": false,
+		"knownMods": ["GlacierOrganisation.CommunityPatches"],
+		"knownModOptions": {}
+	}
+}
