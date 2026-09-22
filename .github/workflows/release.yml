@@ -185,6 +185,7 @@ jobs:
         run: |
           cd main
           yarn tauri build
+          cp src-tauri/qnjs-x86_64-pc-windows-msvc.exe ../target/release/qnjs.exe
 
       # - name: Create ZIP (Windows)
       #   if: matrix.platform == 'ptlm-runner'
@@ -292,4 +293,4 @@ jobs:
           files: target/release/${{ matrix.platform == 'ptlm-runner' && 'Windows' || 'Linux' }}.zip
 
       - name: Remove unnecessary artifacts
-        run: rm target/release/build.zip
+        run: rm target/release/${{ matrix.platform == 'ptlm-runner' && 'Windows' || 'Linux' }}.zip

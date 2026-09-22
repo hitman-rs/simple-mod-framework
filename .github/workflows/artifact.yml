@@ -166,6 +166,7 @@ jobs:
         run: |
           cd main
           yarn tauri build
+          cp src-tauri/qnjs-x86_64-pc-windows-msvc.exe ../target/release/qnjs.exe
 
       # - name: Create ZIP (Windows)
       #   if: matrix.platform == 'ptlm-runner'

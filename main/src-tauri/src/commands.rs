@@ -308,20 +308,20 @@ pub async fn rs_extract_archive(archive: PathBuf, output: PathBuf) -> Result<(),
 		.map_err(|x| format!("{}", x))
 	})
 	.await
-	.map_err(|x| format!("{:?}", x))?
+	.map_err(|x| format!("{x}"))?
 }
 
 #[tauri::command]
 #[specta::specta]
 #[try_fn]
 pub async fn rs_update_framework() -> Result<(), String> {
-	fs::remove_file("tempArchive").map_err(|x| format!("{:?}", x))?;
+	fs::remove_file("tempArchive").map_err(|x| format!("{x}"))?;
 
 	#[cfg(windows)]
-	fs::rename("Simple Mod Framework.exe", "Simple Mod Framework-old.exe").map_err(|x| format!("{:?}", x))?;
+	fs::rename("Simple Mod Framework.exe", "Simple Mod Framework-old.exe").map_err(|x| format!("{x}"))?;
 
 	#[cfg(not(windows))]
-	fs::rename("./Simple Mod Framework", "./Simple Mod Framework-old").map_err(|x| format!("{:?}", x))?;
+	fs::rename("./Simple Mod Framework", "./Simple Mod Framework-old").map_err(|x| format!("{x}"))?;
 
 	fs_extra::dir::copy(
 		"update",
@@ -332,7 +332,9 @@ pub async fn rs_update_framework() -> Result<(), String> {
 			..Default::default()
 		}
 	)
-	.map_err(|x| format!("{:?}", x))?;
+	.map_err(|x| format!("{x}"))?;
+
+	fs::remove_dir_all("update").map_err(|x| format!("{x}"))?;
 }
 
 #[tauri::command]
