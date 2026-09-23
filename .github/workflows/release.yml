@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       need-release: ${{ steps.get-crate-version.outputs.value != steps.get-latest-release.outputs.release }}
-      last-release: ${{ steps.get-latest-release.outputs.release }}
+      changelog: ${{ steps.changelog.outputs.changes }}
     steps:
       - uses: actions/checkout@v6
         with:
@@ -32,6 +32,15 @@ jobs:
         uses: pozetroninc/github-action-get-latest-release@2a61c339ea7ef0a336d1daa35ef0cb1418e7676c
         with:
           repository: ${{ github.repository }}
+
+      - name: Generate changelog
+        id: changelog
+        if: steps.get-latest-release.outputs.release != ''
+        uses: loopwerk/tag-changelog@5935b306b0f84d4ebd40175b182a0b7175509ebe
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          config_file: .github/tag-changelog-config.js
+          exclude_types: other,docs,chore,build,amend,refactor
 
   build:
     needs: check-release
@@ -275,20 +284,11 @@ jobs:
           directory: "target/release"
           exclusions: "build deps examples incremental .fingerprint bundle nsis resources wix .cargo-* *.d *.pdb *.so"
 
-      - name: Generate changelog
-        id: changelog
-        if: needs.check-release.outputs.last-release != ''
-        uses: loopwerk/tag-changelog@5935b306b0f84d4ebd40175b182a0b7175509ebe
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          config_file: .github/tag-changelog-config.js
-          exclude_types: other,docs,chore,build,amend,refactor
-
       - name: Upload release
         uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64
         with:
           name: ${{ steps.get-crate-version.outputs.value }}
-          body: ${{ steps.changelog.outputs.changes }}
+          body: ${{ needs.check-release.outputs.changelog }}
           tag_name: ${{ steps.get-crate-version.outputs.value }}
           files: target/release/${{ matrix.platform == 'ptlm-runner' && 'Windows' || 'Linux' }}.zip
 
