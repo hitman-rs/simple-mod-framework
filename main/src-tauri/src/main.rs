@@ -88,7 +88,10 @@ enum SMFCommand {
 		mod_folder: PathBuf
 	},
 	ValidateMod {
-		mod_folder: PathBuf
+		mod_folder: PathBuf,
+
+		#[arg(long, default_value_t = false)]
+		lenient: bool
 	},
 	GetSchema {
 		of: String
@@ -203,11 +206,11 @@ fn main() -> ExitCode {
 			.unwrap();
 		}
 
-		Some(SMFCommand::ValidateMod { mod_folder }) => {
+		Some(SMFCommand::ValidateMod { mod_folder, lenient }) => {
 			tauri::async_runtime::block_on(HASH_LIST.load_latest()).unwrap();
 			println!(
 				"{}",
-				match simple_mod_framework::validation::validate_mod_folder(mod_folder, false) {
+				match simple_mod_framework::validation::validate_mod_folder(mod_folder, lenient) {
 					Ok(x) => serde_json::to_string(&x).unwrap(),
 					Err(e) => serde_json::to_string(&json!({ "result": "error", "message": e.to_string() })).unwrap()
 				}

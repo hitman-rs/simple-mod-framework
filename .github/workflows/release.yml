@@ -55,6 +55,9 @@ jobs:
 
     runs-on: ${{ matrix.platform }}
 
+    outputs:
+      release-id: ${{ steps.release.outputs.id }}
+
     steps:
       - uses: actions/checkout@v6
         with:
@@ -285,12 +288,27 @@ jobs:
           exclusions: "build deps examples incremental .fingerprint bundle nsis resources wix .cargo-* *.d *.pdb *.so"
 
       - name: Upload release
+        id: release
         uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64
         with:
           name: ${{ steps.get-crate-version.outputs.value }}
           body: ${{ needs.check-release.outputs.changelog }}
           tag_name: ${{ steps.get-crate-version.outputs.value }}
+          draft: true
           files: target/release/${{ matrix.platform == 'ptlm-runner' && 'Windows' || 'Linux' }}.zip
 
       - name: Remove unnecessary artifacts
         run: rm target/release/${{ matrix.platform == 'ptlm-runner' && 'Windows' || 'Linux' }}.zip
+
+  publish-release:
+    runs-on: ubuntu-latest
+    needs: build
+    if: ${{ needs.check-release.outputs.need-release == 'true' }}
+    
+    steps:
+      - name: Publish release
+        uses: StuYarrow/publish-release@01f2a1365bacd77bad861873a7fdf274ab49eefd
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          id: ${{ needs.build.outputs.release-id }}
