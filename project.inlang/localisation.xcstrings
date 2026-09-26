@@ -12,8 +12,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Skip game intro video"
+            "state" : "translated",
+            "value" : "跳过游戏片头视频"
           }
         },
         "zh-Hant" : {
@@ -101,8 +101,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enable mod developer mode"
+            "state" : "translated",
+            "value" : "启用模组开发者模式"
           }
         },
         "zh-Hant" : {
@@ -190,8 +190,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Use SMF mod update checking proxy"
+            "state" : "translated",
+            "value" : "使用 SMF 模组更新检查代理"
           }
         },
         "zh-Hant" : {
@@ -279,8 +279,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Welcome to the"
+            "state" : "translated",
+            "value" : "欢迎来到"
           }
         },
         "zh-Hant" : {
@@ -368,8 +368,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enable"
+            "state" : "translated",
+            "value" : "启用"
           }
         },
         "zh-Hant" : {
@@ -457,8 +457,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Experimental version"
+            "state" : "translated",
+            "value" : "实验性版本"
           }
         },
         "zh-Hant" : {
@@ -545,8 +545,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You're currently running an experimental version of the framework"
+            "state" : "translated",
+            "value" : "您当前正在运行一个实验性版本的框架"
           }
         },
         "zh-Hant" : {
@@ -633,8 +633,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Checking for framework updates..."
+            "state" : "translated",
+            "value" : "正在检查框架更新……"
           }
         },
         "zh-Hant" : {
@@ -722,8 +722,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Major framework update available"
+            "state" : "translated",
+            "value" : "框架主要更新可用"
           }
         },
         "zh-Hant" : {
@@ -811,8 +811,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Framework update available"
+            "state" : "translated",
+            "value" : "框架更新可用"
           }
         },
         "zh-Hant" : {
@@ -900,8 +900,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Framework patch available"
+            "state" : "translated",
+            "value" : "框架补丁可用"
           }
         },
         "zh-Hant" : {
@@ -989,8 +989,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Update from version {from} to version {to}"
+            "state" : "translated",
+            "value" : "从 {from} 版本更新至 {to} 版本"
           }
         },
         "zh-Hant" : {
@@ -1078,8 +1078,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Update"
+            "state" : "translated",
+            "value" : "更新"
           }
         },
         "zh-Hant" : {
@@ -1167,8 +1167,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't check for framework updates"
+            "state" : "translated",
+            "value" : "无法检查框架更新"
           }
         },
         "zh-Hant" : {
@@ -1256,8 +1256,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Framework up-to-date"
+            "state" : "translated",
+            "value" : "框架已最新"
           }
         },
         "zh-Hant" : {
@@ -1344,8 +1344,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You're running the latest version of the framework (version {ver})."
+            "state" : "translated",
+            "value" : "您正在运行最新版本框架（{ver} 版本）。"
           }
         },
         "zh-Hant" : {
@@ -1432,8 +1432,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Checking for updates to {mod}..."
+            "state" : "translated",
+            "value" : "正在检查 {mod} 更新……"
           }
         },
         "zh-Hant" : {
@@ -1520,8 +1520,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't check for updates to {mod}"
+            "state" : "translated",
+            "value" : "无法检查 {mod} 更新"
           }
         },
         "zh-Hant" : {
@@ -1609,8 +1609,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Development version"
+            "state" : "translated",
+            "value" : "开发版本"
           }
         },
         "zh-Hant" : {
@@ -1697,8 +1697,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You're using a development version of {mod} (version {ver})."
+            "state" : "translated",
+            "value" : "您正在使用 {mod} 的开发版本（{ver} 版本）。"
           }
         },
         "zh-Hant" : {
@@ -1786,8 +1786,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Major update available for {mod}"
+            "state" : "translated",
+            "value" : "{mod} 主要更新可用"
           }
         },
         "zh-Hant" : {
@@ -1875,8 +1875,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Update available for {mod}"
+            "state" : "translated",
+            "value" : "{mod} 更新可用"
           }
         },
         "zh-Hant" : {
@@ -1964,8 +1964,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Patch available for {mod}"
+            "state" : "translated",
+            "value" : "{mod} 补丁可用"
           }
         },
         "zh-Hant" : {
@@ -2052,8 +2052,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You can update this mod by re-downloading it from the Nexus."
+            "state" : "translated",
+            "value" : "您可以通过从 Nexus 重新下载来更新此模组。"
           }
         },
         "zh-Hant" : {
@@ -2141,8 +2141,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Go to Nexus"
+            "state" : "translated",
+            "value" : "转到 Nexus"
           }
         },
         "zh-Hant" : {
@@ -2229,8 +2229,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You can view the changelog for this update online."
+            "state" : "translated",
+            "value" : "您可以在线查看本次更新日志。"
           }
         },
         "zh-Hant" : {
@@ -2318,8 +2318,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mods up-to-date"
+            "state" : "translated",
+            "value" : "模组已最新"
           }
         },
         "zh-Hant" : {
@@ -2406,8 +2406,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "All your mods are fully updated!"
+            "state" : "translated",
+            "value" : "您的所有模组已全部更新！"
           }
         },
         "zh-Hant" : {
@@ -2494,8 +2494,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "If you're a mod developer, you should enable developer mode, which gives you a few extra tools for developing mods."
+            "state" : "translated",
+            "value" : "如果您是模组开发者，则您应该启用开发者模式，这将为您提供一些额外的工具来开发模组。"
           }
         },
         "zh-Hant" : {
@@ -2583,8 +2583,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Developer mode"
+            "state" : "translated",
+            "value" : "开发者模式"
           }
         },
         "zh-Hant" : {
@@ -2672,8 +2672,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "I'm a mod user"
+            "state" : "translated",
+            "value" : "我是模组使用者"
           }
         },
         "zh-Hant" : {
@@ -2761,8 +2761,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "I'm a mod developer"
+            "state" : "translated",
+            "value" : "我是模组开发者"
           }
         },
         "zh-Hant" : {
@@ -2849,8 +2849,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The update to the mod is invalid!"
+            "state" : "translated",
+            "value" : "模组更新无效！"
           }
         },
         "zh-Hant" : {
@@ -2937,8 +2937,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The framework is being downloaded. Please wait."
+            "state" : "translated",
+            "value" : "正在下载框架，请稍候。"
           }
         },
         "zh-Hant" : {
@@ -3025,8 +3025,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The framework is being extracted. Please wait."
+            "state" : "translated",
+            "value" : "正在提取框架，请稍候。"
           }
         },
         "zh-Hant" : {
@@ -3113,8 +3113,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "There was an error updating the framework. Check your internet connection."
+            "state" : "translated",
+            "value" : "更新框架时出错。请检查您的网络连接。"
           }
         },
         "zh-Hant" : {
@@ -3202,8 +3202,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "OK"
+            "state" : "translated",
+            "value" : "确定"
           }
         },
         "zh-Hant" : {
@@ -3290,8 +3290,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod is being downloaded. Please wait."
+            "state" : "translated",
+            "value" : "正在下载模组，请稍候。"
           }
         },
         "zh-Hant" : {
@@ -3378,8 +3378,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "There was an error updating the mod. Check your internet connection."
+            "state" : "translated",
+            "value" : "更新模组时出错。请检查您的网络连接。"
           }
         },
         "zh-Hant" : {
@@ -3466,8 +3466,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod is being extracted. Please wait."
+            "state" : "translated",
+            "value" : "正在提取模组，请稍候。"
           }
         },
         "zh-Hant" : {
@@ -3554,8 +3554,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Can't automatically update this mod!"
+            "state" : "translated",
+            "value" : "无法自动更新此模组！"
           }
         },
         "zh-Hant" : {
@@ -3643,8 +3643,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Checking for mod updates"
+            "state" : "translated",
+            "value" : "正在检查模组更新"
           }
         },
         "zh-Hant" : {
@@ -3732,8 +3732,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Checking for hash list updates"
+            "state" : "translated",
+            "value" : "正在检查哈希列表更新"
           }
         },
         "zh-Hant" : {
@@ -3820,8 +3820,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Checking for updates to the hash lists..."
+            "state" : "translated",
+            "value" : "正在检查哈希列表更新……"
           }
         },
         "zh-Hant" : {
@@ -3909,8 +3909,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Home"
+            "state" : "translated",
+            "value" : "主页"
           }
         },
         "zh-Hant" : {
@@ -3998,8 +3998,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mods"
+            "state" : "translated",
+            "value" : "模组"
           }
         },
         "zh-Hant" : {
@@ -4087,8 +4087,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mod Explorer"
+            "state" : "translated",
+            "value" : "模组浏览器"
           }
         },
         "zh-Hant" : {
@@ -4176,8 +4176,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Settings"
+            "state" : "translated",
+            "value" : "设置"
           }
         },
         "zh-Hant" : {
@@ -4265,8 +4265,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Credits"
+            "state" : "translated",
+            "value" : "鸣谢"
           }
         },
         "zh-Hant" : {
@@ -4353,8 +4353,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The Simple Mod Framework directly uses the rpkg-rs library by Dafitius and the ResourceLib library by OrfeasZ for much of its functionality. The framework itself is licensed LGPLv3."
+            "state" : "translated",
+            "value" : "Simple Mod Manager 直接使用 Dafitius 的 rpkg-rs 库和 OrfeasZ 的 ResourceLib 库进行其大部分功能。 框架本身采用 LGPLv3 许可。"
           }
         },
         "zh-Hant" : {
@@ -4442,8 +4442,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Applying your mods"
+            "state" : "translated",
+            "value" : "正在应用您的模组"
           }
         },
         "zh-Hant" : {
@@ -4530,8 +4530,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This might take a while, depending on your system and the mods you've enabled."
+            "state" : "translated",
+            "value" : "这可能需要一段时间，取决于您的系统和您启用的模组。"
           }
         },
         "zh-Hant" : {
@@ -4619,8 +4619,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Deployment started"
+            "state" : "translated",
+            "value" : "部署已开始"
           }
         },
         "zh-Hant" : {
@@ -4707,8 +4707,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Your mods are being applied."
+            "state" : "translated",
+            "value" : "您的模组正在应用中。"
           }
         },
         "zh-Hant" : {
@@ -4796,8 +4796,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't start deployment"
+            "state" : "translated",
+            "value" : "无法启动部署"
           }
         },
         "zh-Hant" : {
@@ -4884,8 +4884,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Your mods couldn't be applied."
+            "state" : "translated",
+            "value" : "无法应用您的模组。"
           }
         },
         "zh-Hant" : {
@@ -4973,8 +4973,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Warning"
+            "state" : "translated",
+            "value" : "警告"
           }
         },
         "zh-Hant" : {
@@ -5062,8 +5062,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Error"
+            "state" : "translated",
+            "value" : "错误"
           }
         },
         "zh-Hant" : {
@@ -5151,8 +5151,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Deployment successful"
+            "state" : "translated",
+            "value" : "部署成功"
           }
         },
         "zh-Hant" : {
@@ -5239,8 +5239,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Your mods were applied successfully."
+            "state" : "translated",
+            "value" : "您的模组已成功应用。"
           }
         },
         "zh-Hant" : {
@@ -5417,8 +5417,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Deployment unsuccessful"
+            "state" : "translated",
+            "value" : "部署失败"
           }
         },
         "zh-Hant" : {
@@ -5506,8 +5506,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Continue"
+            "state" : "translated",
+            "value" : "继续"
           }
         },
         "zh-Hant" : {
@@ -5595,8 +5595,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Downloading"
+            "state" : "translated",
+            "value" : "正在下载"
           }
         },
         "zh-Hant" : {
@@ -5683,8 +5683,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod is currently being downloaded - please wait."
+            "state" : "translated",
+            "value" : "该模组正在下载 - 请稍候。"
           }
         },
         "zh-Hant" : {
@@ -5771,8 +5771,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't download the mod! Check your internet connection, or contact the mod author for help."
+            "state" : "translated",
+            "value" : "无法下载模组！请检查您的网络连接，或联系模组作者寻求帮助。"
           }
         },
         "zh-Hant" : {
@@ -5860,8 +5860,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enabled"
+            "state" : "translated",
+            "value" : "启用"
           }
         },
         "zh-Hant" : {
@@ -5948,8 +5948,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enabled by default"
+            "state" : "translated",
+            "value" : "默认启用"
           }
         },
         "zh-Hant" : {
@@ -6036,8 +6036,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Disabled by default"
+            "state" : "translated",
+            "value" : "默认禁用"
           }
         },
         "zh-Hant" : {
@@ -6125,8 +6125,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Default value:"
+            "state" : "translated",
+            "value" : "默认值:"
           }
         },
         "zh-Hant" : {
@@ -6214,8 +6214,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Value"
+            "state" : "translated",
+            "value" : "值"
           }
         },
         "zh-Hant" : {
@@ -6303,8 +6303,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mod name"
+            "state" : "translated",
+            "value" : "模组名称"
           }
         },
         "zh-Hant" : {
@@ -6391,8 +6391,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Please enter a name for the mod"
+            "state" : "translated",
+            "value" : "请输入模组名称"
           }
         },
         "zh-Hant" : {
@@ -6479,8 +6479,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod you're trying to install is invalid!"
+            "state" : "translated",
+            "value" : "您正在尝试安装的模组无效！"
           }
         },
         "zh-Hant" : {
@@ -6567,8 +6567,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod you're trying to install is a mod for an older version of the Simple Mod Framework, but it couldn't be automatically upgraded."
+            "state" : "translated",
+            "value" : "您正在尝试安装的模组是旧版本的 Simple Mod Framework 的模组，但它无法自动升级。"
           }
         },
         "zh-Hant" : {
@@ -6655,8 +6655,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod is being extracted and added to the framework. Please wait."
+            "state" : "translated",
+            "value" : "正在提取模组并添加到框架中，请稍候。"
           }
         },
         "zh-Hant" : {
@@ -6743,8 +6743,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "One or more mods have been installed directly into the Mods folder. This is not recommended; the GUI performs checks on mods for validity and security and installing directly to the Mods folder bypasses this. It's easy to break the framework by doing this."
+            "state" : "translated",
+            "value" : "一个或多个模组已直接安装到模组文件夹中。不推荐这样做：GUI可检查模组的有效性和安全性，直接安装到模组文件夹会绕过此功能。这样做很容易破坏框架。"
           }
         },
         "zh-Hant" : {
@@ -6831,8 +6831,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Improperly installed mod"
+            "state" : "translated",
+            "value" : "安装模组方式不当"
           }
         },
         "zh-Hant" : {
@@ -6920,8 +6920,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Adding mod"
+            "state" : "translated",
+            "value" : "添加模组"
           }
         },
         "zh-Hant" : {
@@ -7009,8 +7009,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't upgrade mod"
+            "state" : "translated",
+            "value" : "无法升级模组"
           }
         },
         "zh-Hant" : {
@@ -7098,8 +7098,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Invalid mod"
+            "state" : "translated",
+            "value" : "无效模组"
           }
         },
         "zh-Hant" : {
@@ -7187,8 +7187,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "RPKG mod"
+            "state" : "translated",
+            "value" : "RPKG 模组"
           }
         },
         "zh-Hant" : {
@@ -7275,8 +7275,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This mod is in the older RPKG format, which means that it might be incompatible with other mods, or cause issues in newer game versions. It also won't support SMF features like automatic updating. Are you sure you want to add it? There may be a newer version of the mod, or another mod that does the same thing, available."
+            "state" : "translated",
+            "value" : "此模组使用了较旧的 RPKG 格式，这意味着它可能与其他模组不兼容，或者在较新的游戏版本中造成问题。它也不支持自动更新等 SMF 功能。 您确定要添加它吗？可能有较新版本的模组，或者功能相同的模组。"
           }
         },
         "zh-Hant" : {
@@ -7364,8 +7364,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Cancel"
+            "state" : "translated",
+            "value" : "取消"
           }
         },
         "zh-Hant" : {
@@ -7453,8 +7453,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Available Mods"
+            "state" : "translated",
+            "value" : "可用模组"
           }
         },
         "zh-Hant" : {
@@ -7542,8 +7542,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Add a Mod"
+            "state" : "translated",
+            "value" : "添加模组"
           }
         },
         "zh-Hant" : {
@@ -7631,8 +7631,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Find Mods"
+            "state" : "translated",
+            "value" : "寻找模组"
           }
         },
         "zh-Hant" : {
@@ -7720,8 +7720,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Filter available mods"
+            "state" : "translated",
+            "value" : "筛选可用模组"
           }
         },
         "zh-Hant" : {
@@ -7809,8 +7809,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Invalid Mod"
+            "state" : "translated",
+            "value" : "无效模组"
           }
         },
         "zh-Hant" : {
@@ -7897,8 +7897,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Use VS Code or GlacierKit to see manifest errors."
+            "state" : "translated",
+            "value" : "使用 VS Code 或 GlacierKit 查看清单错误。"
           }
         },
         "zh-Hant" : {
@@ -7986,8 +7986,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Delete"
+            "state" : "translated",
+            "value" : "删除"
           }
         },
         "zh-Hant" : {
@@ -8074,8 +8074,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Error getting mods"
+            "state" : "translated",
+            "value" : "获取模组时出错"
           }
         },
         "zh-Hant" : {
@@ -8163,8 +8163,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enabled Mods"
+            "state" : "translated",
+            "value" : "已启用模组"
           }
         },
         "zh-Hant" : {
@@ -8252,8 +8252,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Apply Mods"
+            "state" : "translated",
+            "value" : "应用模组"
           }
         },
         "zh-Hant" : {
@@ -8341,8 +8341,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Profiles"
+            "state" : "translated",
+            "value" : "资料"
           }
         },
         "zh-Hant" : {
@@ -8430,8 +8430,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Deploy Analyser"
+            "state" : "translated",
+            "value" : "部署分析程序"
           }
         },
         "zh-Hant" : {
@@ -8519,8 +8519,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "No game selected"
+            "state" : "translated",
+            "value" : "未选择游戏"
           }
         },
         "zh-Hant" : {
@@ -8608,8 +8608,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Filter enabled mods"
+            "state" : "translated",
+            "value" : "筛选已启用模组"
           }
         },
         "zh-Hant" : {
@@ -8697,8 +8697,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Settings"
+            "state" : "translated",
+            "value" : "设置"
           }
         },
         "zh-Hant" : {
@@ -8786,8 +8786,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Disable"
+            "state" : "translated",
+            "value" : "禁用"
           }
         },
         "zh-Hant" : {
