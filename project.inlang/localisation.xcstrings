@@ -5328,8 +5328,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Potential issues in deployment"
+            "state" : "translated",
+            "value" : "可能的部署问题"
           }
         },
         "zh-Hant" : {
@@ -8874,8 +8874,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Drop to install"
+            "state" : "translated",
+            "value" : "拖放以安装"
           }
         },
         "zh-Hant" : {
@@ -8963,8 +8963,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Save Debugging Information"
+            "state" : "translated",
+            "value" : "保存调试信息"
           }
         },
         "zh-Hant" : {
@@ -9052,8 +9052,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Game install"
+            "state" : "translated",
+            "value" : "游戏安装"
           }
         },
         "zh-Hant" : {
@@ -9140,8 +9140,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Error updating mod"
+            "state" : "translated",
+            "value" : "更新模组时出错"
           }
         },
         "zh-Hant" : {
@@ -9229,8 +9229,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Updating mod"
+            "state" : "translated",
+            "value" : "正在更新模组"
           }
         },
         "zh-Hant" : {
@@ -9317,8 +9317,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Error updating framework"
+            "state" : "translated",
+            "value" : "更新框架时出错"
           }
         },
         "zh-Hant" : {
@@ -9406,8 +9406,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Updating framework"
+            "state" : "translated",
+            "value" : "正在更新框架"
           }
         },
         "zh-Hant" : {
@@ -9495,8 +9495,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't update mod"
+            "state" : "translated",
+            "value" : "无法更新模组"
           }
         },
         "zh-Hant" : {
@@ -9584,8 +9584,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Deploy Analyser"
+            "state" : "translated",
+            "value" : "部署分析程序"
           }
         },
         "zh-Hant" : {
@@ -9673,8 +9673,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "total"
+            "state" : "translated",
+            "value" : "总计"
           }
         },
         "zh-Hant" : {
@@ -9761,8 +9761,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Operations are performed in parallel, so the times below will be much larger than the total."
+            "state" : "translated",
+            "value" : "操作是并行进行的，因此下面的时间将大大超过总额。"
           }
         },
         "zh-Hant" : {
@@ -9849,8 +9849,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "These mods are sorted by popularity - you can check Nexus Mods for more."
+            "state" : "translated",
+            "value" : "这些模组按受欢迎程度排序 - 您可以检查 Nexus Mod 获取更多模组。"
           }
         },
         "zh-Hant" : {
@@ -9938,8 +9938,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Add Mod"
+            "state" : "translated",
+            "value" : "添加模组"
           }
         },
         "zh-Hant" : {
@@ -10027,8 +10027,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This mod has no options."
+            "state" : "translated",
+            "value" : "此模组没有选项。"
           }
         },
         "zh-Hant" : {
@@ -10116,8 +10116,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Language"
+            "state" : "translated",
+            "value" : "语言"
           }
         },
         "zh-Hant" : {
@@ -10205,8 +10205,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This software uses libarchive"
+            "state" : "translated",
+            "value" : "此软件使用 libarchive"
           }
         },
         "zh-Hant" : {
@@ -10294,8 +10294,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This software uses Zstandard compression"
+            "state" : "translated",
+            "value" : "此软件使用 Zstandard 压缩"
           }
         },
         "zh-Hant" : {
@@ -10383,8 +10383,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Profile name"
+            "state" : "translated",
+            "value" : "配置文件名称"
           }
         },
         "zh-Hant" : {
@@ -10472,8 +10472,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Please enter a name for the profile"
+            "state" : "translated",
+            "value" : "请输入配置文件名称"
           }
         },
         "zh-Hant" : {
@@ -10561,8 +10561,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Profiles"
+            "state" : "translated",
+            "value" : "配置文件列表"
           }
         },
         "zh-Hant" : {
@@ -10650,8 +10650,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You can save lists of mods, with their settings, as profiles to easily switch between them."
+            "state" : "translated",
+            "value" : "您可以保存带有设置的模组列表作为配置文件，以便在它们之间轻松切换。"
           }
         },
         "zh-Hant" : {
@@ -10739,8 +10739,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Current settings"
+            "state" : "translated",
+            "value" : "当前设置"
           }
         },
         "zh-Hant" : {
@@ -10828,8 +10828,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Save as Profile"
+            "state" : "translated",
+            "value" : "保存为配置文件"
           }
         },
         "zh-Hant" : {
@@ -10917,8 +10917,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The Mod Explorer is not available offline."
+            "state" : "translated",
+            "value" : "模组浏览器离线时不可用。"
           }
         },
         "zh-Hant" : {
@@ -11006,8 +11006,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "No game path selected"
+            "state" : "translated",
+            "value" : "未选择游戏路径"
           }
         },
         "zh-Hant" : {
@@ -11094,8 +11094,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You haven't selected a game path - do that in the Mods page before adding your mods."
+            "state" : "translated",
+            "value" : "您还没有选择游戏路径 - 在添加您的模组之前在模组页面进行此操作。"
           }
         },
         "zh-Hant" : {
@@ -11182,8 +11182,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mod contains Peacock plugins"
+            "state" : "translated",
+            "value" : "模组包含 Peacock 插件"
           }
         },
         "zh-Hant" : {
@@ -11270,8 +11270,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This mod contains Peacock plugins; if you use the Peacock server emulator after applying this mod, its plugins will be able to run their own code, giving the mod's author complete control over your PC. Make sure you trust whoever developed this mod, and wherever you downloaded it from. Are you sure you want to add this mod?"
+            "state" : "translated",
+            "value" : "此模组包含 Peacock 插件；如果您在应用此模组后使用了 Peacock 模拟服务器，它的插件将能够运行自己的代码，让模组的作者完全控制您的 PC。请确保您信任此模组的开发者以及下载来源。您确定要添加这个模组吗？"
           }
         },
         "zh-Hant" : {
@@ -11358,8 +11358,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Requires {mod}"
+            "state" : "translated",
+            "value" : "需要 {mod}"
           }
         },
         "zh-Hant" : {
@@ -11446,8 +11446,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Incompatible with {mod}"
+            "state" : "translated",
+            "value" : "与 {mod} 不兼容"
           }
         },
         "zh-Hant" : {
@@ -11534,8 +11534,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mod's Peacock plugins have changed"
+            "state" : "translated",
+            "value" : "模组的 Peacock 插件已更改"
           }
         },
         "zh-Hant" : {
@@ -11622,8 +11622,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The Peacock plugins included with this mod have changed, or new plugins have been introduced. If you use the Peacock server emulator after applying this mod, its plugins will be able to run their own code, giving the mod's author complete control over your PC. Make sure you trust whoever developed this mod, and wherever you originally downloaded it from. Are you sure you want to update this mod?"
+            "state" : "translated",
+            "value" : "此模组包含的 Peacock 插件已更改，或新插件已启用。如果您在应用此模组后使用了 Peacock 模拟服务器， 它的插件将能够运行自己的代码，让模组作者完全控制您的 PC。请确保您信任此模组的开发者以及下载来源。您确定要更新这个模组吗？"
           }
         },
         "zh-Hant" : {
@@ -11711,8 +11711,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enable SMF analytics and server features"
+            "state" : "translated",
+            "value" : "启用 SMF 分析和服务器功能"
           }
         },
         "zh-Hant" : {
@@ -11799,8 +11799,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Analytics and server features are disabled"
+            "state" : "translated",
+            "value" : "分析和服务器功能已禁用"
           }
         },
         "zh-Hant" : {
@@ -11887,8 +11887,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Analytics, and features powered by them, are currently disabled. Analytics are completely anonymous, and enabling them allows for mod conflict detection, more reliable mod update checking and other useful features."
+            "state" : "translated",
+            "value" : "分析及其支持的特性目前已禁用。分析是完全匿名的，使其能够检测模组冲突、更可靠的模组更新检查和其他有用的功能。"
           }
         },
         "zh-Hant" : {
@@ -11975,8 +11975,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This feature enables completely anonymous reporting of mod lists and basic settings, which allows for statistics around mod usage and conflict detection. It also makes mod update checking more reliable, avoiding rate-limiting for mods hosted on GitHub. A ping with no other information will still be sent if this is disabled, to allow determining how representative the sample is."
+            "state" : "translated",
+            "value" : "此功能允许完全匿名报告模组列表和基本设置，允许提供关于模组使用和冲突侦测的统计数据。它还使模组更新检查更加可靠，避免对托管在 GitHub 上的模组进行比率限制。如果禁用，将仍然发送没有其他信息的ping，以确定样品的代表性。"
           }
         },
         "zh-Hant" : {
@@ -12064,8 +12064,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Disable dynamic resources when necessary"
+            "state" : "translated",
+            "value" : "必要时禁用动态资源"
           }
         },
         "zh-Hant" : {
@@ -12152,8 +12152,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Makes it possible to use certain changes in online mode. You should leave this on unless you have a specific reason not to."
+            "state" : "translated",
+            "value" : "允许在在线模式下使用某些更改。除非您有特定的理由不使用此功能，否则请保持开启。"
           }
         },
         "zh-Hant" : {
@@ -12240,8 +12240,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod is being upgraded to the latest framework version. Please wait."
+            "state" : "translated",
+            "value" : "模组正在升级到最新的框架版本。请稍候。"
           }
         },
         "zh-Hant" : {
@@ -12329,8 +12329,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Unrecognised game version"
+            "state" : "translated",
+            "value" : "无法识别的游戏版本"
           }
         },
         "zh-Hant" : {
@@ -12417,8 +12417,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "If the game has recently updated, the framework will need to be patched by its developers."
+            "state" : "translated",
+            "value" : "如果游戏最近更新，框架将需要由开发者修复。"
           }
         },
         "zh-Hant" : {
@@ -12505,8 +12505,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "If you're using a pirated or cracked version of the game, that's the problem."
+            "state" : "translated",
+            "value" : "如果您正在使用盗版或破解的游戏版本，问题就在于此。"
           }
         },
         "zh-Hant" : {
@@ -12593,8 +12593,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Has a game update recently been released?"
+            "state" : "translated",
+            "value" : "最近是否发布过游戏更新？"
           }
         },
         "zh-Hant" : {
@@ -12681,8 +12681,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Wait for the Simple Mod Framework to be updated by its developers. You will see the update when it is released on the Home page. Do not post a comment on Nexus about this."
+            "state" : "translated",
+            "value" : "等待开发者更新 Simple Mod Framework。发布后您将在主页看到更新。请不要在 Nexus 上发表此问题的评论。"
           }
         },
         "zh-Hant" : {
@@ -12769,8 +12769,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Verify your game files and ensure you are on the latest version of the game, using the Steam, Epic or Microsoft/Xbox app. You can search \"how do I verify my game files\" on Google for more information."
+            "state" : "translated",
+            "value" : "使用 Steam、Epic 或 Microsoft/Xbox 应用程序验证您的游戏文件并确保您处于最新版本的游戏。 您可以在 Google 搜索“如何验证我的游戏文件”以获取更多信息。"
           }
         },
         "zh-Hant" : {
@@ -12858,8 +12858,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Yes"
+            "state" : "translated",
+            "value" : "是"
           }
         },
         "zh-Hant" : {
@@ -12947,8 +12947,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "No"
+            "state" : "translated",
+            "value" : "否"
           }
         },
         "zh-Hant" : {
@@ -13035,8 +13035,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "READ the following before asking for support with this issue."
+            "state" : "translated",
+            "value" : "在请求对此问题的支持之前，请注意阅读以下内容。"
           }
         },
         "zh-Hant" : {
@@ -13124,8 +13124,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Read Aloud"
+            "state" : "translated",
+            "value" : "大声朗读"
           }
         },
         "zh-Hant" : {
@@ -13212,8 +13212,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This mod contains ZHMModSDK mods. When you run the game, its DLLs will be able to run their own code, giving the mod's author complete control over your PC. Make sure you trust whoever developed this mod, and wherever you downloaded it from. Are you sure you want to add this mod?"
+            "state" : "translated",
+            "value" : "此模组包含 ZHMModSDK 模组。 当您运行游戏时，其 DLL 将能够运行自己的代码，让模组作者完全控制您的 PC。 请确保您信任模组开发者以及下载来源。您确定要添加这个模组吗？"
           }
         },
         "zh-Hant" : {
@@ -13300,8 +13300,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mod contains SDK mods"
+            "state" : "translated",
+            "value" : "模组包含 SDK 模组"
           }
         },
         "zh-Hant" : {
@@ -13389,8 +13389,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Read Before Continuing"
+            "state" : "translated",
+            "value" : "阅读后再继续"
           }
         },
         "zh-Hant" : {
@@ -13478,8 +13478,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Custom boot scene"
+            "state" : "translated",
+            "value" : "自定义启动场景"
           }
         },
         "zh-Hant" : {
@@ -13566,8 +13566,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Overrides the scene path that the game launches to. Should be a bare scene path, without the .pc_entitytype suffix."
+            "state" : "translated",
+            "value" : "覆盖游戏启动到的场景路径。应该是裸场景路径，而不是 .pc_entityype 后缀。"
           }
         },
         "zh-Hant" : {
@@ -13655,8 +13655,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Select"
+            "state" : "translated",
+            "value" : "选择"
           }
         },
         "zh-Hant" : {
@@ -13744,8 +13744,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Selected"
+            "state" : "translated",
+            "value" : "已选择"
           }
         },
         "zh-Hant" : {
@@ -13833,8 +13833,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Back to Mods"
+            "state" : "translated",
+            "value" : "返回模组"
           }
         },
         "zh-Hant" : {
@@ -13922,8 +13922,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Remove Unavailable Mods"
+            "state" : "translated",
+            "value" : "移除不可用模组"
           }
         },
         "zh-Hant" : {
@@ -14010,8 +14010,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "{mods} mods enabled, plus mod settings"
+            "state" : "translated",
+            "value" : "{mods} 模组已启用，包含模组设置"
           }
         },
         "zh-Hant" : {
@@ -14099,8 +14099,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Go to Settings"
+            "state" : "translated",
+            "value" : "转到设置"
           }
         },
         "zh-Hant" : {
@@ -14187,8 +14187,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "An update to the ZHMModSDK is available from version {oldVersion} to {newVersion}. You can update from the Settings page."
+            "state" : "translated",
+            "value" : "ZHMModSDK 有更新可用，版本从 {oldVersion} 升级至 {newVersion}。您可以在“设置”页面进行更新。"
           }
         },
         "zh-Hant" : {
@@ -14276,8 +14276,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "ZHMModSDK update available"
+            "state" : "translated",
+            "value" : "ZHMModSDK 更新可用"
           }
         },
         "zh-Hant" : {
@@ -14364,8 +14364,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The ZHMModSDK allows mods to hook into the game's behaviour while it is running, enabling new kinds of mods."
+            "state" : "translated",
+            "value" : "ZHMModSDK 允许模组在游戏运行时绑定游戏行为，启用了新类型的模组。"
           }
         },
         "zh-Hant" : {
@@ -14452,8 +14452,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "While the SDK itself is safe for your computer, mods might not be, so SMF will warn you when you add a new mod that uses it."
+            "state" : "translated",
+            "value" : "虽然 SDK 本身对您的计算机是安全的，但模组可能不安全。因此当您添加一个使用它的新模组时，SMF 会警告您。"
           }
         },
         "zh-Hant" : {
@@ -14540,8 +14540,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Installed"
+            "state" : "translated",
+            "value" : "已安装"
           }
         },
         "zh-Hant" : {
@@ -14629,8 +14629,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "version {version}"
+            "state" : "translated",
+            "value" : "版本 {version}"
           }
         },
         "zh-Hant" : {
@@ -14718,8 +14718,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "checking for updates..."
+            "state" : "translated",
+            "value" : "正在检查更新……"
           }
         },
         "zh-Hant" : {
@@ -14807,8 +14807,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "update available to {version}"
+            "state" : "translated",
+            "value" : "可更新至 {version}"
           }
         },
         "zh-Hant" : {
@@ -14896,8 +14896,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "up to date"
+            "state" : "translated",
+            "value" : "已是最新"
           }
         },
         "zh-Hant" : {
@@ -14985,8 +14985,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "can't check for updates"
+            "state" : "translated",
+            "value" : "无法检查更新"
           }
         },
         "zh-Hant" : {
@@ -15073,8 +15073,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The SDK is installed on the currently selected game."
+            "state" : "translated",
+            "value" : "SDK 已安装在当前选中的游戏中。"
           }
         },
         "zh-Hant" : {
@@ -15162,8 +15162,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Remove"
+            "state" : "translated",
+            "value" : "移除"
           }
         },
         "zh-Hant" : {
@@ -15251,8 +15251,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Not installed"
+            "state" : "translated",
+            "value" : "未安装"
           }
         },
         "zh-Hant" : {
@@ -15339,8 +15339,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The SDK is not installed on the currently selected game."
+            "state" : "translated",
+            "value" : "SDK 未安装在当前选中的游戏中。"
           }
         },
         "zh-Hant" : {
@@ -15427,8 +15427,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Unable to check installed SDK status."
+            "state" : "translated",
+            "value" : "无法检查已安装的 SDK 状态。"
           }
         },
         "zh-Hant" : {
@@ -15515,8 +15515,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Select a game path in the Mods page to configure the SDK."
+            "state" : "translated",
+            "value" : "在模组页面选择一个游戏路径来配置 SDK。"
           }
         },
         "zh-Hant" : {
@@ -15604,8 +15604,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Install"
+            "state" : "translated",
+            "value" : "安装"
           }
         },
         "zh-Hant" : {
@@ -15693,8 +15693,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "(default)"
+            "state" : "translated",
+            "value" : "(默认)"
           }
         },
         "zh-Hant" : {
@@ -15782,8 +15782,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Reset to Defaults"
+            "state" : "translated",
+            "value" : "重置为默认"
           }
         },
         "zh-Hant" : {
@@ -15870,8 +15870,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Only supports {supported}"
+            "state" : "translated",
+            "value" : "仅支持 {supported}"
           }
         },
         "zh-Hant" : {
@@ -15958,8 +15958,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The currently selected game version doesn't have a mod SDK available."
+            "state" : "translated",
+            "value" : "当前选择的游戏版本没有 SDK 可用的模组。"
           }
         },
         "zh-Hant" : {
@@ -16047,8 +16047,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Switch to Unstable"
+            "state" : "translated",
+            "value" : "切换到不稳定版"
           }
         },
         "zh-Hant" : {
@@ -16136,8 +16136,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Switch to Stable"
+            "state" : "translated",
+            "value" : "切换到稳定版"
           }
         },
         "zh-Hant" : {
@@ -16225,8 +16225,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Rate limit hit"
+            "state" : "translated",
+            "value" : "速率限制"
           }
         },
         "zh-Hant" : {
@@ -16313,8 +16313,8 @@
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "{skipped} mods couldn't be checked for updates due to Nexus Mods or GitHub rate limiting. Consider enabling analytics and server features to avoid this."
+            "state" : "translated",
+            "value" : "由于 Nexus Mods 或 GitHub 速率限制，{skipped} 模组无法检查更新。请考虑启用分析和服务器特性以避免。"
           }
         },
         "zh-Hant" : {
