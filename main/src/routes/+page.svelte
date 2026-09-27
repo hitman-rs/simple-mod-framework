@@ -252,6 +252,7 @@
 		gui(config).knownMods = [...gui(config).knownMods, newManifest.id]
 
 		modUpdateData.updates.find((a) => a.type === "autoUpdateAvailable" && a.modId === modId)!.type = "upToDate"
+		modExtractDialog.hide()
 	}
 
 	let sdkUpdate: { type: "sdkUpdate"; data: { oldVersion: string; newVersion: string } } | null = $state(null)
