@@ -31,3 +31,20 @@ export function observe<T extends HTMLElement>(node: T, { callback, ...options }
 		}
 	}
 }
+
+export const localeNames = {
+	en: "English",
+	es: "Español",
+	"es-MX": "Español (México)",
+	fr: "Français",
+	de: "Deutsch",
+	it: "Italiano",
+	ja: "日本語",
+	"zh-Hans": "简体中文",
+	"zh-Hant": "繁體中文",
+	pl: "Polski",
+	"pt-BR": "Português (Brasil)",
+	ru: "Русский",
+	tr: "Türkçe",
+	ko: "한국어"
+}

@@ -8,7 +8,7 @@
 	import { type } from "@tauri-apps/plugin-os"
 	import { download } from "@tauri-apps/plugin-upload"
 	import { relaunch } from "@tauri-apps/plugin-process"
-	import { config, gameInstalls, gui } from "$lib/config.svelte"
+	import { config, gameInstalls, gui, saveConfig } from "$lib/config.svelte"
 	import { open } from "@tauri-apps/plugin-shell"
 	import modUpdateData, { type ModUpdate } from "$lib/mod-update-data.svelte"
 	import * as m from "$lib/paraglide/messages"
@@ -16,6 +16,8 @@
 	import { versionCache } from "$lib/ephemeral.svelte"
 	import { getH3GamePath, getV2ModInfo } from "$lib/mods.svelte"
 	import isEqual from "lodash.isequal"
+	import { locales } from "$lib/paraglide/runtime"
+	import { localeNames } from "$lib/utils"
 
 	const smfVersion = commands.rsGetFrameworkVersion()
 	let latestSmfVersion: Promise<string> | null = $state(null)
@@ -447,6 +449,22 @@
 <sl-dialog label={m.DeveloperModeUpsell()} bind:this={developerModeDialog} class="noClose" onsl-request-close={(e) => e.preventDefault()}>
 	{m.DeveloperModeUpsellDesc()}
 
+	<div class="mt-4 mb-1">{m.Language()}</div>
+	<sl-select
+		class="max-w-md"
+		placeholder={m.Language()}
+		value={config.uiLocale}
+		onsl-change={async (e) => {
+			config.uiLocale = e.target.value
+			await saveConfig()
+			window.location.reload()
+		}}
+	>
+		{#each locales as locale}
+			<sl-option value={locale}>{localeNames[locale]}</sl-option>
+		{/each}
+	</sl-select>
+
 	<div class="flex gap-2" slot="footer">
 		<sl-button
 			variant="primary"
@@ -480,6 +498,10 @@
 				...(experiment ? [{ type: "experiment" } as const] : []),
 				{ type: "smfVersion" } as const,
 				...(sdkUpdate ? [sdkUpdate] : []),
+				...(modUpdateData.updates.filter((a, idx, arr) => arr.findIndex((b) => isEqual(a, b)) === idx).filter((a) => a.type === "autoUpdateAvailable").length > 1
+					? [{ type: "modsToUpdate" } as const]
+					: []),
+				...(modUpdateData.skipped > 0 ? [{ type: "updateCheckSkipped", skipped: modUpdateData.skipped } as const] : []),
 				...(modUpdateData.checkingFinished && modUpdateData.updates.every((a) => a.type === "upToDate")
 					? [{ type: "modsUpToDate" } as const]
 					: modUpdateData.updates
@@ -490,7 +512,6 @@
 								return order.indexOf(a.type) - order.indexOf(b.type)
 							})
 							.map((a) => ({ type: "modUpdate", data: a }) as const)),
-				...(modUpdateData.skipped > 0 ? [{ type: "updateCheckSkipped", skipped: modUpdateData.skipped } as const] : []),
 				...(!modUpdateData.checkingFinished ? [{ type: "updateChecking" } as const] : [])
 			]}
 			getId={(item) => (item.type === "modUpdate" ? `${item.data.type}-${item.data.modName}` : item.type)}
@@ -586,6 +607,27 @@
 						</div>
 						<div>{m.ModsUpToDateDesc()}</div>
 					</sl-card>
+				{:else if item.type === "modsToUpdate"}
+					{@const updates = modUpdateData.updates.filter((a, idx, arr) => arr.findIndex((b) => isEqual(a, b)) === idx).filter((a) => a.type === "autoUpdateAvailable").length}
+					<sl-card class="w-full">
+						<div slot="header">
+							<h2 class="text-xl 2xl:text-2xl font-bold">{m.NModUpdatesAvailable({ updates })}</h2>
+						</div>
+						<div>{m.NModUpdatesAvailableDesc({ updates })}</div>
+						<div slot="footer"
+							><sl-button
+								variant="primary"
+								onclick={async () => {
+									for (const update of modUpdateData.updates.filter((a) => a.type === "autoUpdateAvailable")) {
+										await new Promise(async (resolve) => {
+											modUpdateCallback = resolve
+											await updateMod(update)
+										})
+									}
+								}}>{m.UpdateAllButton()}</sl-button
+							></div
+						>
+					</sl-card>
 				{:else if item.type === "modUpdate"}
 					{@const update = item.data}
 					{#if update.type === "failed"}
@@ -629,7 +671,7 @@
 							<div class="changelog">
 								{#if update.changelogIsURL}
 									<!-- svelte-ignore a11y_invalid_attribute -->
-									<a href="#" onclick={() => open(update.changelog)}>{m.ViewChangelogOnline()}</a>
+									<a href="#" class="text-primary-300 hover:underline" onclick={() => open(update.changelog)}>{m.ViewChangelogOnline()}</a>
 								{:else}
 									{#await marked(update.changelog, { gfm: true }) then x}{@html sanitise(x)}{/await}
 								{/if}

@@ -2,24 +2,8 @@
 	import { config, saveConfig } from "$lib/config.svelte"
 	import * as m from "$lib/paraglide/messages"
 	import { locales } from "$lib/paraglide/runtime"
+	import { localeNames } from "$lib/utils"
 	import SDKManager from "./SDKManager.svelte"
-
-	const localeNames = {
-		en: "English",
-		es: "Español",
-		"es-MX": "Español (México)",
-		fr: "Français",
-		de: "Deutsch",
-		it: "Italiano",
-		ja: "日本語",
-		"zh-Hans": "简体中文",
-		"zh-Hant": "繁體中文",
-		pl: "Polski",
-		"pt-BR": "Português (Brasil)",
-		ru: "Русский",
-		tr: "Türkçe",
-		ko: "한국어"
-	}
 </script>
 
 <div class="mb-3">
@@ -38,6 +22,12 @@
 			<sl-option value={locale}>{localeNames[locale]}</sl-option>
 		{/each}
 	</sl-select>
+	{#if config.uiLocale !== "en"}
+		<p class="mt-2 mb-4">
+			<a href="https://crowdin.com/project/simple-mod-framework" target="_blank" class="text-primary-300 hover:underline">{m.CrowdinNudge()}</a><br />
+			{m.CrowdinNudge2()}
+		</p>
+	{/if}
 </div>
 <sl-checkbox
 	checked={config.skipIntro}

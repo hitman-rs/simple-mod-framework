@@ -17,6 +17,7 @@
 	import { watch } from "runed"
 	import { page } from "$app/state"
 	import { Masonry } from "svelte-bricks"
+	import { open as shellOpen } from "@tauri-apps/plugin-shell"
 
 	const validateManifest = (async () => new Ajv({ validateFormats: false }).compile<Manifest>((await commands.rsGetManifestSchema()) as unknown as any))()
 
@@ -578,6 +579,28 @@
 											gui(config).knownMods = gui(config).knownMods.filter((a) => a !== manifest.id)
 										}}>{m.DeleteButton()}</sl-button
 									>
+									<div class="flex-grow"></div>
+									{#if manifest.links?.info}
+										<sl-tooltip content={m.InfoLinkDesc()}>
+											<sl-button circle variant="primary" href="#" onclick={() => shellOpen(manifest.links?.info || "")}>
+												<sl-icon name="info-lg" label={m.InfoLinkDesc()}></sl-icon>
+											</sl-button>
+										</sl-tooltip>
+									{/if}
+									{#if manifest.links?.issues}
+										<sl-tooltip content={m.IssuesLinkDesc()}>
+											<sl-button circle variant="primary" href="#" onclick={() => shellOpen(manifest.links?.issues || "")}>
+												<sl-icon name="bug" label={m.IssuesLinkDesc()}></sl-icon>
+											</sl-button>
+										</sl-tooltip>
+									{/if}
+									{#if manifest.links?.support}
+										<sl-tooltip content={m.SupportLinkDesc()}>
+											<sl-button circle variant="primary" href="#" onclick={() => shellOpen(manifest.links?.support || "")}>
+												<sl-icon name="envelope-paper-heart" label={m.SupportLinkDesc()}></sl-icon>
+											</sl-button>
+										</sl-tooltip>
+									{/if}
 								</div>
 							</sl-card>
 						{:else}
@@ -656,12 +679,43 @@
 									<p class="text-sm">{loc(manifest.description)}</p>
 								</div>
 								<div class="flex gap-2 items-center">
-									{#if manifest.options?.filter((a) => a.type !== "conditional").length}
-										<sl-button variant={!isEqual(getAllOptions(manifest.options), gui(config).knownModOptions[mod]) ? "success" : "primary"} href="/mod-options?mod={mod}"
-											>{m.SettingsButton()}</sl-button
-										>
+									{#if manifest.links?.info}
+										<sl-tooltip content={m.InfoLinkDesc()}>
+											<sl-button circle variant="primary" href="#" onclick={() => shellOpen(manifest.links?.info || "")}>
+												<sl-icon name="info-lg" label={m.InfoLinkDesc()}></sl-icon>
+											</sl-button>
+										</sl-tooltip>
 									{/if}
-									<sl-button variant="danger" onclick={() => (config.deployOrder = config.deployOrder.filter((a) => a !== mod))}>{m.DisableButton()}</sl-button>
+									{#if manifest.links?.issues}
+										<sl-tooltip content={m.IssuesLinkDesc()}>
+											<sl-button circle variant="primary" href="#" onclick={() => shellOpen(manifest.links?.issues || "")}>
+												<sl-icon name="bug" label={m.IssuesLinkDesc()}></sl-icon>
+											</sl-button>
+										</sl-tooltip>
+									{/if}
+									{#if manifest.links?.support}
+										<sl-tooltip content={m.SupportLinkDesc()}>
+											<sl-button circle variant="primary" href="#" onclick={() => shellOpen(manifest.links?.support || "")}>
+												<sl-icon name="envelope-paper-heart" label={m.SupportLinkDesc()}></sl-icon>
+											</sl-button>
+										</sl-tooltip>
+									{/if}
+									{#if manifest.options?.filter((a) => a.type !== "conditional").length}
+										<sl-tooltip content={m.SettingsButton()}>
+											<sl-button
+												circle
+												variant={!isEqual(getAllOptions(manifest.options), gui(config).knownModOptions[mod]) ? "success" : "primary"}
+												href="/mod-options?mod={mod}"
+											>
+												<sl-icon name="gear" label={m.SettingsButton()}></sl-icon>
+											</sl-button>
+										</sl-tooltip>
+									{/if}
+									<sl-tooltip content={m.DisableButton()}>
+										<sl-button circle variant="danger" onclick={() => (config.deployOrder = config.deployOrder.filter((a) => a !== mod))}>
+											<sl-icon name="x-lg" label={m.DisableButton()}></sl-icon>
+										</sl-button>
+									</sl-tooltip>
 								</div>
 							</div>
 						</div>
