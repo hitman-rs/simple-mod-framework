@@ -14,7 +14,7 @@ pub mod world;
 
 pub const H3_VERSION: &str = "3.280.0";
 
-pub const FL_VERSION: &str = "1.2.2";
+pub const FL_VERSION: &str = "1.3.0";
 
 pub static GAME_HASHES: LazyLock<HashMap<&'static str, VersionPlatform>> = LazyLock::new(|| {
 	velcro::map_iter! {
@@ -26,7 +26,7 @@ pub static GAME_HASHES: LazyLock<HashMap<&'static str, VersionPlatform>> = LazyL
 		// Gamepass/store protects the EXE from reading so we can't hash it, instead we hash the game config
 		"7814483cb24ba31e9d3cc5d8c0977920": VersionPlatform { version: GlacierGame::H3, platform: Platform::Microsoft },
 
-		"cb2718d0d8a9c2b1e13198eb92d3b013": VersionPlatform { version: GlacierGame::FL, platform: Platform::Steam },
+		"ed8c273a33dee4861b13503183a54e95": VersionPlatform { version: GlacierGame::FL, platform: Platform::Steam },
 	}
 	.collect()
 });
