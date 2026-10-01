@@ -24,4 +24,4 @@ pub mod run;
 pub static APP_VERSION: LazyLock<Version> =
 	LazyLock::new(|| Version::parse(env!("CARGO_PKG_VERSION")).expect("Cargo crate version is invalid semver"));
 
-pub static EXPERIMENT: Option<&'static str> = Some("SMFv3 closed beta");
+pub static EXPERIMENT: Option<&'static str> = Some("SMFv3 open beta");

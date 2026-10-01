@@ -196,7 +196,7 @@
 				version: "1.0.0",
 				frameworkVersion: "3.0.0",
 				conditions: {
-					supportedGames: ["h3"]
+					supportedGames: ["h1", "h2", "h3", "fl"]
 				},
 				data: {
 					contentFolders: ["content"]
@@ -472,7 +472,7 @@
 					}
 				}}>{m.AddModButton()}</sl-button
 			>
-			{#if config.developerMode}
+			<!-- {#if config.developerMode}
 				<sl-button
 					onclick={async () => {
 						const path = await open({
@@ -531,7 +531,7 @@
 					}}
 					>Import Entire Mods Folder
 				</sl-button>
-			{/if}
+			{/if} -->
 			<sl-input placeholder={m.FilterAvailableMods()} value={disabledModsFilter} oninput={(evt) => (disabledModsFilter = evt.target.value)}>
 				<sl-icon name="funnel" slot="prefix"></sl-icon>
 			</sl-input>
