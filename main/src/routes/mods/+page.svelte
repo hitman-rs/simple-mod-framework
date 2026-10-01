@@ -383,8 +383,6 @@
 	</div>
 </sl-dialog>
 
-<!-- TODO: Show mod links -->
-
 <sl-dialog label={m.ModName()} bind:this={rpkgModNameDialog}>
 	<sl-input label={m.EnterModName()} value={rpkgModName} oninput={(evt) => (rpkgModName = evt.target.value)}></sl-input>
 	<br />

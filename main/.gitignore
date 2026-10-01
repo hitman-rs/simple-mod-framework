@@ -17,3 +17,4 @@ vite.config.ts.timestamp-*
 /staging
 /temp
 /dist
+/.yarn/install-state.gz

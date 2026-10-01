@@ -469,7 +469,6 @@ fn is_default<T: Default + PartialEq>(val: &T) -> bool {
 	*val == T::default()
 }
 
-// TODO: UI implementation of links
 #[derive(Serialize, Deserialize, JsonSchema, Clone, Debug, Type, PartialEq, Default)]
 #[serde(rename_all = "camelCase")]
 pub struct Links {
