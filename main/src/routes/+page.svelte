@@ -49,6 +49,8 @@
 		}
 	}
 
+	let modUpdateCallback: ((success: boolean) => void) | null = $state(null)
+
 	async function updateMod(update: ModUpdate) {
 		try {
 			if (update.type === "autoUpdateAvailable") {
@@ -253,6 +255,9 @@
 
 		modUpdateData.updates.find((a) => a.type === "autoUpdateAvailable" && a.modId === modId)!.type = "upToDate"
 		modExtractDialog.hide()
+
+		modUpdateCallback?.(true)
+		modUpdateCallback = null
 	}
 
 	let sdkUpdate: { type: "sdkUpdate"; data: { oldVersion: string; newVersion: string } } | null = $state(null)
@@ -347,6 +352,8 @@
 			onclick={async () => {
 				peacockPluginWarningDialog.hide()
 				await remove("extraction", { recursive: true })
+				modUpdateCallback?.(false)
+				modUpdateCallback = null
 			}}>{m.CancelButton()}</sl-button
 		>
 	</div>
@@ -369,6 +376,8 @@
 			onclick={async () => {
 				sdkModWarningDialog.hide()
 				await remove("extraction", { recursive: true })
+				modUpdateCallback?.(false)
+				modUpdateCallback = null
 			}}>{m.CancelButton()}</sl-button
 		>
 	</div>
@@ -378,7 +387,15 @@
 	{m.ErrorUpdatingModDesc()}
 	<pre><code>{modUpdateError}</code></pre>
 
-	<sl-button slot="footer" variant="primary" onclick={modUpdateErrorDialog.hide}>
+	<sl-button
+		slot="footer"
+		variant="primary"
+		onclick={() => {
+			modUpdateErrorDialog.hide()
+			modUpdateCallback?.(false)
+			modUpdateCallback = null
+		}}
+	>
 		{m.OKButton()}
 	</sl-button>
 </sl-dialog>
@@ -413,6 +430,18 @@
 <sl-dialog label={m.CouldntUpdateMod()} bind:this={validationDialog}>
 	{m.CouldntUpdateModDesc()}
 	<pre><code>{validationMessage}</code></pre>
+
+	<sl-button
+		slot="footer"
+		variant="primary"
+		onclick={() => {
+			validationDialog.hide()
+			modUpdateCallback?.(false)
+			modUpdateCallback = null
+		}}
+	>
+		{m.OKButton()}
+	</sl-button>
 </sl-dialog>
 
 <sl-dialog label={m.DeveloperModeUpsell()} bind:this={developerModeDialog} class="noClose" onsl-request-close={(e) => e.preventDefault()}>
