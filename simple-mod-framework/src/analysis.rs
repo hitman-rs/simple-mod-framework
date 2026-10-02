@@ -1291,7 +1291,33 @@ fn get_operations_from_file(
 			.wrap_err("File extension is not a valid resource type")
 			.intentional()?;
 
-		if id == REPO_ID.to_hash() {
+		let metadata = if let Ok(metadata_contents) =
+			world.read_mod_file(mod_id, &file.with_extension(format!("{resource_type}.metadata.json")))
+		{
+			Some(
+				from_slice::<ResourceMetadata>(&metadata_contents)
+					.wrap_err("metadata.json was not valid resource metadata JSON")
+					.intentional()?
+			)
+		} else {
+			None
+		};
+
+		let id = if id.len() == 16
+			&& id.starts_with("00")
+			&& let Ok(id) = RuntimeID::from_str(id)
+		{
+			id
+		} else if let Some(metadata) = &metadata {
+			metadata.id
+		} else {
+			bail!(
+				"File {} has an invalid resource ID in filename and no metadata.json",
+				file.as_str()
+			);
+		};
+
+		if id == REPO_ID {
 			intentional_halt!(
 				attribution,
 				"This mod overwrites the repository file in its entirety. This is not permitted for compatibility \
@@ -1299,7 +1325,7 @@ fn get_operations_from_file(
 			);
 		}
 
-		if id == UNLOCKABLES_ID_WOA.to_hash() || id == UNLOCKABLES_ID_FL.to_hash() {
+		if id == UNLOCKABLES_ID_WOA || id == UNLOCKABLES_ID_FL {
 			intentional_halt!(
 				attribution,
 				"This mod overwrites the unlockables file in its entirety. This is not permitted for compatibility \
@@ -1307,28 +1333,18 @@ fn get_operations_from_file(
 			);
 		}
 
-		if let Some(spec) =
-			game.realise_resource_specifier(RuntimeID::from_str(id)?, NominalPartition(partition.to_owned()))?
-		{
+		if let Some(spec) = game.realise_resource_specifier(id, NominalPartition(partition.to_owned()))? {
 			vec![
 				graph::OverwriteRawResource {
 					id: spec,
 					data: ResourceState {
-						metadata: if let Ok(metadata_contents) =
-							world.read_mod_file(mod_id, &file.with_extension(format!("{resource_type}.metadata.json")))
-						{
-							from_slice(&metadata_contents)
-								.wrap_err("metadata.json was not valid resource metadata JSON")
-								.intentional()?
-						} else {
-							ResourceMetadata {
-								id: RuntimeID::from_str(id)?,
-								resource_type,
-								compressed: ResourceMetadata::infer_compressed(resource_type),
-								scrambled: ResourceMetadata::infer_scrambled(resource_type),
-								references: vec![]
-							}
-						},
+						metadata: metadata.unwrap_or_else(|| ResourceMetadata {
+							id,
+							resource_type,
+							compressed: ResourceMetadata::infer_compressed(resource_type),
+							scrambled: ResourceMetadata::infer_scrambled(resource_type),
+							references: vec![]
+						}),
 						data: file_contents
 					}
 				}
