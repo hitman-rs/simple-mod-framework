@@ -23,7 +23,7 @@ jobs:
       matrix:
         include:
           - platform: "ubicloud-standard-8-ubuntu-2404"
-          - platform: "ptlm-runner"
+          - platform: "windows-latest"
 
     runs-on: ${{ matrix.platform }}
 
@@ -33,7 +33,7 @@ jobs:
           fetch-depth: 0
 
       - name: Install Git for Windows and Zstd (Windows)
-        if: matrix.platform == 'ptlm-runner'
+        if: matrix.platform == 'windows-latest'
         run: |
           Invoke-WebRequest -Uri "https://github.com/git-for-windows/git/releases/download/v2.51.0.windows.2/Git-2.51.0.2-64-bit.exe" -OutFile "$env:TEMP\Git.exe"
           Start-Process -FilePath "$env:TEMP\Git.exe" -ArgumentList "/VERYSILENT", "/NOCANCEL", "/NORESTART", "/SP-", "/SUPPRESSMSGBOXES", "/CLOSEAPPLICATIONS", "/FORCECLOSEAPPLICATIONS", "/NOICONS", "/COMPONENTS=assoc_sh" -Wait
@@ -64,7 +64,7 @@ jobs:
 
       - name: Set up Rust (Windows)
         uses: actions-rs/toolchain@b2417cde72dcf67f306c0ae8e0828a81bf0b189f
-        if: matrix.platform == 'ptlm-runner'
+        if: matrix.platform == 'windows-latest'
         with:
           profile: minimal
           toolchain: nightly-2026-09-14
@@ -78,27 +78,12 @@ jobs:
           cache-targets: false
           cache-on-failure: true
 
-      - name: Rust target cache (Linux)
-        if: matrix.platform != 'ptlm-runner'
+      - name: Rust target cache
         uses: actions/cache@v5
         with:
           key: build-target-${{ runner.os }}-${{ runner.arch }}-${{ github.workflow }}
           path: |
             target/**
-
-      - name: Rust target cache (Windows)
-        if: matrix.platform == 'ptlm-runner'
-        uses: gacts/run-and-post-run@598d7a875d5620e0457490555b5e18e46082aa47
-        with:
-          shell: pwsh
-          run: |
-            New-Item -Path "C:\cache\smf-target-${{ github.workflow }}" -ItemType Directory -Force
-            robocopy "C:\cache\smf-target-${{ github.workflow }}" target /E /MT:32 /Z /LOG:NUL; if ($lastexitcode -lt 8) { $global:LASTEXITCODE = $null }
-          post: |
-            robocopy target "C:\cache\smf-target-${{ github.workflow }}" /MIR /MT:32 /Z /LOG:NUL; if ($lastexitcode -lt 8) { $global:LASTEXITCODE = $null }
-
-      - name: Install cargo-pgo
-        run: cargo install cargo-pgo
 
       - name: Install cargo-hold
         run: cargo install cargo-hold
@@ -117,7 +102,7 @@ jobs:
           execute_install_scripts: true
 
       - name: Install vcpkg dependencies (Windows)
-        if: matrix.platform == 'ptlm-runner'
+        if: matrix.platform == 'windows-latest'
         uses: johnwason/vcpkg-action@04c68c847bf5196ecaa72331ecf51208583916ef
         with:
           pkgs: libarchive
@@ -148,7 +133,7 @@ jobs:
         run: cargo hold voyage --max-target-size 15G --preserve-cargo-binaries cargo-pgo
 
       - name: Build (Unix)
-        if: matrix.platform != 'ptlm-runner'
+        if: matrix.platform != 'windows-latest'
         env:
           NODE_OPTIONS: "--max-old-space-size=4096"
           CARGO_INCREMENTAL: 1
@@ -158,7 +143,7 @@ jobs:
           cp src-tauri/qnjs-x86_64-unknown-linux-gnu ../target/release/qnjs
 
       - name: Build (Windows)
-        if: matrix.platform == 'ptlm-runner'
+        if: matrix.platform == 'windows-latest'
         env:
           NODE_OPTIONS: "--max-old-space-size=4096"
           CARGO_INCREMENTAL: 1
@@ -172,12 +157,12 @@ jobs:
         run: cargo hold voyage --max-target-size 15G --preserve-cargo-binaries cargo-pgo
 
       - name: Create ZIP (Unix)
-        if: matrix.platform != 'ptlm-runner'
+        if: matrix.platform != 'windows-latest'
         run: zip -r build.zip . -x "build/*" -x "deps/*" -x "examples/*" -x "incremental/*" -x ".fingerprint/*" -x "bundle/*" -x "nsis/*" -x "resources/*" -x "wix/*" -x ".cargo-*" -x "*.d" -x "*.pdb" -x "*.dll"
         working-directory: target/release
 
       - name: Create ZIP (Windows)
-        if: matrix.platform == 'ptlm-runner'
+        if: matrix.platform == 'windows-latest'
         uses: thedoctor0/zip-release@b57d897cb5d60cb78b51a507f63fa184cfe35554
         with:
           type: "zip"
@@ -188,7 +173,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.platform == 'ptlm-runner' && 'Windows' || 'Linux' }}
+          name: ${{ matrix.platform == 'windows-latest' && 'Windows' || 'Linux' }}
           path: target/release/build.zip
 
       - name: Remove unnecessary artifacts

@@ -447,7 +447,8 @@ pub fn upgrade_patch(partition_manager: &PartitionManager, mod_path: &Path, patc
 			serde_json::from_value(orig_file).wrap_err("Patch was invalid")?,
 			true
 		)
-		.map_err(|x| eyre!("QuickEntity error: {:?}", x))?;
+		.map_err(|x| eyre!("QuickEntity error: {:?}", x))
+		.context("Couldn't apply patch to vanilla entity")?;
 
 		let comments = serde_json::from_value::<Vec<CommentEntity>>(serde_json::to_value(&old_patched.comments)?)?;
 
