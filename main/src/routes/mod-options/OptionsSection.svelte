@@ -70,7 +70,24 @@
 				{#await marked(loc(option.description || ""), { gfm: true }) then x}{@html sanitiseInline(x)}{/await}
 			</p>
 			<div class="flex flex-wrap gap-2 mb-3">
-				<sl-button variant="primary" size="small" onclick={() => void applyPreset(null)}>{m.ResetToDefaultsButton()}</sl-button>
+				<sl-button
+					variant="primary"
+					size="small"
+					onclick={() => {
+						const options: string[] = []
+						function recurse(opts: ModOption[]) {
+							for (const opt of opts) {
+								if (opt.type === "optionGroup") {
+									recurse(opt.options)
+								} else if (opt.type !== "conditional") {
+									options.push(opt.id)
+								}
+							}
+						}
+						recurse(option.options)
+						void applyPreset(Object.fromEntries(options.map((a) => [a, null])))
+					}}>{m.ResetToDefaultsButton()}</sl-button
+				>
 				{#each option.presets || [] as preset}
 					<sl-tooltip placement="bottom">
 						<sl-button variant="primary" size="small" onclick={() => void applyPreset(preset.values)}>{loc(preset.name)}</sl-button>

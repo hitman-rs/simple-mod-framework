@@ -33,11 +33,15 @@
 			config.modOptions[mod] = {}
 		} else {
 			for (const [opt, val] of Object.entries(values)) {
-				const option = findOption((await manifest).options || [], opt)!
-				if (option.type === "conditional" || option.type === "optionGroup") throw new Error("Invalid option in preset")
-				config.modOptions[mod][opt] = {
-					type: option.type,
-					value: val
+				if (val === null) {
+					delete config.modOptions[mod][opt]
+				} else {
+					const option = findOption((await manifest).options || [], opt)!
+					if (option.type === "conditional" || option.type === "optionGroup") throw new Error("Invalid option in preset")
+					config.modOptions[mod][opt] = {
+						type: option.type,
+						value: val
+					}
 				}
 			}
 		}
