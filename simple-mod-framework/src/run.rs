@@ -449,6 +449,50 @@ async fn initialise(
 	(cache, state, deploy_graph)
 }
 
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
+struct LastServerSideStates {
+	#[serde(skip_serializing_if = "Option::is_none")]
+	unlockables: Option<serde_json::Value>,
+
+	#[serde(skip_serializing_if = "Option::is_none")]
+	contracts: Option<HashMap<String, serde_json::Value>>,
+
+	#[serde(skip_serializing_if = "Option::is_none")]
+	peacock_plugins: Option<Vec<PathBuf>>
+}
+
+// TODO: Remove when Peacock has SMFv3 compatibility
+fn get_v2_server_side_states(
+	server_side_data: &simple_mod_framework_types::ServerSideData,
+	server_side_assets: &HashMap<uuid::Uuid, Vec<u8>>
+) -> Result<LastServerSideStates> {
+	let unlockables = server_side_data
+		.unlockables
+		.map(|asset_id| serde_json::from_slice(&server_side_assets[&asset_id]))
+		.transpose()?;
+
+	let contracts = if server_side_data.contracts.is_empty() {
+		None
+	} else {
+		let mut contracts = HashMap::default();
+		for (contract_id, asset_id) in &server_side_data.contracts {
+			contracts.insert(
+				contract_id.to_string(),
+				serde_json::from_slice(&server_side_assets[asset_id])?
+			);
+		}
+		Some(contracts)
+	};
+
+	Ok(LastServerSideStates {
+		unlockables,
+		contracts,
+		peacock_plugins: (!server_side_data.peacock_plugins.is_empty())
+			.then(|| server_side_data.peacock_plugins.to_owned())
+	})
+}
+
 #[try_fn]
 #[instrument(skip_all)]
 pub async fn deploy(progress: Arc<dyn Progress + Send + Sync>) -> Result<()> {
@@ -481,6 +525,18 @@ pub async fn deploy(progress: Arc<dyn Progress + Send + Sync>) -> Result<()> {
 	let smf_appdata_dir = dirs::data_local_dir()
 		.ok_or_eyre("No app data directory found")?
 		.join("Simple Mod Framework");
+
+	// SMFv2 compatibility
+	let last_server_side_states = get_v2_server_side_states(&server_side_data, &server_side_assets)?;
+	let mut last_deploy = serde_json::to_value(&*config)?;
+	last_deploy.as_object_mut().unwrap().insert(
+		"lastServerSideStates".to_owned(),
+		serde_json::to_value(last_server_side_states)?
+	);
+	fs::write(
+		smf_appdata_dir.join("lastDeploy.json"),
+		serde_json::to_vec(&last_deploy)?
+	)?;
 
 	let deployment_dir = smf_appdata_dir.join("deployments").join(format!(
 		"{:x}",
