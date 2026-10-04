@@ -273,18 +273,31 @@ impl<W: World + Mods + Output + Progress> State<W> {
 		{
 			let _span = tracing::info_span!("Preloading resources").entered();
 
-			for resource in graph
+			let mut resource_deps = graph
 				.nodes()
 				.values()
 				.flat_map(|node| node.operation.resource_deps((&*self.game).into()))
-				.sorted_by_cached_key(|resource| {
-					self.game
+				.collect_vec();
+
+			let partition_indices = resource_deps
+				.iter()
+				.map(|x| x.partition.0.to_owned())
+				.unique()
+				.map(|x| {
+					let ind = self
+						.game
 						.game_files
 						.partitions
 						.iter()
-						.position(|x| x.partition_info().name.as_deref().unwrap() == resource.partition.as_str())
-						.unwrap()
-				}) {
+						.position(|y| y.partition_info().name.as_deref().unwrap() == x)
+						.ok_or_else(|| eyre!("No such partition {x} in game files"))?;
+					Ok((x, ind))
+				})
+				.collect::<Result<HashMap<_, _>>>()?;
+
+			resource_deps.sort_by_key(|resource| partition_indices[&resource.partition.0]);
+
+			for resource in resource_deps {
 				self.deployment
 					.all_relevant_resources
 					.entry(resource.id)

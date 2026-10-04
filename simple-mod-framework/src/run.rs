@@ -529,6 +529,10 @@ pub async fn deploy(progress: Arc<dyn Progress + Send + Sync>) -> Result<()> {
 	// SMFv2 compatibility
 	let last_server_side_states = get_v2_server_side_states(&server_side_data, &server_side_assets)?;
 	let mut last_deploy = serde_json::to_value(&*config)?;
+	last_deploy
+		.as_object_mut()
+		.unwrap()
+		.insert("loadOrder".to_owned(), serde_json::to_value(&config.deploy_order)?);
 	last_deploy.as_object_mut().unwrap().insert(
 		"lastServerSideStates".to_owned(),
 		serde_json::to_value(last_server_side_states)?
