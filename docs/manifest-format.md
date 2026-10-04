@@ -1,6 +1,10 @@
 # Manifest format
 
-Every mod must contain a JSON manifest describing the mod. This documentation is taken from the schema, which you can embed with the `$schema` JSON property to get autocompletion and documentation inline as you write your manifest in an editor like VS Code. GlacierKit automatically applies the schema, regardless of the `$schema` property.
+Every mod must contain a JSON manifest describing the mod.
+
+This documentation is taken from the schema, which you can embed with the `$schema` JSON property to get autocompletion and documentation inline as you write your manifest in an editor like VS Code. GlacierKit automatically applies the schema, regardless of the `$schema` property.
+
+{% file src=".gitbook/assets/manifest-schema.json" %}
 
 ## Manifest
 
