@@ -220,25 +220,11 @@ jobs:
       #   if: matrix.platform == 'ptlm-runner'
       #   run: rm target/release/build.zip
 
-      - name: Clean up previous in-use marker (Windows)
+      - name: Build and optimise (Windows)
         if: matrix.platform == 'ptlm-runner'
-        run: |
-          $filePath = "C:/hitman/in-use"
-          if (Test-Path $filePath -PathType Leaf) {
-            $fileContent = Get-Content $filePath -Raw
-            if ($fileContent -eq "Simple Mod Framework") {
-              Remove-Item $filePath -Force -Verbose
-            }
-          }
-
-      - name: Check game install usable (Windows)
-        if: matrix.platform == 'ptlm-runner'
-        id: check-install
-        run: |
-          "result=${{ hashFiles('C:/hitman/updating') == '' && hashFiles('C:/hitman/in-use') == '' }}" >> $env:GITHUB_OUTPUT
-
-      - name: Prepare representative workload (Windows)
-        if: matrix.platform == 'ptlm-runner' && steps.check-install.outputs.result == 'true'
+        env:
+          CARGO_INCREMENTAL: 1
+          VCPKG_ROOT: "${{ github.workspace }}/vcpkg"
         run: |
           mkdir .\target\x86_64-pc-windows-msvc\release -Force
           cd .\target\x86_64-pc-windows-msvc\release
@@ -246,23 +232,32 @@ jobs:
           copy ../../../.github/workload-config.json config.json
           mkdir Mods -Force
           npx -y degit https://github.com/glacier-modding/H3-Unofficial-Community-Patch Mods\GlacierOrganisation.CommunityPatches
-          echo "Simple Mod Framework" | Out-File -FilePath "C:\hitman\in-use" -Encoding utf8
-          cd ../../release
-          copy ..\x86_64-pc-windows-msvc\release\tonytools_hash_list.hmla tonytools_hash_list.hmla
-          & ".\Simple Mod Framework.exe" upgrade-mod "C:\hitman\HITMAN3\Retail" "..\x86_64-pc-windows-msvc\release\Mods\GlacierOrganisation.CommunityPatches"
-          rm tonytools_hash_list.hmla
-          rm config.json
-          rm -r Mods
 
-      - name: Build and optimise (Windows)
-        if: matrix.platform == 'ptlm-runner' && steps.check-install.outputs.result == 'true'
-        env:
-          CARGO_INCREMENTAL: 1
-          VCPKG_ROOT: "${{ github.workspace }}/vcpkg"
-        run: |
-          cargo pgo build -- --bin simple-mod-framework-main -F custom-protocol
-          & .\target\x86_64-pc-windows-msvc\release\simple-mod-framework-main.exe deploy
-          rm C:\hitman\in-use
+          # Try to acquire a lock on the game files or wait and keep retrying until we can.
+          $lock = $null
+          while ($null -eq $lock) {
+              try {
+                  $lock = [System.IO.File]::Open("C:\hitman\in-use", "Open", "Read", "Read")
+              }
+              catch {
+                  Start-Sleep -Seconds 5
+              }
+          }
+
+          try {
+              cd ../../release
+              copy ..\x86_64-pc-windows-msvc\release\tonytools_hash_list.hmla tonytools_hash_list.hmla
+              & ".\Simple Mod Framework.exe" upgrade-mod "C:\hitman\HITMAN3\Retail" "..\x86_64-pc-windows-msvc\release\Mods\GlacierOrganisation.CommunityPatches"
+              rm tonytools_hash_list.hmla
+              rm config.json
+              rm -r Mods
+              cargo pgo build -- --bin simple-mod-framework-main -F custom-protocol
+              & .\target\x86_64-pc-windows-msvc\release\simple-mod-framework-main.exe deploy
+          }
+          finally {
+              $lock.Dispose()
+          }
+
           rm .\target\x86_64-pc-windows-msvc\release\tonytools_hash_list.hmla
           rm .\target\x86_64-pc-windows-msvc\release\config.json
           rm -r .\target\x86_64-pc-windows-msvc\release\Mods
