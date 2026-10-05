@@ -526,6 +526,13 @@ pub async fn deploy(progress: Arc<dyn Progress + Send + Sync>) -> Result<()> {
 		.ok_or_eyre("No app data directory found")?
 		.join("Simple Mod Framework");
 
+	let deployment_dir = smf_appdata_dir.join("deployments").join(format!(
+		"{:x}",
+		md5::compute(fs::canonicalize(&game.retail_path)?.to_string_lossy().deref())
+	));
+	let _ = fs::remove_dir_all(&deployment_dir);
+	fs::create_dir_all(&deployment_dir).wrap_err("Couldn't create deploy summary directory")?;
+
 	// SMFv2 compatibility
 	let last_server_side_states = get_v2_server_side_states(&server_side_data, &server_side_assets)?;
 	let mut last_deploy = serde_json::to_value(&*config)?;
@@ -541,13 +548,6 @@ pub async fn deploy(progress: Arc<dyn Progress + Send + Sync>) -> Result<()> {
 		smf_appdata_dir.join("lastDeploy.json"),
 		serde_json::to_vec(&last_deploy)?
 	)?;
-
-	let deployment_dir = smf_appdata_dir.join("deployments").join(format!(
-		"{:x}",
-		md5::compute(fs::canonicalize(&game.retail_path)?.to_string_lossy().deref())
-	));
-	let _ = fs::remove_dir_all(&deployment_dir);
-	fs::create_dir_all(&deployment_dir).wrap_err("Couldn't create deploy summary directory")?;
 
 	fs::write(
 		deployment_dir.join("summary.json"),
