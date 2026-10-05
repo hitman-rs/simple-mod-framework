@@ -251,6 +251,7 @@ jobs:
               rm tonytools_hash_list.hmla
               rm config.json
               rm -r Mods
+              cd ../../
               cargo pgo build -- --bin simple-mod-framework-main -F custom-protocol
               & .\target\x86_64-pc-windows-msvc\release\simple-mod-framework-main.exe deploy
           }

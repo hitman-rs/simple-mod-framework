@@ -147,6 +147,7 @@ jobs:
         env:
           NODE_OPTIONS: "--max-old-space-size=4096"
           CARGO_INCREMENTAL: 1
+          CARGO_BUILD_JOBS: 3
           VCPKG_ROOT: "${{ github.workspace }}/vcpkg"
         run: |
           cd main
