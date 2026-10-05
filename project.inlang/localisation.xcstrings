@@ -18,8 +18,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Skip game intro video"
+            "state" : "translated",
+            "value" : "跳過遊戲開場動畫"
           }
         },
         "fr" : {
@@ -66,8 +66,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Skip game intro video"
+            "state" : "translated",
+            "value" : "Пропустить вступительную заставку"
           }
         },
         "es" : {
@@ -107,8 +107,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enable mod developer mode"
+            "state" : "translated",
+            "value" : "啟用模組開發者模式"
           }
         },
         "fr" : {
@@ -155,8 +155,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enable mod developer mode"
+            "state" : "translated",
+            "value" : "Включить режим разработчика"
           }
         },
         "es" : {
@@ -196,8 +196,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Welcome to the"
+            "state" : "translated",
+            "value" : "歡迎來到"
           }
         },
         "fr" : {
@@ -244,8 +244,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Welcome to the"
+            "state" : "translated",
+            "value" : "Добро пожаловать в"
           }
         },
         "es" : {
@@ -285,8 +285,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enable"
+            "state" : "translated",
+            "value" : "開啟"
           }
         },
         "fr" : {
@@ -333,8 +333,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enable"
+            "state" : "translated",
+            "value" : "Включить"
           }
         },
         "es" : {
@@ -374,8 +374,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Experimental version"
+            "state" : "translated",
+            "value" : "實驗版本"
           }
         },
         "fr" : {
@@ -422,8 +422,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Experimental version"
+            "state" : "translated",
+            "value" : "Экспериментальная версия"
           }
         },
         "es" : {
@@ -462,8 +462,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You're currently running an experimental version of the framework"
+            "state" : "translated",
+            "value" : "您目前正在運行該框架的實驗版本"
           }
         },
         "fr" : {
@@ -510,8 +510,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You're currently running an experimental version of the framework"
+            "state" : "translated",
+            "value" : "В данный момент вы используете экспериментальную версию фреймворка"
           }
         },
         "es" : {
@@ -550,8 +550,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Checking for framework updates..."
+            "state" : "translated",
+            "value" : "正在檢查框架更新……"
           }
         },
         "fr" : {
@@ -598,8 +598,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Checking for framework updates..."
+            "state" : "translated",
+            "value" : "Проверка обновлений фреймворка..."
           }
         },
         "es" : {
@@ -639,8 +639,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Major framework update available"
+            "state" : "translated",
+            "value" : "框架有重大更新可用"
           }
         },
         "fr" : {
@@ -687,8 +687,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Major framework update available"
+            "state" : "translated",
+            "value" : "Доступно важное обновление фреймворка"
           }
         },
         "es" : {
@@ -728,8 +728,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Framework update available"
+            "state" : "translated",
+            "value" : "框架有更新可用"
           }
         },
         "fr" : {
@@ -776,8 +776,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Framework update available"
+            "state" : "translated",
+            "value" : "Доступно обновление фреймворка"
           }
         },
         "es" : {
@@ -817,8 +817,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Framework patch available"
+            "state" : "translated",
+            "value" : "框架有補丁可用"
           }
         },
         "fr" : {
@@ -865,8 +865,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Framework patch available"
+            "state" : "translated",
+            "value" : "Доступен патч фреймворка"
           }
         },
         "es" : {
@@ -906,8 +906,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Update from version {from} to version {to}"
+            "state" : "translated",
+            "value" : "從版本 {from} 更新到版本 {to}"
           }
         },
         "fr" : {
@@ -954,8 +954,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Update from version {from} to version {to}"
+            "state" : "translated",
+            "value" : "Обновить с версии {from} до версии {to}"
           }
         },
         "es" : {
@@ -995,8 +995,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Update"
+            "state" : "translated",
+            "value" : "更新"
           }
         },
         "fr" : {
@@ -1043,8 +1043,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Update"
+            "state" : "translated",
+            "value" : "Обновить"
           }
         },
         "es" : {
@@ -1084,8 +1084,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't check for framework updates"
+            "state" : "translated",
+            "value" : "無法檢查框架更新"
           }
         },
         "fr" : {
@@ -1132,8 +1132,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't check for framework updates"
+            "state" : "translated",
+            "value" : "Не удалось проверить на наличие обновлений фреймворка"
           }
         },
         "es" : {
@@ -1173,8 +1173,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Framework up-to-date"
+            "state" : "translated",
+            "value" : "框架已是最新版本"
           }
         },
         "fr" : {
@@ -1221,8 +1221,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Framework up-to-date"
+            "state" : "translated",
+            "value" : "Версия фреймворка актуальна"
           }
         },
         "es" : {
@@ -1261,8 +1261,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You're running the latest version of the framework (version {ver})."
+            "state" : "translated",
+            "value" : "您正在運行該框架的最新版本（版本 {ver}）。"
           }
         },
         "fr" : {
@@ -1309,8 +1309,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You're running the latest version of the framework (version {ver})."
+            "state" : "translated",
+            "value" : "Вы используете последнюю версию фреймворка (версия {ver})."
           }
         },
         "es" : {
@@ -1349,8 +1349,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Checking for updates to {mod}..."
+            "state" : "translated",
+            "value" : "正在檢查 {mod} 的更新……"
           }
         },
         "fr" : {
@@ -1397,8 +1397,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Checking for updates to {mod}..."
+            "state" : "translated",
+            "value" : "Проверка наличия обновлений для {mod}..."
           }
         },
         "es" : {
@@ -1437,8 +1437,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't check for updates to {mod}"
+            "state" : "translated",
+            "value" : "無法檢查 {mod} 的更新"
           }
         },
         "fr" : {
@@ -1485,8 +1485,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't check for updates to {mod}"
+            "state" : "translated",
+            "value" : "Не удалось проверить наличие обновлений для {mod}"
           }
         },
         "es" : {
@@ -1526,8 +1526,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Development version"
+            "state" : "translated",
+            "value" : "開發版本"
           }
         },
         "fr" : {
@@ -1574,8 +1574,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Development version"
+            "state" : "translated",
+            "value" : "Версия для разработчиков"
           }
         },
         "es" : {
@@ -1614,8 +1614,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You're using a development version of {mod} (version {ver})."
+            "state" : "translated",
+            "value" : "您正在使用 {mod} 的開發版本（版本 {ver}）。"
           }
         },
         "fr" : {
@@ -1662,8 +1662,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You're using a development version of {mod} (version {ver})."
+            "state" : "translated",
+            "value" : "Вы используете версию для разработчиков мода {mod} (версия {ver})."
           }
         },
         "es" : {
@@ -1703,8 +1703,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Major update available for {mod}"
+            "state" : "translated",
+            "value" : "{mod} 有重大更新可用"
           }
         },
         "fr" : {
@@ -1751,8 +1751,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Major update available for {mod}"
+            "state" : "translated",
+            "value" : "Доступно большое обновление для {mod}"
           }
         },
         "es" : {
@@ -1792,8 +1792,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Update available for {mod}"
+            "state" : "translated",
+            "value" : "{mod} 有更新可用"
           }
         },
         "fr" : {
@@ -1840,8 +1840,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Update available for {mod}"
+            "state" : "translated",
+            "value" : "Доступно обновление для {mod}"
           }
         },
         "es" : {
@@ -1881,8 +1881,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Patch available for {mod}"
+            "state" : "translated",
+            "value" : "{mod} 有補丁可用"
           }
         },
         "fr" : {
@@ -1929,8 +1929,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Patch available for {mod}"
+            "state" : "translated",
+            "value" : "Патч доступен для {mod}"
           }
         },
         "es" : {
@@ -1969,8 +1969,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You can update this mod by re-downloading it from the Nexus."
+            "state" : "translated",
+            "value" : "你可以透過從 Nexus 重新下載來更新此模組。"
           }
         },
         "fr" : {
@@ -2017,8 +2017,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You can update this mod by re-downloading it from the Nexus."
+            "state" : "translated",
+            "value" : "Вы можете обновить этот мод, загрузив его с Nexus."
           }
         },
         "es" : {
@@ -2058,8 +2058,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Go to Nexus"
+            "state" : "translated",
+            "value" : "前往 Nexus"
           }
         },
         "fr" : {
@@ -2106,8 +2106,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Go to Nexus"
+            "state" : "translated",
+            "value" : "Открыть NexusMods"
           }
         },
         "es" : {
@@ -2146,8 +2146,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You can view the changelog for this update online."
+            "state" : "translated",
+            "value" : "您可以在線查看此更新的變更日誌。"
           }
         },
         "fr" : {
@@ -2194,8 +2194,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You can view the changelog for this update online."
+            "state" : "translated",
+            "value" : "Вы можете просмотреть список изменений этого обновления онлайн."
           }
         },
         "es" : {
@@ -2235,8 +2235,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mods up-to-date"
+            "state" : "translated",
+            "value" : "模組已是最新版本"
           }
         },
         "fr" : {
@@ -2283,8 +2283,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mods up-to-date"
+            "state" : "translated",
+            "value" : "Актуальные моды"
           }
         },
         "es" : {
@@ -2323,8 +2323,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "All your mods are fully updated!"
+            "state" : "translated",
+            "value" : "所有的模組都已完全更新！"
           }
         },
         "fr" : {
@@ -2371,8 +2371,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "All your mods are fully updated!"
+            "state" : "translated",
+            "value" : "Все ваши моды полностью обновлены!"
           }
         },
         "es" : {
@@ -2411,8 +2411,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "If you're a mod developer, you should enable developer mode, which gives you a few extra tools for developing mods."
+            "state" : "translated",
+            "value" : "如果你是模組開發者，應該啟用開發者模式，這能為你提供一些額外的模組開發工具。"
           }
         },
         "fr" : {
@@ -2459,8 +2459,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "If you're a mod developer, you should enable developer mode, which gives you a few extra tools for developing mods."
+            "state" : "translated",
+            "value" : "Если вы разработчик модов, вам следует включить режим разработчика, который предоставит вам несколько дополнительных инструментов для разработки модов."
           }
         },
         "es" : {
@@ -2500,8 +2500,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Developer mode"
+            "state" : "translated",
+            "value" : "開發者模式"
           }
         },
         "fr" : {
@@ -2548,8 +2548,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Developer mode"
+            "state" : "translated",
+            "value" : "Режим Разработчика"
           }
         },
         "es" : {
@@ -2589,8 +2589,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "I'm a mod user"
+            "state" : "translated",
+            "value" : "我是模組使用者"
           }
         },
         "fr" : {
@@ -2637,8 +2637,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "I'm a mod user"
+            "state" : "translated",
+            "value" : "Я - пользователь модов"
           }
         },
         "es" : {
@@ -2678,8 +2678,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "I'm a mod developer"
+            "state" : "translated",
+            "value" : "我是模組開發者"
           }
         },
         "fr" : {
@@ -2726,8 +2726,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "I'm a mod developer"
+            "state" : "translated",
+            "value" : "Я - разработчик модов"
           }
         },
         "es" : {
@@ -2766,8 +2766,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The update to the mod is invalid!"
+            "state" : "translated",
+            "value" : "該模組的更新無效！"
           }
         },
         "fr" : {
@@ -2814,8 +2814,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The update to the mod is invalid!"
+            "state" : "translated",
+            "value" : "Некорректное обновление модификации!"
           }
         },
         "es" : {
@@ -2854,8 +2854,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The framework is being downloaded. Please wait."
+            "state" : "translated",
+            "value" : "正在下載框架，請稍候。"
           }
         },
         "fr" : {
@@ -2902,8 +2902,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The framework is being downloaded. Please wait."
+            "state" : "translated",
+            "value" : "Фреймворк загружается. Пожалуйста, подождите."
           }
         },
         "es" : {
@@ -2942,8 +2942,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The framework is being extracted. Please wait."
+            "state" : "translated",
+            "value" : "正在提取框架，請稍候。"
           }
         },
         "fr" : {
@@ -2990,8 +2990,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The framework is being extracted. Please wait."
+            "state" : "translated",
+            "value" : "Фреймворк в процессе извлечения. Пожалуйста, подождите."
           }
         },
         "es" : {
@@ -3030,8 +3030,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "There was an error updating the framework. Check your internet connection."
+            "state" : "translated",
+            "value" : "更新框架時發生錯誤。請檢查您的網路連線。"
           }
         },
         "fr" : {
@@ -3078,8 +3078,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "There was an error updating the framework. Check your internet connection."
+            "state" : "translated",
+            "value" : "Произошла ошибка при обновлении фреймворка. Проверьте подключение к Интернету."
           }
         },
         "es" : {
@@ -3119,8 +3119,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "OK"
+            "state" : "translated",
+            "value" : "確認"
           }
         },
         "fr" : {
@@ -3167,8 +3167,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "OK"
+            "state" : "translated",
+            "value" : "ОК"
           }
         },
         "es" : {
@@ -3207,8 +3207,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod is being downloaded. Please wait."
+            "state" : "translated",
+            "value" : "正在下載模組，請稍候。"
           }
         },
         "fr" : {
@@ -3255,8 +3255,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod is being downloaded. Please wait."
+            "state" : "translated",
+            "value" : "Мод в процессе загрузки. Пожалуйста, подождите."
           }
         },
         "es" : {
@@ -3295,8 +3295,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "There was an error updating the mod. Check your internet connection."
+            "state" : "translated",
+            "value" : "更新模組時發生錯誤。請檢查您的網路連線。"
           }
         },
         "fr" : {
@@ -3343,8 +3343,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "There was an error updating the mod. Check your internet connection."
+            "state" : "translated",
+            "value" : "Произошла ошибка при обновлении мода. Проверьте подключение к Интернету."
           }
         },
         "es" : {
@@ -3383,8 +3383,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod is being extracted. Please wait."
+            "state" : "translated",
+            "value" : "正在提取模組，請稍候。"
           }
         },
         "fr" : {
@@ -3431,8 +3431,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod is being extracted. Please wait."
+            "state" : "translated",
+            "value" : "Мод в процессе извлечения. Пожалуйста, подождите."
           }
         },
         "es" : {
@@ -3472,8 +3472,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Checking for mod updates"
+            "state" : "translated",
+            "value" : "檢查模組更新"
           }
         },
         "fr" : {
@@ -3520,8 +3520,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Checking for mod updates"
+            "state" : "translated",
+            "value" : "Проверка наличия обновлений модов"
           }
         },
         "es" : {
@@ -3561,8 +3561,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Checking for hash list updates"
+            "state" : "translated",
+            "value" : "檢查哈希列表更新"
           }
         },
         "fr" : {
@@ -3609,8 +3609,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Checking for hash list updates"
+            "state" : "translated",
+            "value" : "Проверка обновлений хэш листа"
           }
         },
         "es" : {
@@ -3649,8 +3649,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Checking for updates to the hash lists..."
+            "state" : "translated",
+            "value" : "正在檢查哈希列表更新……"
           }
         },
         "fr" : {
@@ -3697,8 +3697,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Checking for updates to the hash lists..."
+            "state" : "translated",
+            "value" : "Проверка обновлений для хэш листов..."
           }
         },
         "es" : {
@@ -3738,8 +3738,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Home"
+            "state" : "translated",
+            "value" : "首頁"
           }
         },
         "fr" : {
@@ -3786,8 +3786,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Home"
+            "state" : "translated",
+            "value" : "Главная"
           }
         },
         "es" : {
@@ -3827,8 +3827,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mods"
+            "state" : "translated",
+            "value" : "模組"
           }
         },
         "fr" : {
@@ -3875,8 +3875,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mods"
+            "state" : "translated",
+            "value" : "Моды"
           }
         },
         "es" : {
@@ -3916,8 +3916,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Settings"
+            "state" : "translated",
+            "value" : "設定"
           }
         },
         "fr" : {
@@ -3964,8 +3964,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Settings"
+            "state" : "translated",
+            "value" : "Настройки"
           }
         },
         "es" : {
@@ -4005,8 +4005,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Credits"
+            "state" : "translated",
+            "value" : "感謝名單"
           }
         },
         "fr" : {
@@ -4053,8 +4053,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Credits"
+            "state" : "translated",
+            "value" : "Благодарности"
           }
         },
         "es" : {
@@ -4093,8 +4093,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The Simple Mod Framework directly uses the rpkg-rs library by Dafitius and the ResourceLib library by OrfeasZ for much of its functionality. The framework itself is licensed LGPLv3."
+            "state" : "translated",
+            "value" : "Simple Mod Framework 的許多功能直接使用了 Dafitius 開發的 rpkg-rs 函式庫和 OrfeasZ 開發的 ResourceLib 函式庫。該框架本身採用 LGPLv3 授權。"
           }
         },
         "fr" : {
@@ -4141,8 +4141,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The Simple Mod Framework directly uses the rpkg-rs library by Dafitius and the ResourceLib library by OrfeasZ for much of its functionality. The framework itself is licensed LGPLv3."
+            "state" : "translated",
+            "value" : "Simple Mod Framework напрямую использует библиотеку rpkg-rs от Dafitius и библиотеку ResourceLib от OrfeasZ для большей части своей функциональности. Сама система лицензирована LGPLv3."
           }
         },
         "es" : {
@@ -4182,8 +4182,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Applying your mods"
+            "state" : "translated",
+            "value" : "應用模組"
           }
         },
         "fr" : {
@@ -4230,8 +4230,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Applying your mods"
+            "state" : "translated",
+            "value" : "Развёртываем ваши моды"
           }
         },
         "es" : {
@@ -4270,8 +4270,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This might take a while, depending on your system and the mods you've enabled."
+            "state" : "translated",
+            "value" : "這可能需要一些時間，具體取決於您的系統以及您啟用的模組。"
           }
         },
         "fr" : {
@@ -4318,8 +4318,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This might take a while, depending on your system and the mods you've enabled."
+            "state" : "translated",
+            "value" : "Это может занять некоторое время, в зависимости от вашей системы и модов, которые вы включили."
           }
         },
         "es" : {
@@ -4359,8 +4359,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Deployment started"
+            "state" : "translated",
+            "value" : "部署已開始"
           }
         },
         "fr" : {
@@ -4407,8 +4407,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Deployment started"
+            "state" : "translated",
+            "value" : "Начало установки модов"
           }
         },
         "es" : {
@@ -4447,8 +4447,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Your mods are being applied."
+            "state" : "translated",
+            "value" : "模組正在應用中。"
           }
         },
         "fr" : {
@@ -4495,8 +4495,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Your mods are being applied."
+            "state" : "translated",
+            "value" : "Ваши моды в процессе установки."
           }
         },
         "es" : {
@@ -4536,8 +4536,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't start deployment"
+            "state" : "translated",
+            "value" : "無法啟動部署"
           }
         },
         "fr" : {
@@ -4584,8 +4584,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't start deployment"
+            "state" : "translated",
+            "value" : "Не удалось начать процесс установки"
           }
         },
         "es" : {
@@ -4624,8 +4624,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Your mods couldn't be applied."
+            "state" : "translated",
+            "value" : "無法應用模組。"
           }
         },
         "fr" : {
@@ -4672,8 +4672,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Your mods couldn't be applied."
+            "state" : "translated",
+            "value" : "Ваши моды не удалось установить."
           }
         },
         "es" : {
@@ -4713,8 +4713,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Warning"
+            "state" : "translated",
+            "value" : "警告"
           }
         },
         "fr" : {
@@ -4761,8 +4761,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Warning"
+            "state" : "translated",
+            "value" : "Предупреждение"
           }
         },
         "es" : {
@@ -4802,8 +4802,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Error"
+            "state" : "translated",
+            "value" : "錯誤"
           }
         },
         "fr" : {
@@ -4850,8 +4850,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Error"
+            "state" : "translated",
+            "value" : "Ошибка"
           }
         },
         "es" : {
@@ -4891,8 +4891,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Deployment successful"
+            "state" : "translated",
+            "value" : "部署成功"
           }
         },
         "fr" : {
@@ -4939,8 +4939,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Deployment successful"
+            "state" : "translated",
+            "value" : "Установка прошла успешно"
           }
         },
         "es" : {
@@ -4979,8 +4979,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Your mods were applied successfully."
+            "state" : "translated",
+            "value" : "您的模組已成功應用。"
           }
         },
         "fr" : {
@@ -5027,8 +5027,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Your mods were applied successfully."
+            "state" : "translated",
+            "value" : "Ваши моды были успешно установлены."
           }
         },
         "es" : {
@@ -5068,8 +5068,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Potential issues in deployment"
+            "state" : "translated",
+            "value" : "部署中可能出現的問題"
           }
         },
         "fr" : {
@@ -5116,8 +5116,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Potential issues in deployment"
+            "state" : "translated",
+            "value" : "Возможные проблемы при установке"
           }
         },
         "es" : {
@@ -5157,8 +5157,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Deployment unsuccessful"
+            "state" : "translated",
+            "value" : "部署失敗"
           }
         },
         "fr" : {
@@ -5205,8 +5205,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Deployment unsuccessful"
+            "state" : "translated",
+            "value" : "Установка не удалась"
           }
         },
         "es" : {
@@ -5246,8 +5246,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Continue"
+            "state" : "translated",
+            "value" : "繼續"
           }
         },
         "fr" : {
@@ -5294,8 +5294,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Continue"
+            "state" : "translated",
+            "value" : "Продолжить"
           }
         },
         "es" : {
@@ -5335,8 +5335,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Downloading"
+            "state" : "translated",
+            "value" : "下載中"
           }
         },
         "fr" : {
@@ -5383,8 +5383,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Downloading"
+            "state" : "translated",
+            "value" : "Скачивание"
           }
         },
         "es" : {
@@ -5423,8 +5423,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod is currently being downloaded - please wait."
+            "state" : "translated",
+            "value" : "該模組正在下載中——請稍候。"
           }
         },
         "fr" : {
@@ -5471,8 +5471,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod is currently being downloaded - please wait."
+            "state" : "translated",
+            "value" : "Мод в процессе установки - пожалуйста, подождите."
           }
         },
         "es" : {
@@ -5511,8 +5511,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't download the mod! Check your internet connection, or contact the mod author for help."
+            "state" : "translated",
+            "value" : "無法下載該模組！請檢查您的網路連接，或聯絡模組作者尋求協助。"
           }
         },
         "fr" : {
@@ -5559,8 +5559,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't download the mod! Check your internet connection, or contact the mod author for help."
+            "state" : "translated",
+            "value" : "Не удалось скачать мод! Проверьте подключение к Интернету или свяжитесь с автором мода для помощи."
           }
         },
         "es" : {
@@ -5600,8 +5600,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enabled"
+            "state" : "translated",
+            "value" : "啟用"
           }
         },
         "fr" : {
@@ -5648,8 +5648,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enabled"
+            "state" : "translated",
+            "value" : "Включено"
           }
         },
         "es" : {
@@ -5688,8 +5688,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enabled by default"
+            "state" : "translated",
+            "value" : "預設啟用"
           }
         },
         "fr" : {
@@ -5736,8 +5736,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enabled by default"
+            "state" : "translated",
+            "value" : "Включено по умолчанию"
           }
         },
         "es" : {
@@ -5776,8 +5776,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Disabled by default"
+            "state" : "translated",
+            "value" : "預設停用"
           }
         },
         "fr" : {
@@ -5824,8 +5824,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Disabled by default"
+            "state" : "translated",
+            "value" : "Отключено по умолчанию"
           }
         },
         "es" : {
@@ -5865,8 +5865,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Default value:"
+            "state" : "translated",
+            "value" : "預設值："
           }
         },
         "fr" : {
@@ -5913,8 +5913,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Default value:"
+            "state" : "translated",
+            "value" : "Значение по умолчанию:"
           }
         },
         "es" : {
@@ -5954,8 +5954,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Value"
+            "state" : "translated",
+            "value" : "數值"
           }
         },
         "fr" : {
@@ -6002,8 +6002,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Value"
+            "state" : "translated",
+            "value" : "Значение"
           }
         },
         "es" : {
@@ -6043,8 +6043,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mod name"
+            "state" : "translated",
+            "value" : "模組名稱"
           }
         },
         "fr" : {
@@ -6091,8 +6091,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mod name"
+            "state" : "translated",
+            "value" : "Название мода"
           }
         },
         "es" : {
@@ -6131,8 +6131,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Please enter a name for the mod"
+            "state" : "translated",
+            "value" : "請輸入模組名稱"
           }
         },
         "fr" : {
@@ -6179,8 +6179,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Please enter a name for the mod"
+            "state" : "translated",
+            "value" : "Пожалуйста, укажите имя для модификации"
           }
         },
         "es" : {
@@ -6219,8 +6219,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod you're trying to install is invalid!"
+            "state" : "translated",
+            "value" : "你嘗試安裝的模組無效！"
           }
         },
         "fr" : {
@@ -6267,8 +6267,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod you're trying to install is invalid!"
+            "state" : "translated",
+            "value" : "Модификация, которую вы пытаетесь установить, недействительна!"
           }
         },
         "es" : {
@@ -6307,8 +6307,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod you're trying to install is a mod for an older version of the Simple Mod Framework, but it couldn't be automatically upgraded."
+            "state" : "translated",
+            "value" : "你嘗試安裝的模組適用於舊版的 Simple Mod Framework，但無法自動升級。"
           }
         },
         "fr" : {
@@ -6355,8 +6355,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod you're trying to install is a mod for an older version of the Simple Mod Framework, but it couldn't be automatically upgraded."
+            "state" : "translated",
+            "value" : "Мод, который вы пытаетесь установить - это мод для более старой версии Simple Mod Framework, и автоматическое обновление не удалось."
           }
         },
         "es" : {
@@ -6395,8 +6395,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod is being extracted and added to the framework. Please wait."
+            "state" : "translated",
+            "value" : "正在提取並向框架添加模組，請稍候。"
           }
         },
         "fr" : {
@@ -6443,8 +6443,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod is being extracted and added to the framework. Please wait."
+            "state" : "translated",
+            "value" : "Мод извлекается и добавляется во фреймворк. Пожалуйста, подождите."
           }
         },
         "es" : {
@@ -6483,8 +6483,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "One or more mods have been installed directly into the Mods folder. This is not recommended; the GUI performs checks on mods for validity and security and installing directly to the Mods folder bypasses this. It's easy to break the framework by doing this."
+            "state" : "translated",
+            "value" : "有一個或多個模組直接安裝到了 Mods 資料夾中。這種做法不被推薦；圖形介面會對模組進行有效性和安全性檢查，而直接安裝到 Mods 資料夾會繞過這些檢查，這很容易導致框架損壞。"
           }
         },
         "fr" : {
@@ -6531,8 +6531,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "One or more mods have been installed directly into the Mods folder. This is not recommended; the GUI performs checks on mods for validity and security and installing directly to the Mods folder bypasses this. It's easy to break the framework by doing this."
+            "state" : "translated",
+            "value" : "Один или несколько модов были установлены напрямую в папку модов. Это не рекомендуется; GUI выполняет проверку модификаций на правильность и безопасность и инсталляцию непосредственно в папку Моды. Поступая так, можно легко сломать фреймворк."
           }
         },
         "es" : {
@@ -6571,8 +6571,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Improperly installed mod"
+            "state" : "translated",
+            "value" : "安裝不當的模組"
           }
         },
         "fr" : {
@@ -6619,8 +6619,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Improperly installed mod"
+            "state" : "translated",
+            "value" : "Некорректно установленный мод"
           }
         },
         "es" : {
@@ -6660,8 +6660,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Adding mod"
+            "state" : "translated",
+            "value" : "新增模組"
           }
         },
         "fr" : {
@@ -6708,8 +6708,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Adding mod"
+            "state" : "translated",
+            "value" : "Добавляем модификацию"
           }
         },
         "es" : {
@@ -6749,8 +6749,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't upgrade mod"
+            "state" : "translated",
+            "value" : "無法升級模組"
           }
         },
         "fr" : {
@@ -6797,8 +6797,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't upgrade mod"
+            "state" : "translated",
+            "value" : "Не удалось обновить мод"
           }
         },
         "es" : {
@@ -6838,8 +6838,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Invalid mod"
+            "state" : "translated",
+            "value" : "無效模組"
           }
         },
         "fr" : {
@@ -6886,8 +6886,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Invalid mod"
+            "state" : "translated",
+            "value" : "Недействительный мод"
           }
         },
         "es" : {
@@ -6927,8 +6927,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "RPKG mod"
+            "state" : "translated",
+            "value" : "RPKG 模組"
           }
         },
         "fr" : {
@@ -6975,8 +6975,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "RPKG mod"
+            "state" : "translated",
+            "value" : "RPKG мод"
           }
         },
         "es" : {
@@ -7015,8 +7015,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This mod is in the older RPKG format, which means that it might be incompatible with other mods, or cause issues in newer game versions. It also won't support SMF features like automatic updating. Are you sure you want to add it? There may be a newer version of the mod, or another mod that does the same thing, available."
+            "state" : "translated",
+            "value" : "該模組採用舊版 RPKG 格式，這意味著它可能與其他模組不相容，或在較新的遊戲版本中引發問題。此外，它也不支援自動更新等 SMF 功能。您確定要新增它嗎？也許已有該模組的更新版本，或有其他功能相同的模組可用。"
           }
         },
         "fr" : {
@@ -7063,8 +7063,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This mod is in the older RPKG format, which means that it might be incompatible with other mods, or cause issues in newer game versions. It also won't support SMF features like automatic updating. Are you sure you want to add it? There may be a newer version of the mod, or another mod that does the same thing, available."
+            "state" : "translated",
+            "value" : "Этот мод находится в старом RPKG формате, что означает, что он может быть несовместим с другими модами или вызвать проблемы в новых версиях игры. Также не поддерживаются возможности SMF по типу автоматического обновления. Вы уверены, что хотите добавить его? Может быть доступна более новая версия мода или другой мод, который исполняет те же функции."
           }
         },
         "es" : {
@@ -7104,8 +7104,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Cancel"
+            "state" : "translated",
+            "value" : "撤銷"
           }
         },
         "fr" : {
@@ -7152,8 +7152,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Cancel"
+            "state" : "translated",
+            "value" : "Отмена"
           }
         },
         "es" : {
@@ -7193,8 +7193,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Available Mods"
+            "state" : "translated",
+            "value" : "可用模組"
           }
         },
         "fr" : {
@@ -7241,8 +7241,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Available Mods"
+            "state" : "translated",
+            "value" : "Доступные моды"
           }
         },
         "es" : {
@@ -7282,8 +7282,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Add a Mod"
+            "state" : "translated",
+            "value" : "新增模組"
           }
         },
         "fr" : {
@@ -7330,8 +7330,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Add a Mod"
+            "state" : "translated",
+            "value" : "Добавить мод"
           }
         },
         "es" : {
@@ -7371,8 +7371,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Filter available mods"
+            "state" : "translated",
+            "value" : "篩選可用模組"
           }
         },
         "fr" : {
@@ -7419,8 +7419,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Filter available mods"
+            "state" : "translated",
+            "value" : "Фильтр доступных модов"
           }
         },
         "es" : {
@@ -7460,8 +7460,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Invalid Mod"
+            "state" : "translated",
+            "value" : "無效模組"
           }
         },
         "fr" : {
@@ -7508,8 +7508,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Invalid Mod"
+            "state" : "translated",
+            "value" : "Недействительный мод"
           }
         },
         "es" : {
@@ -7548,8 +7548,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Use VS Code or GlacierKit to see manifest errors."
+            "state" : "translated",
+            "value" : "使用 VS Code 或 GlacierKit 查看清單錯誤。"
           }
         },
         "fr" : {
@@ -7596,8 +7596,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Use VS Code or GlacierKit to see manifest errors."
+            "state" : "translated",
+            "value" : "Используйте VS Code или GlacierKit, чтобы увидеть ошибки манифеста."
           }
         },
         "es" : {
@@ -7637,8 +7637,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Delete"
+            "state" : "translated",
+            "value" : "清除"
           }
         },
         "fr" : {
@@ -7685,8 +7685,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Delete"
+            "state" : "translated",
+            "value" : "Удалить"
           }
         },
         "es" : {
@@ -7725,8 +7725,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Error getting mods"
+            "state" : "translated",
+            "value" : "取得模組時出錯"
           }
         },
         "fr" : {
@@ -7773,8 +7773,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Error getting mods"
+            "state" : "translated",
+            "value" : "Ошибка при получении модов"
           }
         },
         "es" : {
@@ -7814,8 +7814,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enabled Mods"
+            "state" : "translated",
+            "value" : "已經啟用的模組"
           }
         },
         "fr" : {
@@ -7862,8 +7862,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enabled Mods"
+            "state" : "translated",
+            "value" : "Активные моды"
           }
         },
         "es" : {
@@ -7903,8 +7903,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Apply Mods"
+            "state" : "translated",
+            "value" : "應用模組"
           }
         },
         "fr" : {
@@ -7951,8 +7951,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Apply Mods"
+            "state" : "translated",
+            "value" : "Установить моды"
           }
         },
         "es" : {
@@ -7992,8 +7992,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "No game selected"
+            "state" : "translated",
+            "value" : "未選擇遊戲"
           }
         },
         "fr" : {
@@ -8040,8 +8040,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "No game selected"
+            "state" : "translated",
+            "value" : "Игра не выбрана"
           }
         },
         "es" : {
@@ -8081,8 +8081,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Filter enabled mods"
+            "state" : "translated",
+            "value" : "篩選已啟用的模組"
           }
         },
         "fr" : {
@@ -8129,8 +8129,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Filter enabled mods"
+            "state" : "translated",
+            "value" : "Фильтр активных модов"
           }
         },
         "es" : {
@@ -8170,8 +8170,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Settings"
+            "state" : "translated",
+            "value" : "設定"
           }
         },
         "fr" : {
@@ -8218,8 +8218,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Settings"
+            "state" : "translated",
+            "value" : "Настройки"
           }
         },
         "es" : {
@@ -8259,8 +8259,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Disable"
+            "state" : "translated",
+            "value" : "停用"
           }
         },
         "fr" : {
@@ -8307,8 +8307,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Disable"
+            "state" : "translated",
+            "value" : "Отключить"
           }
         },
         "es" : {
@@ -8347,8 +8347,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Drop to install"
+            "state" : "translated",
+            "value" : "放下安裝"
           }
         },
         "fr" : {
@@ -8395,8 +8395,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Drop to install"
+            "state" : "translated",
+            "value" : "Перетащите для установки"
           }
         },
         "es" : {
@@ -8436,8 +8436,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Save Debugging Information"
+            "state" : "translated",
+            "value" : "保存調試資訊"
           }
         },
         "fr" : {
@@ -8484,8 +8484,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Save Debugging Information"
+            "state" : "translated",
+            "value" : "Сохранить отладочную информацию"
           }
         },
         "es" : {
@@ -8525,8 +8525,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Game install"
+            "state" : "translated",
+            "value" : "遊戲安裝"
           }
         },
         "fr" : {
@@ -8573,8 +8573,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Game install"
+            "state" : "translated",
+            "value" : "Установленная игра"
           }
         },
         "es" : {
@@ -8613,8 +8613,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Error updating mod"
+            "state" : "translated",
+            "value" : "更新模組時出錯"
           }
         },
         "fr" : {
@@ -8661,8 +8661,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Error updating mod"
+            "state" : "translated",
+            "value" : "Ошибка при обновлении мода"
           }
         },
         "es" : {
@@ -8702,8 +8702,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Updating mod"
+            "state" : "translated",
+            "value" : "正在更新模組"
           }
         },
         "fr" : {
@@ -8750,8 +8750,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Updating mod"
+            "state" : "translated",
+            "value" : "Обновление мода"
           }
         },
         "es" : {
@@ -8790,8 +8790,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Error updating framework"
+            "state" : "translated",
+            "value" : "更新框架時出錯"
           }
         },
         "fr" : {
@@ -8838,8 +8838,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Error updating framework"
+            "state" : "translated",
+            "value" : "Ошибка при обновлении фреймворка"
           }
         },
         "es" : {
@@ -8879,8 +8879,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Updating framework"
+            "state" : "translated",
+            "value" : "正在更新框架"
           }
         },
         "fr" : {
@@ -8927,8 +8927,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Updating framework"
+            "state" : "translated",
+            "value" : "Обновление фреймворка"
           }
         },
         "es" : {
@@ -8968,8 +8968,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't update mod"
+            "state" : "translated",
+            "value" : "無法更新模組"
           }
         },
         "fr" : {
@@ -9016,8 +9016,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't update mod"
+            "state" : "translated",
+            "value" : "Не удалось обновить мод"
           }
         },
         "es" : {
@@ -9057,8 +9057,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "total"
+            "state" : "translated",
+            "value" : "共計"
           }
         },
         "fr" : {
@@ -9105,8 +9105,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "total"
+            "state" : "translated",
+            "value" : "итого"
           }
         },
         "es" : {
@@ -9146,8 +9146,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This mod has no options."
+            "state" : "translated",
+            "value" : "該模組沒有選項。"
           }
         },
         "fr" : {
@@ -9194,8 +9194,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This mod has no options."
+            "state" : "translated",
+            "value" : "У этого мода нет настроек."
           }
         },
         "es" : {
@@ -9235,8 +9235,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Language"
+            "state" : "translated",
+            "value" : "語言設定"
           }
         },
         "fr" : {
@@ -9283,8 +9283,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Language"
+            "state" : "translated",
+            "value" : "Язык"
           }
         },
         "es" : {
@@ -9324,8 +9324,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This software uses libarchive"
+            "state" : "translated",
+            "value" : "軟體使用 libarchive"
           }
         },
         "fr" : {
@@ -9372,8 +9372,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This software uses libarchive"
+            "state" : "translated",
+            "value" : "Это программное обеспечение использует libarchive"
           }
         },
         "es" : {
@@ -9413,8 +9413,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Profile name"
+            "state" : "translated",
+            "value" : "資料名稱"
           }
         },
         "fr" : {
@@ -9461,8 +9461,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Profile name"
+            "state" : "translated",
+            "value" : "Имя Профиля"
           }
         },
         "es" : {
@@ -9502,8 +9502,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Please enter a name for the profile"
+            "state" : "translated",
+            "value" : "請輸入資料的名稱"
           }
         },
         "fr" : {
@@ -9550,8 +9550,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Please enter a name for the profile"
+            "state" : "translated",
+            "value" : "Пожалуйста, введите имя для профиля"
           }
         },
         "es" : {
@@ -9591,8 +9591,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Profiles"
+            "state" : "translated",
+            "value" : "資料"
           }
         },
         "fr" : {
@@ -9639,8 +9639,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Profiles"
+            "state" : "translated",
+            "value" : "Профили"
           }
         },
         "es" : {
@@ -9680,8 +9680,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You can save lists of mods, with their settings, as profiles to easily switch between them."
+            "state" : "translated",
+            "value" : "您可以將包含設定的模組清單儲存為資料，以便在它們之間輕鬆切換。"
           }
         },
         "fr" : {
@@ -9728,8 +9728,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You can save lists of mods, with their settings, as profiles to easily switch between them."
+            "state" : "translated",
+            "value" : "Вы можете сохранять списки модов вместе с их настройками как профили, для лёгкого переключения между ними."
           }
         },
         "es" : {
@@ -9769,8 +9769,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Current settings"
+            "state" : "translated",
+            "value" : "當前的設定"
           }
         },
         "fr" : {
@@ -9817,8 +9817,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Current settings"
+            "state" : "translated",
+            "value" : "Текущие настройки"
           }
         },
         "es" : {
@@ -9858,8 +9858,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Save as Profile"
+            "state" : "translated",
+            "value" : "儲存為資料"
           }
         },
         "fr" : {
@@ -9906,8 +9906,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Save as Profile"
+            "state" : "translated",
+            "value" : "Сохранить как Профиль"
           }
         },
         "es" : {
@@ -9946,8 +9946,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mod contains Peacock plugins"
+            "state" : "translated",
+            "value" : "模組包含 Peacock 外掛程式"
           }
         },
         "fr" : {
@@ -9994,8 +9994,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mod contains Peacock plugins"
+            "state" : "translated",
+            "value" : "Мод содержит плагины Peacock"
           }
         },
         "es" : {
@@ -10034,8 +10034,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This mod contains Peacock plugins; if you use the Peacock server emulator after applying this mod, its plugins will be able to run their own code, giving the mod's author complete control over your PC. Make sure you trust whoever developed this mod, and wherever you downloaded it from. Are you sure you want to add this mod?"
+            "state" : "translated",
+            "value" : "此模組包含 Peacock 外掛程式；如果您在安裝此模組後使用 Peacock 伺服器模擬器，這些外掛程式將能夠運行其自身程式碼，從而使模組作者能夠完全控制您的電腦。請務必確保您信任該模組的開發者及其下載來源。您確定要新增此模組嗎？"
           }
         },
         "fr" : {
@@ -10082,8 +10082,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This mod contains Peacock plugins; if you use the Peacock server emulator after applying this mod, its plugins will be able to run their own code, giving the mod's author complete control over your PC. Make sure you trust whoever developed this mod, and wherever you downloaded it from. Are you sure you want to add this mod?"
+            "state" : "translated",
+            "value" : "Этот мод содержит плагины Peacock; если вы используете эмулятор сервера Peacock после применения этого режима, его плагины смогут запустить свой собственный код, давая автору полный контроль над вашим компьютером. Убедитесь, что вы доверяете тем, кто разработал этот мод, и месту откуда вы его скачали. Вы уверены, что хотите добавить этот мод?"
           }
         },
         "es" : {
@@ -10122,8 +10122,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Requires {mod}"
+            "state" : "translated",
+            "value" : "需要 {mod}"
           }
         },
         "fr" : {
@@ -10170,8 +10170,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Requires {mod}"
+            "state" : "translated",
+            "value" : "Требуется {mod}"
           }
         },
         "es" : {
@@ -10210,8 +10210,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Incompatible with {mod}"
+            "state" : "translated",
+            "value" : "與 {mod} 不相容"
           }
         },
         "fr" : {
@@ -10258,8 +10258,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Incompatible with {mod}"
+            "state" : "translated",
+            "value" : "Несовместимо с {mod}"
           }
         },
         "es" : {
@@ -10298,8 +10298,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mod's Peacock plugins have changed"
+            "state" : "translated",
+            "value" : "模組的 Peacock 外掛程式已變更"
           }
         },
         "fr" : {
@@ -10346,8 +10346,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mod's Peacock plugins have changed"
+            "state" : "translated",
+            "value" : "Плагины Peacock используемые модификацией были изменены"
           }
         },
         "es" : {
@@ -10386,8 +10386,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The Peacock plugins included with this mod have changed, or new plugins have been introduced. If you use the Peacock server emulator after applying this mod, its plugins will be able to run their own code, giving the mod's author complete control over your PC. Make sure you trust whoever developed this mod, and wherever you originally downloaded it from. Are you sure you want to update this mod?"
+            "state" : "translated",
+            "value" : "此模組隨附的 Peacock 外掛程式已發生變更，或引入了新外掛程式。如果您在安裝此模組後使用 Peacock 伺服器模擬器，其外掛程式將能夠運行自身程式碼，從而使模組作者能夠完全控制您的電腦。請務必確保您信任該模組的開發者及其原始下載來源。您確定要更新此模組嗎？"
           }
         },
         "fr" : {
@@ -10434,8 +10434,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The Peacock plugins included with this mod have changed, or new plugins have been introduced. If you use the Peacock server emulator after applying this mod, its plugins will be able to run their own code, giving the mod's author complete control over your PC. Make sure you trust whoever developed this mod, and wherever you originally downloaded it from. Are you sure you want to update this mod?"
+            "state" : "translated",
+            "value" : "Плагины Peacock, включенные в этот мод, были изменены или были добавлены новые. Если вы используете эмулятор сервера Peacock после применения этого мода, его плагины смогут запустить свой собственный код, давая автору полный контроль над вашим ПК. Убедитесь, что вы доверяете тому, кто разработал этот мод, месту откуда вы его скачали. Вы уверены, что хотите обновить этот мод?"
           }
         },
         "es" : {
@@ -10475,8 +10475,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enable SMF analytics and server features"
+            "state" : "translated",
+            "value" : "啟用 SMF 分析和伺服器功能"
           }
         },
         "fr" : {
@@ -10523,8 +10523,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enable SMF analytics and server features"
+            "state" : "translated",
+            "value" : "Включить SMF аналитику и серверные функции"
           }
         },
         "es" : {
@@ -10563,8 +10563,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Analytics and server features are disabled"
+            "state" : "translated",
+            "value" : "分析和伺服器功能已停用"
           }
         },
         "fr" : {
@@ -10611,8 +10611,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Analytics and server features are disabled"
+            "state" : "translated",
+            "value" : "Функции аналитики и сервера отключены"
           }
         },
         "es" : {
@@ -10651,8 +10651,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Analytics, and features powered by them, are currently disabled. Analytics are completely anonymous, and enabling them allows for mod conflict detection, more reliable mod update checking and other useful features."
+            "state" : "translated",
+            "value" : "分析功能及其相關特性目前處於停用狀態。分析資料完全匿名；啟用此功能有助於偵測模組衝突、更可靠地檢查模組更新，並支援其他實用功能。"
           }
         },
         "fr" : {
@@ -10699,8 +10699,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Analytics, and features powered by them, are currently disabled. Analytics are completely anonymous, and enabling them allows for mod conflict detection, more reliable mod update checking and other useful features."
+            "state" : "translated",
+            "value" : "Аналитика и функции на этой основе в настоящее время отключены. Аналитика полностью анонимна и позволяет обнаруживать конфликты модов, проверять обновления модов и другие полезные функции."
           }
         },
         "es" : {
@@ -10739,8 +10739,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This feature enables completely anonymous reporting of mod lists and basic settings, which allows for statistics around mod usage and conflict detection. It also makes mod update checking more reliable, avoiding rate-limiting for mods hosted on GitHub. A ping with no other information will still be sent if this is disabled, to allow determining how representative the sample is."
+            "state" : "translated",
+            "value" : "此功能支援完全匿名上報模組列表及基本設置，從而能夠統計模組使用情況並檢測衝突。此外，它還提高了模組更新檢查的可靠性，避免了因頻繁請求而觸發 GitHub 的速率限制。即使停用了此功能，系統仍會發送僅包含基本連通性的不含其他資訊的訊號的請求，以便評估樣本的代表性。"
           }
         },
         "fr" : {
@@ -10787,8 +10787,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This feature enables completely anonymous reporting of mod lists and basic settings, which allows for statistics around mod usage and conflict detection. It also makes mod update checking more reliable, avoiding rate-limiting for mods hosted on GitHub. A ping with no other information will still be sent if this is disabled, to allow determining how representative the sample is."
+            "state" : "translated",
+            "value" : "Эта функция включает полностью анонимные отчеты о списках модов и базовых настройках, что позволяет собирать статистику по использованию модов и обнаружению конфликтов. Это также делает проверку обновлений модов более надежной, избегая ограничения скорости для модов, размещенных на GitHub. Если эта опция отключена, то запрос с другой информацией все равно будет отправлен, чтобы разрешить определить, насколько репрезентативна выборка."
           }
         },
         "es" : {
@@ -10828,8 +10828,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Disable dynamic resources when necessary"
+            "state" : "translated",
+            "value" : "必要時停用動態資源"
           }
         },
         "fr" : {
@@ -10876,8 +10876,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Disable dynamic resources when necessary"
+            "state" : "translated",
+            "value" : "Отключать динамические ресурсы при необходимости"
           }
         },
         "es" : {
@@ -10916,8 +10916,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Makes it possible to use certain changes in online mode. You should leave this on unless you have a specific reason not to."
+            "state" : "translated",
+            "value" : "允許在線上模式下使用某些變更。除非有特定理由不這麼做，否則應保持此選項開啟。"
           }
         },
         "fr" : {
@@ -10964,8 +10964,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Makes it possible to use certain changes in online mode. You should leave this on unless you have a specific reason not to."
+            "state" : "translated",
+            "value" : "Позволяет использовать некоторые изменения в онлайн режиме. Вам следует оставить это, если только у вас нет конкретной причины."
           }
         },
         "es" : {
@@ -11004,8 +11004,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod is being upgraded to the latest framework version. Please wait."
+            "state" : "translated",
+            "value" : "模組正在升級至最新框架版本，請稍候。"
           }
         },
         "fr" : {
@@ -11052,8 +11052,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod is being upgraded to the latest framework version. Please wait."
+            "state" : "translated",
+            "value" : "Мод обновляется до последней версии фреймворка. Пожалуйста, подождите."
           }
         },
         "es" : {
@@ -11093,8 +11093,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Unrecognised game version"
+            "state" : "translated",
+            "value" : "無法辨識的遊戲版本"
           }
         },
         "fr" : {
@@ -11141,8 +11141,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Unrecognised game version"
+            "state" : "translated",
+            "value" : "Неопознанная версия игры"
           }
         },
         "es" : {
@@ -11181,8 +11181,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "If the game has recently updated, the framework will need to be patched by its developers."
+            "state" : "translated",
+            "value" : "如果遊戲近期進行了更新，該框架就需要由其開發者進行修補。"
           }
         },
         "fr" : {
@@ -11229,8 +11229,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "If the game has recently updated, the framework will need to be patched by its developers."
+            "state" : "translated",
+            "value" : "Если игра недавно обновилась, фреймворку потребуется патч от его разработчиков."
           }
         },
         "es" : {
@@ -11269,8 +11269,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "If you're using a pirated or cracked version of the game, that's the problem."
+            "state" : "translated",
+            "value" : "如果您使用的是盜版或破解版遊戲，那就是問題所在。"
           }
         },
         "fr" : {
@@ -11317,8 +11317,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "If you're using a pirated or cracked version of the game, that's the problem."
+            "state" : "translated",
+            "value" : "Если вы используете пиратскую или взломанную версию игры, проблема в этом."
           }
         },
         "es" : {
@@ -11357,8 +11357,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Has a game update recently been released?"
+            "state" : "translated",
+            "value" : "最近發布了遊戲更新嗎？"
           }
         },
         "fr" : {
@@ -11405,8 +11405,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Has a game update recently been released?"
+            "state" : "translated",
+            "value" : "Было ли недавно выпущено обновление игры?"
           }
         },
         "es" : {
@@ -11445,8 +11445,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Wait for the Simple Mod Framework to be updated by its developers. You will see the update when it is released on the Home page. Do not post a comment on Nexus about this."
+            "state" : "translated",
+            "value" : "請等待 Simple Mod Framework 的開發者發布更新。一旦更新在主頁發布，您就能看到。請勿就此事在 Nexus 上發表評論。"
           }
         },
         "fr" : {
@@ -11493,8 +11493,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Wait for the Simple Mod Framework to be updated by its developers. You will see the update when it is released on the Home page. Do not post a comment on Nexus about this."
+            "state" : "translated",
+            "value" : "Дождитесь обновления Simple Mod Framework от разработчиков. Когда обновление будет выпущено, вы увидите его на Главной. Нет необходимости оставлять комментарии на NexusMods по этому поводу."
           }
         },
         "es" : {
@@ -11533,8 +11533,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Verify your game files and ensure you are on the latest version of the game, using the Steam, Epic or Microsoft/Xbox app. You can search \"how do I verify my game files\" on Google for more information."
+            "state" : "translated",
+            "value" : "請使用 Steam、Epic 或 Microsoft/Xbox 應用程式驗證遊戲文件，並確保遊戲已更新至最新版本。您可以在 Google 上搜尋「如何驗證遊戲檔案」以獲取更多資訊。"
           }
         },
         "fr" : {
@@ -11581,8 +11581,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Verify your game files and ensure you are on the latest version of the game, using the Steam, Epic or Microsoft/Xbox app. You can search \"how do I verify my game files\" on Google for more information."
+            "state" : "translated",
+            "value" : "Проверьте ваши игровые файлы и убедитесь, что вы находитесь в последней версии игры, используя Steam, Epic или Microsoft/Xbox. Вы можете найти \"как проверить целостность файлов игры\" в Google для получения дополнительной информации."
           }
         },
         "es" : {
@@ -11622,8 +11622,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Yes"
+            "state" : "translated",
+            "value" : "好的"
           }
         },
         "fr" : {
@@ -11670,8 +11670,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Yes"
+            "state" : "translated",
+            "value" : "Да"
           }
         },
         "es" : {
@@ -11711,8 +11711,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "No"
+            "state" : "translated",
+            "value" : "取消"
           }
         },
         "fr" : {
@@ -11759,8 +11759,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "No"
+            "state" : "translated",
+            "value" : "Нет"
           }
         },
         "es" : {
@@ -11799,8 +11799,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "READ the following before asking for support with this issue."
+            "state" : "translated",
+            "value" : "在就此問題尋求支援之前，請先閱讀以下內容。"
           }
         },
         "fr" : {
@@ -11847,8 +11847,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "READ the following before asking for support with this issue."
+            "state" : "translated",
+            "value" : "ВНИМАТЕЛЬНО ПРОЧТИТЕ следующее перед тем как запрашивать поддержку."
           }
         },
         "es" : {
@@ -11888,8 +11888,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Read Aloud"
+            "state" : "translated",
+            "value" : "大聲朗讀"
           }
         },
         "fr" : {
@@ -11936,8 +11936,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Read Aloud"
+            "state" : "translated",
+            "value" : "Прочитать Вслух"
           }
         },
         "es" : {
@@ -11976,8 +11976,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This mod contains ZHMModSDK mods. When you run the game, its DLLs will be able to run their own code, giving the mod's author complete control over your PC. Make sure you trust whoever developed this mod, and wherever you downloaded it from. Are you sure you want to add this mod?"
+            "state" : "translated",
+            "value" : "此模組包含 ZHMModSDK 模組。運行遊戲時，其 DLL 檔案將能夠執行自身程式碼，從而使模組作者能夠完全控制您的電腦。請務必確保您信任該模組的開發者及其下載來源。您確定要新增此模組嗎？"
           }
         },
         "fr" : {
@@ -12024,8 +12024,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This mod contains ZHMModSDK mods. When you run the game, its DLLs will be able to run their own code, giving the mod's author complete control over your PC. Make sure you trust whoever developed this mod, and wherever you downloaded it from. Are you sure you want to add this mod?"
+            "state" : "translated",
+            "value" : "Этот мод содержит модификации ZHMModSDK. При запуске игры DLL файлы смогут запустить свой собственный код, предоставляя автору мода полный контроль над вашим ПК. Убедитесь, что вы доверяете тому, кто разработал этот мод, и месту откуда вы его скачали. Вы уверены, что хотите добавить этот мод?"
           }
         },
         "es" : {
@@ -12064,8 +12064,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mod contains SDK mods"
+            "state" : "translated",
+            "value" : "模組包含 SDK 模組"
           }
         },
         "fr" : {
@@ -12112,8 +12112,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mod contains SDK mods"
+            "state" : "translated",
+            "value" : "Мод содержит модификации SDK"
           }
         },
         "es" : {
@@ -12153,8 +12153,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Read Before Continuing"
+            "state" : "translated",
+            "value" : "繼續前請閱讀"
           }
         },
         "fr" : {
@@ -12201,8 +12201,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Read Before Continuing"
+            "state" : "translated",
+            "value" : "Прочтите перед продолжением"
           }
         },
         "es" : {
@@ -12242,8 +12242,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Custom boot scene"
+            "state" : "translated",
+            "value" : "自訂啟動畫面"
           }
         },
         "fr" : {
@@ -12290,8 +12290,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Custom boot scene"
+            "state" : "translated",
+            "value" : "Пользовательская сцена загрузки"
           }
         },
         "es" : {
@@ -12330,8 +12330,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Overrides the scene path that the game launches to. Should be a bare scene path, without the .pc_entitytype suffix."
+            "state" : "translated",
+            "value" : "覆蓋遊戲啟動時載入的場景路徑。應為不含 `.pc_entitytype` 字尾的純場景路徑。"
           }
         },
         "fr" : {
@@ -12378,8 +12378,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Overrides the scene path that the game launches to. Should be a bare scene path, without the .pc_entitytype suffix."
+            "state" : "translated",
+            "value" : "Перезаписывает путь к сцене, на который запускается игра. Должно быть чистым путем без суффикса .pc_entityType."
           }
         },
         "es" : {
@@ -12419,8 +12419,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Select"
+            "state" : "translated",
+            "value" : "選擇"
           }
         },
         "fr" : {
@@ -12467,8 +12467,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Select"
+            "state" : "translated",
+            "value" : "Выбрать"
           }
         },
         "es" : {
@@ -12508,8 +12508,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Selected"
+            "state" : "translated",
+            "value" : "已選取"
           }
         },
         "fr" : {
@@ -12556,8 +12556,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Selected"
+            "state" : "translated",
+            "value" : "Выбрано"
           }
         },
         "es" : {
@@ -12597,8 +12597,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Remove Unavailable Mods"
+            "state" : "translated",
+            "value" : "移除不可用的模組"
           }
         },
         "fr" : {
@@ -12645,8 +12645,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Remove Unavailable Mods"
+            "state" : "translated",
+            "value" : "Удалить недоступные моды"
           }
         },
         "es" : {
@@ -12685,8 +12685,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "{mods} mods enabled, plus mod settings"
+            "state" : "translated",
+            "value" : "已啟用 {mods} 模組，以及模組設置"
           }
         },
         "fr" : {
@@ -12733,8 +12733,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "{mods} mods enabled, plus mod settings"
+            "state" : "translated",
+            "value" : "{mods} моды включены, а также настройки модов"
           }
         },
         "es" : {
@@ -12774,8 +12774,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Go to Settings"
+            "state" : "translated",
+            "value" : "前往設定"
           }
         },
         "fr" : {
@@ -12822,8 +12822,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Go to Settings"
+            "state" : "translated",
+            "value" : "Перейти к Настройкам"
           }
         },
         "es" : {
@@ -12862,8 +12862,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "An update to the ZHMModSDK is available from version {oldVersion} to {newVersion}. You can update from the Settings page."
+            "state" : "translated",
+            "value" : "ZHMModSDK 有更新可用，版本從 {oldVersion} 升級至 {newVersion}。你可以在「設定」頁面進行更新。"
           }
         },
         "fr" : {
@@ -12910,8 +12910,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "An update to the ZHMModSDK is available from version {oldVersion} to {newVersion}. You can update from the Settings page."
+            "state" : "translated",
+            "value" : "Обновление ZHMModSDK доступно с версии {oldVersion} до {newVersion}. Вы можете обновить его на странице Настроек."
           }
         },
         "es" : {
@@ -12951,8 +12951,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "ZHMModSDK update available"
+            "state" : "translated",
+            "value" : "ZHMModSDK 有更新可用"
           }
         },
         "fr" : {
@@ -12999,8 +12999,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "ZHMModSDK update available"
+            "state" : "translated",
+            "value" : "Доступно обновление ZHMModSDK"
           }
         },
         "es" : {
@@ -13039,8 +13039,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The ZHMModSDK allows mods to hook into the game's behaviour while it is running, enabling new kinds of mods."
+            "state" : "translated",
+            "value" : "ZHMModSDK 允許模組在遊戲運行期間掛鉤遊戲的各項行為，從而實現新型模組。"
           }
         },
         "fr" : {
@@ -13087,8 +13087,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The ZHMModSDK allows mods to hook into the game's behaviour while it is running, enabling new kinds of mods."
+            "state" : "translated",
+            "value" : "ZHMModSDK позволяет модам подключаться к игре, пока он запущен, открывая путь к новым видам модов."
           }
         },
         "es" : {
@@ -13127,8 +13127,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "While the SDK itself is safe for your computer, mods might not be, so SMF will warn you when you add a new mod that uses it."
+            "state" : "translated",
+            "value" : "儘管 SDK 本身對你的電腦是安全的，但模組未必如此；因此，當新增使用該 SDK 的新模組時，SMF 會向你發出提示。"
           }
         },
         "fr" : {
@@ -13175,8 +13175,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "While the SDK itself is safe for your computer, mods might not be, so SMF will warn you when you add a new mod that uses it."
+            "state" : "translated",
+            "value" : "Хотя SDK сам по себе безопасен для вашего компьютера, с модами ситуация может быть другой, поэтому SMF будет предупреждать вас о них, когда вы будете добавлять подобный мод."
           }
         },
         "es" : {
@@ -13215,8 +13215,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Installed"
+            "state" : "translated",
+            "value" : "已安裝"
           }
         },
         "fr" : {
@@ -13263,8 +13263,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Installed"
+            "state" : "translated",
+            "value" : "Установлено"
           }
         },
         "es" : {
@@ -13304,8 +13304,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "version {version}"
+            "state" : "translated",
+            "value" : "版本 {version}"
           }
         },
         "fr" : {
@@ -13352,8 +13352,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "version {version}"
+            "state" : "translated",
+            "value" : "версия {version}"
           }
         },
         "es" : {
@@ -13393,8 +13393,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "checking for updates..."
+            "state" : "translated",
+            "value" : "正在檢查更新……"
           }
         },
         "fr" : {
@@ -13441,8 +13441,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "checking for updates..."
+            "state" : "translated",
+            "value" : "проверка обновлений..."
           }
         },
         "es" : {
@@ -13482,8 +13482,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "update available to {version}"
+            "state" : "translated",
+            "value" : "有適用於 {version} 的更新"
           }
         },
         "fr" : {
@@ -13530,8 +13530,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "update available to {version}"
+            "state" : "translated",
+            "value" : "доступно обновление до {version}"
           }
         },
         "es" : {
@@ -13571,8 +13571,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "up to date"
+            "state" : "translated",
+            "value" : "已為最新"
           }
         },
         "fr" : {
@@ -13619,8 +13619,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "up to date"
+            "state" : "translated",
+            "value" : "обновления не требуются"
           }
         },
         "es" : {
@@ -13660,8 +13660,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "can't check for updates"
+            "state" : "translated",
+            "value" : "無法檢查更新"
           }
         },
         "fr" : {
@@ -13708,8 +13708,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "can't check for updates"
+            "state" : "translated",
+            "value" : "не удалось проверить наличие обновлений"
           }
         },
         "es" : {
@@ -13748,8 +13748,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The SDK is installed on the currently selected game."
+            "state" : "translated",
+            "value" : "SDK 已安裝在目前選定的遊戲上。"
           }
         },
         "fr" : {
@@ -13796,8 +13796,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The SDK is installed on the currently selected game."
+            "state" : "translated",
+            "value" : "SDK установлен в выбранную игру."
           }
         },
         "es" : {
@@ -13837,8 +13837,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Remove"
+            "state" : "translated",
+            "value" : "刪除"
           }
         },
         "fr" : {
@@ -13885,8 +13885,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Remove"
+            "state" : "translated",
+            "value" : "Удалить"
           }
         },
         "es" : {
@@ -13926,8 +13926,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Not installed"
+            "state" : "translated",
+            "value" : "未安裝"
           }
         },
         "fr" : {
@@ -13974,8 +13974,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Not installed"
+            "state" : "translated",
+            "value" : "Не установлено"
           }
         },
         "es" : {
@@ -14014,8 +14014,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The SDK is not installed on the currently selected game."
+            "state" : "translated",
+            "value" : "SDK 未安裝在目前選定的遊戲中。"
           }
         },
         "fr" : {
@@ -14062,8 +14062,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The SDK is not installed on the currently selected game."
+            "state" : "translated",
+            "value" : "SDK не установлен в выбранную игру."
           }
         },
         "es" : {
@@ -14102,8 +14102,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Unable to check installed SDK status."
+            "state" : "translated",
+            "value" : "無法檢查已安裝 SDK 的狀態。"
           }
         },
         "fr" : {
@@ -14150,8 +14150,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Unable to check installed SDK status."
+            "state" : "translated",
+            "value" : "Не удалось проверить статус установленного SDK."
           }
         },
         "es" : {
@@ -14190,8 +14190,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Select a game path in the Mods page to configure the SDK."
+            "state" : "translated",
+            "value" : "在模組頁面選擇遊戲路徑以設定 SDK。"
           }
         },
         "fr" : {
@@ -14238,8 +14238,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Select a game path in the Mods page to configure the SDK."
+            "state" : "translated",
+            "value" : "Выберите путь к игре на странице Модов для настройки SDK."
           }
         },
         "es" : {
@@ -14279,8 +14279,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Install"
+            "state" : "translated",
+            "value" : "安裝"
           }
         },
         "fr" : {
@@ -14327,8 +14327,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Install"
+            "state" : "translated",
+            "value" : "Установить"
           }
         },
         "es" : {
@@ -14368,8 +14368,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "(default)"
+            "state" : "translated",
+            "value" : "(預設)"
           }
         },
         "fr" : {
@@ -14416,8 +14416,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "(default)"
+            "state" : "translated",
+            "value" : "(по умолчанию)"
           }
         },
         "es" : {
@@ -14457,8 +14457,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Reset to Defaults"
+            "state" : "translated",
+            "value" : "重設為預設"
           }
         },
         "fr" : {
@@ -14505,8 +14505,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Reset to Defaults"
+            "state" : "translated",
+            "value" : "Сбросить на значения по умолчанию"
           }
         },
         "es" : {
@@ -14545,8 +14545,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Only supports {supported}"
+            "state" : "translated",
+            "value" : "僅支援 {supported}"
           }
         },
         "fr" : {
@@ -14593,8 +14593,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Only supports {supported}"
+            "state" : "translated",
+            "value" : "Поддерживает только {supported}"
           }
         },
         "es" : {
@@ -14633,8 +14633,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The currently selected game version doesn't have a mod SDK available."
+            "state" : "translated",
+            "value" : "目前選定的遊戲版本沒有可用的 Mod SDK。"
           }
         },
         "fr" : {
@@ -14681,8 +14681,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The currently selected game version doesn't have a mod SDK available."
+            "state" : "translated",
+            "value" : "Выбранная в данный момент версия игры не имеет доступного SDK."
           }
         },
         "es" : {
@@ -14722,8 +14722,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Switch to Unstable"
+            "state" : "translated",
+            "value" : "切換到不穩定版本"
           }
         },
         "fr" : {
@@ -14770,8 +14770,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Switch to Unstable"
+            "state" : "translated",
+            "value" : "Переключиться на Нестабильную версию"
           }
         },
         "es" : {
@@ -14811,8 +14811,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Switch to Stable"
+            "state" : "translated",
+            "value" : "切換到穩定版本"
           }
         },
         "fr" : {
@@ -14859,8 +14859,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Switch to Stable"
+            "state" : "translated",
+            "value" : "Переключиться на Стабильную версию"
           }
         },
         "es" : {
@@ -14900,8 +14900,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Rate limit hit"
+            "state" : "translated",
+            "value" : "達到速率限制"
           }
         },
         "fr" : {
@@ -14948,8 +14948,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Rate limit hit"
+            "state" : "translated",
+            "value" : "Достигнут лимит запросов"
           }
         },
         "es" : {
@@ -14988,8 +14988,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "{skipped} mods couldn't be checked for updates due to Nexus Mods or GitHub rate limiting. Consider enabling analytics and server features to avoid this."
+            "state" : "translated",
+            "value" : "無法檢查 {skipped} 模組的更新，原因是受到了 Nexus Mods 或 GitHub 的速率限制。建議啟用分析與伺服器功能以避免此問題。"
           }
         },
         "fr" : {
@@ -15036,8 +15036,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "{skipped} mods couldn't be checked for updates due to Nexus Mods or GitHub rate limiting. Consider enabling analytics and server features to avoid this."
+            "state" : "translated",
+            "value" : "{skipped} модов не удалось на наличие обновлений из-за ограничений Nexus модов или GitHub. Попробуйте включить аналитику и возможности сервера, чтобы избежать этого."
           }
         },
         "es" : {
@@ -15077,8 +15077,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "{updates} mod updates available"
+            "state" : "translated",
+            "value" : "{updates} 模組有更新可用"
           }
         },
         "fr" : {
@@ -15125,8 +15125,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "{updates} mod updates available"
+            "state" : "translated",
+            "value" : "{updates} модов доступно для обновления"
           }
         },
         "es" : {
@@ -15166,8 +15166,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "{updates} mods can be automatically updated to the latest version."
+            "state" : "translated",
+            "value" : "{updates} 模組可自動更新至最新版本。"
           }
         },
         "fr" : {
@@ -15214,8 +15214,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "{updates} mods can be automatically updated to the latest version."
+            "state" : "translated",
+            "value" : "{updates} модов может быть автоматически обновлено до последней версии."
           }
         },
         "es" : {
@@ -15255,8 +15255,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Update All"
+            "state" : "translated",
+            "value" : "更新全部"
           }
         },
         "fr" : {
@@ -15303,8 +15303,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Update All"
+            "state" : "translated",
+            "value" : "Обновить всё"
           }
         },
         "es" : {
@@ -15343,8 +15343,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You can help translate SMF into your language by contributing to the translation project on Crowdin."
+            "state" : "translated",
+            "value" : "您可以透過參與 Crowdin 上的翻譯項目，協助將 SMF 翻譯成您的語言。"
           }
         },
         "fr" : {
@@ -15391,8 +15391,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You can help translate SMF into your language by contributing to the translation project on Crowdin."
+            "state" : "translated",
+            "value" : "Вы можете помочь с переводом SMF на ваш язык, внеся свой вклад в проект на Crowdin."
           }
         },
         "es" : {
@@ -15431,8 +15431,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "If you see any errors or untranslated text, help out by submitting your own translations!"
+            "state" : "translated",
+            "value" : "如果您發現任何錯誤或未翻譯的文本，歡迎提交您的譯本以提供協助！"
           }
         },
         "fr" : {
@@ -15479,8 +15479,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "If you see any errors or untranslated text, help out by submitting your own translations!"
+            "state" : "translated",
+            "value" : "Если вы видите ошибки или непереведенный текст, помогите отправив свой собственный перевод!"
           }
         },
         "es" : {
@@ -15520,8 +15520,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "More information about this mod"
+            "state" : "translated",
+            "value" : "關於此模組的更多資訊"
           }
         },
         "fr" : {
@@ -15568,8 +15568,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "More information about this mod"
+            "state" : "translated",
+            "value" : "Дополнительная информация об этом моде"
           }
         },
         "es" : {
@@ -15609,8 +15609,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Report an issue with this mod"
+            "state" : "translated",
+            "value" : "報告此模組的問題"
           }
         },
         "fr" : {
@@ -15657,8 +15657,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Report an issue with this mod"
+            "state" : "translated",
+            "value" : "Сообщить о проблеме с этим модом"
           }
         },
         "es" : {
@@ -15698,8 +15698,8 @@
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Support the mod author"
+            "state" : "translated",
+            "value" : "支援模組作者"
           }
         },
         "fr" : {
@@ -15746,8 +15746,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Support the mod author"
+            "state" : "translated",
+            "value" : "Поддержать автора мода"
           }
         },
         "es" : {
