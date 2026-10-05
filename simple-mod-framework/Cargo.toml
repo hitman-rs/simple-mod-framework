@@ -1,6 +1,6 @@
 [package]
 name = "simple-mod-framework"
-version = "3.0.0-rc.3"
+version = "3.0.0-rc.4"
 description = "A tool for managing HITMAN and 007: First Light mods."
 edition = "2024"
 publish = false
