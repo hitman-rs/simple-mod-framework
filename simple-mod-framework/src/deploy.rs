@@ -303,7 +303,10 @@ pub fn migrate(
 									.map_err(|x| eyre!("QuickEntity error: {:?}", x))?;
 
 									let vanilla_fac_spec = game.infer_resource_specifier(data.metadata.id)?.unwrap();
-									let vanilla_blu_spec = game.infer_resource_specifier(tblu_data.metadata.id)?.unwrap();
+									let vanilla_blu_spec = game.infer_resource_specifier(tblu_data.metadata.id)?.unwrap_or_else(|| ResourceSpecifier {
+										id: tblu_data.metadata.id,
+										partition: vanilla_fac_spec.partition.to_owned()
+									});
 
 									let (vanilla_fac_meta, vanilla_fac_data) = {
 										let partition = game

@@ -536,13 +536,10 @@ pub fn load_game_files(
 				.find(|x| x.filename(PatchId::Patch(patch)) == rpkg.file_name().to_string_lossy())
 			{
 				if patch > partition.patch_level {
-					if patch == 100
-						|| patch == 300 || (game_version == GlacierGame::H1 && patch == partition.patch_level + 1)
+					if clear_mods {
+						fs::remove_file(rpkg.path())?;
+					} else if !(patch == 300 || (game_version == GlacierGame::H1 && patch == partition.patch_level + 1))
 					{
-						if clear_mods {
-							fs::remove_file(rpkg.path())?;
-						}
-					} else {
 						world.emit_diagnostic(Diagnostic {
 							kind: DiagnosticKind::UnrecognizedPatch {
 								file_name: rpkg.file_name().to_string_lossy().to_string()
