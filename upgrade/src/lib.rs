@@ -1097,6 +1097,12 @@ pub fn upgrade_v2_data(
 						}
 					}
 
+					for languages in localisation.values_mut() {
+						if let Some(english) = languages.get("english").cloned() {
+							languages.retain(|key, value| key == "english" || *value != english);
+						}
+					}
+
 					from_value(to_value(localisation).unwrap()).unwrap()
 				})
 				.unwrap_or_default(),

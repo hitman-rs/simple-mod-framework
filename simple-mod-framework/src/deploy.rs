@@ -38,7 +38,8 @@ use simple_mod_framework_core::{
 	utils::ResultExt
 };
 use simple_mod_framework_types::{
-	Config, HashMap, HashSet, Manifest, ModID, ModOptionData, NonEmptyString, PapayaSet, VersionPlatform
+	Config, HashMap, HashSet, Localisation, Manifest, ModID, ModOptionData, NonEmptyString, PapayaSet, UIText,
+	VersionPlatform
 };
 use tracing::instrument;
 use tryvial::try_fn;
@@ -47,7 +48,7 @@ use velcro::vec;
 use crate::{
 	analysis::{analyse, get_effective_option_values, merge_option_data},
 	cache::Cache,
-	diagnostics::{Diagnostic, DiagnosticKind},
+	diagnostics::{Diagnostic, DiagnosticKind, DiagnosticTarget},
 	graph::{self, DeployGraph, GraphNode, NodeOperation, Operation},
 	state::{DeployContext, ResourceState, ResourceStates, State},
 	topo_sort::topological_sort,
@@ -222,6 +223,350 @@ pub fn migrate(
 	loop {
 		let mut need_reanalysis = false;
 
+		for mod_id in &config.deploy_order {
+			let mut manifest = (*world.get_mod_manifest(mod_id)?).to_owned();
+
+			fn handle_uitext(data: &mut UIText) {
+				if data.french() == data.first_specified() && data.first_specified_locale() != Some("fr") {
+					data.set_french(Some(None));
+				}
+
+				if data.italian() == data.first_specified() && data.first_specified_locale() != Some("it") {
+					data.set_italian(Some(None));
+				}
+
+				if data.german() == data.first_specified() && data.first_specified_locale() != Some("de") {
+					data.set_german(Some(None));
+				}
+
+				if data.spanish() == data.first_specified() && data.first_specified_locale() != Some("es") {
+					data.set_spanish(Some(None));
+				}
+
+				if data.russian() == data.first_specified() && data.first_specified_locale() != Some("ru") {
+					data.set_russian(Some(None));
+				}
+
+				if data.spanish_mexico() == data.first_specified() && data.first_specified_locale() != Some("es-MX") {
+					data.set_spanish_mexico(Some(None));
+				}
+
+				if data.portuguese_brazil() == data.first_specified() && data.first_specified_locale() != Some("pt-BR")
+				{
+					data.set_portuguese_brazil(Some(None));
+				}
+
+				if data.polish() == data.first_specified() && data.first_specified_locale() != Some("pl") {
+					data.set_polish(Some(None));
+				}
+
+				if data.chinese_simplified() == data.first_specified()
+					&& data.first_specified_locale() != Some("zh-Hans")
+				{
+					data.set_chinese_simplified(Some(None));
+				}
+
+				if data.japanese() == data.first_specified() && data.first_specified_locale() != Some("ja") {
+					data.set_japanese(Some(None));
+				}
+
+				if data.chinese_traditional() == data.first_specified()
+					&& data.first_specified_locale() != Some("zh-Hant")
+				{
+					data.set_chinese_traditional(Some(None));
+				}
+
+				if data.korean() == data.first_specified() && data.first_specified_locale() != Some("ko") {
+					data.set_korean(Some(None));
+				}
+
+				if data.turkish() == data.first_specified() && data.first_specified_locale() != Some("tr") {
+					data.set_turkish(Some(None));
+				}
+			}
+
+			fn handle_localisation(data: &mut Localisation) {
+				if data
+					.french
+					.as_ref()
+					.is_some_and(|specified| specified.as_ref() == data.first_specified())
+					&& data.first_specified_locale() != Some("fr")
+				{
+					data.french = Some(None);
+				}
+
+				if data
+					.italian
+					.as_ref()
+					.is_some_and(|specified| specified.as_ref() == data.first_specified())
+					&& data.first_specified_locale() != Some("it")
+				{
+					data.italian = Some(None);
+				}
+
+				if data
+					.german
+					.as_ref()
+					.is_some_and(|specified| specified.as_ref() == data.first_specified())
+					&& data.first_specified_locale() != Some("de")
+				{
+					data.german = Some(None);
+				}
+
+				if data
+					.spanish
+					.as_ref()
+					.is_some_and(|specified| specified.as_ref() == data.first_specified())
+					&& data.first_specified_locale() != Some("es")
+				{
+					data.spanish = Some(None);
+				}
+
+				if data
+					.spanish_mexico
+					.as_ref()
+					.is_some_and(|specified| specified.as_ref() == data.first_specified())
+					&& data.first_specified_locale() != Some("es-MX")
+				{
+					data.spanish_mexico = Some(None);
+				}
+
+				if data
+					.portuguese_brazil
+					.as_ref()
+					.is_some_and(|specified| specified.as_ref() == data.first_specified())
+					&& data.first_specified_locale() != Some("pt-BR")
+				{
+					data.portuguese_brazil = Some(None);
+				}
+
+				if data
+					.turkish
+					.as_ref()
+					.is_some_and(|specified| specified.as_ref() == data.first_specified())
+					&& data.first_specified_locale() != Some("tr")
+				{
+					data.turkish = Some(None);
+				}
+
+				if data
+					.polish
+					.as_ref()
+					.is_some_and(|specified| specified.as_ref() == data.first_specified())
+					&& data.first_specified_locale() != Some("pl")
+				{
+					data.polish = Some(None);
+				}
+
+				if data
+					.russian
+					.as_ref()
+					.is_some_and(|specified| specified.as_ref() == data.first_specified())
+					&& data.first_specified_locale() != Some("ru")
+				{
+					data.russian = Some(None);
+				}
+
+				if data
+					.chinese_simplified
+					.as_ref()
+					.is_some_and(|specified| specified.as_ref() == data.first_specified())
+					&& data.first_specified_locale() != Some("zh-Hans")
+				{
+					data.chinese_simplified = Some(None);
+				}
+
+				if data
+					.chinese_traditional
+					.as_ref()
+					.is_some_and(|specified| specified.as_ref() == data.first_specified())
+					&& data.first_specified_locale() != Some("zh-Hant")
+				{
+					data.chinese_traditional = Some(None);
+				}
+
+				if data
+					.japanese
+					.as_ref()
+					.is_some_and(|specified| specified.as_ref() == data.first_specified())
+					&& data.first_specified_locale() != Some("ja")
+				{
+					data.japanese = Some(None);
+				}
+
+				if data
+					.korean
+					.as_ref()
+					.is_some_and(|specified| specified.as_ref() == data.first_specified())
+					&& data.first_specified_locale() != Some("ko")
+				{
+					data.korean = Some(None);
+				}
+			}
+
+			fn recurse_option(option: &mut ModOptionData) {
+				match option {
+					ModOptionData::Boolean {
+						name,
+						description,
+						conditions,
+						data,
+						..
+					}
+					| ModOptionData::Number {
+						name,
+						description,
+						conditions,
+						data,
+						..
+					}
+					| ModOptionData::Color {
+						name,
+						description,
+						conditions,
+						data,
+						..
+					}
+					| ModOptionData::String {
+						name,
+						description,
+						conditions,
+						data,
+						..
+					} => {
+						handle_uitext(name);
+						description.as_mut().map(|x| handle_uitext(x));
+
+						for condition in &mut conditions.required_conditions {
+							handle_uitext(&mut condition.explanation);
+						}
+
+						for condition in &mut conditions.incompatible_conditions {
+							handle_uitext(&mut condition.explanation);
+						}
+
+						for loc in data.localisation.values_mut() {
+							handle_localisation(loc);
+						}
+					}
+
+					ModOptionData::Conditional { data, .. } => {
+						for loc in data.localisation.values_mut() {
+							handle_localisation(loc);
+						}
+					}
+
+					ModOptionData::Selection {
+						name,
+						description,
+						conditions,
+						data,
+						options,
+						..
+					} => {
+						handle_uitext(name);
+						description.as_mut().map(|x| handle_uitext(x));
+
+						for condition in &mut conditions.required_conditions {
+							handle_uitext(&mut condition.explanation);
+						}
+
+						for condition in &mut conditions.incompatible_conditions {
+							handle_uitext(&mut condition.explanation);
+						}
+
+						for loc in data.localisation.values_mut() {
+							handle_localisation(loc);
+						}
+
+						for option in options.iter_mut() {
+							handle_uitext(&mut option.name);
+							option.description.as_mut().map(|x| handle_uitext(x));
+
+							for condition in &mut option.conditions.required_conditions {
+								handle_uitext(&mut condition.explanation);
+							}
+
+							for condition in &mut option.conditions.incompatible_conditions {
+								handle_uitext(&mut condition.explanation);
+							}
+
+							for loc in option.data.localisation.values_mut() {
+								handle_localisation(loc);
+							}
+						}
+					}
+
+					ModOptionData::OptionGroup {
+						name,
+						description,
+						hidden_description,
+						data,
+						presets,
+						options,
+						..
+					} => {
+						handle_uitext(name);
+						description.as_mut().map(|x| handle_uitext(x));
+						hidden_description.as_mut().map(|x| handle_uitext(x));
+
+						for loc in data.localisation.values_mut() {
+							handle_localisation(loc);
+						}
+
+						for preset in presets {
+							handle_uitext(&mut preset.name);
+							preset.description.as_mut().map(|x| handle_uitext(x));
+						}
+
+						options.iter_mut().for_each(|opt| recurse_option(&mut opt.data));
+					}
+				}
+			}
+
+			handle_uitext(&mut manifest.name);
+			handle_uitext(&mut manifest.description);
+
+			for condition in &mut manifest.conditions.required_conditions {
+				handle_uitext(&mut condition.explanation);
+			}
+
+			for condition in &mut manifest.conditions.incompatible_conditions {
+				handle_uitext(&mut condition.explanation);
+			}
+
+			for preset in &mut manifest.presets {
+				handle_uitext(&mut preset.name);
+				preset.description.as_mut().map(|x| handle_uitext(x));
+			}
+
+			for loc in manifest.data.localisation.values_mut() {
+				handle_localisation(loc);
+			}
+
+			manifest
+				.options
+				.iter_mut()
+				.for_each(|opt| recurse_option(&mut opt.data));
+
+			if manifest != *world.get_mod_manifest(mod_id)? {
+				world.emit_diagnostic(Diagnostic {
+					kind: DiagnosticKind::ApplyingMigration {
+						message: "Localisation entries not requiring translation (whose translation is the same as \
+						          the original) will be set to null."
+							.into()
+					},
+					target: DiagnosticTarget::Mod {
+						mod_id: mod_id.to_owned()
+					}
+				})?;
+
+				world.write_mod_manifest(mod_id, manifest)?;
+
+				need_reanalysis = true;
+			}
+		}
+
 		for node in deploy_graph
 			.nodes()
 			.values()
@@ -303,10 +648,7 @@ pub fn migrate(
 									.map_err(|x| eyre!("QuickEntity error: {:?}", x))?;
 
 									let vanilla_fac_spec = game.infer_resource_specifier(data.metadata.id)?.unwrap();
-									let vanilla_blu_spec = game.infer_resource_specifier(tblu_data.metadata.id)?.unwrap_or_else(|| ResourceSpecifier {
-										id: tblu_data.metadata.id,
-										partition: vanilla_fac_spec.partition.to_owned()
-									});
+									let vanilla_blu_spec = game.infer_resource_specifier(tblu_data.metadata.id)?.ok_or_eyre("Blueprint resource has been changed and cannot be automatically migrated")?;
 
 									let (vanilla_fac_meta, vanilla_fac_data) = {
 										let partition = game
@@ -431,7 +773,9 @@ pub fn migrate(
 								data.package_definition.retain(|x| x.path != *path);
 							}
 
-							ModOptionData::Selection { options, .. } => {
+							ModOptionData::Selection { data, options, .. } => {
+								data.package_definition.retain(|x| x.path != *path);
+
 								for option in options.iter_mut() {
 									option.data.package_definition.retain(|x| x.path != *path);
 								}

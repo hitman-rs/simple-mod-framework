@@ -531,20 +531,131 @@ enum UITextInner {
 
 #[derive(Serialize, Deserialize, PartialEq, Eq, Hash, Default, Clone, Debug, Type, JsonSchema)]
 struct TextLines {
-	pub english: Option<NonEmptyString>,
-	pub french: Option<NonEmptyString>,
-	pub italian: Option<NonEmptyString>,
-	pub german: Option<NonEmptyString>,
-	pub spanish: Option<NonEmptyString>,
-	pub spanish_mexico: Option<NonEmptyString>,
-	pub portuguese_brazil: Option<NonEmptyString>,
-	pub turkish: Option<NonEmptyString>,
-	pub polish: Option<NonEmptyString>,
-	pub russian: Option<NonEmptyString>,
-	pub chinese_simplified: Option<NonEmptyString>,
-	pub chinese_traditional: Option<NonEmptyString>,
-	pub japanese: Option<NonEmptyString>,
-	pub korean: Option<NonEmptyString>
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
+	#[schemars(with = "Option<NonEmptyString>")]
+	#[specta(type = Option<NonEmptyString>)]
+	pub english: Option<Option<NonEmptyString>>,
+
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
+	#[schemars(with = "Option<NonEmptyString>")]
+	#[specta(type = Option<NonEmptyString>)]
+	pub french: Option<Option<NonEmptyString>>,
+
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
+	#[schemars(with = "Option<NonEmptyString>")]
+	#[specta(type = Option<NonEmptyString>)]
+	pub italian: Option<Option<NonEmptyString>>,
+
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
+	#[schemars(with = "Option<NonEmptyString>")]
+	#[specta(type = Option<NonEmptyString>)]
+	pub german: Option<Option<NonEmptyString>>,
+
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
+	#[schemars(with = "Option<NonEmptyString>")]
+	#[specta(type = Option<NonEmptyString>)]
+	pub spanish: Option<Option<NonEmptyString>>,
+
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
+	#[schemars(with = "Option<NonEmptyString>")]
+	#[specta(type = Option<NonEmptyString>)]
+	pub spanish_mexico: Option<Option<NonEmptyString>>,
+
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
+	#[schemars(with = "Option<NonEmptyString>")]
+	#[specta(type = Option<NonEmptyString>)]
+	pub portuguese_brazil: Option<Option<NonEmptyString>>,
+
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
+	#[schemars(with = "Option<NonEmptyString>")]
+	#[specta(type = Option<NonEmptyString>)]
+	pub turkish: Option<Option<NonEmptyString>>,
+
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
+	#[schemars(with = "Option<NonEmptyString>")]
+	#[specta(type = Option<NonEmptyString>)]
+	pub polish: Option<Option<NonEmptyString>>,
+
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
+	#[schemars(with = "Option<NonEmptyString>")]
+	#[specta(type = Option<NonEmptyString>)]
+	pub russian: Option<Option<NonEmptyString>>,
+
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
+	#[schemars(with = "Option<NonEmptyString>")]
+	#[specta(type = Option<NonEmptyString>)]
+	pub chinese_simplified: Option<Option<NonEmptyString>>,
+
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
+	#[schemars(with = "Option<NonEmptyString>")]
+	#[specta(type = Option<NonEmptyString>)]
+	pub chinese_traditional: Option<Option<NonEmptyString>>,
+
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
+	#[schemars(with = "Option<NonEmptyString>")]
+	#[specta(type = Option<NonEmptyString>)]
+	pub japanese: Option<Option<NonEmptyString>>,
+
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
+	#[schemars(with = "Option<NonEmptyString>")]
+	#[specta(type = Option<NonEmptyString>)]
+	pub korean: Option<Option<NonEmptyString>>
 }
 
 macro_rules! impl_ui_text_fn {
@@ -553,7 +664,7 @@ macro_rules! impl_ui_text_fn {
 			#[doc = concat!("Get the ", $lang_friendly, " (locale: ", $locale, ") translation of the text, if specified.")]
 			pub fn $lang(&self) -> Option<&NonEmptyString> {
 				match &self.0 {
-					UITextInner::Localised(lines) => lines.$lang.as_ref(),
+					UITextInner::Localised(lines) => lines.$lang.as_ref().and_then(|x| x.as_ref()),
 					_ => None
 				}
 			}
@@ -563,14 +674,14 @@ macro_rules! impl_ui_text_fn {
 				#[rune::function(instance, path = Self::$lang)]
 				fn #concat(r_ $lang)(&self) -> Option<NonEmptyString> {
 					match &self.0 {
-						UITextInner::Localised(lines) => lines.$lang.to_owned(),
+						UITextInner::Localised(lines) => lines.$lang.as_ref().and_then(|x| x.to_owned()),
 						_ => None
 					}
 				}
 
 				#[doc = concat!("Set the ", $lang_friendly, " (locale: ", $locale, ") translation of the text.")]
 				#[rune::function(instance, keep, path = Self::#concat(set_ $lang))]
-				pub fn #concat(set_ $lang)(&mut self, value: Option<NonEmptyString>) {
+				pub fn #concat(set_ $lang)(&mut self, value: Option<Option<NonEmptyString>>) {
 					match &mut self.0 {
 						UITextInner::Localised(lines) => {
 							Arc::make_mut(lines).$lang = value;
@@ -578,7 +689,7 @@ macro_rules! impl_ui_text_fn {
 
 						UITextInner::Single(english) if let Some(value) = value => {
 							self.0 = UITextInner::Localised(TextLines {
-								english: Some(english.to_owned()),
+								english: Some(Some(english.to_owned())),
 								$lang: Some(value),
 								..Default::default()
 							}.into());
@@ -616,7 +727,7 @@ impl UIText {
 	pub fn english(&self) -> Option<&NonEmptyString> {
 		match &self.0 {
 			UITextInner::Single(text) => Some(text),
-			UITextInner::Localised(lines) => lines.english.as_ref()
+			UITextInner::Localised(lines) => lines.english.as_ref().and_then(|x| x.as_ref())
 		}
 	}
 
@@ -625,19 +736,19 @@ impl UIText {
 	fn r_english(&self) -> Option<NonEmptyString> {
 		match &self.0 {
 			UITextInner::Single(text) => Some(text.to_owned()),
-			UITextInner::Localised(lines) => lines.english.to_owned()
+			UITextInner::Localised(lines) => lines.english.as_ref().and_then(|x| x.to_owned())
 		}
 	}
 
 	/// Set the English (locale: en) translation of the text.
 	#[rune::function(instance, keep, path = Self::set_english)]
-	pub fn set_english(&mut self, value: Option<NonEmptyString>) {
+	pub fn set_english(&mut self, value: Option<Option<NonEmptyString>>) {
 		match &mut self.0 {
 			UITextInner::Localised(lines) => {
 				Arc::make_mut(lines).english = value;
 			}
 
-			UITextInner::Single(english) if let Some(value) = value => {
+			UITextInner::Single(english) if let Some(Some(value)) = value => {
 				*english = value;
 			}
 
@@ -661,6 +772,25 @@ impl UIText {
 			.or(self.chinese_traditional())
 			.or(self.korean())
 			.or(self.turkish())
+	}
+
+	/// Get the first specified locale in game order: English, French, Italian, German, Spanish, Russian, Spanish (Mexico), Portuguese (Brazil), Polish, Chinese (Simplified), Japanese, Chinese (Traditional), Korean, Turkish.
+	pub fn first_specified_locale(&self) -> Option<&'static str> {
+		self.english()
+			.map(|_| "en")
+			.or(self.french().map(|_| "fr"))
+			.or(self.italian().map(|_| "it"))
+			.or(self.german().map(|_| "de"))
+			.or(self.spanish().map(|_| "es"))
+			.or(self.russian().map(|_| "ru"))
+			.or(self.spanish_mexico().map(|_| "es-MX"))
+			.or(self.portuguese_brazil().map(|_| "pt-BR"))
+			.or(self.polish().map(|_| "pl"))
+			.or(self.chinese_simplified().map(|_| "zh-Hans"))
+			.or(self.japanese().map(|_| "ja"))
+			.or(self.chinese_traditional().map(|_| "zh-Hant"))
+			.or(self.korean().map(|_| "ko"))
+			.or(self.turkish().map(|_| "tr"))
 	}
 
 	/// Get the localisation string for a specific UI locale, falling back to the first specified localisation if not found. Panics if there is no specified localisation at all.
@@ -1983,75 +2113,131 @@ pub struct PackageDefinitionEntity {
 #[rune_derive(DEBUG_FMT, PARTIAL_EQ, EQ, CLONE)]
 #[rune_functions(Self::r_new, Self::extend__meta)]
 pub struct Localisation {
-	#[serde(skip_serializing_if = "Option::is_none")]
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
 	#[schemars(with = "Option<String>")]
 	#[specta(type = Option<String>)]
-	pub english: Option<EcoString>,
+	pub english: Option<Option<EcoString>>,
 
-	#[serde(skip_serializing_if = "Option::is_none")]
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
 	#[schemars(with = "Option<String>")]
 	#[specta(type = Option<String>)]
-	pub french: Option<EcoString>,
+	pub french: Option<Option<EcoString>>,
 
-	#[serde(skip_serializing_if = "Option::is_none")]
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
 	#[schemars(with = "Option<String>")]
 	#[specta(type = Option<String>)]
-	pub italian: Option<EcoString>,
+	pub italian: Option<Option<EcoString>>,
 
-	#[serde(skip_serializing_if = "Option::is_none")]
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
 	#[schemars(with = "Option<String>")]
 	#[specta(type = Option<String>)]
-	pub german: Option<EcoString>,
+	pub german: Option<Option<EcoString>>,
 
-	#[serde(skip_serializing_if = "Option::is_none")]
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
 	#[schemars(with = "Option<String>")]
 	#[specta(type = Option<String>)]
-	pub spanish: Option<EcoString>,
+	pub spanish: Option<Option<EcoString>>,
 
-	#[serde(skip_serializing_if = "Option::is_none")]
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
 	#[schemars(with = "Option<String>")]
 	#[specta(type = Option<String>)]
-	pub spanish_mexico: Option<EcoString>,
+	pub spanish_mexico: Option<Option<EcoString>>,
 
-	#[serde(skip_serializing_if = "Option::is_none")]
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
 	#[schemars(with = "Option<String>")]
 	#[specta(type = Option<String>)]
-	pub portuguese_brazil: Option<EcoString>,
+	pub portuguese_brazil: Option<Option<EcoString>>,
 
-	#[serde(skip_serializing_if = "Option::is_none")]
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
 	#[schemars(with = "Option<String>")]
 	#[specta(type = Option<String>)]
-	pub turkish: Option<EcoString>,
+	pub turkish: Option<Option<EcoString>>,
 
-	#[serde(skip_serializing_if = "Option::is_none")]
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
 	#[schemars(with = "Option<String>")]
 	#[specta(type = Option<String>)]
-	pub polish: Option<EcoString>,
+	pub polish: Option<Option<EcoString>>,
 
-	#[serde(skip_serializing_if = "Option::is_none")]
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
 	#[schemars(with = "Option<String>")]
 	#[specta(type = Option<String>)]
-	pub russian: Option<EcoString>,
+	pub russian: Option<Option<EcoString>>,
 
-	#[serde(skip_serializing_if = "Option::is_none")]
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
 	#[schemars(with = "Option<String>")]
 	#[specta(type = Option<String>)]
-	pub chinese_simplified: Option<EcoString>,
+	pub chinese_simplified: Option<Option<EcoString>>,
 
-	#[serde(skip_serializing_if = "Option::is_none")]
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
 	#[schemars(with = "Option<String>")]
 	#[specta(type = Option<String>)]
-	pub chinese_traditional: Option<EcoString>,
+	pub chinese_traditional: Option<Option<EcoString>>,
 
-	#[serde(skip_serializing_if = "Option::is_none")]
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
 	#[schemars(with = "Option<String>")]
 	#[specta(type = Option<String>)]
-	pub japanese: Option<EcoString>,
+	pub japanese: Option<Option<EcoString>>,
 
-	#[serde(skip_serializing_if = "Option::is_none")]
+	#[serde(
+		default,
+		skip_serializing_if = "Option::is_none",
+		with = "::serde_with::rust::double_option"
+	)]
 	#[schemars(with = "Option<String>")]
 	#[specta(type = Option<String>)]
-	pub korean: Option<EcoString>
+	pub korean: Option<Option<EcoString>>
 }
 
 impl Localisation {
@@ -2066,14 +2252,16 @@ impl Localisation {
 				module.field_function(
 					&rune::runtime::Protocol::GET,
 					stringify!($field),
-					|s: &Self| -> Option<String> { s.$field.as_ref().map(|x| x.as_str().into()) }
+					|s: &Self| -> Option<Option<String>> {
+						s.$field.as_ref().map(|x| x.as_ref().map(|x| x.as_str().into()))
+					}
 				)?;
 
 				module.field_function(
 					&rune::runtime::Protocol::SET,
 					stringify!($field),
-					|s: &mut Self, v: Option<String>| {
-						s.$field = v.map(|x| x.into());
+					|s: &mut Self, v: Option<Option<String>>| {
+						s.$field = v.map(|x| x.map(|x| x.into()));
 					}
 				)?;
 			};
@@ -2163,18 +2351,54 @@ impl Localisation {
 	pub fn first_specified(&self) -> Option<&EcoString> {
 		self.english
 			.as_ref()
-			.or(self.french.as_ref())
-			.or(self.italian.as_ref())
-			.or(self.german.as_ref())
-			.or(self.spanish.as_ref())
-			.or(self.russian.as_ref())
-			.or(self.spanish_mexico.as_ref())
-			.or(self.portuguese_brazil.as_ref())
-			.or(self.polish.as_ref())
-			.or(self.chinese_simplified.as_ref())
-			.or(self.japanese.as_ref())
-			.or(self.chinese_traditional.as_ref())
-			.or(self.korean.as_ref())
-			.or(self.turkish.as_ref())
+			.and_then(|x| x.as_ref())
+			.or(self.french.as_ref().and_then(|x| x.as_ref()))
+			.or(self.italian.as_ref().and_then(|x| x.as_ref()))
+			.or(self.german.as_ref().and_then(|x| x.as_ref()))
+			.or(self.spanish.as_ref().and_then(|x| x.as_ref()))
+			.or(self.russian.as_ref().and_then(|x| x.as_ref()))
+			.or(self.spanish_mexico.as_ref().and_then(|x| x.as_ref()))
+			.or(self.portuguese_brazil.as_ref().and_then(|x| x.as_ref()))
+			.or(self.polish.as_ref().and_then(|x| x.as_ref()))
+			.or(self.chinese_simplified.as_ref().and_then(|x| x.as_ref()))
+			.or(self.japanese.as_ref().and_then(|x| x.as_ref()))
+			.or(self.chinese_traditional.as_ref().and_then(|x| x.as_ref()))
+			.or(self.korean.as_ref().and_then(|x| x.as_ref()))
+			.or(self.turkish.as_ref().and_then(|x| x.as_ref()))
+	}
+
+	/// Get the first specified UI locale (not game locale) in (roughly) game order: English, French, Italian, German, Spanish, Russian, Spanish (Mexico), Portuguese (Brazil), Polish, Chinese (Simplified), Japanese, Chinese (Traditional), Korean, Turkish.
+	pub fn first_specified_locale(&self) -> Option<&'static str> {
+		if self.english.as_ref().and_then(|x| x.as_ref()).is_some() {
+			Some("en")
+		} else if self.french.as_ref().and_then(|x| x.as_ref()).is_some() {
+			Some("fr")
+		} else if self.italian.as_ref().and_then(|x| x.as_ref()).is_some() {
+			Some("it")
+		} else if self.german.as_ref().and_then(|x| x.as_ref()).is_some() {
+			Some("de")
+		} else if self.spanish.as_ref().and_then(|x| x.as_ref()).is_some() {
+			Some("es")
+		} else if self.russian.as_ref().and_then(|x| x.as_ref()).is_some() {
+			Some("ru")
+		} else if self.spanish_mexico.as_ref().and_then(|x| x.as_ref()).is_some() {
+			Some("es-MX")
+		} else if self.portuguese_brazil.as_ref().and_then(|x| x.as_ref()).is_some() {
+			Some("pt-BR")
+		} else if self.polish.as_ref().and_then(|x| x.as_ref()).is_some() {
+			Some("pl")
+		} else if self.chinese_simplified.as_ref().and_then(|x| x.as_ref()).is_some() {
+			Some("zh-Hans")
+		} else if self.japanese.as_ref().and_then(|x| x.as_ref()).is_some() {
+			Some("ja")
+		} else if self.chinese_traditional.as_ref().and_then(|x| x.as_ref()).is_some() {
+			Some("zh-Hant")
+		} else if self.korean.as_ref().and_then(|x| x.as_ref()).is_some() {
+			Some("ko")
+		} else if self.turkish.as_ref().and_then(|x| x.as_ref()).is_some() {
+			Some("tr")
+		} else {
+			None
+		}
 	}
 }

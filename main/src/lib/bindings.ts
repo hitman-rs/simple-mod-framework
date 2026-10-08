@@ -270,7 +270,9 @@ export type DiagnosticTarget =
 			}
 	  }
 
-export type ExplainedCondition = {
+export type ExplainedCondition = ExplainedCondition_Serialize | ExplainedCondition_Deserialize
+
+export type ExplainedCondition_Deserialize = {
 	/**
 	 *  A condition written in Rune. Should be formatted as an expression.
 	 *  Some helper functions are given in the global scope.
@@ -283,7 +285,23 @@ export type ExplainedCondition = {
 	 *  For example, "Incompatible with Lighting Ultimate's Vanilla+ Sapienza" or "Requires either Mod A or Mod B to be enabled".
 	 *  Should not end with punctuation.
 	 */
-	explanation: UIText
+	explanation: UIText_Deserialize
+}
+
+export type ExplainedCondition_Serialize = {
+	/**
+	 *  A condition written in Rune. Should be formatted as an expression.
+	 *  Some helper functions are given in the global scope.
+	 *  The framework config and game (version and platform) are available in the global scope as `config` and `game`.
+	 *  For example, `mod_option("Author.SomeMod@1.0.0", "an-option") == Some("a-value")`.
+	 */
+	condition: string
+	/**
+	 *  A short explanation of the condition, to be shown to the user when the condition is not met.
+	 *  For example, "Incompatible with Lighting Ultimate's Vanilla+ Sapienza" or "Requires either Mod A or Mod B to be enabled".
+	 *  Should not end with punctuation.
+	 */
+	explanation: UIText_Serialize
 }
 
 // Information about a game being deployed to.
@@ -327,20 +345,20 @@ export type Links_Serialize = {
 export type Localisation = Localisation_Serialize | Localisation_Deserialize
 
 export type Localisation_Deserialize = {
-	english: string | null
-	french: string | null
-	italian: string | null
-	german: string | null
-	spanish: string | null
-	spanishMexico: string | null
-	portugueseBrazil: string | null
-	turkish: string | null
-	polish: string | null
-	russian: string | null
-	chineseSimplified: string | null
-	chineseTraditional: string | null
-	japanese: string | null
-	korean: string | null
+	english?: string | null
+	french?: string | null
+	italian?: string | null
+	german?: string | null
+	spanish?: string | null
+	spanishMexico?: string | null
+	portugueseBrazil?: string | null
+	turkish?: string | null
+	polish?: string | null
+	russian?: string | null
+	chineseSimplified?: string | null
+	chineseTraditional?: string | null
+	japanese?: string | null
+	korean?: string | null
 }
 
 export type Localisation_Serialize = {
@@ -380,14 +398,14 @@ export type ManifestConditions_Deserialize = {
 	 */
 	requiredMods?: ModReference[]
 	// Conditions which this mod depends on to function. When any condition is not met, the user will be prevented from using this mod.
-	requiredConditions?: ExplainedCondition[]
+	requiredConditions?: ExplainedCondition_Deserialize[]
 	/**
 	 *  Mods that this mod will not function with. Clients with these mods enabled will be prevented from using this mod.
 	 *  Should be specified as `modID@version`, where version can be a simple version (e.g. `1.0.0`, meaning 1.x.x) or a range specifier in standard npm-style syntax (e.g. `^2.0.0` or `1.2.0-1.3.1`).
 	 */
 	incompatibleMods?: ModReference[]
 	// Conditions which this mod is incompatible with. When any condition is met, the user will be prevented from using this mod.
-	incompatibleConditions?: ExplainedCondition[]
+	incompatibleConditions?: ExplainedCondition_Deserialize[]
 }
 
 export type ManifestConditions_Serialize = {
@@ -405,14 +423,14 @@ export type ManifestConditions_Serialize = {
 	 */
 	requiredMods?: ModReference[]
 	// Conditions which this mod depends on to function. When any condition is not met, the user will be prevented from using this mod.
-	requiredConditions?: ExplainedCondition[]
+	requiredConditions?: ExplainedCondition_Serialize[]
 	/**
 	 *  Mods that this mod will not function with. Clients with these mods enabled will be prevented from using this mod.
 	 *  Should be specified as `modID@version`, where version can be a simple version (e.g. `1.0.0`, meaning 1.x.x) or a range specifier in standard npm-style syntax (e.g. `^2.0.0` or `1.2.0-1.3.1`).
 	 */
 	incompatibleMods?: ModReference[]
 	// Conditions which this mod is incompatible with. When any condition is met, the user will be prevented from using this mod.
-	incompatibleConditions?: ExplainedCondition[]
+	incompatibleConditions?: ExplainedCondition_Serialize[]
 }
 
 export type ManifestData = ManifestData_Serialize | ManifestData_Deserialize
@@ -484,9 +502,9 @@ export type Manifest_Deserialize = {
 	// The mod's ID. Should follow capitalised reverse URI style (AuthorName.ModName). Don't include special characters; numbers are OK. Words should be separated by CamelCase.
 	id: string
 	// The name of the mod.
-	name: UIText
+	name: UIText_Deserialize
 	// A description of the mod.
-	description: UIText
+	description: UIText_Deserialize
 	// A list of the mod's authors.
 	authors: string[]
 	/**
@@ -530,9 +548,9 @@ export type Manifest_Serialize = {
 	// The mod's ID. Should follow capitalised reverse URI style (AuthorName.ModName). Don't include special characters; numbers are OK. Words should be separated by CamelCase.
 	id: string
 	// The name of the mod.
-	name: UIText
+	name: UIText_Serialize
 	// A description of the mod.
-	description: UIText
+	description: UIText_Serialize
 	// A list of the mod's authors.
 	authors: string[]
 	/**
@@ -585,9 +603,9 @@ export type ModOptionData_Deserialize =
 	| {
 			type: "boolean"
 			// The name of the option.
-			name: UIText
+			name: UIText_Deserialize
 			// A description of the option. Can contain multiple sentences.
-			description: UIText | null
+			description: UIText_Deserialize | null
 			// The default value of this option. Will also be used if the option is disabled (e.g. if this option is part of a group whose `displayCondition` is not met). Preselected options should deliver the "advertised experience". Mods with many standalone options should have the user select their own settings, or provide a conservative default.
 			defaultValue: boolean
 			// An image representing the option. Should usually be a gameplay image showing the option in use.
@@ -601,9 +619,9 @@ export type ModOptionData_Deserialize =
 	| {
 			type: "selection"
 			// The name of the selection group.
-			name: UIText
+			name: UIText_Deserialize
 			// A description of the selection group. Can contain multiple sentences.
-			description: UIText | null
+			description: UIText_Deserialize | null
 			// The default-selected option's ID. Will also be used if the selection group itself is disabled (e.g. if it is part of a group whose `displayCondition` is not met).
 			defaultValue: string
 			// Conditions which must be met for this option to be configurable.
@@ -631,9 +649,9 @@ export type ModOptionData_Deserialize =
 	| {
 			type: "number"
 			// The name of the option.
-			name: UIText
+			name: UIText_Deserialize
 			// A description of the option. Can contain multiple sentences.
-			description: UIText | null
+			description: UIText_Deserialize | null
 			// The default value of this option. Will also be used if the option is disabled (e.g. if this option is part of a group whose `displayCondition` is not met).
 			defaultValue: number
 			// Validation settings for this option.
@@ -649,9 +667,9 @@ export type ModOptionData_Deserialize =
 	| {
 			type: "color"
 			// The name of the option.
-			name: UIText
+			name: UIText_Deserialize
 			// A description of the option. Can contain multiple sentences.
-			description: UIText | null
+			description: UIText_Deserialize | null
 			// The default value of this option. Will also be used if the option is disabled (e.g. if this option is part of a group whose `displayCondition` is not met).
 			defaultValue: string
 			// Whether the colour should include a transparency/alpha value. If disabled (default), the value of this option is of the form "#rrggbb". If enabled, it is "#rrggbbaa".
@@ -667,9 +685,9 @@ export type ModOptionData_Deserialize =
 	| {
 			type: "string"
 			// The name of the option.
-			name: UIText
+			name: UIText_Deserialize
 			// A description of the option. Can contain multiple sentences.
-			description: UIText | null
+			description: UIText_Deserialize | null
 			// The default value of this option. Will also be used if the option is disabled (e.g. if this option is part of a group whose `displayCondition` is not met).
 			defaultValue: string
 			// Validation settings for this option.
@@ -687,11 +705,11 @@ export type ModOptionData_Deserialize =
 			// This entire option group will only be displayed (and only be configurable) if the given condition is met. Should be formatted as an expression; see the documentation for examples.
 			displayCondition: string | null
 			// The name of the group.
-			name: UIText
+			name: UIText_Deserialize
 			// A description of the group. Can contain multiple sentences.
-			description: UIText | null
+			description: UIText_Deserialize | null
 			// A description of the group, to be shown when the display condition is NOT met. Can contain multiple sentences.
-			hiddenDescription: UIText | null
+			hiddenDescription: UIText_Deserialize | null
 			// The options contained within this group.
 			options: ModOption_Deserialize[]
 			// Preset combinations of mod options that can be selected all at once.
@@ -705,9 +723,9 @@ export type ModOptionData_Serialize =
 	| {
 			type: "boolean"
 			// The name of the option.
-			name: UIText
+			name: UIText_Serialize
 			// A description of the option. Can contain multiple sentences.
-			description?: UIText | null
+			description?: UIText_Serialize | null
 			// The default value of this option. Will also be used if the option is disabled (e.g. if this option is part of a group whose `displayCondition` is not met). Preselected options should deliver the "advertised experience". Mods with many standalone options should have the user select their own settings, or provide a conservative default.
 			defaultValue: boolean
 			// An image representing the option. Should usually be a gameplay image showing the option in use.
@@ -721,9 +739,9 @@ export type ModOptionData_Serialize =
 	| {
 			type: "selection"
 			// The name of the selection group.
-			name: UIText
+			name: UIText_Serialize
 			// A description of the selection group. Can contain multiple sentences.
-			description?: UIText | null
+			description?: UIText_Serialize | null
 			// The default-selected option's ID. Will also be used if the selection group itself is disabled (e.g. if it is part of a group whose `displayCondition` is not met).
 			defaultValue: string
 			// Conditions which must be met for this option to be configurable.
@@ -751,9 +769,9 @@ export type ModOptionData_Serialize =
 	| {
 			type: "number"
 			// The name of the option.
-			name: UIText
+			name: UIText_Serialize
 			// A description of the option. Can contain multiple sentences.
-			description?: UIText | null
+			description?: UIText_Serialize | null
 			// The default value of this option. Will also be used if the option is disabled (e.g. if this option is part of a group whose `displayCondition` is not met).
 			defaultValue: number
 			// Validation settings for this option.
@@ -769,9 +787,9 @@ export type ModOptionData_Serialize =
 	| {
 			type: "color"
 			// The name of the option.
-			name: UIText
+			name: UIText_Serialize
 			// A description of the option. Can contain multiple sentences.
-			description?: UIText | null
+			description?: UIText_Serialize | null
 			// The default value of this option. Will also be used if the option is disabled (e.g. if this option is part of a group whose `displayCondition` is not met).
 			defaultValue: string
 			// Whether the colour should include a transparency/alpha value. If disabled (default), the value of this option is of the form "#rrggbb". If enabled, it is "#rrggbbaa".
@@ -787,9 +805,9 @@ export type ModOptionData_Serialize =
 	| {
 			type: "string"
 			// The name of the option.
-			name: UIText
+			name: UIText_Serialize
 			// A description of the option. Can contain multiple sentences.
-			description?: UIText | null
+			description?: UIText_Serialize | null
 			// The default value of this option. Will also be used if the option is disabled (e.g. if this option is part of a group whose `displayCondition` is not met).
 			defaultValue: string
 			// Validation settings for this option.
@@ -807,11 +825,11 @@ export type ModOptionData_Serialize =
 			// This entire option group will only be displayed (and only be configurable) if the given condition is met. Should be formatted as an expression; see the documentation for examples.
 			displayCondition?: string | null
 			// The name of the group.
-			name: UIText
+			name: UIText_Serialize
 			// A description of the group. Can contain multiple sentences.
-			description?: UIText | null
+			description?: UIText_Serialize | null
 			// A description of the group, to be shown when the display condition is NOT met. Can contain multiple sentences.
-			hiddenDescription?: UIText | null
+			hiddenDescription?: UIText_Serialize | null
 			// The options contained within this group.
 			options: ModOption_Serialize[]
 			// Preset combinations of mod options that can be selected all at once.
@@ -877,9 +895,9 @@ export type OptionPreset_Deserialize = {
 	// An ID for the preset. Can be anything, so long as it's not duplicated.
 	id: string
 	// The name of the preset.
-	name: UIText
+	name: UIText_Deserialize
 	// A description of the preset. Can contain multiple sentences.
-	description: UIText | null
+	description: UIText_Deserialize | null
 	// An image representing the preset. Should usually be a gameplay image showing the preset in use.
 	image: string | null
 	// The values of the mod's options for this preset. Options not included will be unchanged.
@@ -903,9 +921,9 @@ export type OptionPreset_Serialize = {
 	// An ID for the preset. Can be anything, so long as it's not duplicated.
 	id: string
 	// The name of the preset.
-	name: UIText
+	name: UIText_Serialize
 	// A description of the preset. Can contain multiple sentences.
-	description?: UIText | null
+	description?: UIText_Serialize | null
 	// An image representing the preset. Should usually be a gameplay image showing the preset in use.
 	image?: string | null
 	// The values of the mod's options for this preset. Options not included will be unchanged.
@@ -953,9 +971,9 @@ export type SelectionOption_Deserialize = {
 	// An ID for the option. Can be anything, so long as it's not duplicated.
 	id: string
 	// The option's name.
-	name: UIText
+	name: UIText_Deserialize
 	// A description of the option. Can contain multiple sentences.
-	description: UIText | null
+	description: UIText_Deserialize | null
 	// An image representing the option. Should usually be a gameplay image showing the option in use.
 	image: string | null
 	// Conditions which must be met for this option to be selectable.
@@ -967,9 +985,9 @@ export type SelectionOption_Serialize = {
 	// An ID for the option. Can be anything, so long as it's not duplicated.
 	id: string
 	// The option's name.
-	name: UIText
+	name: UIText_Serialize
 	// A description of the option. Can contain multiple sentences.
-	description?: UIText | null
+	description?: UIText_Serialize | null
 	// An image representing the option. Should usually be a gameplay image showing the option in use.
 	image?: string | null
 	// Conditions which must be met for this option to be selectable.
@@ -1009,27 +1027,56 @@ export type StringOptionValidation_Serialize = {
 	maxLength?: number | null
 }
 
-export type TextLines = {
-	english: string | null
-	french: string | null
-	italian: string | null
-	german: string | null
-	spanish: string | null
-	spanish_mexico: string | null
-	portuguese_brazil: string | null
-	turkish: string | null
-	polish: string | null
-	russian: string | null
-	chinese_simplified: string | null
-	chinese_traditional: string | null
-	japanese: string | null
-	korean: string | null
+export type TextLines = TextLines_Serialize | TextLines_Deserialize
+
+export type TextLines_Deserialize = {
+	english?: string | null
+	french?: string | null
+	italian?: string | null
+	german?: string | null
+	spanish?: string | null
+	spanish_mexico?: string | null
+	portuguese_brazil?: string | null
+	turkish?: string | null
+	polish?: string | null
+	russian?: string | null
+	chinese_simplified?: string | null
+	chinese_traditional?: string | null
+	japanese?: string | null
+	korean?: string | null
+}
+
+export type TextLines_Serialize = {
+	english?: string | null
+	french?: string | null
+	italian?: string | null
+	german?: string | null
+	spanish?: string | null
+	spanish_mexico?: string | null
+	portuguese_brazil?: string | null
+	turkish?: string | null
+	polish?: string | null
+	russian?: string | null
+	chinese_simplified?: string | null
+	chinese_traditional?: string | null
+	japanese?: string | null
+	korean?: string | null
 }
 
 // Some amount of text to be shown in the UI. Can be a single string (assumed to be English), or an object specifying different strings for different languages.
-export type UIText = UITextInner
+export type UIText = UIText_Serialize | UIText_Deserialize
 
-export type UITextInner = string | TextLines
+export type UITextInner = UITextInner_Serialize | UITextInner_Deserialize
+
+export type UITextInner_Deserialize = string | TextLines_Deserialize
+
+export type UITextInner_Serialize = string | TextLines_Serialize
+
+// Some amount of text to be shown in the UI. Can be a single string (assumed to be English), or an object specifying different strings for different languages.
+export type UIText_Deserialize = UITextInner_Deserialize
+
+// Some amount of text to be shown in the UI. Can be a single string (assumed to be English), or an object specifying different strings for different languages.
+export type UIText_Serialize = UITextInner_Serialize
 
 export type UrlOrNull = string | null
 

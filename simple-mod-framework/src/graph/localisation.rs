@@ -375,88 +375,88 @@ impl GraphOperation for AddLocalisation {
 			let japanese = strings.japanese;
 			let korean = strings.korean;
 
-			let english = if let Some(x) = english {
+			let english = if let Some(Some(x)) = english {
 				x
 			} else {
 				first_specified.to_owned()
 			};
 
-			let french = if let Some(x) = french {
+			let french = if let Some(Some(x)) = french {
 				x
 			} else {
 				first_specified.to_owned()
 			};
 
-			let italian = if let Some(x) = italian {
+			let italian = if let Some(Some(x)) = italian {
 				x
 			} else {
 				first_specified.to_owned()
 			};
 
-			let german = if let Some(x) = german {
+			let german = if let Some(Some(x)) = german {
 				x
 			} else {
 				first_specified.to_owned()
 			};
 
-			let spanish_mexico = if let Some(x) = spanish_mexico {
+			let spanish_mexico = if let Some(Some(x)) = spanish_mexico {
 				x
-			} else if let Some(x) = &spanish {
+			} else if let Some(Some(x)) = &spanish {
 				// Fallback es-MX to es
 				x.to_owned()
 			} else {
 				first_specified.to_owned()
 			};
 
-			let spanish = if let Some(x) = spanish {
+			let spanish = if let Some(Some(x)) = spanish {
 				x
 			} else {
 				first_specified.to_owned()
 			};
 
-			let portuguese_brazil = if let Some(x) = portuguese_brazil {
+			let portuguese_brazil = if let Some(Some(x)) = portuguese_brazil {
 				x
 			} else {
 				first_specified.to_owned()
 			};
 
-			let turkish = if let Some(x) = turkish {
+			let turkish = if let Some(Some(x)) = turkish {
 				x
 			} else {
 				first_specified.to_owned()
 			};
 
-			let polish = if let Some(x) = polish {
+			let polish = if let Some(Some(x)) = polish {
 				x
 			} else {
 				first_specified.to_owned()
 			};
 
-			let russian = if let Some(x) = russian {
+			let russian = if let Some(Some(x)) = russian {
 				x
 			} else {
 				first_specified.to_owned()
 			};
 
-			let chinese_simplified = if let Some(x) = chinese_simplified {
+			let chinese_simplified = if let Some(Some(x)) = chinese_simplified {
 				x
 			} else {
 				first_specified.to_owned()
 			};
 
-			let chinese_traditional = if let Some(x) = chinese_traditional {
+			let chinese_traditional = if let Some(Some(x)) = chinese_traditional {
 				x
 			} else {
 				first_specified.to_owned()
 			};
 
-			let japanese = if let Some(x) = japanese {
+			let japanese = if let Some(Some(x)) = japanese {
 				x
 			} else {
 				first_specified.to_owned()
 			};
 
-			let korean = if let Some(x) = korean {
+			let korean = if let Some(Some(x)) = korean {
 				x
 			} else {
 				first_specified.to_owned()
@@ -769,61 +769,67 @@ impl GraphOperation for OverrideLocalisation {
 				check_and_insert(&state, &attribution, languages, lang, &key, &key_as_hash, value)
 			};
 
+			let first_specified = strings
+				.first_specified()
+				.ok_or_eyre("No languages specified")
+				.intentional()?
+				.to_owned();
+
 			if let Some(value) = strings.english {
-				check_and_insert("xx", &value)?;
-				check_and_insert("en", &value)?;
+				check_and_insert("xx", &value.as_ref().unwrap_or(&first_specified))?;
+				check_and_insert("en", &value.as_ref().unwrap_or(&first_specified))?;
 			}
 
 			if let Some(value) = strings.french {
-				check_and_insert("fr", &value)?;
+				check_and_insert("fr", &value.as_ref().unwrap_or(&first_specified))?;
 			}
 
 			if let Some(value) = strings.italian {
-				check_and_insert("it", &value)?;
+				check_and_insert("it", &value.as_ref().unwrap_or(&first_specified))?;
 			}
 
 			if let Some(value) = strings.german {
-				check_and_insert("de", &value)?;
+				check_and_insert("de", &value.as_ref().unwrap_or(&first_specified))?;
 			}
 
 			if let Some(value) = strings.spanish {
-				check_and_insert("es", &value)?;
+				check_and_insert("es", &value.as_ref().unwrap_or(&first_specified))?;
 			}
 
 			if let Some(value) = strings.spanish_mexico {
-				check_and_insert("mx", &value)?;
+				check_and_insert("mx", &value.as_ref().unwrap_or(&first_specified))?;
 			}
 
 			if let Some(value) = strings.portuguese_brazil {
-				check_and_insert("br", &value)?;
+				check_and_insert("br", &value.as_ref().unwrap_or(&first_specified))?;
 			}
 
 			if let Some(value) = strings.polish {
-				check_and_insert("pl", &value)?;
+				check_and_insert("pl", &value.as_ref().unwrap_or(&first_specified))?;
 			}
 
 			if let Some(value) = strings.russian {
-				check_and_insert("ru", &value)?;
+				check_and_insert("ru", &value.as_ref().unwrap_or(&first_specified))?;
 			}
 
 			if let Some(value) = strings.chinese_simplified {
-				check_and_insert("cn", &value)?;
+				check_and_insert("cn", &value.as_ref().unwrap_or(&first_specified))?;
 			}
 
 			if let Some(value) = strings.japanese {
-				check_and_insert("jp", &value)?;
+				check_and_insert("jp", &value.as_ref().unwrap_or(&first_specified))?;
 			}
 
 			if let Some(value) = strings.chinese_traditional {
-				check_and_insert("tc", &value)?;
+				check_and_insert("tc", &value.as_ref().unwrap_or(&first_specified))?;
 			}
 
 			if let Some(value) = strings.korean {
-				check_and_insert("ko", &value)?;
+				check_and_insert("ko", &value.as_ref().unwrap_or(&first_specified))?;
 			}
 
 			if let Some(value) = strings.turkish {
-				check_and_insert("tr", &value)?;
+				check_and_insert("tr", &value.as_ref().unwrap_or(&first_specified))?;
 			}
 		}
 
