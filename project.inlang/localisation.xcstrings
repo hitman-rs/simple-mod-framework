@@ -30,8 +30,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Skip game intro video"
+            "state" : "translated",
+            "value" : "Vorspann überspringen"
           }
         },
         "it" : {
@@ -119,8 +119,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enable mod developer mode"
+            "state" : "translated",
+            "value" : "Mod-Entwicklermodus aktivieren"
           }
         },
         "it" : {
@@ -208,8 +208,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Welcome to the"
+            "state" : "translated",
+            "value" : "Willkommen beim"
           }
         },
         "it" : {
@@ -297,8 +297,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enable"
+            "state" : "translated",
+            "value" : "Aktivieren"
           }
         },
         "it" : {
@@ -386,8 +386,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Experimental version"
+            "state" : "translated",
+            "value" : "Experimentelle Version"
           }
         },
         "it" : {
@@ -474,8 +474,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You're currently running an experimental version of the framework"
+            "state" : "translated",
+            "value" : "Sie verwenden derzeit eine experimentelle Version des Frameworks"
           }
         },
         "it" : {
@@ -562,8 +562,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Checking for framework updates..."
+            "state" : "translated",
+            "value" : "Suche nach Framework-Updates..."
           }
         },
         "it" : {
@@ -651,8 +651,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Major framework update available"
+            "state" : "translated",
+            "value" : "Wichtiges Framework-Update verfügbar"
           }
         },
         "it" : {
@@ -740,8 +740,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Framework update available"
+            "state" : "translated",
+            "value" : "Framework-Update verfügbar"
           }
         },
         "it" : {
@@ -829,8 +829,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Framework patch available"
+            "state" : "translated",
+            "value" : "Framework-Patch verfügbar"
           }
         },
         "it" : {
@@ -918,8 +918,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Update from version {from} to version {to}"
+            "state" : "translated",
+            "value" : "Update von Version {from} auf Version {to}"
           }
         },
         "it" : {
@@ -1007,8 +1007,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Update"
+            "state" : "translated",
+            "value" : "Aktualisieren"
           }
         },
         "it" : {
@@ -1096,8 +1096,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't check for framework updates"
+            "state" : "translated",
+            "value" : "Suche nach Framework-Updates fehlgeschlagen"
           }
         },
         "it" : {
@@ -1185,8 +1185,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Framework up-to-date"
+            "state" : "translated",
+            "value" : "Ihr Framework ist auf dem neuesten Stand"
           }
         },
         "it" : {
@@ -1273,8 +1273,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You're running the latest version of the framework (version {ver})."
+            "state" : "translated",
+            "value" : "Sie verwenden die neueste Version des Frameworks (Version {ver})."
           }
         },
         "it" : {
@@ -1361,8 +1361,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Checking for updates to {mod}..."
+            "state" : "translated",
+            "value" : "Suche nach Updates für {mod}..."
           }
         },
         "it" : {
@@ -1449,8 +1449,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't check for updates to {mod}"
+            "state" : "translated",
+            "value" : "Updatesuche für {mod} fehlgeschlagen"
           }
         },
         "it" : {
@@ -1538,8 +1538,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Development version"
+            "state" : "translated",
+            "value" : "Entwicklungsversion"
           }
         },
         "it" : {
@@ -1626,8 +1626,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You're using a development version of {mod} (version {ver})."
+            "state" : "translated",
+            "value" : "Sie verwenden eine Entwicklungsversion von {mod} (Version {ver})."
           }
         },
         "it" : {
@@ -1715,8 +1715,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Major update available for {mod}"
+            "state" : "translated",
+            "value" : "Wichtiges Update für {mod} verfügbar"
           }
         },
         "it" : {
@@ -1804,8 +1804,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Update available for {mod}"
+            "state" : "translated",
+            "value" : "Update für {mod} verfügbar"
           }
         },
         "it" : {
@@ -1893,8 +1893,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Patch available for {mod}"
+            "state" : "translated",
+            "value" : "Patch für {mod} verfügbar"
           }
         },
         "it" : {
@@ -1981,8 +1981,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You can update this mod by re-downloading it from the Nexus."
+            "state" : "translated",
+            "value" : "Sie können die Mod aktualisieren, indem Sie diese erneut von Nexus herunterladen."
           }
         },
         "it" : {
@@ -2070,8 +2070,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Go to Nexus"
+            "state" : "translated",
+            "value" : "Weiter zu Nexus"
           }
         },
         "it" : {
@@ -2158,8 +2158,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You can view the changelog for this update online."
+            "state" : "translated",
+            "value" : "Sie können das Changelog für dieses Update online einsehen."
           }
         },
         "it" : {
@@ -2247,8 +2247,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mods up-to-date"
+            "state" : "translated",
+            "value" : "Ihre Mods sind auf dem neusten Stand"
           }
         },
         "it" : {
@@ -2335,8 +2335,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "All your mods are fully updated!"
+            "state" : "translated",
+            "value" : "Alle Ihre Mods sind vollständig aktualisiert!"
           }
         },
         "it" : {
@@ -2423,8 +2423,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "If you're a mod developer, you should enable developer mode, which gives you a few extra tools for developing mods."
+            "state" : "translated",
+            "value" : "Falls Sie ein Mod-Entwickler sind, sollten Sie den Entwicklermodus aktivieren, welcher ein paar zusätzliche Funktionen zur Mod-Entwicklung bietet."
           }
         },
         "it" : {
@@ -2512,8 +2512,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Developer mode"
+            "state" : "translated",
+            "value" : "Entwicklermodus"
           }
         },
         "it" : {
@@ -2601,8 +2601,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "I'm a mod user"
+            "state" : "translated",
+            "value" : "Ich bin ein Mod-Nutzer"
           }
         },
         "it" : {
@@ -2690,8 +2690,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "I'm a mod developer"
+            "state" : "translated",
+            "value" : "Ich bin ein Mod-Entwickler"
           }
         },
         "it" : {
@@ -2778,8 +2778,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The update to the mod is invalid!"
+            "state" : "translated",
+            "value" : "Das Update der Mod ist ungültig!"
           }
         },
         "it" : {
@@ -2866,8 +2866,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The framework is being downloaded. Please wait."
+            "state" : "translated",
+            "value" : "Das Framework wird heruntergeladen. Bitte warten."
           }
         },
         "it" : {
@@ -2954,8 +2954,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The framework is being extracted. Please wait."
+            "state" : "translated",
+            "value" : "Das Framework wird extrahiert. Bitte warten."
           }
         },
         "it" : {
@@ -3042,8 +3042,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "There was an error updating the framework. Check your internet connection."
+            "state" : "translated",
+            "value" : "Beim Aktualisieren des Frameworks ist ein Fehler aufgetreten. Überprüfen Sie Ihre Internetverbindung."
           }
         },
         "it" : {
@@ -3131,7 +3131,7 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "OK"
           }
         },
@@ -3219,8 +3219,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod is being downloaded. Please wait."
+            "state" : "translated",
+            "value" : "Die Mod wird heruntergeladen. Bitte warten."
           }
         },
         "it" : {
@@ -3307,8 +3307,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "There was an error updating the mod. Check your internet connection."
+            "state" : "translated",
+            "value" : "Beim Aktualisieren des Mods ist ein Fehler aufgetreten. Überprüfen Sie Ihre Internetverbindung."
           }
         },
         "it" : {
@@ -3395,8 +3395,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod is being extracted. Please wait."
+            "state" : "translated",
+            "value" : "Die Mod wird extrahiert. Bitte warten."
           }
         },
         "it" : {
@@ -3484,8 +3484,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Checking for mod updates"
+            "state" : "translated",
+            "value" : "Suche nach Mod-Updates"
           }
         },
         "it" : {
@@ -3573,8 +3573,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Checking for hash list updates"
+            "state" : "translated",
+            "value" : "Suche nach Hash-List-Updates"
           }
         },
         "it" : {
@@ -3661,8 +3661,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Checking for updates to the hash lists..."
+            "state" : "translated",
+            "value" : "Suche nach Updates für Hash-Listen..."
           }
         },
         "it" : {
@@ -3750,8 +3750,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Home"
+            "state" : "translated",
+            "value" : "Startseite"
           }
         },
         "it" : {
@@ -3839,7 +3839,7 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Mods"
           }
         },
@@ -3928,8 +3928,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Settings"
+            "state" : "translated",
+            "value" : "Einstellungen"
           }
         },
         "it" : {
@@ -4017,8 +4017,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Credits"
+            "state" : "translated",
+            "value" : "Mitwirkende"
           }
         },
         "it" : {
@@ -4105,8 +4105,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The Simple Mod Framework directly uses the rpkg-rs library by Dafitius and the ResourceLib library by OrfeasZ for much of its functionality. The framework itself is licensed LGPLv3."
+            "state" : "translated",
+            "value" : "Das Simple-Mod-Framework basiert für einen Großteil seiner Funktionen direkt auf der rpkg-rs-Bibliothek von Dafitius und der ResourceLib-Bibliothek von OrfeasZ. Das Framework selbst ist unter LGPLv3 lizenziert."
           }
         },
         "it" : {
@@ -4194,8 +4194,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Applying your mods"
+            "state" : "translated",
+            "value" : "Mods werden angewendet"
           }
         },
         "it" : {
@@ -4282,8 +4282,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This might take a while, depending on your system and the mods you've enabled."
+            "state" : "translated",
+            "value" : "Dies könnte eine Weile dauern — abhängig von Ihrem System und den Mods, die Sie aktiviert haben."
           }
         },
         "it" : {
@@ -4459,8 +4459,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Your mods are being applied."
+            "state" : "translated",
+            "value" : "Ihre Mods werden angewendet."
           }
         },
         "it" : {
@@ -4548,8 +4548,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't start deployment"
+            "state" : "translated",
+            "value" : "Starten des Vorgangs fehlgeschlagen"
           }
         },
         "it" : {
@@ -4636,8 +4636,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Your mods couldn't be applied."
+            "state" : "translated",
+            "value" : "Ihre Mods konnten nicht angewendet werden."
           }
         },
         "it" : {
@@ -4725,8 +4725,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Warning"
+            "state" : "translated",
+            "value" : "Warnung"
           }
         },
         "it" : {
@@ -4814,8 +4814,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Error"
+            "state" : "translated",
+            "value" : "Fehler"
           }
         },
         "it" : {
@@ -4903,8 +4903,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Deployment successful"
+            "state" : "translated",
+            "value" : "Erfolgreich angewendet"
           }
         },
         "it" : {
@@ -4991,8 +4991,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Your mods were applied successfully."
+            "state" : "translated",
+            "value" : "Ihre Mods wurden erfolgreich angewandt."
           }
         },
         "it" : {
@@ -5080,8 +5080,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Potential issues in deployment"
+            "state" : "translated",
+            "value" : "Mögliche Fehler beim Anwenden"
           }
         },
         "it" : {
@@ -5169,8 +5169,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Deployment unsuccessful"
+            "state" : "translated",
+            "value" : "Anwenden fehlgeschlagen"
           }
         },
         "it" : {
@@ -5258,8 +5258,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Continue"
+            "state" : "translated",
+            "value" : "Fortfahren"
           }
         },
         "it" : {
@@ -5347,8 +5347,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Downloading"
+            "state" : "translated",
+            "value" : "Wird heruntergeladen"
           }
         },
         "it" : {
@@ -5523,8 +5523,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't download the mod! Check your internet connection, or contact the mod author for help."
+            "state" : "translated",
+            "value" : "Die Mod konnte nicht heruntergeladen werden! Überprüfen Sie Ihre Internetverbindung oder kontaktieren Sie den Mod-Autor für Hilfe."
           }
         },
         "it" : {
@@ -5612,8 +5612,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enabled"
+            "state" : "translated",
+            "value" : "Aktiviert"
           }
         },
         "it" : {
@@ -5700,8 +5700,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enabled by default"
+            "state" : "translated",
+            "value" : "Standardmäßig aktiviert"
           }
         },
         "it" : {
@@ -5788,8 +5788,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Disabled by default"
+            "state" : "translated",
+            "value" : "Standardmäßig deaktiviert"
           }
         },
         "it" : {
@@ -5877,8 +5877,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Default value:"
+            "state" : "translated",
+            "value" : "Standardwert:"
           }
         },
         "it" : {
@@ -5966,8 +5966,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Value"
+            "state" : "translated",
+            "value" : "Wert"
           }
         },
         "it" : {
@@ -6055,8 +6055,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mod name"
+            "state" : "translated",
+            "value" : "Mod-Name"
           }
         },
         "it" : {
@@ -6143,8 +6143,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Please enter a name for the mod"
+            "state" : "translated",
+            "value" : "Bitte geben Sie einen Namen für die Mod ein"
           }
         },
         "it" : {
@@ -6231,8 +6231,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod you're trying to install is invalid!"
+            "state" : "translated",
+            "value" : "Die Mod, die Sie installieren wollen, ist ungültig!"
           }
         },
         "it" : {
@@ -6319,8 +6319,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod you're trying to install is a mod for an older version of the Simple Mod Framework, but it couldn't be automatically upgraded."
+            "state" : "translated",
+            "value" : "Die Mod, die Sie installieren möchten, ist für eine ältere Version des Simple-Mod-Frameworks — sie konnte jedoch nicht automatisch aktualisiert werden."
           }
         },
         "it" : {
@@ -6407,8 +6407,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod is being extracted and added to the framework. Please wait."
+            "state" : "translated",
+            "value" : "Die Mod wird extrahiert und dem Framework hinzugefügt. Bitte warten."
           }
         },
         "it" : {
@@ -6495,8 +6495,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "One or more mods have been installed directly into the Mods folder. This is not recommended; the GUI performs checks on mods for validity and security and installing directly to the Mods folder bypasses this. It's easy to break the framework by doing this."
+            "state" : "translated",
+            "value" : "Ein oder mehrere Mods wurden direkt im Mods-Ordner installiert. Dies wird nicht empfohlen. Die GUI überprüft Mods auf Gültigkeit und Sicherheit — eine direkte Installation im Mods-Ordner umgeht diese Prüfungen. Dadurch kann das Framework leicht beschädigt werden."
           }
         },
         "it" : {
@@ -6583,8 +6583,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Improperly installed mod"
+            "state" : "translated",
+            "value" : "Falsch installierte Mod"
           }
         },
         "it" : {
@@ -6672,8 +6672,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Adding mod"
+            "state" : "translated",
+            "value" : "Mod hinzufügen"
           }
         },
         "it" : {
@@ -6761,8 +6761,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't upgrade mod"
+            "state" : "translated",
+            "value" : "Mod konnte nicht aktualisiert werden"
           }
         },
         "it" : {
@@ -6850,8 +6850,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Invalid mod"
+            "state" : "translated",
+            "value" : "Mod ungültig"
           }
         },
         "it" : {
@@ -6939,8 +6939,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "RPKG mod"
+            "state" : "translated",
+            "value" : "RPKG-Mod"
           }
         },
         "it" : {
@@ -7027,8 +7027,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This mod is in the older RPKG format, which means that it might be incompatible with other mods, or cause issues in newer game versions. It also won't support SMF features like automatic updating. Are you sure you want to add it? There may be a newer version of the mod, or another mod that does the same thing, available."
+            "state" : "translated",
+            "value" : "Diese Mod liegt im älteren RPKG-Format vor. Das bedeutet, dass sie möglicherweise inkompatibel mit anderen Mods ist oder Probleme in neueren Spielversionen verursacht. Zudem unterstützt sie keine SMF-Funktionen wie die automatische Aktualisierung. Sind Sie sicher, dass Sie sie hinzufügen möchten? Eventuell ist eine neuere Version der Mod oder eine andere Mod mit denselben Funktionen verfügbar."
           }
         },
         "it" : {
@@ -7116,8 +7116,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Cancel"
+            "state" : "translated",
+            "value" : "Abbrechen"
           }
         },
         "it" : {
@@ -7205,8 +7205,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Available Mods"
+            "state" : "translated",
+            "value" : "Verfügbare Mods"
           }
         },
         "it" : {
@@ -7294,8 +7294,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Add a Mod"
+            "state" : "translated",
+            "value" : "Mod hinzufügen"
           }
         },
         "it" : {
@@ -7383,8 +7383,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Filter available mods"
+            "state" : "translated",
+            "value" : "Verfügbare Mods filtern"
           }
         },
         "it" : {
@@ -7472,8 +7472,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Invalid Mod"
+            "state" : "translated",
+            "value" : "Ungültige Mod"
           }
         },
         "it" : {
@@ -7560,8 +7560,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Use VS Code or GlacierKit to see manifest errors."
+            "state" : "translated",
+            "value" : "Verwenden Sie VS Code oder GlacierKit, um Manifest-Fehler anzuzeigen."
           }
         },
         "it" : {
@@ -7649,8 +7649,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Delete"
+            "state" : "translated",
+            "value" : "Löschen"
           }
         },
         "it" : {
@@ -7737,8 +7737,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Error getting mods"
+            "state" : "translated",
+            "value" : "Fehler beim Abrufen der Mods"
           }
         },
         "it" : {
@@ -7826,8 +7826,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enabled Mods"
+            "state" : "translated",
+            "value" : "Mods aktivieren"
           }
         },
         "it" : {
@@ -7915,8 +7915,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Apply Mods"
+            "state" : "translated",
+            "value" : "Mods anwenden"
           }
         },
         "it" : {
@@ -8004,8 +8004,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "No game selected"
+            "state" : "translated",
+            "value" : "Kein Spiel ausgewählt"
           }
         },
         "it" : {
@@ -8093,8 +8093,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Filter enabled mods"
+            "state" : "translated",
+            "value" : "Aktivierte Mods filtern"
           }
         },
         "it" : {
@@ -8182,8 +8182,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Settings"
+            "state" : "translated",
+            "value" : "Einstellungen"
           }
         },
         "it" : {
@@ -8271,8 +8271,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Disable"
+            "state" : "translated",
+            "value" : "Deaktivieren"
           }
         },
         "it" : {
@@ -8359,8 +8359,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Drop to install"
+            "state" : "translated",
+            "value" : "Ablegen und Installieren"
           }
         },
         "it" : {
@@ -8448,8 +8448,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Save Debugging Information"
+            "state" : "translated",
+            "value" : "Debugging-Informationen speichern"
           }
         },
         "it" : {
@@ -8537,8 +8537,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Game install"
+            "state" : "translated",
+            "value" : "Spiel-Installation"
           }
         },
         "it" : {
@@ -8625,8 +8625,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Error updating mod"
+            "state" : "translated",
+            "value" : "Fehler beim Aktualisieren der Mod"
           }
         },
         "it" : {
@@ -8714,8 +8714,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Updating mod"
+            "state" : "translated",
+            "value" : "Mod wird aktualisiert"
           }
         },
         "it" : {
@@ -8802,8 +8802,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Error updating framework"
+            "state" : "translated",
+            "value" : "Fehler beim Aktualisieren des Frameworks"
           }
         },
         "it" : {
@@ -8891,8 +8891,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Updating framework"
+            "state" : "translated",
+            "value" : "Framework wird aktualisiert"
           }
         },
         "it" : {
@@ -8980,8 +8980,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't update mod"
+            "state" : "translated",
+            "value" : "Mod konnte nicht aktualisiert werden"
           }
         },
         "it" : {
@@ -9069,8 +9069,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "total"
+            "state" : "translated",
+            "value" : "gesamt"
           }
         },
         "it" : {
@@ -9158,8 +9158,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This mod has no options."
+            "state" : "translated",
+            "value" : "Diese Mod verfügt über keine Optionen."
           }
         },
         "it" : {
@@ -9247,8 +9247,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Language"
+            "state" : "translated",
+            "value" : "Sprache"
           }
         },
         "it" : {
@@ -9336,8 +9336,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This software uses libarchive"
+            "state" : "translated",
+            "value" : "Diese Software verwendet libarchive"
           }
         },
         "it" : {
@@ -9425,8 +9425,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Profile name"
+            "state" : "translated",
+            "value" : "Profilname"
           }
         },
         "it" : {
@@ -9514,8 +9514,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Please enter a name for the profile"
+            "state" : "translated",
+            "value" : "Bitte geben Sie einen Namen für das Profil ein"
           }
         },
         "it" : {
@@ -9603,8 +9603,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Profiles"
+            "state" : "translated",
+            "value" : "Profile"
           }
         },
         "it" : {
@@ -9692,8 +9692,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You can save lists of mods, with their settings, as profiles to easily switch between them."
+            "state" : "translated",
+            "value" : "Sie können Mod-Listen samt deren Einstellungen als Profile speichern, um ganz einfach zwischen ihnen zu wechseln."
           }
         },
         "it" : {
@@ -9781,8 +9781,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Current settings"
+            "state" : "translated",
+            "value" : "Aktuelle Einstellungen"
           }
         },
         "it" : {
@@ -9870,8 +9870,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Save as Profile"
+            "state" : "translated",
+            "value" : "Als Profil speichern"
           }
         },
         "it" : {
@@ -9958,8 +9958,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mod contains Peacock plugins"
+            "state" : "translated",
+            "value" : "Mod enthält Peacock-Plugins"
           }
         },
         "it" : {
@@ -10046,8 +10046,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This mod contains Peacock plugins; if you use the Peacock server emulator after applying this mod, its plugins will be able to run their own code, giving the mod's author complete control over your PC. Make sure you trust whoever developed this mod, and wherever you downloaded it from. Are you sure you want to add this mod?"
+            "state" : "translated",
+            "value" : "Diese Mod enthält Peacock-Plugins. Wenn Sie den Peacock-Server-Emulator nach dem Anwenden dieser Mod verwenden, können diese Plugins eigenen Code ausführen. Dadurch erhält der Autor der Mod die vollständige Kontrolle über Ihren PC. Stellen Sie sicher, dass Sie den Entwicklern dieser Mod sowie der Quelle, von der Sie sie heruntergeladen haben, vertrauen. Sind Sie sicher, dass Sie diese Mod hinzufügen möchten?"
           }
         },
         "it" : {
@@ -10134,8 +10134,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Requires {mod}"
+            "state" : "translated",
+            "value" : "Erfordert {mod}"
           }
         },
         "it" : {
@@ -10222,8 +10222,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Incompatible with {mod}"
+            "state" : "translated",
+            "value" : "Inkompatibel mit {mod}"
           }
         },
         "it" : {
@@ -10310,8 +10310,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mod's Peacock plugins have changed"
+            "state" : "translated",
+            "value" : "Die Peacock-Plugins der Mod haben sich geändert"
           }
         },
         "it" : {
@@ -10398,8 +10398,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The Peacock plugins included with this mod have changed, or new plugins have been introduced. If you use the Peacock server emulator after applying this mod, its plugins will be able to run their own code, giving the mod's author complete control over your PC. Make sure you trust whoever developed this mod, and wherever you originally downloaded it from. Are you sure you want to update this mod?"
+            "state" : "translated",
+            "value" : "Die in dieser Mod enthaltenen Peacock-Plugins haben sich geändert, oder es wurden neue Plugins hinzugefügt. Wenn Sie den Peacock-Server-Emulator nach dem Anwenden dieser Mod verwenden, können diese Plugins eigenen Code ausführen. Dadurch erhält der Autor der Mod die vollständige Kontrolle über Ihren PC. Stellen Sie sicher, dass Sie den Entwicklern dieser Mod sowie der Quelle, von der Sie sie ursprünglich heruntergeladen haben, vertrauen. Sind Sie sicher, dass Sie diese Mod aktualisieren möchten?"
           }
         },
         "it" : {
@@ -10487,8 +10487,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enable SMF analytics and server features"
+            "state" : "translated",
+            "value" : "SMF-Analyse und Serverfunktionen aktivieren"
           }
         },
         "it" : {
@@ -10575,8 +10575,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Analytics and server features are disabled"
+            "state" : "translated",
+            "value" : "Analyse- und Serverfunktionen sind deaktiviert"
           }
         },
         "it" : {
@@ -10663,8 +10663,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Analytics, and features powered by them, are currently disabled. Analytics are completely anonymous, and enabling them allows for mod conflict detection, more reliable mod update checking and other useful features."
+            "state" : "translated",
+            "value" : "Die Analyse-Funktion sowie darauf basierende Zusatzfunktionen sind derzeit deaktiviert. Die Analysen erfolgen vollständig anonym. Durch das Aktivieren ermöglichen Sie die Erkennung von Mod-Konflikten, eine zuverlässigere Updatesuche und weitere nützliche Funktionen."
           }
         },
         "it" : {
@@ -10751,8 +10751,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This feature enables completely anonymous reporting of mod lists and basic settings, which allows for statistics around mod usage and conflict detection. It also makes mod update checking more reliable, avoiding rate-limiting for mods hosted on GitHub. A ping with no other information will still be sent if this is disabled, to allow determining how representative the sample is."
+            "state" : "translated",
+            "value" : "Diese Funktion ermöglicht die vollständig anonyme Übermittlung von Mod-Listen und grundlegenden Einstellungen. Dies erlaubt Statistiken zur Mod-Nutzung sowie die Erkennung von Konflikten. Zudem wird dadurch die Updatesuche zuverlässiger, da ein Rate-Limiting für Mods auf GitHub vermieden wird. Auch bei Deaktivierung wird ein Ping ohne weitere Informationen gesendet, um festzustellen, wie repräsentativ die Stichprobe ist."
           }
         },
         "it" : {
@@ -10840,8 +10840,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Disable dynamic resources when necessary"
+            "state" : "translated",
+            "value" : "Dynamische Ressourcen bei Bedarf deaktivieren"
           }
         },
         "it" : {
@@ -10928,8 +10928,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Makes it possible to use certain changes in online mode. You should leave this on unless you have a specific reason not to."
+            "state" : "translated",
+            "value" : "Ermöglicht es, bestimmte Änderungen im Online-Modus zu nutzen. Sie sollten diese Option aktiviert lassen, es sei denn, Sie haben einen bestimmten Grund dagegen."
           }
         },
         "it" : {
@@ -11016,8 +11016,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The mod is being upgraded to the latest framework version. Please wait."
+            "state" : "translated",
+            "value" : "Die Mod wird auf die neueste Version aktualisiert. Bitte warten."
           }
         },
         "it" : {
@@ -11105,8 +11105,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Unrecognised game version"
+            "state" : "translated",
+            "value" : "Unbekannte Spielversion"
           }
         },
         "it" : {
@@ -11193,8 +11193,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "If the game has recently updated, the framework will need to be patched by its developers."
+            "state" : "translated",
+            "value" : "Wenn das Spiel kürzlich aktualisiert wurde, muss das Framework von seinen Entwicklern gepatcht werden."
           }
         },
         "it" : {
@@ -11281,8 +11281,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "If you're using a pirated or cracked version of the game, that's the problem."
+            "state" : "translated",
+            "value" : "Wenn Sie eine Raubkopie oder eine illegal modifizierte Version des Spiels verwenden, liegt hier das Problem."
           }
         },
         "it" : {
@@ -11369,8 +11369,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Has a game update recently been released?"
+            "state" : "translated",
+            "value" : "Wurde kürzlich ein Spiel-Update veröffentlicht?"
           }
         },
         "it" : {
@@ -11457,8 +11457,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Wait for the Simple Mod Framework to be updated by its developers. You will see the update when it is released on the Home page. Do not post a comment on Nexus about this."
+            "state" : "translated",
+            "value" : "Warten Sie, bis das Simple-Mod-Framework von seinen Entwicklern aktualisiert wird. Sie werden das Update sehen, sobald es auf der Startseite veröffentlicht wird. Bitte hinterlassen Sie dazu keinen Kommentar auf Nexus."
           }
         },
         "it" : {
@@ -11545,8 +11545,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Verify your game files and ensure you are on the latest version of the game, using the Steam, Epic or Microsoft/Xbox app. You can search \"how do I verify my game files\" on Google for more information."
+            "state" : "translated",
+            "value" : "Verifizieren Sie Ihre Spieldateien und stellen Sie über die Steam-, Epic- oder Microsoft/Xbox-App sicher, dass Sie die neueste Version des Spiels nutzen. Für weitere Informationen können Sie bei Google nach „Spieldateien auf Fehler überprüfen“ suchen."
           }
         },
         "it" : {
@@ -11634,8 +11634,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Yes"
+            "state" : "translated",
+            "value" : "Ja"
           }
         },
         "it" : {
@@ -11723,8 +11723,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "No"
+            "state" : "translated",
+            "value" : "Nein"
           }
         },
         "it" : {
@@ -11811,8 +11811,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "READ the following before asking for support with this issue."
+            "state" : "translated",
+            "value" : "Bitte LESEN Sie das Folgende, bevor Sie Support für dieses Problem anfordern."
           }
         },
         "it" : {
@@ -11900,8 +11900,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Read Aloud"
+            "state" : "translated",
+            "value" : "Vorlesen"
           }
         },
         "it" : {
@@ -11988,8 +11988,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "This mod contains ZHMModSDK mods. When you run the game, its DLLs will be able to run their own code, giving the mod's author complete control over your PC. Make sure you trust whoever developed this mod, and wherever you downloaded it from. Are you sure you want to add this mod?"
+            "state" : "translated",
+            "value" : "Diese Mod enthält ZHMModSDK-Mods. Wenn Sie das Spiel ausführen, können deren DLLs eigenen Code ausführen. Dadurch erhält der Autor der Mod die vollständige Kontrolle über Ihren PC. Stellen Sie sicher, dass Sie den Entwicklern dieser Mod sowie der Quelle, von der Sie sie heruntergeladen haben, vertrauen. Sind Sie sicher, dass Sie diese Mod hinzufügen möchten?"
           }
         },
         "it" : {
@@ -12076,8 +12076,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mod contains SDK mods"
+            "state" : "translated",
+            "value" : "Mod enthält SDK-Mods"
           }
         },
         "it" : {
@@ -12165,8 +12165,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Read Before Continuing"
+            "state" : "translated",
+            "value" : "Bitte lesen, bevor Sie fortfahren"
           }
         },
         "it" : {
@@ -12254,8 +12254,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Custom boot scene"
+            "state" : "translated",
+            "value" : "Eigene Startsequenz"
           }
         },
         "it" : {
@@ -12342,8 +12342,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Overrides the scene path that the game launches to. Should be a bare scene path, without the .pc_entitytype suffix."
+            "state" : "translated",
+            "value" : "Überschreibt den Szenen-Pfad, mit dem das Spiel startet. Dies sollte ein reiner Szenen-Pfad ohne das Suffix „.pc_entitytype“ sein."
           }
         },
         "it" : {
@@ -12431,8 +12431,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Select"
+            "state" : "translated",
+            "value" : "Auswählen"
           }
         },
         "it" : {
@@ -12520,8 +12520,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Selected"
+            "state" : "translated",
+            "value" : "Ausgewählt"
           }
         },
         "it" : {
@@ -12609,8 +12609,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Remove Unavailable Mods"
+            "state" : "translated",
+            "value" : "Nicht verfügbare Mods entfernen"
           }
         },
         "it" : {
@@ -12697,8 +12697,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "{mods} mods enabled, plus mod settings"
+            "state" : "translated",
+            "value" : "{mods} Mods aktiviert, sowie Mod-Einstellungen"
           }
         },
         "it" : {
@@ -12786,8 +12786,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Go to Settings"
+            "state" : "translated",
+            "value" : "Zu den Einstellungen"
           }
         },
         "it" : {
@@ -12874,8 +12874,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "An update to the ZHMModSDK is available from version {oldVersion} to {newVersion}. You can update from the Settings page."
+            "state" : "translated",
+            "value" : "Ein Update für das ZHMModSDK von Version {oldVersion} auf {newVersion} ist verfügbar. Sie können das Update auf der Einstellungsseite durchführen."
           }
         },
         "it" : {
@@ -12963,8 +12963,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "ZHMModSDK update available"
+            "state" : "translated",
+            "value" : "ZHMModSDK-Update verfügbar"
           }
         },
         "it" : {
@@ -13051,8 +13051,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The ZHMModSDK allows mods to hook into the game's behaviour while it is running, enabling new kinds of mods."
+            "state" : "translated",
+            "value" : "Das ZHMModSDK ermöglicht es Mods, sich während der Laufzeit in das Spielverhalten einzuklinken, wodurch völlig neue Arten von Mods möglich werden."
           }
         },
         "it" : {
@@ -13139,8 +13139,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "While the SDK itself is safe for your computer, mods might not be, so SMF will warn you when you add a new mod that uses it."
+            "state" : "translated",
+            "value" : "Während das SDK selbst für Ihren Computer sicher ist, gilt dies für Mods nicht zwingend. Daher warnt das SMF Sie, wenn Sie eine neue Mod hinzufügen, die dieses nutzt."
           }
         },
         "it" : {
@@ -13227,8 +13227,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Installed"
+            "state" : "translated",
+            "value" : "Installiert"
           }
         },
         "it" : {
@@ -13316,8 +13316,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "version {version}"
+            "state" : "translated",
+            "value" : "Version {version}"
           }
         },
         "it" : {
@@ -13405,8 +13405,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "checking for updates..."
+            "state" : "translated",
+            "value" : "Suche nach Updates..."
           }
         },
         "it" : {
@@ -13494,8 +13494,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "update available to {version}"
+            "state" : "translated",
+            "value" : "Update auf Version {version} verfügbar"
           }
         },
         "it" : {
@@ -13583,8 +13583,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "up to date"
+            "state" : "translated",
+            "value" : "Sie sind auf dem neuesten Stand"
           }
         },
         "it" : {
@@ -13672,8 +13672,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "can't check for updates"
+            "state" : "translated",
+            "value" : "Updatesuche fehlgeschlagen"
           }
         },
         "it" : {
@@ -13760,8 +13760,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The SDK is installed on the currently selected game."
+            "state" : "translated",
+            "value" : "Das SDK ist auf dem aktuell ausgewählten Spiel installiert."
           }
         },
         "it" : {
@@ -13849,8 +13849,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Remove"
+            "state" : "translated",
+            "value" : "Entfernen"
           }
         },
         "it" : {
@@ -13938,8 +13938,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Not installed"
+            "state" : "translated",
+            "value" : "Nicht installiert"
           }
         },
         "it" : {
@@ -14026,8 +14026,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The SDK is not installed on the currently selected game."
+            "state" : "translated",
+            "value" : "Das SDK ist nicht auf dem aktuell ausgewählten Spiel installiert."
           }
         },
         "it" : {
@@ -14114,8 +14114,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Unable to check installed SDK status."
+            "state" : "translated",
+            "value" : "Der Status des installierten SDKs konnte nicht überprüft werden."
           }
         },
         "it" : {
@@ -14202,8 +14202,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Select a game path in the Mods page to configure the SDK."
+            "state" : "translated",
+            "value" : "Wählen Sie auf der Mods-Seite einen Spiel-Pfad aus, um das SDK zu konfigurieren."
           }
         },
         "it" : {
@@ -14291,8 +14291,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Install"
+            "state" : "translated",
+            "value" : "Installieren"
           }
         },
         "it" : {
@@ -14380,8 +14380,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "(default)"
+            "state" : "translated",
+            "value" : "(Standard)"
           }
         },
         "it" : {
@@ -14469,8 +14469,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Reset to Defaults"
+            "state" : "translated",
+            "value" : "Auf Standardeinstellungen zurücksetzen"
           }
         },
         "it" : {
@@ -14557,8 +14557,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Only supports {supported}"
+            "state" : "translated",
+            "value" : "Unterstützt nur {supported}"
           }
         },
         "it" : {
@@ -14645,8 +14645,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The currently selected game version doesn't have a mod SDK available."
+            "state" : "translated",
+            "value" : "Für die aktuell ausgewählte Spielversion ist kein Mod-SDK verfügbar."
           }
         },
         "it" : {
@@ -14912,8 +14912,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Rate limit hit"
+            "state" : "translated",
+            "value" : "Rate-Limit erreicht"
           }
         },
         "it" : {
@@ -15000,8 +15000,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "{skipped} mods couldn't be checked for updates due to Nexus Mods or GitHub rate limiting. Consider enabling analytics and server features to avoid this."
+            "state" : "translated",
+            "value" : "Für {skipped} Mods konnte keine Updatesuche durchgeführt werden, da das Nexus-Mods- oder GitHub-Rate-Limit erreicht wurde. Aktivieren Sie die Analyse- und Serverfunktionen, um dies zu vermeiden."
           }
         },
         "it" : {
@@ -15089,8 +15089,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "{updates} mod updates available"
+            "state" : "translated",
+            "value" : "{updates} Mod-Updates verfügbar"
           }
         },
         "it" : {
@@ -15178,8 +15178,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "{updates} mods can be automatically updated to the latest version."
+            "state" : "translated",
+            "value" : "{updates} Mods können automatisch auf die neueste Version aktualisiert werden."
           }
         },
         "it" : {
@@ -15267,8 +15267,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Update All"
+            "state" : "translated",
+            "value" : "Alle aktualisieren"
           }
         },
         "it" : {
@@ -15355,8 +15355,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You can help translate SMF into your language by contributing to the translation project on Crowdin."
+            "state" : "translated",
+            "value" : "Sie können dabei helfen, SMF in Ihre Sprache zu übersetzen, indem Sie zum Übersetzungsprojekt auf Crowdin beitragen."
           }
         },
         "it" : {
@@ -15443,8 +15443,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "If you see any errors or untranslated text, help out by submitting your own translations!"
+            "state" : "translated",
+            "value" : "Falls Sie Fehler oder unübersetzten Text finden, helfen Sie uns gerne mit Ihren eigenen Übersetzungen!"
           }
         },
         "it" : {
@@ -15532,8 +15532,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "More information about this mod"
+            "state" : "translated",
+            "value" : "Mehr Informationen zu dieser Mod"
           }
         },
         "it" : {
@@ -15710,8 +15710,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Support the mod author"
+            "state" : "translated",
+            "value" : "Unterstützen Sie den Mod-Autor"
           }
         },
         "it" : {
