@@ -27,7 +27,7 @@
 
 <h1 class="text-4xl 2xl:text-5xl font-bold">{m.Downloading()}</h1>
 {#if downloading}
-	{m.ModBeingDownloaded()}
+	{m.ModDownloadInProgress()}
 	<sl-progress-bar class="mt-2" value={downloadProgress}></sl-progress-bar>
 {:else if error}
 	{m.CouldntDownloadMod()}

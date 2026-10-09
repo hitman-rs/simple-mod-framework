@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { config, gameInstalls, gui } from "$lib/config.svelte"
-	import { chunkPartitions, getModManifest, reformatModID, getH3GamePath, loc, getV2ModInfo, allMods, getAllOptions } from "$lib/mods.svelte"
+	import { chunkPartitions, getModManifest, reformatModID, getH3GamePath, loc, getV2ModInfo, allMods, getAllOptions, linesToTranslate } from "$lib/mods.svelte"
 	import { SortableList } from "@jhubbardsf/svelte-sortablejs"
 	import { mkdir, exists, readDir, remove, writeTextFile, readTextFile } from "@tauri-apps/plugin-fs"
 	import { join, localDataDir } from "@tauri-apps/api/path"
@@ -18,6 +18,7 @@
 	import { page } from "$app/state"
 	import { Masonry } from "svelte-bricks"
 	import { open as shellOpen } from "@tauri-apps/plugin-shell"
+	import { getLocale } from "$lib/paraglide/runtime"
 
 	const validateManifest = (async () => new Ajv({ validateFormats: false }).compile<Manifest>((await commands.rsGetManifestSchema()) as unknown as any))()
 
@@ -36,11 +37,6 @@
 	let addingModProgressText = $state("")
 
 	let rpkgConfirmDialog: any = $state()
-
-	let batchModAddingDialog: any = $state()
-	let batchModBeingAdded = $state("A mod")
-	let failedModsDialog: any = $state()
-	let failedMods: [string, string][] = $state([])
 
 	async function addMod(file: string) {
 		modUpgrading = false
@@ -416,26 +412,6 @@
 	{m.ImproperInstalledModDesc()}
 </sl-dialog>
 
-<sl-dialog label={m.AddingMod()} bind:this={batchModAddingDialog} class="noClose" onsl-request-close={(e) => e.preventDefault()}>
-	<p>{batchModBeingAdded} is being upgraded and added to the framework. Please wait.</p>
-	{#if addingModProgressText}
-		<p class="mt-2 text-neutral-300 break-all">{addingModProgressText}</p>
-	{/if}
-</sl-dialog>
-
-<!-- FIXME: Remove batch upgrades before release -->
-<sl-dialog label="Failed mod upgrades" bind:this={failedModsDialog}>
-	<p>The following mods failed to upgrade:</p>
-	<div class="mt-4 max-h-[60vh] overflow-y-auto">
-		{#each failedMods as [name, error]}
-			<div class="mb-4">
-				<h3 class="font-bold">{name}</h3>
-				<pre class="mt-1 text-sm"><code>{error}</code></pre>
-			</div>
-		{/each}
-	</div>
-</sl-dialog>
-
 <sl-dialog label={m.RpkgMod()} bind:this={rpkgConfirmDialog}>
 	<p>{m.RpkgModDesc()}</p>
 	<div slot="footer">
@@ -472,66 +448,6 @@
 					}
 				}}>{m.AddModButton()}</sl-button
 			>
-			<!-- {#if config.developerMode}
-				<sl-button
-					onclick={async () => {
-						const path = await open({
-							title: "Select the Mods folder",
-							directory: true
-						})
-
-						if (typeof path === "string") {
-							batchModAddingDialog.show()
-							failedMods = []
-
-							const modsInfo = await getV2ModInfo()
-
-							for (const modFolder of (await readDir(path)).filter((a) => a.name !== "Managed by SMF, do not touch")) {
-								if (modFolder.name) {
-									batchModBeingAdded = modFolder.name
-								}
-
-								try {
-									if (await exists("working")) {
-										await remove("working", { recursive: true })
-									}
-									await mkdir("working")
-
-									await commands.rsCopyFolder(await join(path, modFolder.name), "working")
-
-									try {
-										await commands.rsUpgradeMod(await getH3GamePath(config), modsInfo, "working")
-									} catch (e) {
-										failedMods = [...failedMods, [modFolder.name || "Unknown mod", String(e)]]
-										await remove("working", { recursive: true })
-										continue
-									}
-
-									const validation = await commands.rsValidateModFolder("working", true)
-
-									if (validation.result === "pass") {
-										await commands.rsCopyFolder("working", await join("Mods", JSON.parse(await readTextFile(await join("working", "manifest.json"))).id))
-										gui(config).knownMods = [...gui(config).knownMods, JSON.parse(await readTextFile(await join("working", "manifest.json"))).id]
-									} else {
-										failedMods = [...failedMods, [modFolder.name || "Unknown mod", validation.message]]
-									}
-
-									await remove("working", { recursive: true })
-								} catch (e) {
-									failedMods = [...failedMods, [modFolder.name || "Unknown mod", String(e)]]
-								}
-							}
-
-							batchModAddingDialog.hide()
-
-							if (failedMods.length > 0) {
-								failedModsDialog.show()
-							}
-						}
-					}}
-					>Import Entire Mods Folder
-				</sl-button>
-			{/if} -->
 			<sl-input placeholder={m.FilterAvailableMods()} value={disabledModsFilter} oninput={(evt) => (disabledModsFilter = evt.target.value)}>
 				<sl-icon name="funnel" slot="prefix"></sl-icon>
 			</sl-input>
@@ -596,6 +512,13 @@
 										<sl-tooltip content={m.SupportLinkDesc()}>
 											<sl-button circle variant="primary" href="#" onclick={() => shellOpen(manifest.links?.support || "")}>
 												<sl-icon name="envelope-paper-heart" label={m.SupportLinkDesc()}></sl-icon>
+											</sl-button>
+										</sl-tooltip>
+									{/if}
+									{#if linesToTranslate(manifest, getLocale()).length}
+										<sl-tooltip content={m.HelpTranslateMod()}>
+											<sl-button circle variant="primary" href="/translate-mod?mod={manifest.id}">
+												<sl-icon name="translate" label={m.HelpTranslateMod()}></sl-icon>
 											</sl-button>
 										</sl-tooltip>
 									{/if}
@@ -695,6 +618,13 @@
 										<sl-tooltip content={m.SupportLinkDesc()}>
 											<sl-button circle variant="primary" href="#" onclick={() => shellOpen(manifest.links?.support || "")}>
 												<sl-icon name="envelope-paper-heart" label={m.SupportLinkDesc()}></sl-icon>
+											</sl-button>
+										</sl-tooltip>
+									{/if}
+									{#if linesToTranslate(manifest, getLocale()).length}
+										<sl-tooltip content={m.HelpTranslateMod()}>
+											<sl-button circle variant="primary" href="/translate-mod?mod={mod}">
+												<sl-icon name="translate" label={m.HelpTranslateMod()}></sl-icon>
 											</sl-button>
 										</sl-tooltip>
 									{/if}

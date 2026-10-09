@@ -119,6 +119,8 @@ pub fn upgrade_mod(
 			latest_framework_version,
 			progress
 		)?;
+	} else {
+		bail!("Mod is packaged in old format but manifest version is not 1.x.x or 2.x.x");
 	}
 }
 

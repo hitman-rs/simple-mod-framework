@@ -45,6 +45,7 @@
 	"type": "module",
 	"packageManager": "yarn@4.12.0",
 	"dependencies": {
+		"@croct/json-pointer": "^0.3.0",
 		"@egjs/grid": "^1.18.0",
 		"@fontsource-variable/fira-code": "^5.0.15",
 		"@fontsource-variable/public-sans": "^5.0.16",

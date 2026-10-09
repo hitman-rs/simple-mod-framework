@@ -144,8 +144,8 @@ export async function getH3GamePath(config: Config) {
 	}
 }
 
-/** Localise a manifest UIText to the currently active UI locale for display. */
-export function loc(text: UIText): string {
+/** Localise a manifest UIText to the specified, or otherwise currently active, UI locale for display. */
+export function loc(text: UIText, locale?: string): string {
 	if (typeof text === "string") {
 		return text
 	} else {
@@ -166,8 +166,8 @@ export function loc(text: UIText): string {
 			ko: text.korean
 		}
 
-		const lang = getLocale()
-		if (localised[lang]) return localised[lang]
+		const lang = locale || getLocale()
+		if (typeof localised[lang] !== "undefined" && localised[lang] !== null) return localised[lang]
 
 		// Otherwise return first specified in game order
 		for (const lang of ["en", "fr", "it", "de", "es", "ru", "es-MX", "pt-BR", "pl", "zh-Hans", "ja", "zh-Hant", "ko", "tr"] as const) {
@@ -220,4 +220,109 @@ export async function evaluateCondition(mod: string, condition: string, enabledM
 
 export function getAllOptions(opts: ModOption[]) {
 	return opts.flatMap((opt) => (opt.type === "optionGroup" ? [opt.id, ...getAllOptions(opt.options)] : [opt.id]))
+}
+
+export const localeSmf = {
+	en: "english",
+	fr: "french",
+	it: "italian",
+	de: "german",
+	es: "spanish",
+	"es-MX": "spanishMexico",
+	"pt-BR": "portugueseBrazil",
+	tr: "turkish",
+	pl: "polish",
+	ru: "russian",
+	"zh-Hans": "chineseSimplified",
+	"zh-Hant": "chineseTraditional",
+	ja: "japanese",
+	ko: "korean"
+} as const
+
+export function linesToTranslate(manifest: Manifest, locale: (typeof locales)[number]): string[] {
+	const lines: string[] = []
+	const consider = (path: string, line: UIText) => {
+		if (typeof line === "string") {
+			if (locale !== "en") {
+				lines.push(path)
+			}
+		} else {
+			if (typeof line[localeSmf[locale]] === "undefined") {
+				lines.push(path)
+			}
+		}
+	}
+
+	consider("/name", manifest.name)
+	consider("/description", manifest.description)
+
+	manifest.conditions?.requiredConditions?.forEach((cond, i) => {
+		consider(`/conditions/requiredConditions/${i}/explanation`, cond.explanation)
+	})
+
+	manifest.conditions?.incompatibleConditions?.forEach((cond, i) => {
+		consider(`/conditions/incompatibleConditions/${i}/explanation`, cond.explanation)
+	})
+
+	manifest.presets?.forEach((preset, i) => {
+		consider(`/presets/${i}/name`, preset.name)
+		if (preset.description) consider(`/presets/${i}/description`, preset.description)
+	})
+
+	for (const [key, loc] of Object.entries(manifest.data?.localisation || {})) {
+		consider(`/data/localisation/${key}`, loc)
+	}
+
+	const recurseOptions = (opts: ModOption[], path: string) => {
+		opts.forEach((opt, i) => {
+			if ("name" in opt) consider(`${path}/${i}/name`, opt.name)
+			if ("description" in opt && opt.description) consider(`${path}/${i}/description`, opt.description)
+			if ("conditions" in opt) {
+				opt.conditions?.requiredConditions?.forEach((cond, j) => {
+					consider(`${path}/${i}/conditions/requiredConditions/${j}/explanation`, cond.explanation)
+				})
+
+				opt.conditions?.incompatibleConditions?.forEach((cond, j) => {
+					consider(`${path}/${i}/conditions/incompatibleConditions/${j}/explanation`, cond.explanation)
+				})
+			}
+			if ("data" in opt) {
+				for (const [key, loc] of Object.entries(opt.data?.localisation || {})) {
+					consider(`${path}/${i}/data/localisation/${key}`, loc)
+				}
+			}
+			if (opt.type === "selection") {
+				for (const [j, subOption] of opt.options.entries()) {
+					consider(`${path}/${i}/options/${j}/name`, subOption.name)
+					if (subOption.description) consider(`${path}/${i}/options/${j}/description`, subOption.description)
+					if ("conditions" in subOption) {
+						subOption.conditions?.requiredConditions?.forEach((cond, k) => {
+							consider(`${path}/${i}/options/${j}/conditions/requiredConditions/${k}/explanation`, cond.explanation)
+						})
+						subOption.conditions?.incompatibleConditions?.forEach((cond, k) => {
+							consider(`${path}/${i}/options/${j}/conditions/incompatibleConditions/${k}/explanation`, cond.explanation)
+						})
+					}
+					if ("data" in subOption) {
+						for (const [key, loc] of Object.entries(subOption.data?.localisation || {})) {
+							consider(`${path}/${i}/options/${j}/data/localisation/${key}`, loc)
+						}
+					}
+				}
+			} else if (opt.type === "optionGroup") {
+				if (opt.hiddenDescription) consider(`${path}/${i}/hiddenDescription`, opt.hiddenDescription)
+				opt.presets?.forEach((preset, j) => {
+					consider(`${path}/${i}/presets/${j}/name`, preset.name)
+					if (preset.description) consider(`${path}/${i}/presets/${j}/description`, preset.description)
+				})
+				recurseOptions(opt.options, `${path}/${i}/options`)
+			}
+		})
+	}
+
+	if (manifest.options) {
+		recurseOptions(manifest.options, "/options")
+	}
+
+	return lines
 }

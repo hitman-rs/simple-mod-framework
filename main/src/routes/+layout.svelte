@@ -28,6 +28,8 @@
 	import "@shoelace-style/shoelace/dist/components/option/option.js"
 	import "@shoelace-style/shoelace/dist/components/tooltip/tooltip.js"
 	import "@shoelace-style/shoelace/dist/components/color-picker/color-picker.js"
+	import "@shoelace-style/shoelace/dist/components/badge/badge.js"
+	import "@shoelace-style/shoelace/dist/components/textarea/textarea.js"
 
 	import "svelte-medium-image-zoom/dist/styles.css"
 

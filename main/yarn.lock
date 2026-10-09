@@ -21,6 +21,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@croct/json-pointer@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@croct/json-pointer@npm:0.3.0"
+  dependencies:
+    "@croct/json": "npm:^2.1.0"
+  checksum: 10c0/e78af382593f6e47cea12d14287243459cb77f7dfcd768ad0cecf1df1c8472199a9b4fd7bab0c75a31980139a988a78cc653618c5c133da9ee4ede12cb539b32
+  languageName: node
+  linkType: hard
+
+"@croct/json@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@croct/json@npm:2.1.0"
+  checksum: 10c0/8079e1fa28e84001d5ef9addd602a7dbc3e9924d050c809f18455264573efd399a7d082344ffa310436ecaff255f9593313e169166e0e86db4a694783e925e82
+  languageName: node
+  linkType: hard
+
 "@ctrl/tinycolor@npm:^4.1.0":
   version: 4.2.0
   resolution: "@ctrl/tinycolor@npm:4.2.0"
@@ -2764,6 +2780,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "mod-manager@workspace:."
   dependencies:
+    "@croct/json-pointer": "npm:^0.3.0"
     "@egjs/grid": "npm:^1.18.0"
     "@fontsource-variable/fira-code": "npm:^5.0.15"
     "@fontsource-variable/public-sans": "npm:^5.0.16"
