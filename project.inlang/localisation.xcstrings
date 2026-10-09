@@ -381,7 +381,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Version Expérimentale"
+            "value" : "Version expérimentale"
           }
         },
         "de" : {
@@ -4903,8 +4903,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erfolgreich angewendet"
+            "state" : "needs_review",
+            "value" : "Deployment successful"
           }
         },
         "it" : {
@@ -4991,8 +4991,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ihre Mods wurden erfolgreich angewandt."
+            "state" : "needs_review",
+            "value" : "Your mods were applied successfully."
           }
         },
         "it" : {
@@ -5080,8 +5080,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mögliche Fehler beim Anwenden"
+            "state" : "needs_review",
+            "value" : "Potential issues in deployment"
           }
         },
         "it" : {
