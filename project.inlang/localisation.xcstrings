@@ -4903,8 +4903,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Deployment successful"
+            "state" : "translated",
+            "value" : "Vorgang erfolgreich"
           }
         },
         "it" : {
@@ -4991,8 +4991,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Your mods were applied successfully."
+            "state" : "translated",
+            "value" : "Ihre Mods wurden erfolgreich angewendet."
           }
         },
         "it" : {
@@ -5080,8 +5080,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Potential issues in deployment"
+            "state" : "translated",
+            "value" : "Mögliche Probleme des Vorgangs"
           }
         },
         "it" : {
@@ -15711,8 +15711,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Translations saved"
+            "state" : "translated",
+            "value" : "Übersetzungen gespeichert"
           }
         },
         "it" : {
@@ -15799,8 +15799,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Send the created translation file to the mod author to get your translations included in the mod!"
+            "state" : "translated",
+            "value" : "Senden Sie die erstellte Übersetzungsdatei an den Mod-Autor, um Ihre Übersetzungen in die Mod aufnehmen zu lassen!"
           }
         },
         "it" : {
@@ -15888,8 +15888,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Source languages"
+            "state" : "translated",
+            "value" : "Ausgangssprachen"
           }
         },
         "it" : {
@@ -15977,8 +15977,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Target language"
+            "state" : "translated",
+            "value" : "Zielsprache"
           }
         },
         "it" : {
@@ -16066,8 +16066,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Save Translations"
+            "state" : "translated",
+            "value" : "Übersetzungen speichern"
           }
         },
         "it" : {
@@ -16154,8 +16154,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mark as no translation required"
+            "state" : "translated",
+            "value" : "„Keine Übersetzung erforderlich“ markieren"
           }
         },
         "it" : {
@@ -16242,8 +16242,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Unmark as no translation required"
+            "state" : "translated",
+            "value" : "„Keine Übersetzung erforderlich“ aufheben"
           }
         },
         "it" : {
@@ -16330,8 +16330,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Help translate this mod into your language"
+            "state" : "translated",
+            "value" : "Helfen Sie mit, diese Mod in Ihre Sprache zu übersetzen"
           }
         },
         "it" : {
