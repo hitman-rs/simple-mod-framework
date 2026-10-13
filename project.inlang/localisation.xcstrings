@@ -15747,8 +15747,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Translations saved"
+            "state" : "translated",
+            "value" : "Переводы сохранены"
           }
         },
         "es" : {
@@ -15835,8 +15835,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Send the created translation file to the mod author to get your translations included in the mod!"
+            "state" : "translated",
+            "value" : "Отправьте созданный файл перевода автору мода, чтобы ваши переводы были включены в мод!"
           }
         },
         "es" : {
@@ -15924,8 +15924,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Source languages"
+            "state" : "translated",
+            "value" : "Исходные языки"
           }
         },
         "es" : {
@@ -16013,8 +16013,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Target language"
+            "state" : "translated",
+            "value" : "Язык перевода"
           }
         },
         "es" : {
@@ -16102,8 +16102,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Save Translations"
+            "state" : "translated",
+            "value" : "Сохранить переводы"
           }
         },
         "es" : {
@@ -16190,8 +16190,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mark as no translation required"
+            "state" : "translated",
+            "value" : "Отметить как не требующий перевода"
           }
         },
         "es" : {
@@ -16278,8 +16278,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Unmark as no translation required"
+            "state" : "translated",
+            "value" : "Снять отметку о не требующемся переводе"
           }
         },
         "es" : {
@@ -16366,8 +16366,8 @@
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Help translate this mod into your language"
+            "state" : "translated",
+            "value" : "Помочь перевести этот мод на ваш язык"
           }
         },
         "es" : {
