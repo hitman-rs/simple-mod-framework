@@ -59,11 +59,27 @@
 				onclick={async () => {
 					const patch = Object.entries(translations)
 						.filter((a) => a[1] !== "")
-						.map(([path, value]) => {
+						.map(([path, value], idx) => {
 							if (typeof JsonPointer.parse(path).get(manifest as any) === "string") {
-								return { op: "replace", path: `${path}`, value: { english: JsonPointer.parse(path).get(manifest as any), [localeSmf[getLocale()]]: value } }
+								return {
+									_comment:
+										idx === 0
+											? "You can apply this translation file to your mod by dragging and dropping it onto the apply-translations helper. See the smf-mod documentation for more information."
+											: undefined,
+									op: "replace",
+									path: `${path}`,
+									value: { english: JsonPointer.parse(path).get(manifest as any), [localeSmf[getLocale()]]: value }
+								}
 							} else {
-								return { op: "add", path: `${path}/${localeSmf[getLocale()]}`, value }
+								return {
+									_comment:
+										idx === 0
+											? "You can apply this translation file to your mod by dragging and dropping it onto the apply-translations helper. See the smf-mod documentation for more information."
+											: undefined,
+									op: "add",
+									path: `${path}/${localeSmf[getLocale()]}`,
+									value
+								}
 							}
 						})
 

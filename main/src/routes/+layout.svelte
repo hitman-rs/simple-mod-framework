@@ -228,14 +228,23 @@
 					} catch (e) {
 						console.error("Failed to check for updates for", manifest.id, e)
 
-						if (String(e).includes("missing field `assets`")) {
+						const error = String(e)
+						if (error.includes("missing field `assets`")) {
 							ghRatelimit = true
 							modUpdateData.skipped += 1
-						} else if (String(e).includes("<title>Just a moment...</title>")) {
+						} else if (error.includes("<title>Just a moment...</title>")) {
 							nexusRatelimit = true
 							modUpdateData.skipped += 1
 						} else {
-							modUpdateData.updates.push({ type: "failed", modName: loc(manifest.name), error: String(e) })
+							modUpdateData.updates.push({
+								type: "failed",
+								modName: loc(manifest.name),
+								error: error.includes("Among Us")
+									? "The mod's URL is invalid or its version cannot be fetched."
+									: error.includes("Invalid version")
+										? "The version hosted on the mod's page is invalid. This is a mod issue: contact the mod author to resolve this."
+										: error
+							})
 						}
 					}
 				}

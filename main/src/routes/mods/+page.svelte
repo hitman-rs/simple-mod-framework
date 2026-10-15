@@ -595,7 +595,7 @@
 						<div class="-ml-2 flex gap-4 items-center">
 							<sl-icon name="grip-vertical" class="flex-shrink-0 text-2xl text-neutral-600"></sl-icon>
 							<div class="flex-grow flex flex-wrap 2xl:flex-nowrap gap-4 items-center">
-								<div class="flex-grow">
+								<div class="flex-grow w-min">
 									<h2 class="text-xl font-bold">{loc(manifest.name)} <span class="font-light">{manifest.version}</span></h2>
 									<p class="text-sm">{loc(manifest.description)}</p>
 								</div>

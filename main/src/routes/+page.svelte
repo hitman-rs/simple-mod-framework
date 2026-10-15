@@ -464,6 +464,12 @@
 			<sl-option value={locale}>{localeNames[locale]}</sl-option>
 		{/each}
 	</sl-select>
+	{#if config.uiLocale !== "en"}
+		<p class="mt-2 mb-4">
+			<a href="https://crowdin.com/project/simple-mod-framework" target="_blank" class="text-primary-300 hover:underline">{m.CrowdinNudge()}</a><br />
+			{m.CrowdinNudge2()}
+		</p>
+	{/if}
 
 	<div class="flex gap-2" slot="footer">
 		<sl-button
@@ -632,7 +638,12 @@
 					{@const update = item.data}
 					{#if update.type === "failed"}
 						<sl-card class="w-full">
-							{m.CouldntCheckModUpdate({ mod: update.modName })}
+							<div slot="header">
+								<h2 class="text-xl 2xl:text-2xl font-bold leading-tight">
+									{m.CouldntCheckModUpdate({ mod: update.modName })}
+								</h2>
+							</div>
+							<pre><code>{update.error}</code></pre>
 						</sl-card>
 					{:else if update.type === "developmentVersion"}
 						<sl-card class="w-full">

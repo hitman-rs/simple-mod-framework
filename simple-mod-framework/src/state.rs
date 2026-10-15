@@ -426,8 +426,9 @@ impl<W: World> State<W> {
 		let states = self.deployment.resource_states.get(required).unwrap().lock().await;
 		let mut res = (!states.is_empty())
 			.then_some(states)
-			.ok_or_else(|| eyre!("Necessary resource {:?} not preloaded", required))
-			.suggestion("is a file being patched that has not yet been deployed?");
+			.ok_or_else(|| eyre!("Unknown resource {:?}", required))
+			.suggestion("is a resource being patched that has not yet been deployed?")
+			.suggestion("is the resource being patched in the correct partition?");
 
 		if self.game.version != GlacierGame::H3
 			&& required.partition
