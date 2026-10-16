@@ -34,17 +34,27 @@ pub static EXPERIMENT: Option<&'static str> =
 	} else if built_info::CI_PLATFORM.is_some() {
 		Some(constcat::concat!(
 			"artifact ",
-			built_info::GIT_VERSION
-				.or(built_info::GIT_COMMIT_HASH_SHORT)
-				.unwrap_or("unknown")
+			if let Some(x) = built_info::GIT_VERSION {
+				x
+			} else if let Some(x) = built_info::GIT_COMMIT_HASH_SHORT {
+				x
+			} else {
+				"unknown"
+			}
 		))
 	} else {
 		Some(constcat::concat!(
 			"build ",
-			built_info::GIT_VERSION
-				.or(built_info::GIT_COMMIT_HASH_SHORT)
-				.unwrap_or("unknown"),
-			if built_info::GIT_DIRTY.unwrap_or(false) {
+			if let Some(x) = built_info::GIT_VERSION {
+				x
+			} else if let Some(x) = built_info::GIT_COMMIT_HASH_SHORT {
+				x
+			} else {
+				"unknown"
+			},
+			if let Some(dirty) = built_info::GIT_DIRTY
+				&& dirty
+			{
 				"-dirty-"
 			} else {
 				"-"
