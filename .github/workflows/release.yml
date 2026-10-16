@@ -184,6 +184,7 @@ jobs:
         env:
           NODE_OPTIONS: "--max-old-space-size=4096"
           CARGO_INCREMENTAL: 1
+          SMF_RELEASE_BUILD: 1
         run: |
           cd main
           yarn tauri build
@@ -194,6 +195,7 @@ jobs:
         env:
           NODE_OPTIONS: "--max-old-space-size=4096"
           CARGO_INCREMENTAL: 1
+          SMF_RELEASE_BUILD: 1
           VCPKG_ROOT: "${{ github.workspace }}/vcpkg"
         run: |
           cd main
@@ -224,6 +226,7 @@ jobs:
         if: matrix.platform == 'ptlm-runner'
         env:
           CARGO_INCREMENTAL: 1
+          SMF_RELEASE_BUILD: 1
           VCPKG_ROOT: "${{ github.workspace }}/vcpkg"
         run: |
           mkdir .\target\x86_64-pc-windows-msvc\release -Force

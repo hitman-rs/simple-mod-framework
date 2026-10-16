@@ -4,6 +4,7 @@ version = "3.0.0-rc.5"
 description = "A tool for managing HITMAN and 007: First Light mods."
 edition = "2024"
 publish = false
+build = "build.rs"
 
 [dependencies]
 simple-mod-framework-core.workspace = true
@@ -13,6 +14,7 @@ aho-corasick.workspace = true
 anyhow.workspace = true
 better-rune-derive.workspace = true
 color-eyre.workspace = true
+constcat.workspace = true
 crc32fast.workspace = true
 delegate.workspace = true
 dirs.workspace = true
@@ -118,6 +120,9 @@ tracing-error = { workspace = true, optional = true }
 mimalloc = { workspace = true, optional = true }
 
 rpkg-diff = { workspace = true, optional = true }
+
+[build-dependencies]
+built = { version = "0.8.1", features = ["gix"] }
 
 [features]
 run = ["fern", "tracing-subscriber", "tracing-error", "mimalloc"]
