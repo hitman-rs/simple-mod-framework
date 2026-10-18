@@ -22,7 +22,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - platform: "ubicloud-standard-8-ubuntu-2404"
+          - platform: "ubuntu-latest"
           - platform: "windows-latest"
 
     runs-on: ${{ matrix.platform }}
@@ -55,7 +55,7 @@ jobs:
 
       - name: Set up Rust (Linux)
         uses: actions-rs/toolchain@b2417cde72dcf67f306c0ae8e0828a81bf0b189f
-        if: matrix.platform == 'ubicloud-standard-8-ubuntu-2404'
+        if: matrix.platform == 'ubuntu-latest'
         with:
           profile: minimal
           toolchain: nightly-2026-09-14
@@ -94,7 +94,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install build dependencies (Linux)
-        if: matrix.platform == 'ubicloud-standard-8-ubuntu-2404'
+        if: matrix.platform == 'ubuntu-latest'
         uses: awalsh128/cache-apt-pkgs-action@acb598e5ddbc6f68a970c5da0688d2f3a9f04d05
         with:
           packages: libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf libarchive-dev
@@ -137,6 +137,7 @@ jobs:
         env:
           NODE_OPTIONS: "--max-old-space-size=4096"
           CARGO_INCREMENTAL: 1
+          CARGO_BUILD_JOBS: 3
         run: |
           cd main
           yarn tauri build

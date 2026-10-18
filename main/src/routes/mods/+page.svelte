@@ -494,6 +494,13 @@
 										}}>{m.DeleteButton()}</sl-button
 									>
 									<div class="flex-grow"></div>
+									{#if linesToTranslate(manifest, getLocale()).length}
+										<sl-tooltip content={m.HelpTranslateMod()}>
+											<sl-button circle variant="success" href="/translate-mod?mod={manifest.id}">
+												<sl-icon name="translate" label={m.HelpTranslateMod()}></sl-icon>
+											</sl-button>
+										</sl-tooltip>
+									{/if}
 									{#if manifest.links?.info}
 										<sl-tooltip content={m.InfoLinkDesc()}>
 											<sl-button circle variant="primary" href="#" onclick={() => shellOpen(manifest.links?.info || "")}>
@@ -515,10 +522,10 @@
 											</sl-button>
 										</sl-tooltip>
 									{/if}
-									{#if linesToTranslate(manifest, getLocale()).length}
-										<sl-tooltip content={m.HelpTranslateMod()}>
-											<sl-button circle variant="primary" href="/translate-mod?mod={manifest.id}">
-												<sl-icon name="translate" label={m.HelpTranslateMod()}></sl-icon>
+									{#if manifest.url}
+										<sl-tooltip content={m.HomeLinkDesc()}>
+											<sl-button circle variant="primary" href="#" onclick={() => shellOpen(manifest.url || "")}>
+												<sl-icon name="house-door" label={m.HomeLinkDesc()}></sl-icon>
 											</sl-button>
 										</sl-tooltip>
 									{/if}

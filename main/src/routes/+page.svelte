@@ -643,7 +643,7 @@
 									{m.CouldntCheckModUpdate({ mod: update.modName })}
 								</h2>
 							</div>
-							<pre><code>{update.error}</code></pre>
+							<pre class="whitespace-pre-wrap"><code>{update.error}</code></pre>
 						</sl-card>
 					{:else if update.type === "developmentVersion"}
 						<sl-card class="w-full">

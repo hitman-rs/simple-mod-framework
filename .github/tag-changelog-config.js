@@ -4,6 +4,7 @@ module.exports = {
 		{ types: ["fix", "bugfix"], label: "Bug Fixes" },
 		{ types: ["improvements", "enhancement"], label: "Improvements" },
 		{ types: ["perf"], label: "Performance Improvements" },
+		{ types: ["l10n"], label: "Localisation" },
 		{ types: ["build", "ci"], label: "Build System" },
 		{ types: ["refactor"], label: "Refactors" },
 		{ types: ["doc", "docs"], label: "Documentation Changes" },
