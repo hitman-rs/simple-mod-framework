@@ -78,8 +78,8 @@
         },
         "es-MX" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Skip game intro video"
+            "state" : "translated",
+            "value" : "Saltar intro del juego"
           }
         },
         "tr" : {
@@ -167,8 +167,8 @@
         },
         "es-MX" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enable mod developer mode"
+            "state" : "translated",
+            "value" : "Habilitar modo de desarrollador de mods"
           }
         },
         "tr" : {
@@ -256,8 +256,8 @@
         },
         "es-MX" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Welcome to the"
+            "state" : "translated",
+            "value" : "Bienvenido a"
           }
         },
         "tr" : {
@@ -345,8 +345,8 @@
         },
         "es-MX" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enable"
+            "state" : "translated",
+            "value" : "Habilitar"
           }
         },
         "tr" : {
@@ -434,8 +434,8 @@
         },
         "es-MX" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Experimental version"
+            "state" : "translated",
+            "value" : "Version experimental"
           }
         },
         "tr" : {
@@ -4419,8 +4419,8 @@
         },
         "es-MX" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Deployment started"
+            "state" : "translated",
+            "value" : "Aplicacion de mods iniciada"
           }
         },
         "tr" : {
@@ -8940,8 +8940,8 @@
         },
         "es-MX" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Couldn't update mod"
+            "state" : "translated",
+            "value" : "Error al actualizar el mod"
           }
         },
         "tr" : {
@@ -13454,8 +13454,8 @@
         },
         "es-MX" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "update available to {version}"
+            "state" : "translated",
+            "value" : "actualización disponible para {version}"
           }
         },
         "tr" : {
