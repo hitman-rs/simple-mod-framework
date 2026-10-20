@@ -595,17 +595,8 @@
 			{#each config.deployOrder as mod}
 				{#await getModManifest(mod) then manifest}
 					<sl-card
-						class="mb-2 w-full cursor-grab select-none"
+						class="mb-2 w-full cursor-grab select-none relative can-darken"
 						class:darkened={enabledModsFilter && !(loc(manifest.name) + loc(manifest.description)).toLowerCase().includes(enabledModsFilter.toLowerCase())}
-						use:observe={{
-							callback: (el, visible) => {
-								if (visible && !el.style.transition) {
-									el.style.transition = "250ms filter"
-								} else if (!visible && el.style.transition) {
-									el.style.transition = ""
-								}
-							}
-						}}
 					>
 						<div class="-ml-2 flex gap-4 items-center">
 							<sl-icon name="grip-vertical" class="flex-shrink-0 text-2xl text-neutral-600"></sl-icon>
@@ -676,7 +667,17 @@
 {/if}
 
 <style>
-	.darkened {
-		filter: brightness(0.75);
+	.can-darken::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: black;
+		opacity: 0;
+		transition: opacity 250ms;
+		pointer-events: none;
+	}
+
+	.can-darken.darkened::after {
+		opacity: 0.25;
 	}
 </style>
