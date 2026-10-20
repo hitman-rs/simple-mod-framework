@@ -19,6 +19,7 @@
 	import { Masonry } from "svelte-bricks"
 	import { open as shellOpen } from "@tauri-apps/plugin-shell"
 	import { getLocale } from "$lib/paraglide/runtime"
+	import { observe } from "$lib/utils"
 
 	const validateManifest = (async () => new Ajv({ validateFormats: false }).compile<Manifest>((await commands.rsGetManifestSchema()) as unknown as any))()
 
@@ -596,7 +597,15 @@
 					<sl-card
 						class="mb-2 w-full cursor-grab select-none"
 						class:darkened={enabledModsFilter && !(loc(manifest.name) + loc(manifest.description)).toLowerCase().includes(enabledModsFilter.toLowerCase())}
-						style="transition: 250ms filter"
+						use:observe={{
+							callback: (el, visible) => {
+								if (visible && !el.style.transition) {
+									el.style.transition = "250ms filter"
+								} else if (!visible && el.style.transition) {
+									el.style.transition = ""
+								}
+							}
+						}}
 					>
 						<div class="-ml-2 flex gap-4 items-center">
 							<sl-icon name="grip-vertical" class="flex-shrink-0 text-2xl text-neutral-600"></sl-icon>
