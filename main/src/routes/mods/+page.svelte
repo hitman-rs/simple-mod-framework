@@ -595,9 +595,8 @@
 				{#await getModManifest(mod) then manifest}
 					<sl-card
 						class="mb-2 w-full cursor-grab select-none"
-						style={enabledModsFilter && !(loc(manifest.name) + loc(manifest.description)).toLowerCase().includes(enabledModsFilter.toLowerCase())
-							? "filter: brightness(0.75); transition: 250ms filter"
-							: "transition: 250ms filter"}
+						class:darkened={enabledModsFilter && !(loc(manifest.name) + loc(manifest.description)).toLowerCase().includes(enabledModsFilter.toLowerCase())}
+						style="transition: 250ms filter"
 					>
 						<div class="-ml-2 flex gap-4 items-center">
 							<sl-icon name="grip-vertical" class="flex-shrink-0 text-2xl text-neutral-600"></sl-icon>
@@ -666,3 +665,9 @@
 		<h1 class="text-4xl 2xl:text-5xl font-bold">{m.DropHint()}</h1>
 	</div>
 {/if}
+
+<style>
+	.darkened {
+		filter: brightness(0.75);
+	}
+</style>
