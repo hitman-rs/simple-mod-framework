@@ -673,6 +673,7 @@
 		inset: 0;
 		background: black;
 		opacity: 0;
+		border-radius: 4px;
 		transition: opacity 250ms;
 		pointer-events: none;
 	}
