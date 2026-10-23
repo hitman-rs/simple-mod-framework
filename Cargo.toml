@@ -113,6 +113,11 @@ windows-sys = "0.61.2"
 xxhash-rust = "0.8.15"
 zip_archive = "1.2.2"
 
+directxtex = { git = "https://github.com/dafitius/directxtex-rs", rev = "465bce9", features = ["openmp"] }
+
+[patch.crates-io]
+glacier-texture = { git = "https://github.com/dafitius/GlacierFormats-rs" }
+
 [profile.release]
 lto = "fat"
 codegen-units = 1

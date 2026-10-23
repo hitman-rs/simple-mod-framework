@@ -1122,9 +1122,9 @@ checksum = "37b2a672a2cb129a2e41c10b1224bb368f9f37a2b16b612598138befd7b37eb5"
 
 [[package]]
 name = "cc"
-version = "1.9.0"
+version = "1.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "877bf67ac8e52449eb2f9e98a344ea163beb70dd1f9eebe3cc5357dcfeaee4df"
+checksum = "86e055fa6e3e40ad6187ba25b6855eeb635d5271f8e0f0e1e9a5826b8d75bea0"
 dependencies = [
  "find-msvc-tools",
  "jobserver",
@@ -1155,7 +1155,7 @@ version = "0.15.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d067ad48b8650848b989a59a86c6c36a995d02d2bf778d45c3c5d57bc2718f02"
 dependencies = [
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "target-lexicon",
 ]
 
@@ -1280,9 +1280,9 @@ checksum = "1c133bc6a41be0d194c306b5506d15e6feeea7b1d6604bd3f8310dfb2ca96486"
 
 [[package]]
 name = "clipboard-win"
-version = "5.4.1"
+version = "5.4.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bde03770d3df201d4fb868f2c9c59e66a3e4e2bd06692a0fe701e7103c7e84d4"
+checksum = "052af7878466feccda12ba7a6a67d019d712f296809559b47c12c8cc196d3a9a"
 dependencies = [
  "error-code",
 ]
@@ -1726,7 +1726,7 @@ dependencies = [
  "dtoa-short",
  "itoa",
  "phf",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
 ]
 
 [[package]]
@@ -2028,11 +2028,12 @@ dependencies = [
 [[package]]
 name = "directxtex"
 version = "1.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0f0cea4cfe7ef3eeeae77cbbe6c8eddb7e518b1af877ca788b7a9d4fde45e658"
+source = "git+https://github.com/dafitius/directxtex-rs?rev=465bce9#465bce900bf02952f948873d9cf84d2c52e9f322"
 dependencies = [
  "bitflags 2.13.2",
  "cc",
+ "openmp-sys",
+ "windows 0.62.2",
  "winresult",
 ]
 
@@ -3191,7 +3192,7 @@ dependencies = [
  "libc",
  "once_cell",
  "pin-project-lite",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "thiserror 1.0.69",
 ]
 
@@ -3261,7 +3262,7 @@ dependencies = [
  "gix-worktree-state",
  "gix-worktree-stream",
  "nonempty",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "thiserror 2.0.21",
 ]
 
@@ -3301,7 +3302,7 @@ dependencies = [
  "gix-quote",
  "gix-trace",
  "kstring",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "thiserror 2.0.21",
  "unicode-bom",
 ]
@@ -3331,7 +3332,7 @@ dependencies = [
  "gix-trace",
  "gix-traverse",
  "gix-worktree",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "thiserror 2.0.21",
 ]
 
@@ -3384,7 +3385,7 @@ dependencies = [
  "gix-path",
  "gix-ref",
  "gix-sec",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "thiserror 2.0.21",
  "unicode-bom",
 ]
@@ -3520,7 +3521,7 @@ dependencies = [
  "gix-quote",
  "gix-trace",
  "gix-utils",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "thiserror 2.0.21",
 ]
 
@@ -3620,7 +3621,7 @@ dependencies = [
  "libc",
  "memmap2",
  "rustix",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "thiserror 2.0.21",
 ]
 
@@ -3690,7 +3691,7 @@ dependencies = [
  "gix-utils",
  "gix-validate",
  "itoa",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "thiserror 2.0.21",
 ]
 
@@ -3730,7 +3731,7 @@ dependencies = [
  "gix-object",
  "gix-path",
  "memmap2",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "thiserror 2.0.21",
  "uluru",
 ]
@@ -3836,7 +3837,7 @@ dependencies = [
  "gix-hash",
  "gix-revision",
  "gix-validate",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "thiserror 2.0.21",
 ]
 
@@ -3871,7 +3872,7 @@ dependencies = [
  "gix-hash",
  "gix-hashtable",
  "gix-object",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "thiserror 2.0.21",
 ]
 
@@ -3986,7 +3987,7 @@ dependencies = [
  "gix-hashtable",
  "gix-object",
  "gix-revwalk",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "thiserror 2.0.21",
 ]
 
@@ -4082,6 +4083,18 @@ name = "glacier-base"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7e0ef976f62bcdca66cde27fab9c3e21807ab8b88a5feb3a23dfc0b1f27058f1"
+dependencies = [
+ "byteorder",
+ "crc32fast",
+ "extended-tea",
+ "nalgebra",
+ "thiserror 2.0.21",
+]
+
+[[package]]
+name = "glacier-base"
+version = "0.2.1"
+source = "git+https://github.com/dafitius/GlacierFormats-rs#6c67702d338d2fab16f2107d8c719ccbe63a1fb9"
 dependencies = [
  "binrw",
  "byteorder",
@@ -4355,7 +4368,7 @@ version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6dd41e4b12fa901bb36a3a3e6fa01cbc45120077a9c53c4196123f25b0cc88a4"
 dependencies = [
- "glacier-base",
+ "glacier-base 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "indexmap 2.14.2",
  "itertools 0.14.0",
  "pathdiff",
@@ -4364,14 +4377,13 @@ dependencies = [
 
 [[package]]
 name = "glacier-texture"
-version = "2.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "90deaf9a34c8f171e4329971dc6f82e27e258b16687f0c1ea7a14399197084a5"
+version = "2.2.1"
+source = "git+https://github.com/dafitius/GlacierFormats-rs#6c67702d338d2fab16f2107d8c719ccbe63a1fb9"
 dependencies = [
  "binrw",
  "bitfield-struct",
  "directxtex",
- "glacier-base",
+ "glacier-base 0.2.1 (git+https://github.com/dafitius/GlacierFormats-rs)",
  "half",
  "image",
  "lz4",
@@ -4425,7 +4437,7 @@ dependencies = [
  "libc",
  "memchr",
  "once_cell",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "thiserror 1.0.69",
 ]
 
@@ -4817,7 +4829,7 @@ dependencies = [
  "httparse",
  "itoa",
  "pin-project-lite",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "tokio",
  "want",
 ]
@@ -4935,7 +4947,7 @@ dependencies = [
  "icu_normalizer_data",
  "icu_properties",
  "icu_provider",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "zerovec",
 ]
 
@@ -5012,7 +5024,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3b0875f23caa03898994f6ddc501886a45c7d3d62d04d2d90788d47be1b1e4de"
 dependencies = [
  "idna_adapter",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "utf8_iter",
 ]
 
@@ -6670,6 +6682,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "openmp-sys"
+version = "1.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "caef37114187ab867226e338413fb6cb23ccd785a63d4ee63e7335c88f1079e0"
+dependencies = [
+ "cc",
+]
+
+[[package]]
 name = "openssl-probe"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -6840,7 +6861,7 @@ dependencies = [
  "cfg-if",
  "libc",
  "redox_syscall",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "windows-link 0.2.1",
 ]
 
@@ -7955,9 +7976,9 @@ checksum = "194d8e591e405d1eecf28819740abed6d719d1a2db87fc0bcdedee9a26d55560"
 
 [[package]]
 name = "rfd"
-version = "0.16.0"
+version = "0.16.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a15ad77d9e70a92437d8f74c35d99b4e4691128df018833e99f90bcd36152672"
+checksum = "f4fe518b6db89699d59862e4d1e3a0226316090f4e4ec09f7dd686be25634c7c"
 dependencies = [
  "block2",
  "dispatch2",
@@ -8053,7 +8074,7 @@ version = "1.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "93411e420bcd1a75ddd1dc3caf18c23155eda2c090631a85af21ba19e97093b5"
 dependencies = [
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "str_indices",
 ]
 
@@ -8107,7 +8128,7 @@ source = "git+https://github.com/dafitius/rpkg-rs?branch=v2#e2a697300760ef6fe77b
 dependencies = [
  "binrw",
  "bitfield-struct",
- "glacier-base",
+ "glacier-base 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "glacier-ini 1.0.0",
  "indexmap 2.14.2",
  "itertools 0.14.0",
@@ -8453,7 +8474,7 @@ dependencies = [
  "schemars_derive 0.8.22",
  "serde",
  "serde_json",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "url",
  "uuid",
 ]
@@ -8572,7 +8593,7 @@ dependencies = [
  "precomputed-hash",
  "rustc-hash 2.1.3",
  "servo_arc",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
 ]
 
 [[package]]
@@ -9089,7 +9110,7 @@ dependencies = [
  "fjall",
  "fn-wrap-err",
  "futures",
- "glacier-base",
+ "glacier-base 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "glacier-bin1",
  "glacier-commons",
  "glacier-formats",
@@ -9168,7 +9189,7 @@ dependencies = [
  "color-eyre",
  "ecow",
  "fn-wrap-err",
- "glacier-base",
+ "glacier-base 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "glacier-commons",
  "glacier-ini 1.0.0",
  "identity-hash",
@@ -9207,7 +9228,7 @@ dependencies = [
  "duct",
  "fn-wrap-err",
  "fs_extra",
- "glacier-base",
+ "glacier-base 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "glacier-commons",
  "glacier-ini 1.0.0",
  "ipc-channel",
@@ -9354,9 +9375,9 @@ dependencies = [
 
 [[package]]
 name = "smallvec"
-version = "1.16.3"
+version = "1.16.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5b3dc8af474f516a851ff4bd12db780f948b9250ad37211e4eec0bccea54e01b"
+checksum = "d0d5d4b1981b8bbbb7aed204cae5726d683d5d6ac7e74ec54122ea28f315e7c8"
 
 [[package]]
 name = "smallvec"
@@ -9768,9 +9789,9 @@ dependencies = [
 
 [[package]]
 name = "tao"
-version = "0.37.1"
+version = "0.37.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f37f381f4e048e6cdf038b5705f8cf14ad108279d46eb968140a7b291aba9400"
+checksum = "d5777b06fe6435126ae8d816eba269e050e1e10d302cf5461e9c49eccabc3548"
 dependencies = [
  "bitflags 2.13.2",
  "block2",
@@ -10011,7 +10032,7 @@ checksum = "b7461aaacf1901915ea7b9f5cd74f8224a351ed96af0a62c07fce934003cb34b"
 dependencies = [
  "log",
  "raw-window-handle",
- "rfd 0.16.0",
+ "rfd 0.16.1",
  "serde",
  "serde_json",
  "tauri",
@@ -10795,7 +10816,7 @@ dependencies = [
  "once_cell",
  "regex-automata",
  "sharded-slab",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "thread_local",
  "tracing",
  "tracing-core",
@@ -11077,9 +11098,9 @@ checksum = "133bf74f01486773317ddfcde8e2e20d2933cc3b68ab797e5d718bef996a81de"
 
 [[package]]
 name = "uuid"
-version = "1.28.0"
+version = "1.29.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7cc1186384beb7dd8eedea376413fd654937285ea6c9cfbb928dc3043ea4b606"
+checksum = "4a0e2d11620c50695fe12bbbfde96b3477fe606e7284c22d505c12ce51214514"
 dependencies = [
  "getrandom 0.4.3",
  "js-sys",
@@ -11348,7 +11369,7 @@ dependencies = [
  "cc",
  "downcast-rs",
  "rustix",
- "smallvec 1.16.3",
+ "smallvec 1.16.4",
  "wayland-sys",
 ]
 
@@ -11503,18 +11524,18 @@ dependencies = [
 
 [[package]]
 name = "webpki-root-certs"
-version = "1.0.10"
+version = "1.0.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "58ec80e73fd8baf57bf0d9615554c75348bda990d6d5bbeab964dd068319fecb"
+checksum = "e49d0e65abc00c142e8f9428da991da9f1a250c39be97459901eb12b9b49f62a"
 dependencies = [
  "rustls-pki-types",
 ]
 
 [[package]]
 name = "webpki-roots"
-version = "1.0.10"
+version = "1.0.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1c1c8e20c8a38fc7d65abfe74eb7280e4aa667e8eec8bc84996d2874810748d9"
+checksum = "f5f280bbb2b287bc8e7de7e3852945a0ff50d1bbcb5ed42b6c7a568c546df171"
 dependencies = [
  "rustls-pki-types",
 ]
@@ -12217,11 +12238,11 @@ checksum = "3ad82d2a33cdc9674dc7465672f271e096168fcdbe0f799d9e6db8c5892679dc"
 
 [[package]]
 name = "wry"
-version = "0.57.0"
+version = "0.57.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a819957a01b3119af85e638a38d242af76dbc87d130dca67bfd0441072e21ff0"
+checksum = "759c50ddad0ef9913bb5496cb9d509a50433a3b78cb0238d61105526589cf0e9"
 dependencies = [
- "base64 0.22.1",
+ "base64 0.23.1",
  "block2",
  "cookie",
  "crossbeam-channel",
@@ -12242,7 +12263,6 @@ dependencies = [
  "objc2-foundation",
  "objc2-ui-kit",
  "objc2-web-kit",
- "once_cell",
  "percent-encoding",
  "raw-window-handle",
  "sha2",

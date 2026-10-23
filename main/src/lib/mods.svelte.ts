@@ -41,7 +41,11 @@ void readDir("Mods").then((mods) => {
 								if (exists) {
 									try {
 										if (modManifests[modId]) {
-											modManifests[modId] = JSON.parse(await readTextFile(path))
+											const manifest = JSON.parse(await readTextFile(path))
+											if (manifest.id !== modId) {
+												throw new Error(`Mod ID ${manifest.id} in manifest.json does not match expected ID ${modId}`)
+											}
+											modManifests[modId] = manifest
 										}
 									} catch (e) {
 										console.error(`Couldn't read manifest.json for ${modId}`, e)
