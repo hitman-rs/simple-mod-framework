@@ -74,6 +74,12 @@ jobs:
           Expand-Archive -Path "$env:TEMP\zstd.zip" -DestinationPath "$env:TEMP\zstd"
           echo "$env:TEMP\zstd" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 
+      - name: Install Windows SDK
+        if: matrix.platform == 'ptlm-runner'
+        uses: GuillaumeFalourd/setup-windows10-sdk-action@d4f23d08ae372a72e47dc2616c9ec8c951f853ec
+        with:
+          sdk-version: 26100
+
       - name: Set up yarn
         run: |
           cd main
