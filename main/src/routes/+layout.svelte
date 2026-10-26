@@ -336,6 +336,14 @@
 		@apply mb-1;
 	}
 
+	:global(.changelog h1:not(:first-child)) {
+		@apply mt-2;
+	}
+
+	:global(.changelog h2:not(:first-child)) {
+		@apply mt-2;
+	}
+
 	:global(.changelog h3) {
 		font-weight: 700;
 	}
