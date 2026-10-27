@@ -16418,8 +16418,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Open this mod's home page"
+            "state" : "translated",
+            "value" : "Webseite des Mods öffnen"
           }
         },
         "it" : {
