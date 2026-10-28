@@ -18,6 +18,7 @@
 * [repository.json](special-file-types/repository-json.md)
 * [unlockables.json](special-file-types/unlockables-json.md)
 * [JSON.patch.json](special-file-types/json.patch-json.md)
+* [XMLB.patch.xml](special-file-types/xmlb.patch.xml.md)
 * [contract.json](special-file-types/contract-json.md)
 * [Language files](special-file-types/language-files.md)
 * [localisation.patch.json](special-file-types/localisation.patch-json.md)
