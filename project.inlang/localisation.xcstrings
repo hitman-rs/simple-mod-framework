@@ -16832,6 +16832,183 @@
           }
         }
       }
+    },
+    "FrameworkInstalledIncorrectly" : {
+      "comment" : "Modal heading",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Framework installed incorrectly"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Framework installed incorrectly"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Framework installed incorrectly"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Framework installed incorrectly"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Framework installed incorrectly"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Framework installed incorrectly"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Framework installed incorrectly"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Framework installed incorrectly"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Framework installed incorrectly"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Framework installed incorrectly"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Framework installed incorrectly"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Framework installed incorrectly"
+          }
+        },
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Framework installed incorrectly"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Framework installed incorrectly"
+          }
+        }
+      }
+    },
+    "FrameworkInstalledIncorrectlyDesc" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The framework has not been installed correctly. You need to extract the ZIP file into a folder somewhere on your computer to use SMF. It does not have to be inside the game folder."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "The framework has not been installed correctly. You need to extract the ZIP file into a folder somewhere on your computer to use SMF. It does not have to be inside the game folder."
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "The framework has not been installed correctly. You need to extract the ZIP file into a folder somewhere on your computer to use SMF. It does not have to be inside the game folder."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "The framework has not been installed correctly. You need to extract the ZIP file into a folder somewhere on your computer to use SMF. It does not have to be inside the game folder."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "The framework has not been installed correctly. You need to extract the ZIP file into a folder somewhere on your computer to use SMF. It does not have to be inside the game folder."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "The framework has not been installed correctly. You need to extract the ZIP file into a folder somewhere on your computer to use SMF. It does not have to be inside the game folder."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "The framework has not been installed correctly. You need to extract the ZIP file into a folder somewhere on your computer to use SMF. It does not have to be inside the game folder."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "The framework has not been installed correctly. You need to extract the ZIP file into a folder somewhere on your computer to use SMF. It does not have to be inside the game folder."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "The framework has not been installed correctly. You need to extract the ZIP file into a folder somewhere on your computer to use SMF. It does not have to be inside the game folder."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "The framework has not been installed correctly. You need to extract the ZIP file into a folder somewhere on your computer to use SMF. It does not have to be inside the game folder."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "The framework has not been installed correctly. You need to extract the ZIP file into a folder somewhere on your computer to use SMF. It does not have to be inside the game folder."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "The framework has not been installed correctly. You need to extract the ZIP file into a folder somewhere on your computer to use SMF. It does not have to be inside the game folder."
+          }
+        },
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "The framework has not been installed correctly. You need to extract the ZIP file into a folder somewhere on your computer to use SMF. It does not have to be inside the game folder."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "The framework has not been installed correctly. You need to extract the ZIP file into a folder somewhere on your computer to use SMF. It does not have to be inside the game folder."
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

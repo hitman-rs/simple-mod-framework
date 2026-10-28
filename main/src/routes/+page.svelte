@@ -22,6 +22,7 @@
 	let latestSmfVersion: Promise<string> | null = $state(null)
 
 	let developerModeDialog: any = $state()
+	let installedIncorrectlyDialog: any = $state()
 
 	async function updateFramework() {
 		try {
@@ -294,6 +295,11 @@
 			doneInitialCheck = true
 			;(async () => {
 				if (gui(config).firstTimeUser) {
+					if (!((await exists("qnjs")) || (await exists("qnjs.exe")))) {
+						installedIncorrectlyDialog.show()
+						return
+					}
+
 					// Automatically select latest game version installed
 					config.gamePath =
 						(await gameInstalls).toSorted((a, b) => {
@@ -488,6 +494,10 @@
 			}}>{m.AmModDev()}</sl-button
 		>
 	</div>
+</sl-dialog>
+
+<sl-dialog label={m.FrameworkInstalledIncorrectly()} bind:this={installedIncorrectlyDialog} class="noClose" onsl-request-close={(e) => e.preventDefault()}>
+	{m.FrameworkInstalledIncorrectlyDesc()}
 </sl-dialog>
 
 <h1 class="text-4xl 2xl:text-5xl font-bold mb-2 2xl:mb-4">{m.WelcomeToSMF()} <span class="bg-clip-text bg-gradient-to-r text-transparent from-primary-300 to-teal-300">Simple Mod Framework</span>!</h1>

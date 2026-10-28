@@ -33,6 +33,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
+          excludes: prerelease, draft
 
       - name: Generate changelog
         id: changelog
