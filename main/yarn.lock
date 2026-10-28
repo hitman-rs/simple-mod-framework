@@ -947,12 +947,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tauri-apps/plugin-shell@npm:^2.5.0":
-  version: 2.5.0
-  resolution: "@tauri-apps/plugin-shell@npm:2.5.0"
+"@tauri-apps/plugin-shell@npm:^2.6.0":
+  version: 2.6.0
+  resolution: "@tauri-apps/plugin-shell@npm:2.6.0"
   dependencies:
     "@tauri-apps/api": "npm:^2.12.0"
-  checksum: 10c0/b5396a44aa6b095d22f84ab18346ca26d66d92d33bcc7ce5de9e522bb8c7c0fab2f69d430e3f606f002097a5a8dd51ae162ea6dc51e155eb30d8748bd0f53b37
+  checksum: 10c0/3a05cad6863fa0649d15ab3ba92e782a1733b7e6d4dd882809ebbd386d80d90e911b73c9adcc50888098bf059cf5790a78ae374a638cb86582f0e718b6185a62
   languageName: node
   linkType: hard
 
@@ -2807,7 +2807,7 @@ __metadata:
     "@tauri-apps/plugin-http": "npm:^2.8.3"
     "@tauri-apps/plugin-os": "npm:^2.4.0"
     "@tauri-apps/plugin-process": "npm:^2.4.0"
-    "@tauri-apps/plugin-shell": "npm:^2.5.0"
+    "@tauri-apps/plugin-shell": "npm:^2.6.0"
     "@tauri-apps/plugin-upload": "npm:^2.5.0"
     "@types/dompurify": "npm:^3.2.0"
     "@types/lodash.isequal": "npm:^4"

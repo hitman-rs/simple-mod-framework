@@ -24,6 +24,7 @@ use simple_mod_framework_core::{
 use simple_mod_framework_types::{PackageDefinitionEntity, VersionPlatform};
 use tryvial::try_fn;
 use velcro::vec;
+use xot::Xot;
 use xxhash_rust::xxh3::{Xxh3Default, xxh3_64};
 
 use crate::{
@@ -913,6 +914,95 @@ static ANALYSE_ASPECT: Analyser = Analyser {
 				}
 				.into(),
 			])
+		} else {
+			log::debug!(target: attribution, "Skipping content file {} as partition is not valid for current game", file.as_str());
+			Ok(vec![])
+		}
+	}
+};
+
+#[derive(Serialize, Deserialize, Clone, Debug, better_rune_derive::Any)]
+#[rune(item = ::simple_mod_framework::graph)]
+#[rune(constructor)]
+pub struct ApplyXMLPatch {
+	#[rune(get, set)]
+	pub spec: ResourceSpecifier,
+
+	#[rune(get, set, as_into = String)]
+	pub data: EcoString
+}
+
+register_operation!(ApplyXMLPatch);
+
+impl GraphOperation for ApplyXMLPatch {
+	fn get_required(&self, _: VersionPlatform) -> Vec<ResourceSpecifier> {
+		vec![self.spec.to_owned()]
+	}
+
+	fn get_affected(&self, _: VersionPlatform) -> Vec<ResourceSpecifier> {
+		vec![self.spec.to_owned()]
+	}
+
+	fn get_hash(&self) -> u64 {
+		xxh3_64(
+			&serde_brief::to_vec_with_config(
+				self,
+				serde_brief::Config {
+					use_indices: true,
+					..Default::default()
+				}
+			)
+			.expect("Couldn't serialise operation")
+		)
+	}
+
+	#[try_fn]
+	async fn evaluate(self, _: Attribution, state: Arc<State<impl World>>) -> Result<Vec<Mutation>> {
+		let ResourceState {
+			metadata,
+			data: res_data
+		} = state.get_resource(&self.spec).await?.to_owned();
+
+		vec![Mutation::SetResourceValue {
+			resource: self.spec.to_owned(),
+			value: ResourceState {
+				metadata,
+				data: rfc5261::apply_patch(
+					&String::from_utf8(res_data).wrap_err("Resource to patch was not valid UTF-8")?,
+					&self.data
+				)
+				.wrap_err("Failed to apply XML patch")?
+				.into_bytes()
+			}
+		}]
+	}
+}
+
+#[linkme::distributed_slice(ANALYSERS)]
+static ANALYSE_XMLPATCH: Analyser = Analyser {
+	file_type: "XMLB.patch.xml",
+	analyse: |_, game, _, attribution, partition, file, file_contents| {
+		let mut xot = Xot::new();
+
+		let data = EcoString::from(
+			str::from_utf8(&file_contents)
+				.wrap_err("File contents were not valid UTF-8")
+				.intentional()?
+		);
+
+		let patch = xot.parse(&data).wrap_err("XML patch was not valid XML").intentional()?;
+
+		let target = xot.add_name("target");
+		let id: RuntimeID = xot
+			.get_attribute(xot.document_element(patch).intentional()?, target)
+			.ok_or_eyre("XML patch must have a 'target' attribute on the root element")
+			.intentional()?
+			.parse()
+			.wrap_err("XML patch target was invalid")
+			.intentional()?;
+
+		if let Some(spec) = game.realise_resource_specifier(id, NominalPartition(partition.to_owned()))? {
+			Ok(vec![ApplyXMLPatch { spec, data }.into()])
 		} else {
 			log::debug!(target: attribution, "Skipping content file {} as partition is not valid for current game", file.as_str());
 			Ok(vec![])

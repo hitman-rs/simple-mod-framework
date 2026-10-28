@@ -795,7 +795,8 @@ pub enum Operation {
 	PatchSoundDefinitions(#[facet(opaque)] PatchSoundDefinitions),
 	ScriptOperation(#[facet(opaque)] ScriptOperation),
 	OverwriteBehaviorTree(#[facet(opaque)] OverwriteBehaviorTree),
-	OverwriteAspectEntity(#[facet(opaque)] OverwriteAspectEntity)
+	OverwriteAspectEntity(#[facet(opaque)] OverwriteAspectEntity),
+	ApplyXMLPatch(#[facet(opaque)] ApplyXMLPatch)
 }
 
 pub trait RuneOperation: Send + Sync {

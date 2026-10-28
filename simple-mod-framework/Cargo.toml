@@ -81,6 +81,7 @@ quickentity-rs = { workspace = true, features = [
 rand.workspace = true
 ranked-semaphore.workspace = true
 rayon.workspace = true
+rfc5261.workspace = true
 regex.workspace = true
 relative-path = { workspace = true, features = ["serde"] }
 reqwest.workspace = true
@@ -107,6 +108,7 @@ url = { workspace = true, features = ["serde"] }
 uuid.workspace = true
 velcro.workspace = true
 walkdir.workspace = true
+xot.workspace = true
 xxhash-rust = { workspace = true, features = ["xxh3"] }
 
 fern = { workspace = true, features = ["colored"], optional = true }

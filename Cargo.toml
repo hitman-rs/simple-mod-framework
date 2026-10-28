@@ -75,6 +75,7 @@ rayon = "1.11.0"
 regex = "1.12.4"
 relative-path = "2.0.1"
 reqwest = { version = "0.13.4", features = ["blocking", "json", "query"] }
+rfc5261 = { git = "https://github.com/atampy25/rfc5261" }
 rfd = { version = "0.17.2", default-features = false, features = ["gtk3"] }
 rkyv = "0.8.11"
 rpkg-diff = { git = "https://github.com/atampy25/rpkg-diff" }
@@ -110,6 +111,7 @@ vec1 = "1.12.1"
 velcro = "0.5.4"
 walkdir = "2.5.0"
 windows-sys = "0.61.2"
+xot = "0.31.2"
 xxhash-rust = "0.8.15"
 zip_archive = "1.2.2"
 
