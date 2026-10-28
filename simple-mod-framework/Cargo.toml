@@ -56,7 +56,7 @@ glacier-formats = { workspace = true, features = [
 ] }
 hrtime.workspace = true
 identity-hash.workspace = true
-image = { workspace = true, features = ["png", "tga"] }
+image = { workspace = true, features = ["png"] }
 indexmap = { workspace = true, features = ["serde"] }
 indicatif-log-bridge.workspace = true
 indicatif.workspace = true

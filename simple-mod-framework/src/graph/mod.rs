@@ -109,7 +109,7 @@ impl Attribution {
 			{
 				// Also hash the associated image file
 				let metadata = std::fs::metadata(
-					["dds", "png", "tga"]
+					["dds", "png"]
 						.into_iter()
 						.map(|ext| file_path.with_extension(ext))
 						.find(|x| x.exists())

@@ -232,12 +232,11 @@ impl GraphOperation for OverwriteTexture {
 	async fn evaluate(self, _: Attribution, state: Arc<State<impl World>>) -> Result<Vec<Mutation>> {
 		let texture_map = match self.data_extension.as_ref() {
 			"dds" => TextureMapBuilder::from_dds(Cursor::new(&self.data)),
-			"png" | "tga" => TextureMapBuilder::from_dynamic_image(
+			"png" => TextureMapBuilder::from_dynamic_image(
 				image::load_from_memory_with_format(
 					&self.data,
 					match self.data_extension.as_ref() {
 						"png" => image::ImageFormat::Png,
-						"tga" => image::ImageFormat::Tga,
 						_ => unreachable!()
 					}
 				)
@@ -319,7 +318,7 @@ impl GraphOperation for OverwriteTexture {
 static ANALYSE_TEXTURE: Analyser = Analyser {
 	file_type: "texture.json",
 	analyse: |world, game, mod_id, attribution, partition, file, file_contents| {
-		let (data_path, data) = ["dds", "png", "tga"]
+		let (data_path, data) = ["dds", "png"]
 			.into_iter()
 			.map(|ext| file.with_extension(ext))
 			.find_map(|p| world.read_mod_file(mod_id, &p).ok().map(|x| (p, x)))
