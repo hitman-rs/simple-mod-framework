@@ -14,8 +14,7 @@
 	import * as m from "$lib/paraglide/messages"
 	import Masonry from "svelte-bricks"
 	import { versionCache } from "$lib/ephemeral.svelte"
-	import { getH3GamePath, getV2ModInfo } from "$lib/mods.svelte"
-	import isEqual from "lodash.isequal"
+	import { allMods, getH3GamePath, getV2ModInfo, loc } from "$lib/mods.svelte"
 	import { locales } from "$lib/paraglide/runtime"
 	import { localeNames } from "$lib/utils"
 
@@ -255,7 +254,7 @@
 		await remove("extraction", { recursive: true })
 		gui(config).knownMods = [...gui(config).knownMods, newManifest.id]
 
-		modUpdateData.updates.find((a) => a.type === "autoUpdateAvailable" && a.modId === modId)!.type = "upToDate"
+		modUpdateData.updates[modId] = { type: "upToDate", modName: loc(newManifest.name) }
 		modExtractDialog.hide()
 
 		modUpdateCallback?.(true)
@@ -494,6 +493,7 @@
 <h1 class="text-4xl 2xl:text-5xl font-bold mb-2 2xl:mb-4">{m.WelcomeToSMF()} <span class="bg-clip-text bg-gradient-to-r text-transparent from-primary-300 to-teal-300">Simple Mod Framework</span>!</h1>
 <div class="text-[0.95rem] 2xl:text-base h-[calc(100vh-12rem)] overflow-y-auto">
 	{#await commands.rsGetExperiment() then experiment}
+		{@const skippedCount = Object.values(modUpdateData.updates).filter((a) => a.type === "skipped").length}
 		<Masonry
 			style="justify-content: start"
 			gap={15}
@@ -504,21 +504,18 @@
 				...(experiment ? [{ type: "experiment" } as const] : []),
 				{ type: "smfVersion" } as const,
 				...(sdkUpdate ? [sdkUpdate] : []),
-				...(modUpdateData.updates.filter((a, idx, arr) => arr.findIndex((b) => isEqual(a, b)) === idx).filter((a) => a.type === "autoUpdateAvailable").length > 1
-					? [{ type: "modsToUpdate" } as const]
-					: []),
-				...(modUpdateData.skipped > 0 ? [{ type: "updateCheckSkipped", skipped: modUpdateData.skipped } as const] : []),
-				...(modUpdateData.checkingFinished && modUpdateData.updates.every((a) => a.type === "upToDate")
+				...(Object.values(modUpdateData.updates).some((a) => a.type === "autoUpdateAvailable") ? [{ type: "modsToUpdate" } as const] : []),
+				...(skippedCount > 0 ? [{ type: "updateCheckSkipped", skipped: skippedCount } as const] : []),
+				...(Object.keys(modUpdateData.updates).length === allMods.length && Object.values(modUpdateData.updates).every((a) => a.type === "upToDate")
 					? [{ type: "modsUpToDate" } as const]
-					: modUpdateData.updates
-							.filter((a, idx, arr) => arr.findIndex((b) => isEqual(a, b)) === idx)
-							.filter((a) => a.type !== "upToDate")
+					: Object.values(modUpdateData.updates)
+							.filter((a) => a.type !== "upToDate" && a.type !== "skipped")
 							.sort((a, b) => {
 								const order = ["autoUpdateAvailable", "nexusUpdateAvailable", "developmentVersion", "failed"]
 								return order.indexOf(a.type) - order.indexOf(b.type)
 							})
 							.map((a) => ({ type: "modUpdate", data: a }) as const)),
-				...(!modUpdateData.checkingFinished ? [{ type: "updateChecking" } as const] : [])
+				...(Object.keys(modUpdateData.updates).length !== allMods.length ? [{ type: "updateChecking" } as const] : [])
 			]}
 			getId={(item) => (item.type === "modUpdate" ? `${item.data.type}-${item.data.modName}` : item.type)}
 		>
@@ -598,13 +595,19 @@
 						{/if}
 					{/await}
 				{:else if item.type === "updateChecking"}
-					<sl-card class="w-full">{m.CheckingModUpdate({ mod: modUpdateData.modBeingChecked })}</sl-card>
+					<sl-card class="w-full">
+						{#if modUpdateData.modBeingChecked}
+							{m.CheckingModUpdate({ mod: modUpdateData.modBeingChecked })}
+						{:else}
+							{m.CheckingModUpdates()}
+						{/if}
+					</sl-card>
 				{:else if item.type === "updateCheckSkipped"}
 					<sl-card class="w-full">
 						<div slot="header">
 							<h2 class="text-xl 2xl:text-2xl font-bold">{m.ModUpdateRateLimit()}</h2>
 						</div>
-						<div>{m.ModUpdateRateLimitDesc({ skipped: modUpdateData.skipped })}</div>
+						<div>{m.ModUpdateRateLimitDesc({ skipped: skippedCount })}</div>
 					</sl-card>
 				{:else if item.type === "modsUpToDate"}
 					<sl-card class="w-full">
@@ -614,17 +617,17 @@
 						<div>{m.ModsUpToDateDesc()}</div>
 					</sl-card>
 				{:else if item.type === "modsToUpdate"}
-					{@const updates = modUpdateData.updates.filter((a, idx, arr) => arr.findIndex((b) => isEqual(a, b)) === idx).filter((a) => a.type === "autoUpdateAvailable").length}
+					{@const updates = Object.values(modUpdateData.updates).filter((a) => a.type === "autoUpdateAvailable")}
 					<sl-card class="w-full">
 						<div slot="header">
-							<h2 class="text-xl 2xl:text-2xl font-bold">{m.NModUpdatesAvailable({ updates })}</h2>
+							<h2 class="text-xl 2xl:text-2xl font-bold">{m.NModUpdatesAvailable({ updates: updates.length })}</h2>
 						</div>
-						<div>{m.NModUpdatesAvailableDesc({ updates })}</div>
+						<div>{m.NModUpdatesAvailableDesc({ updates: updates.length })}</div>
 						<div slot="footer"
 							><sl-button
 								variant="primary"
 								onclick={async () => {
-									for (const update of modUpdateData.updates.filter((a) => a.type === "autoUpdateAvailable")) {
+									for (const update of updates) {
 										await new Promise(async (resolve) => {
 											modUpdateCallback = resolve
 											await updateMod(update)

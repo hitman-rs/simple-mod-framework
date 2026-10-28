@@ -36,10 +36,9 @@
 	import { onDestroy, onMount } from "svelte"
 	import { commands } from "$lib/bindings"
 	import { goto } from "$app/navigation"
-	import { allMods, getModManifest, loc } from "$lib/mods.svelte"
+	import { allMods, checkModUpdate } from "$lib/mods.svelte"
 	import { config, saveConfig } from "$lib/config.svelte"
 	import modUpdateData from "$lib/mod-update-data.svelte"
-	import { compare } from "semver"
 	import { download } from "@tauri-apps/plugin-upload"
 	import { fetch } from "@tauri-apps/plugin-http"
 	import * as m from "$lib/paraglide/messages"
@@ -105,160 +104,18 @@
 				}
 				hashListUpdateNotification.hide()
 
-				let nexusRatelimit = false
-				let ghRatelimit = false
-
 				for (const mod of allMods) {
-					const manifest = await getModManifest(mod)
-
-					modUpdateData.modBeingChecked = loc(manifest.name)
-
-					try {
-						if (manifest.url) {
-							const url = new URL(manifest.url)
-
-							if (url.hostname === "nexusmods.com" || url.hostname === "www.nexusmods.com") {
-								if (nexusRatelimit) {
-									modUpdateData.skipped += 1
-									continue
-								}
-
-								const version =
-									versionCache.versions[manifest.url] ||
-									(config.onlineServices
-										? await commands.rsGetProxiedModVersion(manifest.url)
-										: await new Promise((r) => setTimeout(r, 1050)).then(() =>
-												commands.rsGetNexusVersion(
-													url.pathname
-														.split("/")
-														.filter((a) => a !== "")
-														.at(-3) || "",
-													parseInt(
-														url.pathname
-															.split("/")
-															.filter((a) => a !== "")
-															.at(-1) || ""
-													)
-												)
-											))
-
-								versionCache.versions[manifest.url] = version
-
-								if (compare(manifest.version, version) < 0) {
-									modUpdateData.updates.push({ type: "nexusUpdateAvailable", oldVersion: manifest.version, newVersion: version, modName: loc(manifest.name), url: manifest.url })
-								} else if (compare(manifest.version, version) > 0) {
-									modUpdateData.updates.push({ type: "developmentVersion", version: manifest.version, modName: loc(manifest.name) })
-								} else {
-									modUpdateData.updates.push({ type: "upToDate", modName: loc(manifest.name) })
-								}
-							} else if (url.hostname === "github.com") {
-								if (ghRatelimit) {
-									modUpdateData.skipped += 1
-									continue
-								}
-
-								const repository = url.pathname
-									.split("/")
-									.filter((a) => a !== "")
-									.slice(-2)
-									.join("/")
-
-								const version =
-									versionCache.versions[manifest.url] ||
-									(config.onlineServices
-										? await commands.rsGetProxiedModVersion(manifest.url)
-										: await new Promise((r) => setTimeout(r, 1050)).then(() => commands.rsGetGithubVersion(repository)))
-
-								versionCache.versions[manifest.url] = version
-
-								if (compare(manifest.version, version) < 0) {
-									modUpdateData.updates.push({
-										type: "autoUpdateAvailable",
-										oldVersion: manifest.version,
-										newVersion: version,
-										modName: loc(manifest.name),
-										modId: manifest.id,
-										changelogIsURL: false,
-										downloadURL:
-											versionCache.versions[`${manifest.url}#download`] ||
-											(versionCache.versions[`${manifest.url}#download`] = await new Promise((r) => setTimeout(r, 1050)).then(() => commands.rsGetGithubDownloadUrl(repository))),
-										changelog:
-											versionCache.versions[`${manifest.url}#changelog`] ||
-											(versionCache.versions[`${manifest.url}#changelog`] = await new Promise((r) => setTimeout(r, 1050)).then(() =>
-												commands.rsGetGithubChangelog(manifest.version, repository)
-											))
-									})
-								} else if (compare(manifest.version, version) > 0) {
-									modUpdateData.updates.push({ type: "developmentVersion", version: manifest.version, modName: loc(manifest.name) })
-								} else {
-									modUpdateData.updates.push({ type: "upToDate", modName: loc(manifest.name) })
-								}
-							} else if (url.hostname === "modworkshop.net") {
-								const id = parseInt(
-									url.pathname
-										.split("/")
-										.filter((a) => a !== "")
-										.at(-1) || ""
-								)
-
-								const version =
-									versionCache.versions[manifest.url] || (config.onlineServices ? await commands.rsGetProxiedModVersion(manifest.url) : await commands.rsGetModworkshopVersion(id))
-
-								versionCache.versions[manifest.url] = version
-
-								if (compare(manifest.version, version) < 0) {
-									modUpdateData.updates.push({
-										type: "autoUpdateAvailable",
-										oldVersion: manifest.version,
-										newVersion: version,
-										modName: loc(manifest.name),
-										modId: manifest.id,
-										changelogIsURL: true,
-										downloadURL:
-											versionCache.versions[`${manifest.url}#download`] || (versionCache.versions[`${manifest.url}#download`] = await commands.rsGetModworkshopDownloadUrl(id)),
-										changelog: `https://modworkshop.net/mod/${id}?tab=changelog`
-									})
-								} else if (compare(manifest.version, version) > 0) {
-									modUpdateData.updates.push({ type: "developmentVersion", version: manifest.version, modName: loc(manifest.name) })
-								} else {
-									modUpdateData.updates.push({ type: "upToDate", modName: loc(manifest.name) })
-								}
-							}
-						}
-					} catch (e) {
-						console.error("Failed to check for updates for", manifest.id, e)
-
-						const error = String(e)
-						if (error.includes("missing field `assets`")) {
-							ghRatelimit = true
-							modUpdateData.skipped += 1
-						} else if (error.includes("<title>Just a moment...</title>")) {
-							nexusRatelimit = true
-							modUpdateData.skipped += 1
-						} else {
-							modUpdateData.updates.push({
-								type: "failed",
-								modName: loc(manifest.name),
-								error: error.includes("Among Us")
-									? "The mod's URL is invalid or its version cannot be fetched."
-									: error.includes("Invalid version")
-										? "The version hosted on the mod's page is invalid. This is a mod issue: contact the mod author to resolve this."
-										: error
-							})
-						}
-					}
+					await checkModUpdate(mod)
 				}
-
-				modUpdateData.checkingFinished = true
 			})()
 		}
 	})
 
 	$effect(() => {
 		if (modUpdatesNotification) {
-			if (page.url.pathname !== "/" && !modUpdateData.checkingFinished && !modUpdatesNotification.open) {
+			if (page.url.pathname !== "/" && modUpdateData.modBeingChecked !== null && !modUpdatesNotification.open) {
 				modUpdatesNotification.toast()
-			} else if ((page.url.pathname === "/" || modUpdateData.checkingFinished) && modUpdatesNotification.open) {
+			} else if ((page.url.pathname === "/" || modUpdateData.modBeingChecked === null) && modUpdatesNotification.open) {
 				modUpdatesNotification.hide()
 			}
 		}
@@ -292,7 +149,7 @@
 
 <sl-alert variant="primary" bind:this={modUpdatesNotification}>
 	<h4 class="text-xl font-bold">{m.CheckingModUpdates()}</h4>
-	{m.CheckingModUpdate({ mod: modUpdateData.modBeingChecked })}
+	{#if modUpdateData.modBeingChecked}{m.CheckingModUpdate({ mod: modUpdateData.modBeingChecked })}{/if}
 </sl-alert>
 
 <sl-alert variant="primary" bind:this={hashListUpdateNotification}>

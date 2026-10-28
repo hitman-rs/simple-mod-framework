@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { config, gameInstalls, gui } from "$lib/config.svelte"
-	import { chunkPartitions, getModManifest, reformatModID, getH3GamePath, loc, getV2ModInfo, allMods, getAllOptions, linesToTranslate } from "$lib/mods.svelte"
+	import { chunkPartitions, getModManifest, reformatModID, getH3GamePath, loc, getV2ModInfo, allMods, getAllOptions, linesToTranslate, checkModUpdate } from "$lib/mods.svelte"
 	import { SortableList } from "@jhubbardsf/svelte-sortablejs"
 	import { mkdir, exists, readDir, remove, writeTextFile, readTextFile } from "@tauri-apps/plugin-fs"
 	import { join, localDataDir } from "@tauri-apps/api/path"
@@ -19,7 +19,6 @@
 	import { Masonry } from "svelte-bricks"
 	import { open as shellOpen } from "@tauri-apps/plugin-shell"
 	import { getLocale } from "$lib/paraglide/runtime"
-	import { observe } from "$lib/utils"
 
 	const validateManifest = (async () => new Ajv({ validateFormats: false }).compile<Manifest>((await commands.rsGetManifestSchema()) as unknown as any))()
 
@@ -167,6 +166,8 @@
 		await remove(modFolder, { recursive: true })
 
 		addingModDialog.hide()
+
+		void checkModUpdate(manifest.id)
 	}
 
 	async function continueRPKGModInstallation() {

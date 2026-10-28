@@ -30,8 +30,8 @@ use simple_mod_framework::{
 };
 use simple_mod_framework_core::game::detect_game;
 use simple_mod_framework_types::{
-	Config, Game, HashMap, Manifest, ModID, NumberOptionValidation, SafeRelativePath, SemVer, StringOptionValidation,
-	ValidationResult, VersionPlatform
+	Config, Game, HashMap, Manifest, ModID, ModProfile, NumberOptionValidation, SafeRelativePath, SemVer,
+	StringOptionValidation, ValidationResult, VersionPlatform
 };
 use simple_mod_framework_upgrade::{ModInfo, upgrade_mod};
 use specta::Type;
@@ -529,4 +529,10 @@ pub async fn rs_get_installed_sdk_version(retail_path: PathBuf) -> Result<Option
 #[specta::specta]
 pub async fn rs_canonicalize_path(path: PathBuf) -> Result<PathBuf, String> {
 	fs::canonicalize(&path).map_err(|x| x.to_string())
+}
+
+#[tauri::command]
+#[specta::specta]
+pub fn rs_parse_profile(profile: String) -> Result<ModProfile, String> {
+	serde_json::from_str(&profile).map_err(|x| x.to_string())
 }

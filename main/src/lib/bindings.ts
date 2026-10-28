@@ -59,7 +59,8 @@ export const commands = {
 		} | null>("rs_detect_game", { path }),
 	rsValidateStringOption: (option: StringOptionValidation_Deserialize, value: string) => __TAURI_INVOKE<ValidationResult>("rs_validate_string_option", { option, value }),
 	rsCanonicalizePath: (path: string) => __TAURI_INVOKE<string>("rs_canonicalize_path", { path }),
-	rsGetLatestSdkArtifact: (version: GlacierGame) => __TAURI_INVOKE<string>("rs_get_latest_sdk_artifact", { version })
+	rsGetLatestSdkArtifact: (version: GlacierGame) => __TAURI_INVOKE<string>("rs_get_latest_sdk_artifact", { version }),
+	rsParseProfile: (profile: string) => __TAURI_INVOKE<ModProfile>("rs_parse_profile", { profile })
 }
 
 /** Events */

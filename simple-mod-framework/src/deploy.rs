@@ -733,21 +733,22 @@ pub fn migrate(
 
 				// Remove redundant packagedefinition entries from manifest
 				if let Operation::AddPackageDefinitionEntry(graph::AddPackageDefinitionEntry { data: entry }) =
-					&**operation && deploy_graph.nodes().values().any(|other| match &other.operation {
-					NodeOperation::Uncached(op) => match &**op {
-						Operation::OverwriteEntity(graph::OverwriteEntity { data, .. }) => {
-							data.factory.get_path().is_some_and(|x| x == *entry.path)
-						}
+					&**operation
+					&& deploy_graph.nodes().values().any(|other| match &other.operation {
+						NodeOperation::Uncached(op) => match &**op {
+							Operation::OverwriteEntity(graph::OverwriteEntity { data, .. }) => {
+								data.factory.get_path().is_some_and(|x| x == *entry.path)
+							}
 
-						Operation::ApplyQuickEntityPatch(graph::ApplyQuickEntityPatch { data, .. }) => {
-							data.factory.get_path().is_some_and(|x| x == *entry.path)
-						}
+							Operation::ApplyQuickEntityPatch(graph::ApplyQuickEntityPatch { data, .. }) => {
+								data.factory.get_path().is_some_and(|x| x == *entry.path)
+							}
+
+							_ => false
+						},
 
 						_ => false
-					},
-
-					_ => false
-				}) {
+					}) {
 					world.emit_diagnostic(Diagnostic {
 						kind: DiagnosticKind::ApplyingMigration {
 							message: format!(

@@ -194,7 +194,8 @@ pub fn write_artifact(data: &[u8]) -> EcoString {
 	let idx = (ARTIFACT_IDX
 		.try_update(Ordering::SeqCst, Ordering::SeqCst, |x| Some((x + 1) % 26))
 		.expect("Couldn't increment artifact index")
-		+ 1) % 26;
+		+ 1)
+		% 26;
 
 	let id = eco_format!(
 		"{}+{}{}{}{}{}",

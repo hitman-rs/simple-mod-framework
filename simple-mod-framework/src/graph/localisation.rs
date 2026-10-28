@@ -55,7 +55,8 @@ fn check_and_insert(
 				.unwrap()
 				.as_str()
 				.expect("Localisation value was not string")
-				== value && lang != "xx"
+				== value
+				&& lang != "xx"
 			{
 				state.world.emit_diagnostic(Diagnostic {
 					kind: DiagnosticKind::LocalisationOverrideSameValue {

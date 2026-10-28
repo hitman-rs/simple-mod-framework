@@ -6,9 +6,14 @@
 	import isEqual from "lodash.isequal"
 	import { getModManifest, loc } from "$lib/mods.svelte"
 	import * as m from "$lib/paraglide/messages"
+	import { readTextFile, writeTextFile } from "@tauri-apps/plugin-fs"
+	import { open, save } from "@tauri-apps/plugin-dialog"
+	import { commands } from "$lib/bindings"
 
 	let nameModal: any = $state()
 	let name = $state("")
+
+	let importErrorModal: any = $state()
 </script>
 
 <sl-dialog label={m.ProfileName()} bind:this={nameModal}>
@@ -32,7 +37,35 @@
 	>
 </sl-dialog>
 
+<sl-dialog label={m.InvalidProfile()} bind:this={importErrorModal}>
+	{m.InvalidProfileDesc()}
+</sl-dialog>
+
 {m.ProfilesDescription()}
+<div class="flex flex-wrap gap-2 mt-2">
+	<sl-button
+		variant="primary"
+		onclick={async () => {
+			const path = await open({
+				title: "Select profile",
+				filters: [{ name: "JSON file", extensions: ["json"] }]
+			})
+
+			if (path) {
+				try {
+					const profile = await commands.rsParseProfile(await readTextFile(path))
+					config.profiles[v4()] = {
+						name: profile.name,
+						deployOrder: profile.deployOrder,
+						modOptions: Object.fromEntries(Object.entries(profile.modOptions).filter((a) => profile.deployOrder.includes(a[0])))
+					}
+				} catch {
+					importErrorModal.show()
+				}
+			}
+		}}>{m.ImportProfileButton()}</sl-button
+	>
+</div>
 <Masonry
 	class="mt-4 h-[80vh] pr-2 overflow-y-auto"
 	order="row-first"
@@ -100,6 +133,20 @@
 							}}>{m.RemoveUnavailableModsButton()}</sl-button
 						>
 					{/await}
+					<sl-button
+						variant="primary"
+						onclick={async () => {
+							const path = await save({
+								title: "Save profile",
+								filters: [{ name: "JSON file", extensions: ["json"] }],
+								defaultPath: "profile.json"
+							})
+
+							if (path) {
+								await writeTextFile(path, JSON.stringify(profile, undefined, "\t"))
+							}
+						}}>{m.ExportProfileButton()}</sl-button
+					>
 					<sl-button
 						variant="danger"
 						onclick={() => {

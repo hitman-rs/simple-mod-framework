@@ -17,8 +17,8 @@ use commands::{
 	rs_get_github_version, rs_get_installed_sdk_version, rs_get_latest_sdk_artifact, rs_get_latest_sdk_download_url,
 	rs_get_latest_sdk_release, rs_get_latest_smf_version, rs_get_manifest_schema, rs_get_modworkshop_download_url,
 	rs_get_modworkshop_version, rs_get_nexus_version, rs_get_proxied_mod_version, rs_get_smf_changelog,
-	rs_get_tonytools_hash_list_version, rs_resolve_mod_relative_path, rs_save_debug_profile, rs_update_framework,
-	rs_upgrade_mod, rs_validate_mod_folder, rs_validate_number_option, rs_validate_string_option
+	rs_get_tonytools_hash_list_version, rs_parse_profile, rs_resolve_mod_relative_path, rs_save_debug_profile,
+	rs_update_framework, rs_upgrade_mod, rs_validate_mod_folder, rs_validate_number_option, rs_validate_string_option
 };
 use fn_wrap_err::wrap_err;
 use glacier_base::encryption::xtea::XteaConfig;
@@ -268,7 +268,8 @@ fn main() -> ExitCode {
 					rs_detect_game,
 					rs_validate_string_option,
 					rs_canonicalize_path,
-					rs_get_latest_sdk_artifact
+					rs_get_latest_sdk_artifact,
+					rs_parse_profile
 				])
 				.events(tauri_specta::collect_events![
 					DeployIPCMessage,

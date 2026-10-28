@@ -76,7 +76,8 @@ impl AnalyticsSubmission {
 			.send()
 			.await?
 			.status()
-			.as_u16() != 200
+			.as_u16()
+			!= 200
 		{
 			bail!("Unsuccessful submission")
 		}
