@@ -48,8 +48,8 @@
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Skip game intro video"
+            "state" : "translated",
+            "value" : "시작 영상 건너뛰기"
           }
         },
         "pl" : {
@@ -137,8 +137,8 @@
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enable mod developer mode"
+            "state" : "translated",
+            "value" : "개발자 모드 활성화"
           }
         },
         "pl" : {
@@ -226,8 +226,8 @@
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Welcome to the"
+            "state" : "translated",
+            "value" : "환영합니다"
           }
         },
         "pl" : {
@@ -315,8 +315,8 @@
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Enable"
+            "state" : "translated",
+            "value" : "활성화"
           }
         },
         "pl" : {
@@ -404,8 +404,8 @@
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Experimental version"
+            "state" : "translated",
+            "value" : "실험 버전"
           }
         },
         "pl" : {
@@ -492,8 +492,8 @@
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "You're currently running an experimental version of the framework"
+            "state" : "translated",
+            "value" : "현재 실험 버전을 사용 중입니다"
           }
         },
         "pl" : {
@@ -580,8 +580,8 @@
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Checking for framework updates..."
+            "state" : "translated",
+            "value" : "업데이트 확인 중..."
           }
         },
         "pl" : {
@@ -669,8 +669,8 @@
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Major framework update available"
+            "state" : "translated",
+            "value" : "주요 최신 업데이트가 있습니다"
           }
         },
         "pl" : {
@@ -758,8 +758,8 @@
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Framework update available"
+            "state" : "translated",
+            "value" : "프레임 워크 업데이트 가능"
           }
         },
         "pl" : {
