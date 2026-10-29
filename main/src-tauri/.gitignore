@@ -4,3 +4,5 @@
 /ResourceLib_*.dll
 /libResourceLib_*.so
 /gen/schemas/
+qnjs-x86_64-pc-windows-msvc.exe
+qnjs-x86_64-unknown-linux-gnu

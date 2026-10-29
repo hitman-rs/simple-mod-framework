@@ -79,6 +79,13 @@
 					} catch (e) {
 						await remove("extraction-2", { recursive: true })
 						upgradeErrorMessage = String(e)
+						if (config.developerMode) {
+							if (upgradeErrorMessage.includes("invalid length")) {
+								upgradeErrorMessage +=
+									'\n\nMost likely, an invalid path or RuntimeID has been provided. For example, a factory like `"factory": "some_string"` is invalid, as it is neither a hash (00123456789ABCDE) or path ([assembly:/something.something].pc_something). Check that you haven\'t accidentally made a typo, such as missing a character of a hash or missing the opening bracket of a path.'
+							}
+							upgradeErrorMessage += "\n\nIf this is your own mod, you may want to consult the documentation at https://simple-mod-framework.gitbook.io/docs."
+						}
 						addingModDialog.hide()
 						upgradeErrorDialog.show()
 						return
@@ -104,6 +111,9 @@
 						addingModDialog.hide()
 						await remove("extraction-2", { recursive: true })
 						validationMessage = `Mod failed validation after automatic upgrade:\n${validation.message}`
+						if (config.developerMode) {
+							validationMessage += "\n\nIf this is your own mod, you may want to consult the documentation at https://simple-mod-framework.gitbook.io/docs."
+						}
 						validationDialog.show()
 					}
 				} else {

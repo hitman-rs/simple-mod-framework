@@ -120,7 +120,7 @@ pub fn upgrade_mod(
 			progress
 		)?;
 	} else {
-		bail!("Mod is packaged in old format but manifest version is not 1.x.x or 2.x.x");
+		bail!("SMFv3 mods must contain manifest.json at the root of the ZIP file, with no subfolder");
 	}
 }
 

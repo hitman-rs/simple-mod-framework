@@ -102,7 +102,8 @@ pub fn upgrade_entity(entity_path: &Path) -> Result<()> {
 			let entity = serde_json::from_value(orig_file).wrap_err("Entity was invalid")?;
 
 			let (temp, temp_meta, tblu, tblu_meta) = catch_panics(|| quickentity_3::convert_to_rt(&entity))
-				.map_err(|x| eyre!("QuickEntity error: {:?}", x))?;
+				.map_err(|x| eyre!("QuickEntity error: {:?}", x))
+				.wrap_err("Couldn't convert original entity to RT using QuickEntity 3.0")?;
 
 			(
 				serde_json::to_value(&temp)?,
@@ -113,8 +114,9 @@ pub fn upgrade_entity(entity_path: &Path) -> Result<()> {
 		} else {
 			let entity = serde_json::from_value(orig_file).wrap_err("Entity was invalid")?;
 
-			let (temp, temp_meta, tblu, tblu_meta) =
-				quickentity_31::convert_to_rt(&entity).map_err(|x| eyre!("QuickEntity error: {:?}", x))?;
+			let (temp, temp_meta, tblu, tblu_meta) = quickentity_31::convert_to_rt(&entity)
+				.map_err(|x| eyre!("QuickEntity error: {:?}", x))
+				.wrap_err("Couldn't convert original entity to RT using QuickEntity 3.1")?;
 
 			(
 				serde_json::to_value(&temp)?,
