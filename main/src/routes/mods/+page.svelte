@@ -492,7 +492,7 @@
 								<div class="text-[0.95rem] 2xl:text-base">{loc(manifest.description)}</div>
 								<div slot="footer" class="flex flex-wrap gap-2">
 									{#await validateManifest then validateManifest}
-										{#if validateManifest(manifest)}
+										{#if validateManifest(manifest) && manifest.frameworkVersion.startsWith("3.")}
 											<sl-button variant="primary" onclick={() => config.deployOrder.push(manifest.id)}>{m.EnableButton()}</sl-button>
 										{:else}
 											<sl-button variant="danger" disabled title={m.InvalidModButtonDesc()}>{m.InvalidModButton()}</sl-button>

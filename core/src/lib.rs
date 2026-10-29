@@ -12,21 +12,21 @@ pub mod rkyv_helpers;
 pub mod utils;
 pub mod world;
 
-pub const H3_VERSION: &str = "3.280.0";
+pub const H3_VERSION: &str = "3.290.1";
 
-pub const FL_VERSION: &str = "1.3.0";
+pub const FL_VERSION: &str = "1.3.2";
 
 pub static GAME_HASHES: LazyLock<HashMap<&'static str, VersionPlatform>> = LazyLock::new(|| {
 	velcro::map_iter! {
-		"9b85211686e6b95bfc5f48c961992a0b": VersionPlatform { version: GlacierGame::H3, platform: Platform::Epic }, // base game
-		"bf6b2e2c34bf76e4a9b7e23a3c519f9b": VersionPlatform { version: GlacierGame::H3, platform: Platform::Epic }, // ansel unlock
-		"9a17c533634f4b4bdbfa2e03cc72cfaf": VersionPlatform { version: GlacierGame::H3, platform: Platform::Steam }, // base game
-		"82484078c5a1a78e2f84e9f0ad67760f": VersionPlatform { version: GlacierGame::H3, platform: Platform::Steam }, // ansel unlock
+		"e72ee951f153bd8858f37e36d09cfaf5": VersionPlatform { version: GlacierGame::H3, platform: Platform::Epic }, // base game
+		"a8761edd766e4016a9ccc64a8c5ed883": VersionPlatform { version: GlacierGame::H3, platform: Platform::Epic }, // ansel unlock
+		"ceaff768215bf97014f023673f65c4c8": VersionPlatform { version: GlacierGame::H3, platform: Platform::Steam }, // base game
+		"fa2caabd0293edab43d44e823c1f152e": VersionPlatform { version: GlacierGame::H3, platform: Platform::Steam }, // ansel unlock
 
 		// Gamepass/store protects the EXE from reading so we can't hash it, instead we hash the game config
-		"7814483cb24ba31e9d3cc5d8c0977920": VersionPlatform { version: GlacierGame::H3, platform: Platform::Microsoft },
+		"a1d3d1698bc416014aad875c36957502": VersionPlatform { version: GlacierGame::H3, platform: Platform::Microsoft },
 
-		"ed8c273a33dee4861b13503183a54e95": VersionPlatform { version: GlacierGame::FL, platform: Platform::Steam },
+		"81b184536184d61301b57c47f492101f": VersionPlatform { version: GlacierGame::FL, platform: Platform::Steam },
 	}
 	.collect()
 });

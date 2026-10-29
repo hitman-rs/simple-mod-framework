@@ -4224,7 +4224,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#4755928a6c7c5c2845d5a8c845cefc7301dfc40e"
+source = "git+https://github.com/atampy25/glacier-bin1#837d5493b80043b403e67539306a1d029acb2e38"
 dependencies = [
  "Inflector",
  "anyhow",
@@ -4248,7 +4248,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1-codegen"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#4755928a6c7c5c2845d5a8c845cefc7301dfc40e"
+source = "git+https://github.com/atampy25/glacier-bin1#837d5493b80043b403e67539306a1d029acb2e38"
 dependencies = [
  "Inflector",
  "codegen",
@@ -4262,7 +4262,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1-core"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#4755928a6c7c5c2845d5a8c845cefc7301dfc40e"
+source = "git+https://github.com/atampy25/glacier-bin1#837d5493b80043b403e67539306a1d029acb2e38"
 dependencies = [
  "anyhow",
  "bimap",
@@ -4289,7 +4289,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1-derive"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#4755928a6c7c5c2845d5a8c845cefc7301dfc40e"
+source = "git+https://github.com/atampy25/glacier-bin1#837d5493b80043b403e67539306a1d029acb2e38"
 dependencies = [
  "darling 0.23.0",
  "quote",
@@ -4299,7 +4299,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1-fl"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#4755928a6c7c5c2845d5a8c845cefc7301dfc40e"
+source = "git+https://github.com/atampy25/glacier-bin1#837d5493b80043b403e67539306a1d029acb2e38"
 dependencies = [
  "anyhow",
  "codegen",
@@ -4327,7 +4327,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1-h1"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#4755928a6c7c5c2845d5a8c845cefc7301dfc40e"
+source = "git+https://github.com/atampy25/glacier-bin1#837d5493b80043b403e67539306a1d029acb2e38"
 dependencies = [
  "anyhow",
  "codegen",
@@ -4355,7 +4355,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1-h2"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#4755928a6c7c5c2845d5a8c845cefc7301dfc40e"
+source = "git+https://github.com/atampy25/glacier-bin1#837d5493b80043b403e67539306a1d029acb2e38"
 dependencies = [
  "anyhow",
  "codegen",
@@ -4383,7 +4383,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1-h3"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#4755928a6c7c5c2845d5a8c845cefc7301dfc40e"
+source = "git+https://github.com/atampy25/glacier-bin1#837d5493b80043b403e67539306a1d029acb2e38"
 dependencies = [
  "anyhow",
  "codegen",
@@ -9897,7 +9897,7 @@ dependencies = [
 
 [[package]]
 name = "simple-mod-framework"
-version = "3.0.0-rc.9"
+version = "3.0.0-rc.10"
 dependencies = [
  "aho-corasick",
  "anyhow",
@@ -11936,21 +11936,33 @@ dependencies = [
 
 [[package]]
 name = "utf16_iter"
-version = "1.0.5"
+version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c8232dd3cdaed5356e0f716d285e4b40b932ac434100fe9b7e0e8e935b9e6246"
+checksum = "1c7de35d9d8757dbc1f5125dc8b51438c68b4430546a735c3a9b91aaaaf9a18a"
+dependencies = [
+ "utf_types",
+]
 
 [[package]]
 name = "utf8_iter"
-version = "1.0.4"
+version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b6c140620e7ffbb22c2dee59cafe6084a59b5ffc27a8859a5f0d494b5d52b6be"
+checksum = "af3bd9d3e571c26fcce9d033b87ea5ab061b8d2ffe9b7a5675d810d68f03edf0"
+dependencies = [
+ "utf_types",
+]
 
 [[package]]
 name = "utf8parse"
 version = "0.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "06abde3611657adf66d383f00b093d7faecc7fa57071cce2578660c9f1010821"
+
+[[package]]
+name = "utf_types"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3a3b425286980a367278453f3b6d28cdcb134b574e5a35824a6ff5eebad50bb6"
 
 [[package]]
 name = "utfx"
