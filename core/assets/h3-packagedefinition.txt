@@ -735,6 +735,11 @@
 [assembly:/_pro/scenes/missions/sheep/vr_overrides_adonis_ps4_vr1.brick].entitytype
 [assembly:/_pro/scenes/missions/sheep/vr_overrides_adonis_2.brick].entitytype
 [assembly:/_pro/scenes/missions/sheep/vr_overrides_adonis_2_ps4_vr1.brick].entitytype
+[assembly:/_PRO/scenes/missions/sheep/scene_shamrock.entity].entitytemplate
+[assembly:/_PRO/scenes/missions/sheep/mission_shamrock.brick].entitytype
+[assembly:/_pro/scenes/missions/sheep/vr_overrides_shamrock.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_shamrock.entity].entitytemplate
+[assembly:/_PRO/scenes/missions/sheep/arcade_chayote_level2.brick].entitytype
 //arcade
 [assembly:/_pro/scenes/missions/sheep/gamechanger_adonis_additionalenforcers.brick].entitytype
 // --- Chunk 21 Season1
