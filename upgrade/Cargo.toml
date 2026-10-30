@@ -27,7 +27,7 @@ glacier-formats = { workspace = true, features = [
     "wwev",
     "texture",
 ] }
-image.workspace = true
+image = { workspace = true, features = ["tga"] }
 indexmap.workspace = true
 lazy-regex.workspace = true
 quickentity-3.workspace = true
