@@ -169,14 +169,14 @@ jobs:
                   token: ${{ github.token }}
 
             - name: Compile qnjs (Unix)
-              if: matrix.platform != 'windows-latest'
+              if: matrix.platform != 'ptlm-runner'
               run: |
                   cd qn-js
                   bun install
                   bun compile --trim --disallow-code-generation-from-strings --no-compile-function-source --outfile ../main/src-tauri/qnjs-x86_64-unknown-linux-gnu
 
             - name: Compile qnjs (Windows)
-              if: matrix.platform == 'windows-latest'
+              if: matrix.platform == 'ptlm-runner'
               run: |
                   cd qn-js
                   bun install
