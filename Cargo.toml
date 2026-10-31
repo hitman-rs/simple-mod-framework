@@ -115,6 +115,8 @@ xot = "0.31.2"
 xxhash-rust = "0.8.15"
 zip_archive = "1.2.2"
 
+smallvec = "=2.0.0-beta.3" # To avoid a rustc bug around trait impl coherence
+
 [patch.crates-io]
 glacier-texture = { git = "https://github.com/dafitius/GlacierFormats-rs" }
 

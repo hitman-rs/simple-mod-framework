@@ -111,6 +111,8 @@ walkdir.workspace = true
 xot.workspace = true
 xxhash-rust = { workspace = true, features = ["xxh3"] }
 
+smallvec.workspace = true
+
 fern = { workspace = true, features = ["colored"], optional = true }
 tracing-subscriber = { workspace = true, features = [
     "smallvec",
