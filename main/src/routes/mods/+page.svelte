@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { config, gameInstalls, gui } from "$lib/config.svelte"
-	import { chunkPartitions, getModManifest, reformatModID, getH3GamePath, loc, getV2ModInfo, allMods, getAllOptions, linesToTranslate, checkModUpdate } from "$lib/mods.svelte"
+	import { chunkPartitions, getModManifest, reformatModID, getH3GamePath, loc, getV2ModInfo, allMods, getAllOptions, linesToTranslate, checkModUpdate, updateModList } from "$lib/mods.svelte"
 	import { SortableList } from "@jhubbardsf/svelte-sortablejs"
 	import { mkdir, exists, readDir, remove, writeTextFile, readTextFile } from "@tauri-apps/plugin-fs"
 	import { join, localDataDir } from "@tauri-apps/api/path"
@@ -168,6 +168,7 @@
 
 		if (await exists(await join("Mods", manifest.id))) {
 			await remove(await join("Mods", manifest.id), { recursive: true })
+			await updateModList()
 		}
 
 		await commands.rsCopyFolder(modFolder, await join("Mods", manifest.id))

@@ -14,7 +14,7 @@ export const allMods: string[] = $state([])
 let pendingModListUpdate: Promise<void> | null = null
 const modManifests: Record<string, Manifest> = $state({})
 
-async function updateModList() {
+export async function updateModList() {
 	const newMods = (await readDir("Mods")).map((a) => a.name).filter((a) => a && !a.startsWith(".") && !["DO NOT TOUCH THIS FOLDER", "desktop.ini"].includes(a)) as string[]
 
 	for (const mod of (allMods || []).filter((a) => !newMods.includes(a))) {
@@ -25,50 +25,61 @@ async function updateModList() {
 	for (const mod of newMods.filter((a) => !(allMods || []).includes(a))) {
 		allMods.push(mod)
 	}
+
+	updateWatch()
 }
 
 pendingModListUpdate = updateModList().then(() => {
 	pendingModListUpdate = null
 })
 
-void readDir("Mods").then((mods) => {
-	void watch(
-		["Mods", ...mods.filter((a) => a.isDirectory).map((a) => `Mods${sep()}${a.name}`), ...mods.filter((a) => a.isDirectory).map((a) => `Mods${sep()}${a.name}${sep()}manifest.json`)],
-		(e) => {
-			if (typeof e.type === "string" || Object.hasOwn(e.type, "create") || Object.hasOwn(e.type, "modify") || Object.hasOwn(e.type, "remove")) {
-				for (const path of e.paths) {
-					if (path.endsWith("manifest.json")) {
-						const modId = path.match(/[\\/]Mods[\\/]([^\\/]+)[\\/]manifest\.json/)?.[1]
-						if (modId && modManifests[modId]) {
-							void exists(path).then(async (exists) => {
-								if (exists) {
-									try {
-										if (modManifests[modId]) {
-											const manifest = JSON.parse(await readTextFile(path))
-											if (manifest.id !== modId) {
-												throw new Error(`Mod ID ${manifest.id} in manifest.json does not match expected ID ${modId}`)
+const unwatch = { run: () => {} }
+
+updateWatch()
+
+function updateWatch() {
+	void readDir("Mods").then(async (mods) => {
+		const newUnwatch = await watch(
+			["Mods", ...mods.filter((a) => a.isDirectory).map((a) => `Mods${sep()}${a.name}`), ...mods.filter((a) => a.isDirectory).map((a) => `Mods${sep()}${a.name}${sep()}manifest.json`)],
+			(e) => {
+				if (typeof e.type === "string" || Object.hasOwn(e.type, "create") || Object.hasOwn(e.type, "modify") || Object.hasOwn(e.type, "remove")) {
+					for (const path of e.paths) {
+						if (path.endsWith("manifest.json")) {
+							const modId = path.match(/[\\/]Mods[\\/]([^\\/]+)[\\/]manifest\.json/)?.[1]
+							if (modId && modManifests[modId]) {
+								void exists(path).then(async (exists) => {
+									if (exists) {
+										try {
+											if (modManifests[modId]) {
+												const manifest = JSON.parse(await readTextFile(path))
+												if (manifest.id !== modId) {
+													throw new Error(`Mod ID ${manifest.id} in manifest.json does not match expected ID ${modId}`)
+												}
+												modManifests[modId] = manifest
 											}
-											modManifests[modId] = manifest
+										} catch (e) {
+											console.error(`Couldn't read manifest.json for ${modId}`, e)
 										}
-									} catch (e) {
-										console.error(`Couldn't read manifest.json for ${modId}`, e)
 									}
-								}
-							})
-						}
-					} else {
-						if (path.match(/[\\/]Mods[\\/][^\\/]+[\\/]?/)) {
-							pendingModListUpdate = updateModList().then(() => {
-								pendingModListUpdate = null
-							})
+								})
+							}
+						} else {
+							if (path.match(/[\\/]Mods[\\/][^\\/]+[\\/]?/)) {
+								pendingModListUpdate = updateModList().then(() => {
+									pendingModListUpdate = null
+								})
+							}
 						}
 					}
 				}
-			}
-		},
-		{ delayMs: 800 }
-	)
-})
+			},
+			{ delayMs: 800 }
+		)
+
+		unwatch.run()
+		unwatch.run = newUnwatch
+	})
+}
 
 /** Get the list of all installed mods, ensuring it is up-to-date. */
 export async function getAllMods() {
