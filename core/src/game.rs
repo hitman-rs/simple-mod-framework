@@ -331,7 +331,7 @@ pub fn detect_game(path: impl Into<PathBuf>) -> Result<Option<Game>> {
 		let hash = format!(
 			"{:x}",
 			md5::compute(if path.join("Runtime").join("chunk0.rpkg").exists() {
-				fs::read(path.join("../../..").join("MicrosoftGame.Config")).wrap_err("Couldn't read game config")?
+				fs::read(path.join("..").join("MicrosoftGame.Config")).wrap_err("Couldn't read game config")?
 			} else {
 				fs::read(path.join("HITMAN3.exe")).wrap_err("Couldn't read game EXE")?
 			})
@@ -392,15 +392,15 @@ pub fn detect_game(path: impl Into<PathBuf>) -> Result<Option<Game>> {
 				Platform::Steam
 			} else if path.join("EOSSDK-Win64-Shipping.dll").exists() {
 				Platform::Epic
-			} else if path.join("../../..").join("MicrosoftGame.Config").exists() {
+			} else if path.join("..").join("MicrosoftGame.Config").exists() {
 				Platform::Microsoft
 			} else {
 				Platform::GOG
 			},
 			hash: format!(
 				"{:x}",
-				md5::compute(if path.join("../../..").join("MicrosoftGame.Config").exists() {
-					fs::read(path.join("../../..").join("MicrosoftGame.Config"))
+				md5::compute(if path.join("..").join("MicrosoftGame.Config").exists() {
+					fs::read(path.join("..").join("MicrosoftGame.Config"))
 						.wrap_err("Couldn't read game config")?
 				} else {
 					fs::read(path.join("HITMAN.exe")).wrap_err("Couldn't read game EXE")?

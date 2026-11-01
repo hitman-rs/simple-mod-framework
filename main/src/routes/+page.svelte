@@ -514,7 +514,7 @@
 				...(experiment ? [{ type: "experiment" } as const] : []),
 				{ type: "smfVersion" } as const,
 				...(sdkUpdate ? [sdkUpdate] : []),
-				...(Object.values(modUpdateData.updates).some((a) => a.type === "autoUpdateAvailable") ? [{ type: "modsToUpdate" } as const] : []),
+				...(Object.values(modUpdateData.updates).filter((a) => a.type === "autoUpdateAvailable").length > 1 ? [{ type: "modsToUpdate" } as const] : []),
 				...(skippedCount > 0 ? [{ type: "updateCheckSkipped", skipped: skippedCount } as const] : []),
 				...(Object.keys(modUpdateData.updates).length === allMods.length && Object.values(modUpdateData.updates).every((a) => a.type === "upToDate")
 					? [{ type: "modsUpToDate" } as const]
