@@ -16507,8 +16507,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Export Profile"
+            "state" : "translated",
+            "value" : "Profil exportieren"
           }
         },
         "it" : {
@@ -16596,8 +16596,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Import Profile"
+            "state" : "translated",
+            "value" : "Profil importieren"
           }
         },
         "it" : {
@@ -16685,8 +16685,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Invalid profile"
+            "state" : "translated",
+            "value" : "Ungültiges Profil"
           }
         },
         "it" : {
@@ -16773,8 +16773,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The selected file is invalid. Please make sure it is a valid profile JSON file and try again."
+            "state" : "translated",
+            "value" : "Die ausgewählte Datei ist ungültig. Bitte stellen Sie sicher, dass es sich um eine gültige JSON-Profildatei handelt und versuchen Sie es erneut."
           }
         },
         "it" : {
@@ -16862,8 +16862,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Framework installed incorrectly"
+            "state" : "translated",
+            "value" : "Das Framework ist fehlerhaft installiert"
           }
         },
         "it" : {
@@ -16950,8 +16950,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "The framework has not been installed correctly. You need to extract the ZIP file into a folder somewhere on your computer to use SMF. It does not have to be inside the game folder."
+            "state" : "translated",
+            "value" : "Das Framework wurde nicht korrekt installiert. Sie müssen die ZIP-Datei in einen Ordner auf Ihrem Computer extrahieren, um das SMF verwenden zu können. Es muss sich nicht im Spielordner befinden."
           }
         },
         "it" : {
