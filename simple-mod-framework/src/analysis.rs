@@ -1312,8 +1312,9 @@ fn get_operations_from_file(
 			metadata.id
 		} else {
 			bail!(
-				"File {} has an invalid resource ID in filename and no metadata.json",
-				file.as_str()
+				"File {} has a raw file extension ({}) but an invalid RuntimeID in filename and no metadata.json",
+				file.as_str(),
+				resource_type
 			);
 		};
 

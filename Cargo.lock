@@ -277,9 +277,9 @@ dependencies = [
 
 [[package]]
 name = "async-executor"
-version = "1.14.0"
+version = "1.14.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c96bf972d85afc50bf5ab8fe2d54d1586b4e0b46c97c50a0c9e71e2f7bcd812a"
+checksum = "f426a31126c735126297bc5ea7a521263c9faff4f63ca415267ee625651c4f37"
 dependencies = [
  "async-task",
  "concurrent-queue",
@@ -309,9 +309,9 @@ dependencies = [
 
 [[package]]
 name = "async-lock"
-version = "3.4.2"
+version = "3.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "290f7f2596bd5b78a9fec8088ccd89180d7f9f55b94b0576823bbbdc72ee8311"
+checksum = "0876700b0d007ad25d5508865a4259c3af9af6d296bf663a0d586d0bc3369f6f"
 dependencies = [
  "event-listener",
  "event-listener-strategy",
@@ -4224,7 +4224,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#7b7288dda7f6e3ff5804f74042738cbc52c5d6e5"
+source = "git+https://github.com/atampy25/glacier-bin1#4f724f259aa8fd6e0bf461223721708240deea3d"
 dependencies = [
  "Inflector",
  "anyhow",
@@ -4248,7 +4248,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1-codegen"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#7b7288dda7f6e3ff5804f74042738cbc52c5d6e5"
+source = "git+https://github.com/atampy25/glacier-bin1#4f724f259aa8fd6e0bf461223721708240deea3d"
 dependencies = [
  "Inflector",
  "codegen",
@@ -4262,7 +4262,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1-core"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#7b7288dda7f6e3ff5804f74042738cbc52c5d6e5"
+source = "git+https://github.com/atampy25/glacier-bin1#4f724f259aa8fd6e0bf461223721708240deea3d"
 dependencies = [
  "anyhow",
  "bimap",
@@ -4289,7 +4289,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1-derive"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#7b7288dda7f6e3ff5804f74042738cbc52c5d6e5"
+source = "git+https://github.com/atampy25/glacier-bin1#4f724f259aa8fd6e0bf461223721708240deea3d"
 dependencies = [
  "darling 0.23.0",
  "quote",
@@ -4299,7 +4299,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1-fl"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#7b7288dda7f6e3ff5804f74042738cbc52c5d6e5"
+source = "git+https://github.com/atampy25/glacier-bin1#4f724f259aa8fd6e0bf461223721708240deea3d"
 dependencies = [
  "anyhow",
  "codegen",
@@ -4327,7 +4327,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1-h1"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#7b7288dda7f6e3ff5804f74042738cbc52c5d6e5"
+source = "git+https://github.com/atampy25/glacier-bin1#4f724f259aa8fd6e0bf461223721708240deea3d"
 dependencies = [
  "anyhow",
  "codegen",
@@ -4355,7 +4355,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1-h2"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#7b7288dda7f6e3ff5804f74042738cbc52c5d6e5"
+source = "git+https://github.com/atampy25/glacier-bin1#4f724f259aa8fd6e0bf461223721708240deea3d"
 dependencies = [
  "anyhow",
  "codegen",
@@ -4383,7 +4383,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1-h3"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#7b7288dda7f6e3ff5804f74042738cbc52c5d6e5"
+source = "git+https://github.com/atampy25/glacier-bin1#4f724f259aa8fd6e0bf461223721708240deea3d"
 dependencies = [
  "anyhow",
  "codegen",
@@ -4799,7 +4799,7 @@ dependencies = [
 [[package]]
 name = "hitman-behavior"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/hitman-behavior#9bf1613ec531f031d2a0578dee1871d729cbf449"
+source = "git+https://github.com/atampy25/hitman-behavior#3d2db3b5b9aacfa378df95781c03fe2225545650"
 dependencies = [
  "Inflector",
  "anyhow",
@@ -4807,6 +4807,7 @@ dependencies = [
  "ecow",
  "glacier-bin1",
  "lazy-regex",
+ "rayon",
  "serde",
  "serde_json",
  "thiserror 2.0.21",
@@ -5864,9 +5865,9 @@ dependencies = [
 
 [[package]]
 name = "jiff"
-version = "0.2.38"
+version = "0.2.39"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b2b005715dcbeb0089a3c0dab99f2ff1cc3b2525323552703d648585d342a383"
+checksum = "3ac703058abac89e5c39b0b879dce2b6b14a4ba36600c7e7e3d0c60a6883ef3c"
 dependencies = [
  "defmt 1.2.0",
  "jiff-core",
@@ -5881,9 +5882,9 @@ dependencies = [
 
 [[package]]
 name = "jiff-core"
-version = "0.1.1"
+version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5e52fe76043ccecc9005d2305ebaadf7d7fc0cc89ca6baa10a94d6bc68c7128c"
+checksum = "aee43309eb53bafb8c36d35d6e444769c8f8e6206a9fbf7546f5db9d7d4a0e93"
 dependencies = [
  "defmt 1.2.0",
  "log",
@@ -5891,9 +5892,9 @@ dependencies = [
 
 [[package]]
 name = "jiff-static"
-version = "0.2.38"
+version = "0.2.39"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2cc9817253cf7c7ee4684451bd327e88d6f3658014e54a29198625590650695c"
+checksum = "6dc32470c67eb7d0e9ccb74303fa925313dc04cecb1aa048beaa6f391e36a93d"
 dependencies = [
  "jiff-core",
  "proc-macro2",
@@ -7659,19 +7660,20 @@ checksum = "9b4f627cb1b25917193a259e49bdad08f671f8d9708acfd5fe0a8c1455d87220"
 
 [[package]]
 name = "pest"
-version = "2.9.2"
+version = "2.9.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "45d3aca230fad2e6f6317ca0a72724338c4960cb97168a85cdee66df4a9a21a8"
+checksum = "a8db75153506001cb36ed924f08cadc862eb3f8c4d0d534139f29074769d7660"
 dependencies = [
  "memchr",
+ "pest_stack_guard",
  "ucd-trie",
 ]
 
 [[package]]
 name = "pest_derive"
-version = "2.9.2"
+version = "2.9.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "284b60557f2c4a2e72ad3f2d34d42685a2fa4a6a61d0d2a10c0ae2a5e916c2cf"
+checksum = "20aa17e11fb35664b67d5214a0afac57a360d231b6ec53d6eba0700b27d933b4"
 dependencies = [
  "pest",
  "pest_generator",
@@ -7679,24 +7681,34 @@ dependencies = [
 
 [[package]]
 name = "pest_generator"
-version = "2.9.2"
+version = "2.9.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1d9d1f08a115309ee99268cf85e5228e0e56aa9caf8841ec12866b6be07c3109"
+checksum = "626ec5afccf44ccbfeb2b232316510bb55b4bf34d891afcb0fb07d2b17d7fe9d"
 dependencies = [
  "pest",
  "pest_meta",
  "proc-macro2",
  "quote",
- "syn 2.0.119",
+ "syn 3.0.9",
 ]
 
 [[package]]
 name = "pest_meta"
-version = "2.9.2"
+version = "2.9.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ed93ba1a9ffcca32130a5188701c81c0c49cf00d4b7c5007d5148951d743adcb"
+checksum = "b3f45b6caa65c1b08186832745159c2529994146340a7bf44168095469720f5d"
 dependencies = [
  "pest",
+]
+
+[[package]]
+name = "pest_stack_guard"
+version = "1.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9ac6154fd4418b8f0b82532c59c26f303f9ca59a64c883e8ce3971fd82733439"
+dependencies = [
+ "psm",
+ "stacker",
 ]
 
 [[package]]
@@ -9897,7 +9909,7 @@ dependencies = [
 
 [[package]]
 name = "simple-mod-framework"
-version = "3.0.0-rc.11"
+version = "3.0.0-rc.13"
 dependencies = [
  "aho-corasick",
  "anyhow",
