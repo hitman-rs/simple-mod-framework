@@ -393,7 +393,8 @@ impl GraphOperation for ApplyJSONPatch {
 				&mut new,
 				&serde_json::from_value::<Vec<_>>(self.data.to_owned().into()).wrap_err("JSON patch was invalid")?
 			)
-			.wrap_err("Couldn't apply JSON patch")?;
+			.wrap_err("Couldn't apply JSON patch")
+			.intentional()?;
 
 			let new_repository = Value::Array(
 				new.as_object()
@@ -532,7 +533,8 @@ impl GraphOperation for ApplyJSONPatch {
 				&mut new,
 				&serde_json::from_value::<Vec<_>>(self.data.into()).wrap_err("JSON patch was invalid")?
 			)
-			.wrap_err("Couldn't apply JSON patch")?;
+			.wrap_err("Couldn't apply JSON patch")
+			.intentional()?;
 
 			let new_unlockables = Value::Array(
 				new.as_object()
@@ -574,7 +576,8 @@ impl GraphOperation for ApplyJSONPatch {
 				&mut to_patch,
 				&serde_json::from_value::<Vec<_>>(self.data.into()).wrap_err("JSON patch was invalid")?
 			)
-			.wrap_err("Couldn't apply JSON patch")?;
+			.wrap_err("Couldn't apply JSON patch")
+			.intentional()?;
 
 			log::trace!(target: attribution.source.as_str(), "Finalising");
 

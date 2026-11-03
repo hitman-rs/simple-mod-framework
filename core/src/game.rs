@@ -400,8 +400,7 @@ pub fn detect_game(path: impl Into<PathBuf>) -> Result<Option<Game>> {
 			hash: format!(
 				"{:x}",
 				md5::compute(if path.join("..").join("MicrosoftGame.Config").exists() {
-					fs::read(path.join("..").join("MicrosoftGame.Config"))
-						.wrap_err("Couldn't read game config")?
+					fs::read(path.join("..").join("MicrosoftGame.Config")).wrap_err("Couldn't read game config")?
 				} else {
 					fs::read(path.join("HITMAN.exe")).wrap_err("Couldn't read game EXE")?
 				})
@@ -537,7 +536,8 @@ pub fn load_game_files(
 			{
 				if patch > partition.patch_level {
 					if clear_mods {
-						fs::remove_file(rpkg.path())?;
+						fs::remove_file(rpkg.path())
+							.suggestion("make sure the game is fully closed before applying mods")?;
 					} else if !(patch == 300 || (game_version == GlacierGame::H1 && patch == partition.patch_level + 1))
 					{
 						world.emit_diagnostic(Diagnostic {

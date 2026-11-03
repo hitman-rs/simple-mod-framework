@@ -432,7 +432,11 @@ async fn initialise(
 		State {
 			deployment: DeployContext::new(&config, &game)?,
 			localisation_hash_list: tonytools::hashlist::HashList::load(
-				&fs::read("tonytools_hash_list.hmla").wrap_err("Couldn't read TonyTools hash list")?
+				&fs::read("tonytools_hash_list.hmla")
+					.wrap_err("Couldn't read TonyTools hash list")
+					.note(
+						"the mod manager automatically downloads the hash list when you have an internet connection"
+					)?
 			)
 			.wrap_err("Couldn't load TonyTools hash list")?
 			.into(),

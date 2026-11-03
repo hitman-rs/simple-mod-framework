@@ -18,10 +18,10 @@ pub const FL_VERSION: &str = "1.3.2";
 
 pub static GAME_HASHES: LazyLock<HashMap<&'static str, VersionPlatform>> = LazyLock::new(|| {
 	velcro::map_iter! {
-		"e72ee951f153bd8858f37e36d09cfaf5": VersionPlatform { version: GlacierGame::H3, platform: Platform::Epic }, // base game
-		"a8761edd766e4016a9ccc64a8c5ed883": VersionPlatform { version: GlacierGame::H3, platform: Platform::Epic }, // ansel unlock
-		"ceaff768215bf97014f023673f65c4c8": VersionPlatform { version: GlacierGame::H3, platform: Platform::Steam }, // base game
-		"fa2caabd0293edab43d44e823c1f152e": VersionPlatform { version: GlacierGame::H3, platform: Platform::Steam }, // ansel unlock
+		"9eeae97c841b81e0077ba9e1d401ac94": VersionPlatform { version: GlacierGame::H3, platform: Platform::Epic }, // base game
+		"bae6182412109eabc94d335bb38f08f1": VersionPlatform { version: GlacierGame::H3, platform: Platform::Epic }, // ansel unlock
+		"a56f59157f2ac0cb0254164bb0676661": VersionPlatform { version: GlacierGame::H3, platform: Platform::Steam }, // base game
+		"53e2cfc62c0cdda9ba572665e3213389": VersionPlatform { version: GlacierGame::H3, platform: Platform::Steam }, // ansel unlock
 
 		// Gamepass/store protects the EXE from reading so we can't hash it, instead we hash the game config
 		"a1d3d1698bc416014aad875c36957502": VersionPlatform { version: GlacierGame::H3, platform: Platform::Microsoft },

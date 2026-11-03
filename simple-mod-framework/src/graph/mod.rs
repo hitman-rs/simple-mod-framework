@@ -1,6 +1,6 @@
 use std::{collections::VecDeque, fmt::Debug, hash::Hash, sync::Arc, time::UNIX_EPOCH};
 
-use color_eyre::eyre::{OptionExt, Result, WrapErr};
+use color_eyre::eyre::{OptionExt, Result, WrapErr, eyre};
 use ecow::{EcoString, eco_format};
 use enum_dispatch::enum_dispatch;
 use facet::Facet;
@@ -113,7 +113,7 @@ impl Attribution {
 						.into_iter()
 						.map(|ext| file_path.with_extension(ext))
 						.find(|x| x.exists())
-						.ok_or_eyre("Couldn't find an associated image file")
+						.ok_or_else(|| eyre!("Couldn't find an associated image file for texture {}", self.source))?
 						.intentional()?
 				)?;
 
