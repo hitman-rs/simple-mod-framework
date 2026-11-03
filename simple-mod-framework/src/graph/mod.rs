@@ -113,7 +113,7 @@ impl Attribution {
 						.into_iter()
 						.map(|ext| file_path.with_extension(ext))
 						.find(|x| x.exists())
-						.ok_or_else(|| eyre!("Couldn't find an associated image file for texture {}", self.source))?
+						.ok_or_else(|| eyre!("Couldn't find an associated image file for texture {}", self.source))
 						.intentional()?
 				)?;
 
