@@ -1474,6 +1474,11 @@ pub struct ManifestData {
 	#[serde(skip_serializing_if = "IndexMap::is_empty")]
 	pub localised_lines: IndexMap<RuntimeID, NonEmptyString>,
 
+	/// Custom enum variants that can be referenced with `#{enum:EnumName:ModID:VariantName}`.
+	#[serde(default)]
+	#[serde(skip_serializing_if = "IndexMap::is_empty")]
+	pub enums: IndexMap<NonEmptyString, Vec<NonEmptyString>>,
+
 	/// Paths to add to packagedefinition. Custom partitions are not supported.
 	#[serde(default)]
 	#[serde(skip_serializing_if = "Vec::is_empty")]

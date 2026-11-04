@@ -20,6 +20,7 @@ use glacier_commons::{
 };
 use glacier_formats::sdef::SoundDefinitions;
 use identity_hash::BuildIdentityHasher;
+use indexmap::IndexMap;
 use itertools::Itertools;
 use papaya::Guard;
 use pico_args::Arguments;
@@ -74,7 +75,7 @@ pub fn sort_deploy_order(config: &mut Config, world: &impl Mods, platform: Versi
 			.collect::<Result<HashMap<_, _>>>()?
 			.into();
 
-		let mut mod_options = HashMap::default();
+		let mut mod_options = IndexMap::default();
 		for option in &manifest.options {
 			get_effective_option_values(
 				world,
@@ -216,6 +217,7 @@ pub fn migrate(
 	game: &Arc<GameContext>,
 	cache: &Cache,
 	deploy_graph: &mut DeployGraph,
+	enums: &mut HashMap<String, HashMap<String, i64>>,
 	peacock_plugins: &mut Vec<PathBuf>,
 	sdk_mods: &mut Vec<(ModID, PathBuf)>,
 	resources_to_port: &mut HashSet<(RuntimeID, RealPartition)>
@@ -857,7 +859,8 @@ pub fn migrate(
 		}
 
 		if need_reanalysis {
-			(*deploy_graph, *peacock_plugins, *sdk_mods, *resources_to_port) = analyse(config, world, game, cache)?;
+			(*deploy_graph, *enums, *peacock_plugins, *sdk_mods, *resources_to_port) =
+				analyse(config, world, game, cache)?;
 			continue;
 		} else {
 			break;

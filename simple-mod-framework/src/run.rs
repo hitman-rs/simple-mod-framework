@@ -410,7 +410,7 @@ async fn initialise(
 	log::info!("Loading cache");
 
 	let cache = Cache::new("cache", &game.hash)?;
-	let (mut deploy_graph, mut peacock_plugins, mut sdk_mods, mut resources_to_port) =
+	let (mut deploy_graph, mut enums, mut peacock_plugins, mut sdk_mods, mut resources_to_port) =
 		analyse(&config, &world, &game, &cache)?;
 
 	migrate(
@@ -419,6 +419,7 @@ async fn initialise(
 		&game,
 		&cache,
 		&mut deploy_graph,
+		&mut enums,
 		&mut peacock_plugins,
 		&mut sdk_mods,
 		&mut resources_to_port
@@ -516,7 +517,7 @@ pub async fn deploy(progress: Arc<dyn Progress + Send + Sync>) -> Result<()> {
 	log::info!("Cleaning up cache");
 	cache.persist()?;
 
-	let (config, game, world, server_side_data, server_side_assets) = state.finish().await?;
+	let (config, game, world, enums, server_side_data, server_side_assets) = state.finish().await?;
 
 	let mod_versions = config
 		.deploy_order
@@ -566,6 +567,7 @@ pub async fn deploy(progress: Arc<dyn Progress + Send + Sync>) -> Result<()> {
 			},
 			framework_version: SemVer(APP_VERSION.to_owned()),
 			framework_path: current_dir()?,
+			enums,
 			server_side_data,
 			total_time: start_time.elapsed().as_millis().try_into()?
 		})?

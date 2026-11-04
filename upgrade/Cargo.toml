@@ -47,4 +47,6 @@ typify.workspace = true
 walkdir.workspace = true
 xxhash-rust = { workspace = true, features = ["xxh3"] }
 semver.workspace = true
+
+[target.'cfg(windows)'.dependencies]
 windows-sys = { workspace = true, features = ["Win32_System_Threading"] }

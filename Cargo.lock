@@ -414,7 +414,7 @@ checksum = "1505bd5d3d116872e7271a6d4e16d81d0c8570876c8de68093a09ac269d8aac0"
 [[package]]
 name = "auto_context"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/quickentity-rs?branch=v3.2#dc45efccfbf016025395d9dff9af8adbb92fc953"
+source = "git+https://github.com/atampy25/quickentity-rs?branch=v3.2#589ca506a3ce5fc2a2e88392cf871d982dfce4f0"
 
 [[package]]
 name = "auto_context"
@@ -986,6 +986,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "bstringify"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bd769563b4ea2953e2825c9e6b7470a5f55f67e0be00030bf3e390a2a6071f64"
+
+[[package]]
 name = "built"
 version = "0.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1171,7 +1177,7 @@ checksum = "82f4b26e751e711a5302649417f2da046dce6391b2ea30a4820f37462314f0b9"
 dependencies = [
  "semver",
  "serde",
- "toml 1.1.8+spec-1.1.0",
+ "toml 1.2.0+spec-1.1.0",
 ]
 
 [[package]]
@@ -2404,7 +2410,7 @@ dependencies = [
  "cc",
  "memchr",
  "rustc_version",
- "toml 1.1.8+spec-1.1.0",
+ "toml 1.2.0+spec-1.1.0",
  "vswhom",
  "winreg",
 ]
@@ -4224,21 +4230,14 @@ dependencies = [
 [[package]]
 name = "glacier-bin1"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#4f724f259aa8fd6e0bf461223721708240deea3d"
+source = "git+https://github.com/atampy25/glacier-bin1#2a64dc881be1309e8ef46aa93264fd039f20ab8a"
 dependencies = [
- "Inflector",
- "anyhow",
- "codegen",
- "crc32fast",
  "ecow",
- "edit-distance",
  "glacier-bin1-core",
  "glacier-bin1-fl",
  "glacier-bin1-h1",
  "glacier-bin1-h2",
  "glacier-bin1-h3",
- "lazy-regex",
- "rayon",
  "serde_json",
  "thiserror 2.0.21",
  "tracing",
@@ -4248,7 +4247,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1-codegen"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#4f724f259aa8fd6e0bf461223721708240deea3d"
+source = "git+https://github.com/atampy25/glacier-bin1#2a64dc881be1309e8ef46aa93264fd039f20ab8a"
 dependencies = [
  "Inflector",
  "codegen",
@@ -4262,10 +4261,11 @@ dependencies = [
 [[package]]
 name = "glacier-bin1-core"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#4f724f259aa8fd6e0bf461223721708240deea3d"
+source = "git+https://github.com/atampy25/glacier-bin1#2a64dc881be1309e8ef46aa93264fd039f20ab8a"
 dependencies = [
  "anyhow",
  "bimap",
+ "bstringify",
  "byteorder",
  "crc32fast",
  "dynex",
@@ -4289,7 +4289,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1-derive"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#4f724f259aa8fd6e0bf461223721708240deea3d"
+source = "git+https://github.com/atampy25/glacier-bin1#2a64dc881be1309e8ef46aa93264fd039f20ab8a"
 dependencies = [
  "darling 0.23.0",
  "quote",
@@ -4299,7 +4299,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1-fl"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#4f724f259aa8fd6e0bf461223721708240deea3d"
+source = "git+https://github.com/atampy25/glacier-bin1#2a64dc881be1309e8ef46aa93264fd039f20ab8a"
 dependencies = [
  "anyhow",
  "codegen",
@@ -4327,7 +4327,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1-h1"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#4f724f259aa8fd6e0bf461223721708240deea3d"
+source = "git+https://github.com/atampy25/glacier-bin1#2a64dc881be1309e8ef46aa93264fd039f20ab8a"
 dependencies = [
  "anyhow",
  "codegen",
@@ -4355,7 +4355,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1-h2"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#4f724f259aa8fd6e0bf461223721708240deea3d"
+source = "git+https://github.com/atampy25/glacier-bin1#2a64dc881be1309e8ef46aa93264fd039f20ab8a"
 dependencies = [
  "anyhow",
  "codegen",
@@ -4383,7 +4383,7 @@ dependencies = [
 [[package]]
 name = "glacier-bin1-h3"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/glacier-bin1#4f724f259aa8fd6e0bf461223721708240deea3d"
+source = "git+https://github.com/atampy25/glacier-bin1#2a64dc881be1309e8ef46aa93264fd039f20ab8a"
 dependencies = [
  "anyhow",
  "codegen",
@@ -4799,7 +4799,7 @@ dependencies = [
 [[package]]
 name = "hitman-behavior"
 version = "0.1.0"
-source = "git+https://github.com/atampy25/hitman-behavior#3d2db3b5b9aacfa378df95781c03fe2225545650"
+source = "git+https://github.com/atampy25/hitman-behavior#26f734e01f36cfc8506aafb6d41b4a3a427ae72b"
 dependencies = [
  "Inflector",
  "anyhow",
@@ -7994,7 +7994,7 @@ version = "3.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e67ba7e9b2b56446f1d419b1d807906278ffa1a658a8a5d8a39dcb1f5a78614f"
 dependencies = [
- "toml_edit 0.25.17+spec-1.1.0",
+ "toml_edit 0.25.18+spec-1.1.0",
 ]
 
 [[package]]
@@ -8212,7 +8212,7 @@ dependencies = [
 [[package]]
 name = "quickentity-rs"
 version = "1.0.0"
-source = "git+https://github.com/atampy25/quickentity-rs?branch=v3.2#dc45efccfbf016025395d9dff9af8adbb92fc953"
+source = "git+https://github.com/atampy25/quickentity-rs?branch=v3.2#589ca506a3ce5fc2a2e88392cf871d982dfce4f0"
 dependencies = [
  "anyhow",
  "auto_context 0.1.0 (git+https://github.com/atampy25/quickentity-rs?branch=v3.2)",
@@ -10917,7 +10917,7 @@ dependencies = [
  "tauri-plugin",
  "tauri-utils",
  "thiserror 2.0.21",
- "toml 1.1.8+spec-1.1.0",
+ "toml 1.2.0+spec-1.1.0",
  "url",
 ]
 
@@ -11141,7 +11141,7 @@ dependencies = [
  "serde_with 3.24.0",
  "swift-rs",
  "thiserror 2.0.21",
- "toml 1.1.8+spec-1.1.0",
+ "toml 1.2.0+spec-1.1.0",
  "url",
  "urlpattern",
  "uuid",
@@ -11156,7 +11156,7 @@ checksum = "c52bb6904475a6ca662f15ef787f18ade61d5740a1ee12c45d3b748efdb6f796"
 dependencies = [
  "dunce",
  "embed-resource",
- "toml 1.1.8+spec-1.1.0",
+ "toml 1.2.0+spec-1.1.0",
 ]
 
 [[package]]
@@ -11438,9 +11438,9 @@ dependencies = [
 
 [[package]]
 name = "toml"
-version = "1.1.8+spec-1.1.0"
+version = "1.2.0+spec-1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "20489e00e4d8741d6be680764cc12e270655e375a20d1011e844a9c3379e678d"
+checksum = "c5ffcdf8f50436dbbfd675c1fe1b8e0854f42b7defea8584bdebe1aee900e561"
 dependencies = [
  "indexmap 2.14.2",
  "serde_core",
@@ -11507,9 +11507,9 @@ dependencies = [
 
 [[package]]
 name = "toml_edit"
-version = "0.25.17+spec-1.1.0"
+version = "0.25.18+spec-1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e3641d5bbb5349a79e1020a242d251efbc546ad8048d133958323ce9c40a9c9c"
+checksum = "1ec6e78bd70db9420d8d212fa9dc97f116448a1ceff5d00eabb991d407e21396"
 dependencies = [
  "indexmap 2.14.2",
  "toml_datetime 1.1.2+spec-1.1.0",
@@ -11534,9 +11534,9 @@ checksum = "5d99f8c9a7727884afe522e9bd5edbfc91a3312b36a77b5fb8926e4c31a41801"
 
 [[package]]
 name = "toml_writer"
-version = "1.1.3+spec-1.1.0"
+version = "1.2.0+spec-1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "06bdbd8cfc056b8d2e2e85f29b56a3bdbecb527cef81eb39e3e7b98af4652770"
+checksum = "009dbb7700f11c55ef83aebbe4c0e9cf1f1ac0844bd8d6f00dc38f302026e13a"
 
 [[package]]
 name = "tonytools"

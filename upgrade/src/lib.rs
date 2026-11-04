@@ -1140,6 +1140,7 @@ pub fn upgrade_v2_data(
 					}
 				})
 				.collect::<Result<Vec<_>>>()?,
+			enums: Default::default(),
 			// Dependencies as used in v2 are not needed in v3
 			port_resources: vec![],
 			deploy_before: data

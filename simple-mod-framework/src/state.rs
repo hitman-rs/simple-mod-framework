@@ -118,6 +118,8 @@ pub type ResourceStates = VecDeque<(Option<Attribution>, ResourceState)>;
 
 /// The state of a specific deployment, including the working values of all resources being modified by the deployment.
 pub struct DeployContext {
+	pub enums: HashMap<String, HashMap<String, i64>>,
+
 	/// All resource IDs (and their partitions) that will be required or affected by any graph node (i.e. all resources known to certainly exist by the end of deployment).
 	/// Sorted by the order of the partition in the game files.
 	pub all_relevant_resources: HashMap<RuntimeID, Vec<RealPartition>, BuildIdentityHasher<u64>>,
@@ -143,6 +145,7 @@ impl DeployContext {
 	#[try_fn]
 	pub fn new(config: &Config, game: &GameContext) -> Result<Self> {
 		Self {
+			enums: HashMap::default(),
 			all_relevant_resources: HashMap::default(),
 			resource_states: HashMap::default(),
 			package_definition: game.clean_package_definition.to_owned().into(),
@@ -199,6 +202,7 @@ impl DeployContext {
 impl Clone for DeployContext {
 	fn clone(&self) -> Self {
 		Self {
+			enums: self.enums.clone(),
 			all_relevant_resources: self.all_relevant_resources.clone(),
 			resource_states: self.resource_states.clone(),
 			package_definition: self.package_definition.lock().clone().into(),
@@ -803,6 +807,7 @@ impl<W: World + Progress + Output> State<W> {
 		Arc<Config>,
 		Arc<GameContext>,
 		Arc<W>,
+		HashMap<String, HashMap<String, i64>>,
 		ServerSideData,
 		HashMap<Uuid, Vec<u8>>
 	)> {
@@ -860,6 +865,7 @@ impl<W: World + Progress + Output> State<W> {
 			self.config,
 			self.game,
 			self.world,
+			self.deployment.enums,
 			self.deployment.server_side_data.into_inner(),
 			self.deployment.server_side_assets.into_inner()
 		)

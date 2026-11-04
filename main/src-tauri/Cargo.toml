@@ -70,9 +70,11 @@ specta = { workspace = true, features = ["url", "uuid", "indexmap"] }
 specta-typescript.workspace = true
 tonytools.workspace = true
 tryvial.workspace = true
-windows-sys = { workspace = true, features = ["Win32_System_Threading"] }
 zip_archive.workspace = true
 fn-wrap-err.workspace = true
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { workspace = true, features = ["Win32_System_Threading"] }
 
 [features]
 # this feature is used for production builds or when `devPath` points to the filesystem and the built-in dev server is disabled.

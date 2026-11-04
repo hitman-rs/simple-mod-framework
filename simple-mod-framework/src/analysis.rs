@@ -15,7 +15,9 @@ use glacier_commons::{
 	game::GlacierGame,
 	metadata::{ResourceMetadata, RuntimeID}
 };
+use indexmap::IndexMap;
 use itertools::Itertools;
+use rand::{RngExt, SeedableRng};
 use rayon::iter::{IntoParallelIterator, IntoParallelRefIterator, ParallelIterator};
 use relative_path::RelativePath;
 use semver::Version;
@@ -56,6 +58,7 @@ pub fn analyse(
 	cache: &Cache
 ) -> Result<(
 	DeployGraph,
+	HashMap<String, HashMap<String, i64>>,
 	Vec<PathBuf>,
 	Vec<(ModID, PathBuf)>,
 	HashSet<(RuntimeID, RealPartition)>
@@ -76,14 +79,22 @@ pub fn analyse(
 		.collect::<Result<HashMap<_, _>>>()?
 		.into();
 
+	let mut effective_manifests = vec![];
+	let mut enums: IndexMap<EcoString, IndexMap<(ModID, EcoString), i64>> = IndexMap::default();
+	let mut enum_rng = rand::rngs::StdRng::seed_from_u64({
+		let mut hasher = Xxh3Default::new();
+		config.deploy_order.hash(&mut hasher);
+		hasher.finish()
+	});
+
 	for mod_id in &config.deploy_order {
-		let _span = tracing::info_span!("Analysing mod", ?mod_id).entered();
+		let _span = tracing::info_span!("Pre-analysing mod", ?mod_id).entered();
 
 		let selected_mod_options = config.mod_options.get(mod_id).unwrap_or(&default_mod_options);
 
 		let mut manifest = (*world.get_mod_manifest(mod_id)?).to_owned();
 
-		log::debug!(target: manifest.name.loc(&config.ui_locale), "Analysing mod");
+		log::debug!(target: manifest.name.loc(&config.ui_locale), "Pre-analysing mod");
 
 		let x: Result<_> = try_block! {
 			if manifest.framework_version.major != APP_VERSION.major {
@@ -107,11 +118,129 @@ pub fn analyse(
 				);
 			}
 
-			let mut mod_options = HashMap::default();
+			let mut mod_options = IndexMap::default();
 			for option in &manifest.options {
 				get_effective_option_values(world, (&**game).into(), config, &enabled_mod_versions, selected_mod_options, &mut mod_options, option)?;
 			}
 
+			// Effective deploy order: base manifest followed by options in the order listed in the manifest
+			for option in manifest.options.clone() {
+				merge_option_data(world, game.deref().into(), config, &enabled_mod_versions, &mod_options, &mut manifest.data, option)?;
+			}
+
+			let mut substitutions = vec![];
+
+			for script in manifest.data.scripts.clone() {
+				let before_script = (manifest.data.peacock_plugins.to_owned(), manifest.data.sdk_mods.to_owned(), manifest.data.scripts.to_owned());
+
+				let script_contents = String::from_utf8(
+					world
+						.read_mod_file(&mod_id, &script)
+						.wrap_err("Couldn't read script file")?
+				)?;
+
+				if script_contents.contains("pub fn data(") {
+					log::debug!(target: manifest.name.loc(&config.ui_locale), "Getting data from script {}", script.as_str());
+					substitutions.extend(eval_script_data(
+						config.clone(),
+						world.clone(),
+						game.clone(),
+						Attribution {
+							mod_id: mod_id.to_owned(),
+							source: script.as_str().into(),
+							script_identifier: None
+						},
+						script_contents,
+						&mut manifest.data
+					)?);
+				}
+
+				if manifest.data.peacock_plugins != before_script.0 || manifest.data.sdk_mods != before_script.1 || manifest.data.scripts != before_script.2 {
+					bail!("Scripts may not modify this field");
+				}
+			}
+
+			manifest.data.content_folders = std::mem::take(&mut manifest.data.content_folders).into_iter().unique().collect();
+			manifest.data.blob_folders = std::mem::take(&mut manifest.data.blob_folders).into_iter().unique().collect();
+			manifest.data.package_definition = std::mem::take(&mut manifest.data.package_definition).into_iter().unique().collect();
+			manifest.data.port_resources = std::mem::take(&mut manifest.data.port_resources).into_iter().unique().collect();
+			manifest.data.deploy_before = std::mem::take(&mut manifest.data.deploy_before).into_iter().unique().collect();
+			manifest.data.deploy_after = std::mem::take(&mut manifest.data.deploy_after).into_iter().unique().collect();
+			manifest.data.peacock_plugins = std::mem::take(&mut manifest.data.peacock_plugins).into_iter().unique().collect();
+			manifest.data.sdk_mods = std::mem::take(&mut manifest.data.sdk_mods).into_iter().unique().collect();
+			manifest.data.scripts = std::mem::take(&mut manifest.data.scripts).into_iter().unique().collect();
+
+			for (name, variants) in &manifest.data.enums {
+				for variant in variants {
+					let value = if let Some((_, Some(shape), Some(vanilla_variants))) = match game.version {
+						GlacierGame::H1 => glacier_bin1::game::h1::VARIANT_TYPES.values(),
+						GlacierGame::H2 => glacier_bin1::game::h2::VARIANT_TYPES.values(),
+						GlacierGame::H3 => glacier_bin1::game::h3::VARIANT_TYPES.values(),
+						GlacierGame::FL => glacier_bin1::game::fl::VARIANT_TYPES.values()
+					}.find(|(ty, _, _)| *ty == name.as_str()) {
+						let facet::Type::User(facet::UserType::Struct(shape)) = shape.ty else {
+							unreachable!("Enum variants are newtypes");
+						};
+
+						let facet::ShapeLayout::Sized(layout) = shape.fields[0].shape().layout else {
+							unreachable!("Enum variants are newtypes over primitives");
+						};
+
+						let max_value = match layout.size() {
+							1 => i8::MAX as i64,
+							2 => i16::MAX as i64,
+							4 => i32::MAX as i64,
+							8 => i64::MAX,
+							_ => unreachable!()
+						};
+
+						let mut value = enum_rng.random_range(1..max_value);
+						while enums
+								.get(&**name)
+								.is_some_and(|variants| variants.values().any(|&x| x == value))
+							|| vanilla_variants.iter().any(|(_, _, v)| *v == value)
+						{
+							value = enum_rng.random_range(1..max_value);
+						}
+
+						value
+					} else {
+						// Custom enums are assumed to be i32
+						let mut value = enum_rng.random_range(1..i32::MAX as i64);
+						while enums
+							.get(&**name)
+							.is_some_and(|variants| variants.values().any(|&x| x == value))
+						{
+							value = enum_rng.random_range(1..i32::MAX as i64);
+						}
+
+						value
+					};
+
+					enums
+						.entry((**name).to_owned())
+						.or_default()
+						.insert(
+							(mod_id.to_owned(), (**variant).to_owned()),
+							value
+						);
+				}
+			}
+
+			effective_manifests.push((manifest, mod_options, substitutions));
+		};
+
+		x.wrap_err(format!("Couldn't pre-analyse mod {mod_id}"))?
+	}
+
+	for (manifest, mod_options, substitutions) in effective_manifests {
+		let mod_id = &manifest.id;
+
+		let _span = tracing::info_span!("Analysing mod", ?mod_id).entered();
+
+		log::debug!(target: manifest.name.loc(&config.ui_locale), "Analysing mod");
+
+		let x: Result<_> = try_block! {
 			let mut option_values = mod_options
 				.iter()
 				.map(|(x, y)| {
@@ -232,100 +361,74 @@ pub fn analyse(
 				])
 				.collect::<Vec<_>>();
 
-			// To ensure analysis caching doesn't break when substitutions change
-			let substitutions_hash = {
-				let mut hasher = Xxh3Default::new();
-				option_values.hash(&mut hasher);
-				hasher.finish()
-			};
+			for (from, to) in substitutions {
+				searchers.push(format!(r##"#{{script-raw:{}}}"##, from));
+				searchers.push(format!(r##""#{{script:{}}}""##, from));
+				searchers.push(format!(r##"#{{script:{}}}"##, from));
 
-			// Effective deploy order: base manifest followed by options in the order listed in the manifest
-			for option in manifest.options {
-				merge_option_data(world, game.deref().into(), config, &enabled_mod_versions, &mod_options, &mut manifest.data, option)?;
-			}
+				match to {
+					serde_json::Value::String(s) => {
+						replacers.push(s.to_owned());
+						replacers.push(format!(r#""{s}""#));
+						replacers.push(s.to_owned());
+					}
 
-			for script in manifest.data.scripts.clone() {
-				let script_contents = String::from_utf8(
-					world
-						.read_mod_file(mod_id, &script)
-						.wrap_err("Couldn't read script file")?
-				)?;
+					serde_json::Value::Bool(b) => {
+						replacers.push(b.to_string());
+						replacers.push(b.to_string());
+						replacers.push(b.to_string());
+					}
 
-				if script_contents.contains("pub fn data(") {
-					log::debug!(target: manifest.name.loc(&config.ui_locale), "Getting data from script {}", script.as_str());
-					let substitutions = eval_script_data(
-						config.clone(),
-						world.clone(),
-						game.clone(),
-						Attribution {
-							mod_id: mod_id.to_owned(),
-							source: script.as_str().into(),
-							script_identifier: None
-						},
-						script_contents,
-						&mut manifest.data
-					)?;
+					serde_json::Value::Number(n) => {
+						replacers.push(n.to_string());
+						replacers.push(n.to_string());
+						replacers.push(n.to_string());
+					}
 
-					for (from, to) in substitutions {
-						searchers.push(format!(r##"#{{script-raw:{}}}"##, from));
-						searchers.push(format!(r##""#{{script:{}}}""##, from));
-						searchers.push(format!(r##"#{{script:{}}}"##, from));
+					serde_json::Value::Array(a) => {
+						replacers.push(serde_json::to_string(&a)?);
+						replacers.push(serde_json::to_string(&a)?);
+						replacers.push(serde_json::to_string(&a)?);
+					}
 
-						match to {
-							serde_json::Value::String(s) => {
-								replacers.push(s.to_owned());
-								replacers.push(format!(r#""{s}""#));
-								replacers.push(s.to_owned());
-							}
+					serde_json::Value::Object(o) => {
+						replacers.push(serde_json::to_string(&o)?);
+						replacers.push(serde_json::to_string(&o)?);
+						replacers.push(serde_json::to_string(&o)?);
+					}
 
-							serde_json::Value::Bool(b) => {
-								replacers.push(b.to_string());
-								replacers.push(b.to_string());
-								replacers.push(b.to_string());
-							}
-
-							serde_json::Value::Number(n) => {
-								replacers.push(n.to_string());
-								replacers.push(n.to_string());
-								replacers.push(n.to_string());
-							}
-
-							serde_json::Value::Array(a) => {
-								replacers.push(serde_json::to_string(&a)?);
-								replacers.push(serde_json::to_string(&a)?);
-								replacers.push(serde_json::to_string(&a)?);
-							}
-
-							serde_json::Value::Object(o) => {
-								replacers.push(serde_json::to_string(&o)?);
-								replacers.push(serde_json::to_string(&o)?);
-								replacers.push(serde_json::to_string(&o)?);
-							}
-
-							serde_json::Value::Null => {
-								replacers.push("null".into());
-								replacers.push("null".into());
-								replacers.push("null".into());
-							}
-						}
+					serde_json::Value::Null => {
+						replacers.push("null".into());
+						replacers.push("null".into());
+						replacers.push("null".into());
 					}
 				}
 			}
+
+			for (name, variants) in &enums {
+				for ((mod_id, variant), value) in variants {
+					searchers.push(format!(r##"#{{enum-raw:{name}:{mod_id}:{variant}}}"##));
+					searchers.push(format!(r##""#{{enum:{name}:{mod_id}:{variant}}}""##));
+					searchers.push(format!(r##"#{{enum:{name}:{mod_id}:{variant}}}"##));
+
+					replacers.push(value.to_string());
+					replacers.push(value.to_string());
+					replacers.push(value.to_string());
+				}
+			}
+
+			// To ensure analysis caching doesn't break when substitutions change
+			let substitutions_hash = {
+				let mut hasher = Xxh3Default::new();
+				searchers.hash(&mut hasher);
+				replacers.hash(&mut hasher);
+				hasher.finish()
+			};
 
 			let searcher =
 				AhoCorasickBuilder::new()
 					.match_kind(MatchKind::LeftmostFirst)
 					.build(searchers)?;
-
-			manifest.data.content_folders = manifest.data.content_folders.into_iter().unique().collect();
-			manifest.data.blob_folders = manifest.data.blob_folders.into_iter().unique().collect();
-			manifest.data.package_definition = manifest.data.package_definition.into_iter().unique().collect();
-			manifest.data.port_resources = manifest.data.port_resources.into_iter().unique().collect();
-			manifest.data.deploy_before = manifest.data.deploy_before.into_iter().unique().collect();
-			manifest.data.deploy_after = manifest.data.deploy_after.into_iter().unique().collect();
-			manifest.data.peacock_plugins = manifest.data.peacock_plugins.into_iter().unique().collect();
-			manifest.data.sdk_mods = manifest.data.sdk_mods.into_iter().unique().collect();
-			manifest.data.scripts = manifest.data.scripts.into_iter().unique().collect();
 
 			let script_manifest_data = manifest.data.to_owned();
 
@@ -376,7 +479,8 @@ pub fn analyse(
 							script_identifier: None
 						},
 						script_contents,
-						script_manifest_data.to_owned()
+						script_manifest_data.to_owned(),
+						enums.clone()
 					)? {
 						let attribution = Attribution {
 							mod_id: mod_id.to_owned(),
@@ -764,7 +868,23 @@ pub fn analyse(
 		x.wrap_err(format!("Couldn't analyse mod {mod_id}"))?
 	}
 
-	(graph, peacock_plugins, sdk_mods, resources_to_port)
+	(
+		graph,
+		enums
+			.into_iter()
+			.map(|(x, y)| {
+				(
+					x.into(),
+					y.into_iter()
+						.map(|((mod_id, variant), value)| (format!("{mod_id}:{variant}"), value))
+						.collect()
+				)
+			})
+			.collect(),
+		peacock_plugins,
+		sdk_mods,
+		resources_to_port
+	)
 }
 
 /// Evaluate whether the conditions for a mod or option are met.
@@ -872,7 +992,7 @@ pub fn get_effective_option_values(
 	config: &Config,
 	enabled_mod_versions: &Arc<HashMap<ModID, Version>>,
 	mod_options: &HashMap<ModOptionID, ModOptionValue>,
-	effective_values: &mut HashMap<ModOptionID, ModOptionValue>,
+	effective_values: &mut IndexMap<ModOptionID, ModOptionValue>,
 	option: &ModOption
 ) -> Result<()> {
 	if let Some(data) = mod_options.get(&option.id)
@@ -1099,7 +1219,7 @@ pub fn merge_option_data(
 	platform: VersionPlatform,
 	config: &Config,
 	enabled_mod_versions: &Arc<HashMap<ModID, Version>>,
-	mod_options: &HashMap<ModOptionID, ModOptionValue>,
+	mod_options: &IndexMap<ModOptionID, ModOptionValue>,
 	manifest_data: &mut ManifestData,
 	option: ModOption
 ) -> Result<()> {

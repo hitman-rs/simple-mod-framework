@@ -12,6 +12,7 @@ use color_eyre::{
 use ecow::EcoString;
 use fn_wrap_err::wrap_err;
 use glacier_commons::{game::GlacierGame, metadata::RuntimeID};
+use indexmap::IndexMap;
 use rune::{
 	Context, Diagnostics as RuneDiagnostics, Module, Source, Sources, TypeHash, Unit, Vm,
 	runtime::{Function, RuntimeContext}
@@ -777,6 +778,8 @@ pub struct AnalysisContext {
 
 	pub script_hash: u64,
 
+	pub enums: Arc<IndexMap<EcoString, IndexMap<(ModID, EcoString), i64>>>,
+
 	pub rune_context: (Arc<RuntimeContext>, Arc<Unit>, Arc<Sources>)
 }
 
@@ -786,6 +789,24 @@ impl AnalysisContext {
 		module.field_function(&rune::runtime::Protocol::GET, "config", |s: &Self| -> Config {
 			(*s.config).to_owned()
 		})?;
+
+		module.field_function(
+			&rune::runtime::Protocol::GET,
+			"enums",
+			|s: &Self| -> std::collections::HashMap<String, std::collections::HashMap<String, i64>> {
+				s.enums
+					.iter()
+					.map(|(k, v)| {
+						(
+							k.to_string(),
+							v.iter()
+								.map(|((mod_id, name), value)| (format!("{mod_id}:{name}"), *value))
+								.collect()
+						)
+					})
+					.collect()
+			}
+		)?;
 	}
 
 	#[rune::function(instance, path = Self::operation)]
@@ -910,6 +931,7 @@ pub fn eval_script_data(
 					config: config.clone(),
 					game: game.clone(),
 					script_hash,
+					enums: Arc::new(Default::default()),
 					rune_context: (vm.context().clone(), vm.unit().clone(), sources.clone())
 				},
 				&mut *data
@@ -980,6 +1002,7 @@ pub fn eval_script_data(
 							config,
 							game,
 							script_hash,
+							enums: Arc::new(Default::default()),
 							rune_context: (vm.context().clone(), vm.unit().clone(), sources.clone())
 						},
 						data
@@ -1011,7 +1034,8 @@ pub fn eval_script_operations(
 	game: Arc<GameContext>,
 	attribution: Attribution,
 	script: String,
-	mut data: ManifestData
+	mut data: ManifestData,
+	enums: IndexMap<EcoString, IndexMap<(ModID, EcoString), i64>>
 ) -> Result<Vec<(String, Operation)>> {
 	let mut context = script_context()?;
 	context.install(io_module(world.clone(), attribution.to_owned())?)?;
@@ -1058,6 +1082,7 @@ pub fn eval_script_operations(
 	let mut vm = Vm::new(runtime, Arc::new(unit));
 
 	let sources = Arc::new(sources);
+	let enums = Arc::new(enums);
 
 	let res = vm
 		.call(
@@ -1068,6 +1093,7 @@ pub fn eval_script_operations(
 					config: config.clone(),
 					game: game.clone(),
 					script_hash,
+					enums: enums.clone(),
 					rune_context: (vm.context().clone(), vm.unit().clone(), sources.clone())
 				},
 				&mut data
@@ -1129,6 +1155,7 @@ pub fn eval_script_operations(
 							config,
 							game,
 							script_hash,
+							enums: enums.clone(),
 							rune_context: (vm.context().clone(), vm.unit().clone(), sources.clone())
 						},
 						data

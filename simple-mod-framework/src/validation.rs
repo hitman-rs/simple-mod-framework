@@ -6,6 +6,7 @@ use glacier_formats::{
 	sdef::SoundDefinitions
 };
 use jsonschema::Validator;
+use lazy_regex::regex_is_match;
 use quickentity_rs::{entity::Entity, patch::Patch};
 use relative_path::{PathExt, RelativePath};
 use serde_json::{Deserializer, from_value, json};
@@ -201,6 +202,18 @@ pub fn validate_manifest_data(mod_root: impl AsRef<Path>, data: ManifestData) ->
 	for (string, localisation) in data.localisation.iter() {
 		if localisation.first_specified().is_none() {
 			return fail!("Localisation string {string} is not defined for any language");
+		}
+	}
+
+	for (name, variants) in data.enums.iter() {
+		if !regex_is_match!(r"^[a-zA-Z_][a-zA-Z0-9_.]*$", name) {
+			return fail!("Enum name {name} is not a valid identifier");
+		}
+
+		for variant in variants {
+			if !regex_is_match!(r"^[a-zA-Z_][a-zA-Z0-9_]*$", variant) {
+				return fail!("Enum variant {variant} is not a valid identifier");
+			}
 		}
 	}
 
