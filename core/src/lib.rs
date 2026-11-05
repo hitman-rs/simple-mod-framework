@@ -26,7 +26,7 @@ pub static GAME_HASHES: LazyLock<HashMap<&'static str, VersionPlatform>> = LazyL
 		// Gamepass/store protects the EXE from reading so we can't hash it, instead we hash the game config
 		"a1d3d1698bc416014aad875c36957502": VersionPlatform { version: GlacierGame::H3, platform: Platform::Microsoft },
 
-		"81b184536184d61301b57c47f492101f": VersionPlatform { version: GlacierGame::FL, platform: Platform::Steam },
+		"f15c4c8df8d45798bb5afe866043cac8": VersionPlatform { version: GlacierGame::FL, platform: Platform::Steam },
 	}
 	.collect()
 });
