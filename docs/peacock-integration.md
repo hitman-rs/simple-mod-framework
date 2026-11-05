@@ -23,3 +23,7 @@ Patches to the game's `storyconfig` file to add or modify campaigns are automati
 ## Plugins
 
 If you wish to add additional functionality, like challenges, you can bundle Peacock plugins with your mod and reference them in the [manifest](manifest-format.md#manifestdata). Peacock will automatically load them after a user has deployed the mod.
+
+{% hint style="warning" %}
+Note that Peacock plugins carry security concerns (as they are not sandboxed), so you should avoid using them whenever possible. SMF will display a warning to users if your mod contains Peacock plugins.
+{% endhint %}

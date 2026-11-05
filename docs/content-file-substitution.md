@@ -35,3 +35,7 @@ Each of the option types has some associated value for substitution:
 ## Scripts
 
 Scripts can emit their own substitutions as part of the `data` function, which returns an array of `(string, any)` pairs corresponding to the ID and value of each substitution respectively. Like options, these can be used with `#{script:substitution-id}` or `#{script-raw:substitution-id}`, which behave the same as the above with respect to the type of the value.
+
+## Enum variants
+
+Custom enum variants defined via the `enums` property can be referenced as `#{enum:EnumName:ModID:VariantName}` (or `#{enum-raw:EnumName:ModID:VariantName}`).

@@ -1,13 +1,15 @@
 # Table of contents
 
 * [Welcome](README.md)
-* [What is a mod?](<README (1).md>)
+* [What is a mod?](what-is-a-mod.md)
 * [Structure of a mod](structure-of-a-mod.md)
 * [Manifest format](manifest-format.md)
 * [Content file substitution](content-file-substitution.md)
 * [Peacock integration](peacock-integration.md)
+* [SDK integration](sdk-integration.md)
 * [Update checking](update-checking.md)
 * [Resource porting](resource-porting.md)
+* [Custom enum variants](custom-enum-variants.md)
 * [RPKG mods](rpkg-mods.md)
 * [Mod template](mod-template.md)
 

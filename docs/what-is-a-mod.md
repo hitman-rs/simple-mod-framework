@@ -9,7 +9,7 @@ To SMF, a mod is a collection of source files which can be automatically convert
 Anything that resides in the game's files can be modified by the Simple Mod Framework, but SMF cannot hook into the game dynamically.
 
 {% hint style="info" %}
-That's a job best suited for the **SDK** (for HITMAN 3: [ZHMModSDK](https://github.com/OrfeasZ/ZHMModSDK); for 007 First Light: [ZKntSdk](https://github.com/OrfeasZ/ZKntSDK/)). SMF allows you to bundle SDK mods (as DLL files) with your SMF mod, so users can still take advantage of any dynamic behaviour you want to add with little friction.
+That's a job best suited for the **SDK** (for HITMAN 3: [ZHMModSDK](https://github.com/OrfeasZ/ZHMModSDK); for 007 First Light: [ZKntSdk](https://github.com/OrfeasZ/ZKntSDK/)). SMF allows you to [bundle SDK mods with your SMF mod](sdk-integration.md), so users can still take advantage of any dynamic behaviour you want to add with little friction.
 {% endhint %}
 
 Likewise, SMF also cannot affect behaviour of the server, such as contracts mode, leaderboards, etc.

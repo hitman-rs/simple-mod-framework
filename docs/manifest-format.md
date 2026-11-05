@@ -158,6 +158,9 @@ _Content and information that makes up a mod or option._
     * Supports the same languages as the framework. Languages which are not supported by the current game version will simply be ignored.
 * `localisedLines` (map of RuntimeID -> string)
   * LINE files to create from localisation keys specified in `localisation`.
+* `enums` (map of string -> array of string)
+  * Custom enum variants that can be referenced with `#{enum:EnumName:ModID:VariantName}`.
+  * See the [custom enum variants](custom-enum-variants.md) page for more information.
 * `packageDefinition` (array of PackageDefinitionEntity)
   * Paths to add to packagedefinition. Custom partitions are not supported.
   * **PackageDefinitionEntity**
