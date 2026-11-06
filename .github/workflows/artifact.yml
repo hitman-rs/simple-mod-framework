@@ -98,6 +98,9 @@ jobs:
             - name: Install cargo-sift
               run: cargo install cargo-sift
 
+            - name: Install cargo-prune-superseded
+              run: cargo install cargo-prune-superseded
+
             - name: Install Protoc
               uses: arduino/setup-protoc@c65c819552d16ad3c9b72d9dfd5ba5237b9c906b
               with:
@@ -177,7 +180,9 @@ jobs:
                   cp src-tauri/qnjs-x86_64-pc-windows-msvc.exe ../target/release/qnjs.exe
 
             - name: Clean up build artifacts
-              run: cargo sift
+              run: |
+                cargo sift
+                cargo prune-superseded --keep-within 24h
 
             - name: Create ZIP (Unix)
               if: matrix.platform != 'windows-latest'
