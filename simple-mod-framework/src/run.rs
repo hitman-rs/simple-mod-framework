@@ -448,7 +448,14 @@ async fn initialise(
 	};
 
 	state
-		.prepare(&deploy_graph, peacock_plugins, sdk_mods, resources_to_port, &cache)
+		.prepare(
+			&deploy_graph,
+			enums,
+			peacock_plugins,
+			sdk_mods,
+			resources_to_port,
+			&cache
+		)
 		.await?;
 
 	(cache, state, deploy_graph)

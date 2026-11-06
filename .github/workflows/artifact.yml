@@ -95,8 +95,8 @@ jobs:
                   path: |
                       target/**
 
-            - name: Install cargo-hold
-              run: cargo install cargo-hold
+            - name: Install cargo-sift
+              run: cargo install cargo-sift
 
             - name: Install Protoc
               uses: arduino/setup-protoc@c65c819552d16ad3c9b72d9dfd5ba5237b9c906b
@@ -153,9 +153,6 @@ jobs:
                   field: version
                   value: ${{ steps.get-crate-version.outputs.value }}
 
-            - name: Clean up build artifacts
-              run: cargo hold voyage --max-target-size 15G --preserve-cargo-binaries cargo-pgo
-
             - name: Build (Unix)
               if: matrix.platform != 'windows-latest'
               env:
@@ -180,7 +177,7 @@ jobs:
                   cp src-tauri/qnjs-x86_64-pc-windows-msvc.exe ../target/release/qnjs.exe
 
             - name: Clean up build artifacts
-              run: cargo hold voyage --max-target-size 15G --preserve-cargo-binaries cargo-pgo
+              run: cargo sift
 
             - name: Create ZIP (Unix)
               if: matrix.platform != 'windows-latest'

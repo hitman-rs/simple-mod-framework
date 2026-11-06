@@ -9909,7 +9909,7 @@ dependencies = [
 
 [[package]]
 name = "simple-mod-framework"
-version = "3.0.0-rc.13"
+version = "3.0.0-rc.14"
 dependencies = [
  "aho-corasick",
  "anyhow",

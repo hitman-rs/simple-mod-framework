@@ -237,11 +237,14 @@ impl<W: World + Mods + Output + Progress> State<W> {
 	pub async fn prepare(
 		&mut self,
 		graph: &DeployGraph,
+		enums: HashMap<String, HashMap<String, i64>>,
 		peacock_plugins: Vec<PathBuf>,
 		sdk_mods: Vec<(ModID, PathBuf)>,
 		resources_to_port: HashSet<(RuntimeID, RealPartition)>,
 		cache: &Cache
 	) -> Result<()> {
+		self.deployment.enums = enums;
+
 		self.deployment
 			.server_side_data
 			.lock()
