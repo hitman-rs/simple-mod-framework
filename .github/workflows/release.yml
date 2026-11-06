@@ -206,8 +206,7 @@ jobs:
 
             - name: Clean up build artifacts
               run: |
-                cargo sift
-                cargo prune-superseded --keep-within 24h
+                cargo clean
 
             - name: Build (Unix)
               if: matrix.platform != 'ptlm-runner'
