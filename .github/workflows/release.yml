@@ -201,6 +201,9 @@ jobs:
                   field: version
                   value: ${{ steps.get-crate-version.outputs.value }}
 
+            - name: Clean up build artifacts
+              run: cargo sift
+
             - name: Build (Unix)
               if: matrix.platform != 'ptlm-runner'
               env:
