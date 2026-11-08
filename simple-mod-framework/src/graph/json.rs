@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 use serde_json::{Value, from_str, json, to_string};
 use simple_mod_framework_core::{
 	game::{NominalPartition, REPO_ID, ResourceSpecifier, UNLOCKABLES_ID_FL, UNLOCKABLES_ID_WOA},
-	resource_in,
+	intentional_halt, resource_in,
 	utils::ResultExt
 };
 use simple_mod_framework_types::{HashSet, VersionPlatform};
@@ -297,10 +297,18 @@ static ANALYSE_REPOSITORY: Analyser = Analyser {
 #[linkme::distributed_slice(ANALYSERS)]
 static ANALYSE_UNLOCKABLES: Analyser = Analyser {
 	file_type: "unlockables.json",
-	analyse: |_, game, _, _, _, _, file_contents| {
+	analyse: |_, game, _, attribution, _, _, file_contents| {
 		let data: Value = serde_json::from_slice(&file_contents)
 			.wrap_err("Unlockables JSON was not valid JSON")
 			.intentional()?;
+
+		if data.get("PACKAGE_STARTING_PACKAGE").is_some() {
+			intentional_halt!(
+				attribution,
+				"This mod overwrites the starting package in its entirety. This is not permitted for compatibility \
+				 with game updates and other mods. Use a JSON.patch.json file instead."
+			);
+		}
 
 		Ok(vec![
 			ApplyJSONMergePatch {

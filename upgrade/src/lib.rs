@@ -27,7 +27,7 @@ use semver::Version;
 use serde::{Deserialize, Serialize};
 use serde_json::{Value, from_value, json, to_string, to_value};
 use serde_json5::from_slice;
-use simple_mod_framework_core::utils::format_json;
+use simple_mod_framework_core::{game::UNLOCKABLES_ID_WOA, utils::format_json};
 use simple_mod_framework_types::{
 	HashMap, Manifest, ManifestConditions, ManifestData, ModID, ModOption, ModOptionData, ModReference, NonEmptyVec,
 	PackageDefinitionEntity, Platform, SafeRelativePath, SelectionOption, SemVer, UIText, UrlOrNull, VersionPlatform,
@@ -1216,6 +1216,61 @@ pub fn upgrade_v2_content_file(
 				data.shift_remove("type");
 
 				fs::write(file_path, format_json(&to_string(&data)?)?)?;
+			}
+		}
+
+		filename if filename.ends_with(".unlockables.json") => {
+			let mut data = from_slice::<IndexMap<String, Value>>(&fs::read(file_path)?)?;
+
+			if let Some(mut value) = data.shift_remove("PACKAGE_STARTING_PACKAGE") {
+				let base_unlocks = from_value::<Vec<String>>(
+					serde_json::from_str::<Vec<Value>>(&glacier_bin1::deserialize::<EcoString>(
+						&game_files
+							.find_partition(game_files.root_partition()?)
+							.ok_or_eyre("No game root partition found")?
+							.read_resource(&UNLOCKABLES_ID_WOA.as_u64().into())?
+					)?)?
+					.into_iter()
+					.find(|item| {
+						item.get("Id")
+							.and_then(|v| v.as_str())
+							.is_some_and(|v| v == "PACKAGE_STARTING_PACKAGE")
+					})
+					.ok_or_eyre("Couldn't find vanilla PACKAGE_STARTING_PACKAGE")?
+					.get_mut("Properties")
+					.and_then(|x| x.get_mut("Unlocks"))
+					.ok_or_eyre("Vanilla PACKAGE_STARTING_PACKAGE was missing Unlocks")?
+					.take()
+				)
+				.wrap_err("Non-string in vanilla Unlocks")?;
+
+				let ops = from_value::<Vec<String>>(
+					value
+						.get_mut("Properties")
+						.and_then(|x| x.get_mut("Unlocks"))
+						.ok_or_eyre("Patch to PACKAGE_STARTING_PACKAGE did not modify Unlocks")?
+						.take()
+				)
+				.wrap_err("Non-string added to Unlocks")?
+				.into_iter()
+				.filter(|id| !base_unlocks.contains(id))
+				.map(|id| {
+					json!({
+						"op": "add",
+						"path": "/PACKAGE_STARTING_PACKAGE/Properties/Unlocks/-",
+						"value": id
+					})
+				})
+				.collect::<Vec<_>>();
+
+				fs::write(file_path, format_json(&to_string(&data)?)?)?;
+				fs::write(
+					file_path.with_file_name(filename.replace(".unlockables.json", "-startingunlock.JSON.patch.json")),
+					format_json(&to_string(&json!({
+						"id": UNLOCKABLES_ID_WOA,
+						"patch": ops
+					}))?)?
+				)?;
 			}
 		}
 

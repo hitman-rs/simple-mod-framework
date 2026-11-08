@@ -160,7 +160,6 @@ jobs:
               if: matrix.platform != 'windows-latest'
               env:
                   NODE_OPTIONS: "--max-old-space-size=4096"
-                  CARGO_INCREMENTAL: 1
                   CARGO_BUILD_JOBS: 3
               run: |
                   cd main
@@ -171,7 +170,6 @@ jobs:
               if: matrix.platform == 'windows-latest'
               env:
                   NODE_OPTIONS: "--max-old-space-size=4096"
-                  CARGO_INCREMENTAL: 1
                   CARGO_BUILD_JOBS: 3
                   VCPKG_ROOT: "${{ github.workspace }}/vcpkg"
               run: |
@@ -181,8 +179,8 @@ jobs:
 
             - name: Clean up build artifacts
               run: |
-                cargo sift
-                cargo prune-superseded --keep-within 24h
+                  cargo sift
+                  cargo prune-superseded --keep-within 24h
 
             - name: Create ZIP (Unix)
               if: matrix.platform != 'windows-latest'

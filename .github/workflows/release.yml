@@ -212,7 +212,6 @@ jobs:
               if: matrix.platform != 'ptlm-runner'
               env:
                   NODE_OPTIONS: "--max-old-space-size=4096"
-                  CARGO_INCREMENTAL: 1
                   SMF_RELEASE_BUILD: 1
               run: |
                   cd main
@@ -223,7 +222,6 @@ jobs:
               if: matrix.platform == 'ptlm-runner'
               env:
                   NODE_OPTIONS: "--max-old-space-size=4096"
-                  CARGO_INCREMENTAL: 1
                   SMF_RELEASE_BUILD: 1
                   VCPKG_ROOT: "${{ github.workspace }}/vcpkg"
               run: |
@@ -254,7 +252,6 @@ jobs:
             - name: Build and optimise (Windows)
               if: matrix.platform == 'ptlm-runner'
               env:
-                  CARGO_INCREMENTAL: 1
                   SMF_RELEASE_BUILD: 1
                   VCPKG_ROOT: "${{ github.workspace }}/vcpkg"
               run: |
