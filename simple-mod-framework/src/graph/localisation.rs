@@ -949,7 +949,7 @@ impl GraphOperation for WriteLocalisedLine {
 						}
 					}]
 				},
-				data: vec![..crc32fast::hash(self.loc.as_bytes()).to_le_bytes(), 0x0] // extra null byte
+				data: vec![..crc32fast::hash(self.loc.to_uppercase().as_bytes()).to_le_bytes(), 0x0] // extra null byte
 			}
 		}]
 	}
