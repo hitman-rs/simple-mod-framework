@@ -538,49 +538,43 @@ impl<W: World> State<W> {
 					.for_each(|reference| {
 						let id = reference.resource;
 
+						if let Some(partitions) = self.deployment.all_relevant_resources.get(&id)
+							&& !partitions.is_empty()
+						{
+							if !partitions.iter().any(|x| accessible_partitions.contains(x)) {
+								// If it's added by a mod but not in an accessible partition, port it
+								resources_to_port.insert((id, resource.partition.to_owned()));
+								return;
+							} else {
+								// Resource will already be staged and accessible
+								return;
+							}
+						}
+
 						if let Some(partitions) = self.game.vanilla_resources.get(&id)
 							&& !partitions.is_empty()
 						{
 							if !partitions.iter().any(|x| accessible_partitions.contains(x)) {
-								if let Some(partitions) = self.deployment.all_relevant_resources.get(&id)
-									&& partitions.iter().any(|x| accessible_partitions.contains(x))
-								{
-									return;
-								}
-
+								// If it's present in vanilla but not accessible, port it
 								resources_to_port.insert((id, resource.partition.to_owned()));
-							}
-						} else {
-							// Resource is added by a mod, on deletion lists or doesn't exist
-							if let Some(partitions) = self.deployment.all_relevant_resources.get(&id)
-								&& !partitions.is_empty()
-							{
-								if !partitions.iter().any(|x| accessible_partitions.contains(x)) {
-									// If it's added by a mod but not in an accessible partition, port it
-									resources_to_port.insert((id, resource.partition.to_owned()));
-								}
-							} else if self.game.deleted_resources.get(&id).is_some_and(|x| !x.is_empty()) {
-								// Deleted resources are not implicitly ported
-								if !resources_to_port.contains(&(id, resource.partition.to_owned()))
-									&& !resources_to_port
-										.iter()
-										.any(|(res, partition)| *res == id && accessible_partitions.contains(partition))
-								{
-									self.world
-										.emit_diagnostic(Diagnostic {
-											kind: DiagnosticKind::ReferencedResourceDeleted {
-												resource_id: reference.resource,
-												reference_type: reference.flags.reference_type
-											},
-											target: attribution.to_diagnostic_target()
-										})
-										.unwrap();
-								}
+								return;
 							} else {
-								// If it doesn't exist, we can't port it
+								// Resource is already present in vanilla and accessible
+								return;
+							}
+						}
+
+						// Resource is on deletion lists or doesn't exist
+						if self.game.deleted_resources.get(&id).is_some_and(|x| !x.is_empty()) {
+							// Deleted resources are not implicitly ported
+							if !resources_to_port.contains(&(id, resource.partition.to_owned()))
+								&& !resources_to_port
+									.iter()
+									.any(|(res, partition)| *res == id && accessible_partitions.contains(partition))
+							{
 								self.world
 									.emit_diagnostic(Diagnostic {
-										kind: DiagnosticKind::ReferencedResourceNonexistent {
+										kind: DiagnosticKind::ReferencedResourceDeleted {
 											resource_id: reference.resource,
 											reference_type: reference.flags.reference_type
 										},
@@ -588,6 +582,17 @@ impl<W: World> State<W> {
 									})
 									.unwrap();
 							}
+						} else {
+							// If it doesn't exist, we can't port it
+							self.world
+								.emit_diagnostic(Diagnostic {
+									kind: DiagnosticKind::ReferencedResourceNonexistent {
+										resource_id: reference.resource,
+										reference_type: reference.flags.reference_type
+									},
+									target: attribution.to_diagnostic_target()
+								})
+								.unwrap();
 						}
 					});
 

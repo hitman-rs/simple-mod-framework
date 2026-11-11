@@ -1225,11 +1225,45 @@ pub fn get_portable_references<'guard, G: Guard + Sync>(
 		return Ok(());
 	}
 
-	// Short-circuit if the resource is already staged and accessible
+	// Port from staging (might be new from a mod, or just a modified copy of a vanilla resource)
 	if let Some(partitions) = all_relevant_resources.get(&resource)
-		&& partitions.iter().any(|x| accessible_partitions.contains(x))
+		&& !partitions.is_empty()
 	{
-		return Ok(());
+		// Check if accessible
+		if !partitions.iter().any(|x| accessible_partitions.contains(x)) {
+			to_port.insert(resource, guard);
+
+			let refs = futures::executor::block_on(
+				resource_states
+					.get(&ResourceSpecifier {
+						id: resource,
+						partition: partitions[0].to_owned()
+					})
+					.unwrap()
+					.lock()
+			)
+			.back()
+			.unwrap()
+			.1
+			.metadata
+			.references
+			.to_owned();
+
+			refs.into_par_iter().try_for_each(|reference| {
+				get_portable_references(
+					game,
+					all_relevant_resources,
+					resource_states,
+					reference.resource,
+					accessible_partitions,
+					(to_port, guard)
+				)
+			})?;
+
+			return Ok(());
+		} else {
+			return Ok(());
+		}
 	}
 
 	// Port from elsewhere in vanilla game
@@ -1238,9 +1272,10 @@ pub fn get_portable_references<'guard, G: Guard + Sync>(
 	{
 		// Resource exists in vanilla but might not be accessible
 		if !partitions.iter().any(|x| accessible_partitions.contains(x)) {
-			let rrid = game.to_rrid(resource);
+			to_port.insert(resource, guard);
 
-			// Find the first partition which contains the resource
+			// Use the first (lowest) partition which contains the resource
+			let rrid = game.to_rrid(resource);
 			let partition = game
 				.game_files
 				.partitions
@@ -1248,19 +1283,20 @@ pub fn get_portable_references<'guard, G: Guard + Sync>(
 				.find(|p| p.partition_info().name.as_deref().unwrap() == *partitions[0])
 				.unwrap();
 
-			let res_info = partition.get_resource_info(&rrid)?;
-
-			to_port.insert(resource, guard);
-			res_info.references().par_iter().try_for_each(|&(reference, _)| {
-				get_portable_references(
-					game,
-					all_relevant_resources,
-					resource_states,
-					reference.try_into()?,
-					accessible_partitions,
-					(to_port, guard)
-				)
-			})?;
+			partition
+				.get_resource_info(&rrid)?
+				.references()
+				.par_iter()
+				.try_for_each(|&(reference, _)| {
+					get_portable_references(
+						game,
+						all_relevant_resources,
+						resource_states,
+						reference.try_into()?,
+						accessible_partitions,
+						(to_port, guard)
+					)
+				})?;
 
 			return Ok(());
 		} else {
@@ -1286,6 +1322,8 @@ pub fn get_portable_references<'guard, G: Guard + Sync>(
 			partition.partition_info().name.as_deref().unwrap_or_default()
 		);
 
+		to_port.insert(resource, guard);
+
 		let rrid: RuntimeResourceID = game.to_rrid(resource);
 		let (res_info, _) = partition
 			.removed_resources()
@@ -1293,49 +1331,12 @@ pub fn get_portable_references<'guard, G: Guard + Sync>(
 			.find(|(x, _)| *x.rrid() == rrid)
 			.unwrap();
 
-		to_port.insert(resource, guard);
 		res_info.references().par_iter().try_for_each(|&(reference, _)| {
 			get_portable_references(
 				game,
 				all_relevant_resources,
 				resource_states,
 				reference.try_into()?,
-				accessible_partitions,
-				(to_port, guard)
-			)
-		})?;
-
-		return Ok(());
-	}
-
-	// Port from staging (might be new from a mod)
-	if let Some(partitions) = all_relevant_resources.get(&resource)
-		&& !partitions.is_empty()
-	{
-		to_port.insert(resource, guard);
-
-		let refs = futures::executor::block_on(
-			resource_states
-				.get(&ResourceSpecifier {
-					id: resource,
-					partition: partitions[0].to_owned()
-				})
-				.unwrap()
-				.lock()
-		)
-		.back()
-		.unwrap()
-		.1
-		.metadata
-		.references
-		.to_owned();
-
-		refs.into_par_iter().try_for_each(|reference| {
-			get_portable_references(
-				game,
-				all_relevant_resources,
-				resource_states,
-				reference.resource,
 				accessible_partitions,
 				(to_port, guard)
 			)
@@ -1353,6 +1354,26 @@ pub fn port(
 	resource_states: &HashMap<ResourceSpecifier, Arc<tokio::sync::Mutex<ResourceStates>>>,
 	resource: RuntimeID
 ) -> Result<PackageResourceBuilder> {
+	// Check if the resource is in staging
+	if let Some(partitions) = all_relevant_resources.get(&resource)
+		&& let Some(partition) = partitions.first()
+	{
+		return futures::executor::block_on(
+			resource_states
+				.get(&ResourceSpecifier {
+					id: resource,
+					partition: partition.to_owned()
+				})
+				.unwrap()
+				.lock()
+		)
+		.back()
+		.unwrap()
+		.1
+		.to_owned()
+		.into_builder(game);
+	}
+
 	if let Some(partitions) = game.vanilla_resources.get(&resource)
 		&& !partitions.is_empty()
 	{
@@ -1361,44 +1382,30 @@ pub fn port(
 			let rrid = game.to_rrid(resource);
 
 			if partition.contains(&rrid) {
-				// Port the modded version of the resource if possible
-				// Avoids situations where a modded copy is overwritten by a vanilla resource being ported to a lower chunk
-				if let Some(staged) = resource_states.get(&ResourceSpecifier {
-					id: resource,
-					partition: partitions[0].to_owned()
-				}) {
-					return futures::executor::block_on(staged.lock())
-						.back()
-						.unwrap()
-						.1
-						.to_owned()
-						.into_builder(game);
-				} else {
-					let (res_info, res_data) = (
-						partition.get_resource_info(&rrid)?,
-						partition
-							.read_resource(&rrid)
-							.wrap_err("Couldn't extract ported resource")?
-					);
+				let (res_info, res_data) = (
+					partition.get_resource_info(&rrid)?,
+					partition
+						.read_resource(&rrid)
+						.wrap_err("Couldn't extract ported resource")?
+				);
 
-					let mut resource = PackageResourceBuilder::from_memory(
-						*res_info.rrid(),
-						&res_info.data_type(),
-						res_data,
-						(res_info.is_compressed() && res_info.size() > 1024).then_some(1),
-						res_info.is_scrambled()
-					)
-					.wrap_err("Couldn't construct resource builder")?;
+				let mut resource = PackageResourceBuilder::from_memory(
+					*res_info.rrid(),
+					&res_info.data_type(),
+					res_data,
+					(res_info.is_compressed() && res_info.size() > 1024).then_some(1),
+					res_info.is_scrambled()
+				)
+				.wrap_err("Couldn't construct resource builder")?;
 
-					resource.with_memory_requirements(
-						res_info.system_memory_requirement(),
-						res_info.video_memory_requirement()
-					);
+				resource.with_memory_requirements(
+					res_info.system_memory_requirement(),
+					res_info.video_memory_requirement()
+				);
 
-					resource.with_references(res_info.references());
+				resource.with_references(res_info.references());
 
-					return Ok(resource);
-				};
+				return Ok(resource);
 			}
 		}
 	}
@@ -1422,62 +1429,28 @@ pub fn port(
 			.find(|(x, _)| *x.rrid() == rrid)
 			.unwrap();
 
-		// Port the modded version of the resource if possible
-		if let Some(staged) = resource_states.get(&ResourceSpecifier {
-			id: resource,
-			partition: RealPartition(
-				partition
-					.partition_info()
-					.name
-					.as_deref()
-					.ok_or_eyre("No partition name")?
-					.into()
-			)
-		}) {
-			return futures::executor::block_on(staged.lock())
-				.back()
-				.unwrap()
-				.1
-				.to_owned()
-				.into_builder(game);
-		} else {
-			let res_data = partition.packages[&patch_id]
-				.read_resource(&rrid)
-				.wrap_err("Couldn't extract deleted resource from patch")?;
+		let res_data = partition.packages[&patch_id]
+			.read_resource(&rrid)
+			.wrap_err("Couldn't extract deleted resource from patch")?;
 
-			let mut resource = PackageResourceBuilder::from_memory(
-				*res_info.rrid(),
-				&res_info.data_type(),
-				res_data,
-				(res_info.is_compressed() && res_info.size() > 1024).then_some(1),
-				res_info.is_scrambled()
-			)
-			.wrap_err("Couldn't construct resource builder")?;
+		let mut resource = PackageResourceBuilder::from_memory(
+			*res_info.rrid(),
+			&res_info.data_type(),
+			res_data,
+			(res_info.is_compressed() && res_info.size() > 1024).then_some(1),
+			res_info.is_scrambled()
+		)
+		.wrap_err("Couldn't construct resource builder")?;
 
-			resource.with_memory_requirements(
-				res_info.system_memory_requirement(),
-				res_info.video_memory_requirement()
-			);
+		resource.with_memory_requirements(
+			res_info.system_memory_requirement(),
+			res_info.video_memory_requirement()
+		);
 
-			resource.with_references(res_info.references());
+		resource.with_references(res_info.references());
 
-			return Ok(resource);
-		}
+		return Ok(resource);
 	}
 
-	// The resource must be in staging
-	futures::executor::block_on(
-		resource_states
-			.get(&ResourceSpecifier {
-				id: resource,
-				partition: all_relevant_resources[&resource][0].to_owned()
-			})
-			.unwrap()
-			.lock()
-	)
-	.back()
-	.unwrap()
-	.1
-	.to_owned()
-	.into_builder(game)?
+	bail!("Could not find resource {resource} to port")
 }
