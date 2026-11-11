@@ -28,6 +28,7 @@ use crate::{
 	register_operation,
 	scripts::JsonValue,
 	state::{Mutation, ResourceState, State},
+	utils::ResultArtifacts,
 	world::{Diagnostics, World}
 };
 
@@ -402,7 +403,13 @@ impl GraphOperation for ApplyJSONPatch {
 				&serde_json::from_value::<Vec<_>>(self.data.to_owned().into()).wrap_err("JSON patch was invalid")?
 			)
 			.wrap_err("Couldn't apply JSON patch")
-			.intentional()?;
+			.intentional()
+			.with_artifacts(|| {
+				vec![
+					("Patch being applied".into(), serde_json::to_vec(&self.data).unwrap()),
+					("Resource to patch".into(), serde_json::to_vec(&new).unwrap()),
+				]
+			})?;
 
 			let new_repository = Value::Array(
 				new.as_object()
@@ -539,10 +546,16 @@ impl GraphOperation for ApplyJSONPatch {
 
 			json_patch::patch(
 				&mut new,
-				&serde_json::from_value::<Vec<_>>(self.data.into()).wrap_err("JSON patch was invalid")?
+				&serde_json::from_value::<Vec<_>>(self.data.to_owned().into()).wrap_err("JSON patch was invalid")?
 			)
 			.wrap_err("Couldn't apply JSON patch")
-			.intentional()?;
+			.intentional()
+			.with_artifacts(|| {
+				vec![
+					("Patch being applied".into(), serde_json::to_vec(&self.data).unwrap()),
+					("Resource to patch".into(), serde_json::to_vec(&new).unwrap()),
+				]
+			})?;
 
 			let new_unlockables = Value::Array(
 				new.as_object()
@@ -576,16 +589,24 @@ impl GraphOperation for ApplyJSONPatch {
 				}
 			}]
 		} else {
-			let mut to_patch = serde_json::from_slice(&res_data).wrap_err("Data to patch wasn't valid JSON")?;
+			// Some vanilla JSON files contain comments and other unusual features
+			// To allow patching these we treat the input as JSON5
+			let mut to_patch = serde_json5::from_slice(&res_data).wrap_err("Data to patch wasn't valid JSON")?;
 
 			log::trace!(target: attribution.source.as_str(), "Patching JSON");
 
 			json_patch::patch(
 				&mut to_patch,
-				&serde_json::from_value::<Vec<_>>(self.data.into()).wrap_err("JSON patch was invalid")?
+				&serde_json::from_value::<Vec<_>>(self.data.to_owned().into()).wrap_err("JSON patch was invalid")?
 			)
 			.wrap_err("Couldn't apply JSON patch")
-			.intentional()?;
+			.intentional()
+			.with_artifacts(|| {
+				vec![
+					("Patch being applied".into(), serde_json::to_vec(&self.data).unwrap()),
+					("Resource to patch".into(), serde_json::to_vec(&to_patch).unwrap()),
+				]
+			})?;
 
 			log::trace!(target: attribution.source.as_str(), "Finalising");
 

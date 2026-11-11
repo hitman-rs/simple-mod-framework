@@ -29,7 +29,8 @@ use serde::{Deserialize, Serialize};
 use simple_mod_framework_core::{
 	game::{GameContext, NominalPartition, RealPartition, ResourceSpecifier},
 	intentional_halt,
-	rkyv_helpers::AsSerde
+	rkyv_helpers::AsSerde,
+	utils::ResultExt
 };
 use simple_mod_framework_types::{Config, HashMap, HashSet, ModID, PackageDefinitionEntity, PapayaSet, ServerSideData};
 use tracing::instrument;
@@ -297,7 +298,8 @@ impl<W: World + Mods + Output + Progress> State<W> {
 						.partitions
 						.iter()
 						.position(|y| y.partition_info().name.as_deref().unwrap() == x)
-						.ok_or_else(|| eyre!("No such partition {x} in game files"))?;
+						.ok_or_else(|| eyre!("No such partition {x} in game files"))
+						.intentional()?;
 					Ok((x, ind))
 				})
 				.collect::<Result<HashMap<_, _>>>()?;
@@ -434,6 +436,7 @@ impl<W: World> State<W> {
 		let mut res = (!states.is_empty())
 			.then_some(states)
 			.ok_or_else(|| eyre!("Unknown resource {:?}", required))
+			.intentional()
 			.suggestion("is a resource being patched that has not yet been deployed?")
 			.suggestion("is the resource being patched in the correct partition?");
 

@@ -95,6 +95,7 @@ simdutf8 = "0.1.4"
 skyscraper = "0.7.0"
 specta = "=2.0.0-rc.24"
 specta-typescript = "0.0.11"
+sysinfo = "0.40.1"
 tempfile = "3.27.0"
 tokio = "1.47.1"
 tonytools = { git = "https://github.com/AnthonyFuller/tonytools-rs" }

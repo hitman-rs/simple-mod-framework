@@ -94,11 +94,13 @@ semver = { workspace = true, features = ["serde"] }
 serde = { workspace = true, features = ["derive"] }
 serde_bytes.workspace = true
 serde_json = { workspace = true, features = ["preserve_order"] }
+serde_json5.workspace = true
 serde_path_to_error.workspace = true
 serde-brief = { workspace = true, features = ["std"] }
 simdutf8.workspace = true
 skyscraper.workspace = true
 specta = { workspace = true, features = ["url", "indexmap"] }
+sysinfo.workspace = true
 tokio = { workspace = true, features = ["fs", "macros", "rt-multi-thread"] }
 tonytools.workspace = true
 tracing-chrome.workspace = true

@@ -138,7 +138,8 @@ impl GraphOperation for OverwriteLanguageFile {
 				let clng = CLNG::new(state.game.version.into(), None).wrap_err("Couldn't create CLNG engine")?;
 
 				clng.rebuild(to_string(&self.data)?)
-					.wrap_err("Couldn't rebuild CLNG data")?
+					.wrap_err("Couldn't rebuild CLNG data")
+					.intentional()?
 			}
 
 			"DITL" => {
@@ -146,7 +147,8 @@ impl GraphOperation for OverwriteLanguageFile {
 					DITL::new((*state.localisation_hash_list).to_owned()).wrap_err("Couldn't create DITL engine")?;
 
 				ditl.rebuild(to_string(&self.data)?)
-					.wrap_err("Couldn't rebuild DITL data")?
+					.wrap_err("Couldn't rebuild DITL data")
+					.intentional()?
 			}
 
 			"DLGE" => {
@@ -160,7 +162,8 @@ impl GraphOperation for OverwriteLanguageFile {
 				.wrap_err("Couldn't create DLGE engine")?;
 
 				dlge.rebuild(to_string(&self.data)?)
-					.wrap_err("Couldn't rebuild DLGE data")?
+					.wrap_err("Couldn't rebuild DLGE data")
+					.intentional()?
 			}
 
 			"LOCR" => {
@@ -173,14 +176,16 @@ impl GraphOperation for OverwriteLanguageFile {
 				.wrap_err("Couldn't create LOCR engine")?;
 
 				locr.rebuild(to_string(&self.data)?)
-					.wrap_err("Couldn't rebuild LOCR data")?
+					.wrap_err("Couldn't rebuild LOCR data")
+					.intentional()?
 			}
 
 			"RTLV" => {
 				let mut rtlv = RTLV::new(state.game.version.into(), None).wrap_err("Couldn't create RTLV engine")?;
 
 				rtlv.rebuild(to_string(&self.data)?)
-					.wrap_err("Couldn't rebuild RTLV data")?
+					.wrap_err("Couldn't rebuild RTLV data")
+					.intentional()?
 			}
 
 			_ => bail!("Unsupported language file type")

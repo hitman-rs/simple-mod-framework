@@ -118,6 +118,11 @@ impl PanicMessage for PanicReporter {
 							experiment: EXPERIMENT.to_owned().map(|x| x.into()),
 							game_hash: game.hash.to_owned(),
 							platform: game.into(),
+							os: format!(
+								"{} ({})",
+								sysinfo::System::long_os_version().unwrap_or_else(|_| "Unknown".into()),
+								sysinfo::System::kernel_long_version().unwrap_or_else(|_| "Unknown".into())
+							),
 							result: AnalyticsDeployResult::Unsuccessful {
 								failure_reason: DeployUnsuccessfulReason::Panic,
 								errors: vec![panic_msg.to_owned()]
@@ -160,6 +165,8 @@ impl PanicMessage for PanicReporter {
 			} else {
 				write!(f, "<unknown>")?;
 			}
+
+			std::thread::sleep(std::time::Duration::from_secs(2));
 		}
 
 		Ok(())
@@ -610,6 +617,11 @@ pub async fn deploy(progress: Arc<dyn Progress + Send + Sync>) -> Result<()> {
 				platform: game.platform
 			},
 			game_hash: game.hash.to_owned(),
+			os: format!(
+				"{} ({})",
+				sysinfo::System::long_os_version().unwrap_or_else(|_| "Unknown".into()),
+				sysinfo::System::kernel_long_version().unwrap_or_else(|_| "Unknown".into())
+			),
 			result: AnalyticsDeployResult::Successful {
 				total_time: start_time.elapsed().as_millis().try_into()?
 			}
@@ -780,6 +792,11 @@ pub async fn main() -> Result<ExitCode, color_eyre::Report> {
 									))
 								})
 								.collect::<Result<HashMap<_, _>>>()?,
+							os: format!(
+								"{} ({})",
+								sysinfo::System::long_os_version().unwrap_or_else(|_| "Unknown".into()),
+								sysinfo::System::kernel_long_version().unwrap_or_else(|_| "Unknown".into())
+							),
 							result: AnalyticsDeployResult::Unsuccessful {
 								failure_reason: DeployUnsuccessfulReason::IntentionalHalt,
 								errors: vec![err.to_string()]
@@ -849,6 +866,11 @@ pub async fn main() -> Result<ExitCode, color_eyre::Report> {
 								))
 							})
 							.collect::<Result<HashMap<_, _>>>()?,
+						os: format!(
+							"{} ({})",
+							sysinfo::System::long_os_version().unwrap_or_else(|_| "Unknown".into()),
+							sysinfo::System::kernel_long_version().unwrap_or_else(|_| "Unknown".into())
+						),
 						result: AnalyticsDeployResult::Unsuccessful {
 							failure_reason: if format!("{e:?}").contains("this error is due to a mod problem") {
 								DeployUnsuccessfulReason::IntentionalError

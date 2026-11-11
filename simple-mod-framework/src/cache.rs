@@ -3,7 +3,7 @@ use std::{
 	path::{Path, PathBuf}
 };
 
-use color_eyre::{Result, eyre::Context};
+use color_eyre::{Help, Result, eyre::Context};
 use ecow::EcoString;
 use fjall::{Database, Keyspace, KeyspaceCreateOptions, KvSeparationOptions, PersistMode};
 use itertools::Itertools;
@@ -113,7 +113,9 @@ impl Cache {
 
 		let storage = fjall::Database::builder("cache")
 			.open()
-			.wrap_err("Failed to open cache storage")?;
+			.wrap_err("Failed to open cache storage")
+			.note("there may be another SMF deployment running")
+			.suggestion("restart your computer if this does not resolve")?;
 
 		let blobs = storage
 			.keyspace("blobs", || {

@@ -32,6 +32,7 @@ use crate::{
 	graph::{Attribution, GraphOperation, RUNE_OPERATIONS, RuneOperation, rune_operation},
 	register_operation,
 	state::{Mutation, ResourceState, State},
+	utils::ResultArtifacts,
 	world::World
 };
 
@@ -962,16 +963,22 @@ impl GraphOperation for ApplyXMLPatch {
 			data: res_data
 		} = state.get_resource(&self.spec).await?.to_owned();
 
+		let res_data = String::from_utf8(res_data).wrap_err("Resource to patch was not valid UTF-8")?;
+
 		vec![Mutation::SetResourceValue {
 			resource: self.spec.to_owned(),
 			value: ResourceState {
 				metadata,
-				data: rfc5261::apply_patch(
-					&String::from_utf8(res_data).wrap_err("Resource to patch was not valid UTF-8")?,
-					&self.data
-				)
-				.wrap_err("Failed to apply XML patch")?
-				.into_bytes()
+				data: rfc5261::apply_patch(&res_data, &self.data)
+					.wrap_err("Failed to apply XML patch")
+					.intentional()
+					.with_artifacts(|| {
+						vec![
+							("Patch being applied".into(), self.data.as_bytes().into()),
+							("Resource to patch".into(), res_data.as_bytes().into()),
+						]
+					})?
+					.into_bytes()
 			}
 		}]
 	}

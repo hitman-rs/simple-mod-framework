@@ -8,7 +8,10 @@ use std::{
 };
 
 use aho_corasick::{AhoCorasick, AhoCorasickBuilder, MatchKind};
-use color_eyre::eyre::{OptionExt, Result, WrapErr, bail, eyre};
+use color_eyre::{
+	Help,
+	eyre::{OptionExt, Result, WrapErr, bail, eyre}
+};
 use ecow::EcoString;
 use fn_wrap_err::wrap_err;
 use glacier_commons::{
@@ -646,27 +649,27 @@ pub fn analyse(
 								}
 
 								x if x.ends_with(".json") => RuntimeID::from_path(&format!(
-									"[assembly:/{}/online/default/cloudstorage/resources/{}].{}{}",
+									"[assembly:/{}/online/default/cloudstorage/resources/{}].{}json",
 									if game.version == GlacierGame::FL { "_knt" } else { "_pro" },
 									blob_path,
-									if game.version != GlacierGame::FL { "pc_" } else { "" },
-									x.split('.')
-										.next_back()
-										.ok_or_eyre("Filename must include an extension")
-										.intentional()?
+									if game.version != GlacierGame::FL { "pc_" } else { "" }
 								)),
 
 								x if x.ends_with(".xml") => {
 									RuntimeID::from_path(&format!(
-										"[assembly:/{}/online/default/cloudstorage/resources/{blob_path}].bechaml",
+										"[assembly:/{}/online/default/cloudstorage/resources/{}].{}bechaml",
 										if game.version == GlacierGame::FL { "_knt" } else { "_pro" },
+										blob_path,
+										if game.version != GlacierGame::FL { "pc_" } else { "" }
 									))
 								}
 
 								x if x.ends_with(".usm") => {
 									RuntimeID::from_path(&format!(
-										"[assembly:/{}/online/default/cloudstorage/resources/{blob_path}].gfxv",
+										"[assembly:/{}/online/default/cloudstorage/resources/{}].{}gfxv",
 										if game.version == GlacierGame::FL { "_knt" } else { "_pro" },
+										blob_path,
+										if game.version != GlacierGame::FL { "pc_" } else { "" }
 									))
 								}
 
@@ -677,7 +680,10 @@ pub fn analyse(
 											.next_back()
 											.ok_or_eyre("Filename must include an extension")
 											.intentional()?
-									))?;
+									))
+									.intentional()
+									.note("blob file extensions should be lowercase, e.g. .png or .json")
+									.suggestion("if this file is not intended for the game, store it outside of the blob folder")?;
 									unreachable!();
 								}
 							};
@@ -1431,11 +1437,17 @@ fn get_operations_from_file(
 		} else if let Some(metadata) = &metadata {
 			metadata.id
 		} else {
-			bail!(
+			return Err(eyre!(
 				"File {} has a raw file extension ({}) but an invalid RuntimeID in filename and no metadata.json",
 				file.as_str(),
 				resource_type
-			);
+			))
+			.intentional()
+			.note(format!(
+				"raw files should be named as a hash (00123456789ABCDE.{resource_type}) or have an associated \
+				 metadata.json file containing the resource's hash or path"
+			))
+			.suggestion("if this should not be treated as a raw file, change the file extension to lowercase");
 		};
 
 		if id == REPO_ID {

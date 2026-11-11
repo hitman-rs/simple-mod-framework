@@ -41,6 +41,8 @@ pub struct AnalyticsSubmission {
 	pub game_hash: String,
 	pub platform: VersionPlatform,
 
+	pub os: String,
+
 	pub result: AnalyticsDeployResult
 }
 
