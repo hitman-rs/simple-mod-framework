@@ -41,6 +41,7 @@ use tracing_chrome::{ChromeLayerBuilder, TraceStyle};
 use tracing_error::ErrorLayer;
 use tracing_subscriber::{prelude::__tracing_subscriber_SubscriberExt, util::SubscriberInitExt};
 use tryvial::{try_block, try_fn};
+use uuid::Uuid;
 
 use crate::{
 	APP_VERSION, EXPERIMENT,
@@ -484,7 +485,7 @@ struct LastServerSideStates {
 // TODO: Remove when Peacock has SMFv3 compatibility
 fn get_v2_server_side_states(
 	server_side_data: &simple_mod_framework_types::ServerSideData,
-	server_side_assets: &HashMap<uuid::Uuid, Vec<u8>>
+	server_side_assets: &HashMap<Uuid, Vec<u8>>
 ) -> Result<LastServerSideStates> {
 	let unlockables = server_side_data
 		.unlockables
@@ -568,6 +569,17 @@ pub async fn deploy(progress: Arc<dyn Progress + Send + Sync>) -> Result<()> {
 		serde_json::to_vec(&last_deploy)?
 	)?;
 
+	let custom_properties = Uuid::new_v4();
+	fs::write(
+		deployment_dir.join(custom_properties.to_string()),
+		glacier_bin1::types::property::CUSTOM_PROPERTIES
+			.pin()
+			.values()
+			.map(|x| x.to_owned())
+			.collect::<Vec<_>>()
+			.join("\n")
+	)?;
+
 	fs::write(
 		deployment_dir.join("summary.json"),
 		serde_json::to_vec(&DeploySummary {
@@ -582,6 +594,7 @@ pub async fn deploy(progress: Arc<dyn Progress + Send + Sync>) -> Result<()> {
 			framework_version: SemVer(APP_VERSION.to_owned()),
 			framework_path: current_dir()?,
 			enums,
+			custom_properties,
 			server_side_data,
 			total_time: start_time.elapsed().as_millis().try_into()?
 		})?

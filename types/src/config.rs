@@ -221,6 +221,8 @@ pub struct DeploySummary {
 
 	#[specta(type = std::collections::HashMap<String, std::collections::HashMap<String, i64>>)]
 	pub enums: HashMap<String, HashMap<String, i64>>,
+
+	pub custom_properties: Uuid,
 	pub server_side_data: ServerSideData,
 	pub total_time: u32
 }
