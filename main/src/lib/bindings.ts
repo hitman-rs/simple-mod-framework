@@ -160,6 +160,8 @@ export type DeploySummary = {
 	frameworkVersion: string
 	config: Config
 	modVersions: { [key in string]: string }
+	enums: { [key in string]: { [key in string]: number } }
+	customProperties: string
 	serverSideData: ServerSideData
 	totalTime: number
 }
@@ -270,6 +272,29 @@ export type DiagnosticTarget =
 				scriptIdentifier: string | null
 			}
 	  }
+
+export type EnumVariant = EnumVariantProxy
+
+export type EnumVariantKind =
+	// An integer variant. Can be any value not taken by another enum variant.
+	| { type: "int" }
+	/**
+	 *  A bit variant. Represents a bit index, and can hold any value between 1 and the number of bits in the enum type not already taken.
+	 *  For example, an int32 enum can have up to 31 bit variants.
+	 */
+	| { type: "bit" }
+	// A flag variant. Represents a bitflag, and can hold any power of two not already taken.
+	| { type: "flag" }
+	// A variant which combines multiple bitflags. The value will be the logical OR of the given flags' values.
+	| { type: "flags"; flags: string[] }
+
+export type EnumVariantProxy =
+	// An integer variant. Can be any value not taken by another enum variant.
+	| string
+	| ({
+			// The variant's name.
+			name: string
+	  } & EnumVariantKind)
 
 export type ExplainedCondition = ExplainedCondition_Serialize | ExplainedCondition_Deserialize
 
@@ -445,6 +470,8 @@ export type ManifestData_Deserialize = {
 	localisation?: { [key in string]: Localisation_Deserialize }
 	// LINE files to create from localisation IDs.
 	localisedLines?: { [key in string]: string }
+	// Custom enum variants that can be referenced with `#{enum:EnumName:ModID:VariantName}`.
+	enums?: { [key in string]: EnumVariant[] }
 	// Paths to add to packagedefinition. Custom partitions are not supported.
 	packageDefinition?: PackageDefinitionEntity[]
 	// Resources that will be made available to a given partition (or super/chunk0 if unspecified).
@@ -476,6 +503,8 @@ export type ManifestData_Serialize = {
 	localisation?: { [key in string]: Localisation_Serialize }
 	// LINE files to create from localisation IDs.
 	localisedLines?: { [key in string]: string }
+	// Custom enum variants that can be referenced with `#{enum:EnumName:ModID:VariantName}`.
+	enums?: { [key in string]: EnumVariant[] }
 	// Paths to add to packagedefinition. Custom partitions are not supported.
 	packageDefinition?: PackageDefinitionEntity[]
 	// Resources that will be made available to a given partition (or super/chunk0 if unspecified).

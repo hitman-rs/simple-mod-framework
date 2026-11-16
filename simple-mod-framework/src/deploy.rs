@@ -437,7 +437,7 @@ pub fn migrate(
 						..
 					} => {
 						handle_uitext(name);
-						description.as_mut().map(|x| handle_uitext(x));
+						description.as_mut().map(handle_uitext);
 
 						for condition in &mut conditions.required_conditions {
 							handle_uitext(&mut condition.explanation);
@@ -467,7 +467,7 @@ pub fn migrate(
 						..
 					} => {
 						handle_uitext(name);
-						description.as_mut().map(|x| handle_uitext(x));
+						description.as_mut().map(handle_uitext);
 
 						for condition in &mut conditions.required_conditions {
 							handle_uitext(&mut condition.explanation);
@@ -483,7 +483,7 @@ pub fn migrate(
 
 						for option in options.iter_mut() {
 							handle_uitext(&mut option.name);
-							option.description.as_mut().map(|x| handle_uitext(x));
+							option.description.as_mut().map(handle_uitext);
 
 							for condition in &mut option.conditions.required_conditions {
 								handle_uitext(&mut condition.explanation);
@@ -509,8 +509,8 @@ pub fn migrate(
 						..
 					} => {
 						handle_uitext(name);
-						description.as_mut().map(|x| handle_uitext(x));
-						hidden_description.as_mut().map(|x| handle_uitext(x));
+						description.as_mut().map(handle_uitext);
+						hidden_description.as_mut().map(handle_uitext);
 
 						for loc in data.localisation.values_mut() {
 							handle_localisation(loc);
@@ -518,7 +518,7 @@ pub fn migrate(
 
 						for preset in presets {
 							handle_uitext(&mut preset.name);
-							preset.description.as_mut().map(|x| handle_uitext(x));
+							preset.description.as_mut().map(handle_uitext);
 						}
 
 						options.iter_mut().for_each(|opt| recurse_option(&mut opt.data));
@@ -539,7 +539,7 @@ pub fn migrate(
 
 			for preset in &mut manifest.presets {
 				handle_uitext(&mut preset.name);
-				preset.description.as_mut().map(|x| handle_uitext(x));
+				preset.description.as_mut().map(handle_uitext);
 			}
 
 			for loc in manifest.data.localisation.values_mut() {
@@ -847,7 +847,7 @@ pub fn migrate(
 						world.write_mod_file(&node.attribution.mod_id, &new_path, &serde_json::to_vec(&sdef)?)?;
 					}
 
-					world.remove_mod_file(&node.attribution.mod_id, &file_path)?;
+					world.remove_mod_file(&node.attribution.mod_id, file_path)?;
 					world.remove_mod_file(
 						&node.attribution.mod_id,
 						&file_path.with_extension("SDEF.metadata.json")

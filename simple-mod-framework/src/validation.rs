@@ -211,8 +211,8 @@ pub fn validate_manifest_data(mod_root: impl AsRef<Path>, data: ManifestData) ->
 		}
 
 		for variant in variants {
-			if !regex_is_match!(r"^[a-zA-Z_][a-zA-Z0-9_]*$", variant) {
-				return fail!("Enum variant {variant} is not a valid identifier");
+			if !regex_is_match!(r"^[a-zA-Z_][a-zA-Z0-9_]*$", &variant.name) {
+				return fail!("Enum variant {} is not a valid identifier", variant.name);
 			}
 		}
 	}

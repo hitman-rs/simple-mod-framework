@@ -287,6 +287,14 @@ fn main() -> ExitCode {
 						"../../main/src/lib/bindings.ts"
 					)
 					.expect("Failed to export bindings");
+
+				if Path::new("../../docs/.gitbook/assets").is_dir() {
+					fs::write(
+						"../../docs/.gitbook/assets/manifest-schema.json",
+						serde_json::to_vec(&schemars::schema_for!(simple_mod_framework_types::Manifest)).unwrap()
+					)
+					.unwrap();
+				}
 			}
 
 			tauri::Builder::default()

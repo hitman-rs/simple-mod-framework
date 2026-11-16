@@ -1477,7 +1477,7 @@ pub struct ManifestData {
 	/// Custom enum variants that can be referenced with `#{enum:EnumName:ModID:VariantName}`.
 	#[serde(default)]
 	#[serde(skip_serializing_if = "IndexMap::is_empty")]
-	pub enums: IndexMap<NonEmptyString, Vec<NonEmptyString>>,
+	pub enums: IndexMap<NonEmptyString, Vec<EnumVariant>>,
 
 	/// Paths to add to packagedefinition. Custom partitions are not supported.
 	#[serde(default)]
@@ -1769,6 +1769,74 @@ where
 	}
 
 	Ok(result)
+}
+
+#[derive(Serialize, Deserialize, JsonSchema, Clone, Debug, Type, PartialEq, Eq, better_rune_derive::Any)]
+#[serde(from = "EnumVariantProxy", into = "EnumVariantProxy")]
+#[rune(item = ::simple_mod_framework)]
+#[rune_derive(DEBUG_FMT, PARTIAL_EQ, EQ, CLONE)]
+#[rune(constructor)]
+pub struct EnumVariant {
+	/// The variant's name.
+	pub name: NonEmptyString,
+	pub kind: EnumVariantKind
+}
+
+#[derive(Serialize, Deserialize, JsonSchema, Clone, Debug, Type, PartialEq, Eq, better_rune_derive::Any)]
+#[serde(rename_all = "camelCase", rename_all_fields = "camelCase", tag = "type")]
+#[rune(item = ::simple_mod_framework)]
+#[rune_derive(DEBUG_FMT, PARTIAL_EQ, EQ, CLONE)]
+pub enum EnumVariantKind {
+	/// An integer variant. Can be any value not taken by another enum variant.
+	#[rune(constructor)]
+	Int,
+
+	/// A bit variant. Represents a bit index, and can hold any value between 1 and the number of bits in the enum type not already taken.
+	/// For example, an int32 enum can have up to 31 bit variants.
+	#[rune(constructor)]
+	Bit,
+
+	/// A flag variant. Represents a bitflag, and can hold any power of two not already taken.
+	#[rune(constructor)]
+	Flag,
+
+	/// A variant which combines multiple bitflags. The value will be the logical OR of the given flags' values.
+	Flags { flags: NonEmptyVec<NonEmptyString> }
+}
+
+#[derive(Serialize, Deserialize, JsonSchema, Clone, Debug, Type)]
+#[serde(untagged)]
+pub enum EnumVariantProxy {
+	/// An integer variant. Can be any value not taken by another enum variant.
+	Int(NonEmptyString),
+
+	Expanded {
+		/// The variant's name.
+		name: NonEmptyString,
+		#[serde(flatten)]
+		kind: EnumVariantKind
+	}
+}
+
+impl From<EnumVariantProxy> for EnumVariant {
+	fn from(value: EnumVariantProxy) -> Self {
+		match value {
+			EnumVariantProxy::Int(name) => Self {
+				name,
+				kind: EnumVariantKind::Int
+			},
+			EnumVariantProxy::Expanded { name, kind } => Self { name, kind }
+		}
+	}
+}
+
+impl From<EnumVariant> for EnumVariantProxy {
+	fn from(value: EnumVariant) -> Self {
+		match value.kind {
+			EnumVariantKind::Int => Self::Int(value.name),
+			kind => Self::Expanded { name: value.name, kind }
+		}
+	}
 }
 
 #[derive(Serialize, Deserialize, JsonSchema, Clone, Debug, Type, PartialEq, Eq, Hash, better_rune_derive::Any)]

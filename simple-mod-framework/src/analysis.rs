@@ -10,7 +10,7 @@ use std::{
 use aho_corasick::{AhoCorasick, AhoCorasickBuilder, MatchKind};
 use color_eyre::{
 	Help,
-	eyre::{OptionExt, Result, WrapErr, bail, eyre}
+	eyre::{OptionExt, Report, Result, WrapErr, bail, eyre}
 };
 use ecow::EcoString;
 use fn_wrap_err::wrap_err;
@@ -33,8 +33,9 @@ use simple_mod_framework_core::{
 	utils::ResultExt
 };
 use simple_mod_framework_types::{
-	Config, HashMap, HashSet, ManifestConditions, ManifestData, ModID, ModOption, ModOptionData, ModOptionID,
-	ModOptionValue, NumberOptionValidation, PortedResource, SelectionOption, ValidationResult, VersionPlatform
+	Config, EnumVariantKind, HashMap, HashSet, ManifestConditions, ManifestData, ModID, ModOption, ModOptionData,
+	ModOptionID, ModOptionValue, NumberOptionValidation, PortedResource, SelectionOption, ValidationResult,
+	VersionPlatform
 };
 use tracing::instrument;
 use tryvial::{try_block, try_fn};
@@ -123,22 +124,42 @@ pub fn analyse(
 
 			let mut mod_options = IndexMap::default();
 			for option in &manifest.options {
-				get_effective_option_values(world, (&**game).into(), config, &enabled_mod_versions, selected_mod_options, &mut mod_options, option)?;
+				get_effective_option_values(
+					world,
+					(&**game).into(),
+					config,
+					&enabled_mod_versions,
+					selected_mod_options,
+					&mut mod_options,
+					option
+				)?;
 			}
 
 			// Effective deploy order: base manifest followed by options in the order listed in the manifest
 			for option in manifest.options.clone() {
-				merge_option_data(world, game.deref().into(), config, &enabled_mod_versions, &mod_options, &mut manifest.data, option)?;
+				merge_option_data(
+					world,
+					game.deref().into(),
+					config,
+					&enabled_mod_versions,
+					&mod_options,
+					&mut manifest.data,
+					option
+				)?;
 			}
 
 			let mut substitutions = vec![];
 
 			for script in manifest.data.scripts.clone() {
-				let before_script = (manifest.data.peacock_plugins.to_owned(), manifest.data.sdk_mods.to_owned(), manifest.data.scripts.to_owned());
+				let before_script = (
+					manifest.data.peacock_plugins.to_owned(),
+					manifest.data.sdk_mods.to_owned(),
+					manifest.data.scripts.to_owned()
+				);
 
 				let script_contents = String::from_utf8(
 					world
-						.read_mod_file(&mod_id, &script)
+						.read_mod_file(mod_id, &script)
 						.wrap_err("Couldn't read script file")?
 				)?;
 
@@ -158,7 +179,10 @@ pub fn analyse(
 					)?);
 				}
 
-				if manifest.data.peacock_plugins != before_script.0 || manifest.data.sdk_mods != before_script.1 || manifest.data.scripts != before_script.2 {
+				if manifest.data.peacock_plugins != before_script.0
+					|| manifest.data.sdk_mods != before_script.1
+					|| manifest.data.scripts != before_script.2
+				{
 					bail!("Scripts may not modify this field");
 				}
 			}
@@ -175,12 +199,15 @@ pub fn analyse(
 
 			for (name, variants) in &manifest.data.enums {
 				for variant in variants {
-					let value = if let Some((_, Some(shape), Some(vanilla_variants))) = match game.version {
-						GlacierGame::H1 => glacier_bin1::game::h1::VARIANT_TYPES.values(),
-						GlacierGame::H2 => glacier_bin1::game::h2::VARIANT_TYPES.values(),
-						GlacierGame::H3 => glacier_bin1::game::h3::VARIANT_TYPES.values(),
-						GlacierGame::FL => glacier_bin1::game::fl::VARIANT_TYPES.values()
-					}.find(|(ty, _, _)| *ty == name.as_str()) {
+					let (size, vanilla_variants) = if let Some((_, Some(shape), Some(vanilla_variants))) =
+						match game.version {
+							GlacierGame::H1 => glacier_bin1::game::h1::VARIANT_TYPES.values(),
+							GlacierGame::H2 => glacier_bin1::game::h2::VARIANT_TYPES.values(),
+							GlacierGame::H3 => glacier_bin1::game::h3::VARIANT_TYPES.values(),
+							GlacierGame::FL => glacier_bin1::game::fl::VARIANT_TYPES.values()
+						}
+						.find(|(ty, _, _)| *ty == name.as_str())
+					{
 						let facet::Type::User(facet::UserType::Struct(shape)) = shape.ty else {
 							unreachable!("Enum variants are newtypes");
 						};
@@ -189,44 +216,100 @@ pub fn analyse(
 							unreachable!("Enum variants are newtypes over primitives");
 						};
 
-						let max_value = match layout.size() {
-							1 => i8::MAX as i64,
-							2 => i16::MAX as i64,
-							4 => i32::MAX as i64,
-							8 => i64::MAX,
-							_ => unreachable!()
-						};
+						(
+							layout.size(),
+							vanilla_variants.iter().map(|(_, n, v)| (*n, *v)).collect_vec()
+						)
+					} else {
+						(4, vec![])
+					};
 
-						let mut value = enum_rng.random_range(1..max_value);
-						while enums
+					let value = match &variant.kind {
+						EnumVariantKind::Int => {
+							let min_value = match size {
+								1 => i8::MIN as i64,
+								2 => i16::MIN as i64,
+								4 => i32::MIN as i64,
+								8 => i64::MIN,
+								_ => unreachable!()
+							};
+
+							let max_value = match size {
+								1 => i8::MAX as i64,
+								2 => i16::MAX as i64,
+								4 => i32::MAX as i64,
+								8 => i64::MAX,
+								_ => unreachable!()
+							};
+
+							let mut value = enum_rng.random_range(min_value..max_value);
+							while enums
 								.get(&**name)
 								.is_some_and(|variants| variants.values().any(|&x| x == value))
-							|| vanilla_variants.iter().any(|(_, _, v)| *v == value)
-						{
-							value = enum_rng.random_range(1..max_value);
+								|| vanilla_variants.iter().any(|(_, v)| *v == value)
+							{
+								value = enum_rng.random_range(min_value..max_value);
+							}
+
+							value
 						}
 
-						value
-					} else {
-						// Custom enums are assumed to be i32
-						let mut value = enum_rng.random_range(1..i32::MAX as i64);
-						while enums
-							.get(&**name)
-							.is_some_and(|variants| variants.values().any(|&x| x == value))
-						{
-							value = enum_rng.random_range(1..i32::MAX as i64);
+						EnumVariantKind::Bit => {
+							let mut value = enum_rng.random_range(0..(size as i64 * 8 - 1));
+							while enums
+								.get(&**name)
+								.is_some_and(|variants| variants.values().any(|&x| x == value))
+								|| vanilla_variants.iter().any(|(_, v)| *v == value)
+							{
+								value = enum_rng.random_range(0..(size as i64 * 8 - 1));
+							}
+
+							value
 						}
 
-						value
+						EnumVariantKind::Flag => {
+							let mut value = 2u64.pow(enum_rng.random_range(0..(size as u32 * 8 - 1))).cast_signed();
+							while enums
+								.get(&**name)
+								.is_some_and(|variants| variants.values().any(|&x| x == value))
+								|| vanilla_variants.iter().any(|(_, v)| *v == value)
+							{
+								value = 2u64.pow(enum_rng.random_range(0..(size as u32 * 8 - 1))).cast_signed();
+							}
+
+							value
+						}
+
+						EnumVariantKind::Flags { flags } => {
+							let mut value = 0u64;
+
+							for flag in &flags.0 {
+								if let Some((_, v)) = vanilla_variants.iter().find(|(n, _)| *n == **flag) {
+									value |= (*v).cast_unsigned();
+								} else if let Some((mod_id, variant_name)) = name.split_once(':')
+									&& let Some(variants) = enums.get(&**name)
+									&& let Some(v) = variants.get(&(
+										EcoString::from(mod_id).try_into().map_err(Report::msg)?,
+										variant_name.into()
+									))
+								{
+									value |= (*v).cast_unsigned();
+								} else {
+									return Err(eyre!("Unknown enum variant {flag} for {name}")).intentional().note(
+										"if this is a mod-defined flag, it must be defined before it is used in a \
+										 flags variant"
+									);
+								}
+							}
+
+							value.cast_signed()
+						}
 					};
 
 					enums
 						.entry((**name).to_owned())
 						.or_default()
-						.insert(
-							(mod_id.to_owned(), (**variant).to_owned()),
-							value
-						);
+						.insert((mod_id.to_owned(), (*variant.name).to_owned()), value);
 				}
 			}
 
