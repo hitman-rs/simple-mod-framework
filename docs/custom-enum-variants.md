@@ -14,4 +14,26 @@ You can also specify enums that do not exist in the vanilla game. These will hav
 
 ## Value assignment
 
-**No guarantee is made of what value an enum variant will be assigned.** Any value that is valid for the enum's type/size and is not already taken by another variant (vanilla or modded) may be chosen.
+The potential values of an enum variant depend on the type of the variant. The default is `int` - this will be used if a plain string is supplied in the manifest.
+
+### Int variants
+
+An `int` variant represents a named integer value; the vast majority of enums use these.
+
+**No guarantee is made of what value these will be assigned.** Any value that is valid for the enum's type/size and is not already taken by another variant (vanilla or modded) may be chosen.
+
+### Bit variants
+
+A `bit` variant represents a bit index: that is, a value between 0 and the highest bit of the type. For example, for a 32-bit enum the highest `bit` variant value would be 31. This is useful in cases where the game performs a shift to determine a mask (i.e. by doing `1 << enum_value`).
+
+Any value within bounds not already taken by another variant may be chosen.
+
+### Flag variants
+
+A `flag` variant represents a single bitflag. In numeric terms, this means the value will be a power of two; represented in binary, a single bit will be set on the value. There are as many valid flag variants for a given enum as there are bits of the enum.
+
+Any power of two not already taken by another variant may be chosen.
+
+### Flags variants
+
+A `flags` variant represents a combination of `flag` values (so, a value where multiple flags are set). The value assigned will be the logical OR of all the variants specified in `flags`. These variants are permitted to collide in their assigned value since they do not represent "separate" variants.

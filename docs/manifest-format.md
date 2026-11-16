@@ -158,9 +158,19 @@ _Content and information that makes up a mod or option._
     * Supports the same languages as the framework. Languages which are not supported by the current game version will simply be ignored.
 * `localisedLines` (map of RuntimeID -> string)
   * LINE files to create from localisation keys specified in `localisation`.
-* `enums` (map of string -> array of string)
-  * Custom enum variants that can be referenced with `#{enum:EnumName:ModID:VariantName}`.
+* `enums` (map of string -> array of EnumVariant)
+  * A map of enum names to a list of custom enum variants that can be referenced with `#{enum:EnumName:ModID:VariantName}`.
   * See the [custom enum variants](custom-enum-variants.md) page for more information.
+  * **EnumVariant**
+    *   Either a string containing the name of the custom variant (equivalent to a variant of type `int`), or an object in the form:
+
+        ```jsonc
+        {
+            "name": "MyVariantName",
+            "type": "int", // valid: int, bit, flag, flags
+            "flags": ["Variant1", "Variant2"] // for type: flags
+        }
+        ```
 * `packageDefinition` (array of PackageDefinitionEntity)
   * Paths to add to packagedefinition. Custom partitions are not supported.
   * **PackageDefinitionEntity**
