@@ -22,6 +22,7 @@ use glacier_formats::sdef::SoundDefinitions;
 use identity_hash::BuildIdentityHasher;
 use indexmap::IndexMap;
 use itertools::Itertools;
+use lazy_regex::regex_replace;
 use papaya::Guard;
 use pico_args::Arguments;
 use quickentity_rs::{entity::Entity, generate_patch};
@@ -739,11 +740,17 @@ pub fn migrate(
 					&& deploy_graph.nodes().values().any(|other| match &other.operation {
 						NodeOperation::Uncached(op) => match &**op {
 							Operation::OverwriteEntity(graph::OverwriteEntity { data, .. }) => {
-								data.factory.get_path().is_some_and(|x| x == *entry.path)
+								data.factory.get_path().is_some_and(|x| {
+									x == *entry.path
+										|| *x == *regex_replace!(r"\.(?:pc_)?([a-zA-Z]+)$", &entry.path, ".pc_$1")
+								})
 							}
 
 							Operation::ApplyQuickEntityPatch(graph::ApplyQuickEntityPatch { data, .. }) => {
-								data.factory.get_path().is_some_and(|x| x == *entry.path)
+								data.factory.get_path().is_some_and(|x| {
+									x == *entry.path
+										|| *x == *regex_replace!(r"\.(?:pc_)?([a-zA-Z]+)$", &entry.path, ".pc_$1")
+								})
 							}
 
 							_ => false
