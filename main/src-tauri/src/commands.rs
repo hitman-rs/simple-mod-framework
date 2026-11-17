@@ -94,11 +94,25 @@ pub fn rs_deploy(app: AppHandle) -> Result<(), String> {
 			let x: Result<_> = try_block! {
 				let (rx, msg) = ipc.accept()?;
 
-				DeployIPCMessage(serde_brief::from_slice(&msg)?).emit(&app)?;
+				let forward = |msg: &[u8]| {
+					let mut tries = 0;
+					loop {
+						match DeployIPCMessage(serde_brief::from_slice(msg)?).emit(&app) {
+							Ok(_) => return color_eyre::eyre::Ok(()),
+							Err(e) if tries == 3 => return Err(e.into()),
+							_ => {
+								tries += 1;
+								std::thread::sleep(std::time::Duration::from_millis(50));
+							}
+						}
+					}
+				};
+
+				forward(&msg)?;
 
 				loop {
 					match rx.recv() {
-						Ok(msg) => DeployIPCMessage(serde_brief::from_slice(&msg)?).emit(&app)?,
+						Ok(msg) => forward(&msg)?,
 						Err(IpcError::Disconnected) => break,
 						Err(e) => Err(eyre!("IPC error: {e:?}"))?
 					}

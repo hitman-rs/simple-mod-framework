@@ -1346,7 +1346,6 @@ pub fn get_portable_references<'guard, G: Guard + Sync>(
 	}
 }
 
-#[try_fn]
 #[wrap_err("Couldn't get resource {resource} for porting")]
 pub fn port(
 	game: &GameContext,
