@@ -48,7 +48,10 @@ pub struct Diagnostic {
 #[derive(Serialize, Deserialize, Debug, Clone, Type)]
 #[serde(tag = "type", content = "data", rename_all = "camelCase")]
 pub enum DiagnosticKind {
-	ResourceAlreadyIdentical {
+	ModdedResourceAlreadyIdentical {
+		resource: ResourceSpecifier
+	},
+	VanillaResourceAlreadyIdentical {
 		resource: ResourceSpecifier
 	},
 	UnsupportedPlatform {
@@ -100,7 +103,8 @@ impl DiagnosticKind {
 			DiagnosticKind::UnsupportedPlatform { .. } => DiagnosticSeverity::Low,
 			DiagnosticKind::ApplyingMigration { .. } => DiagnosticSeverity::Low,
 
-			DiagnosticKind::ResourceAlreadyIdentical { .. } => DiagnosticSeverity::Medium,
+			DiagnosticKind::ModdedResourceAlreadyIdentical { .. } => DiagnosticSeverity::Medium,
+			DiagnosticKind::VanillaResourceAlreadyIdentical { .. } => DiagnosticSeverity::Medium,
 			DiagnosticKind::UnrecognizedPatch { .. } => DiagnosticSeverity::Medium,
 			DiagnosticKind::UnrecognizedPartitionPatch { .. } => DiagnosticSeverity::Medium,
 			DiagnosticKind::QuickEntityPatchDiagnostic { .. } => DiagnosticSeverity::Medium,
@@ -134,10 +138,18 @@ impl DiagnosticKind {
 impl Display for DiagnosticKind {
 	fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
 		match self {
-			DiagnosticKind::ResourceAlreadyIdentical { resource } => {
+			DiagnosticKind::ModdedResourceAlreadyIdentical { resource } => {
 				write!(
 					f,
 					"Resource {:?} is already identical; this operation has no effect.",
+					resource
+				)
+			}
+
+			DiagnosticKind::VanillaResourceAlreadyIdentical { resource } => {
+				write!(
+					f,
+					"Resource {:?} is already identical in the vanilla game; this operation has no effect.",
 					resource
 				)
 			}

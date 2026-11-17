@@ -52,6 +52,13 @@ pub static DEBUG_PROFILE_DIR: LazyLock<PathBuf> = LazyLock::new(|| {
 	.expect("Couldn't write basic debug info");
 	writeln!(
 		profile,
+		"OS: {} ({})",
+		sysinfo::System::long_os_version().unwrap_or_else(|_| "Unknown".into()),
+		sysinfo::System::kernel_long_version().unwrap_or_else(|_| "Unknown".into())
+	)
+	.expect("Couldn't write basic debug info");
+	writeln!(
+		profile,
 		"\nThe user's SMF config and deploy log should be present in this folder. Additionally, any artifacts \
 		 referenced by the log can be found in the artifacts folder named as their ID."
 	)

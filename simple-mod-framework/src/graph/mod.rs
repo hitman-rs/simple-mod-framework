@@ -5,23 +5,16 @@ use ecow::{EcoString, eco_format};
 use enum_dispatch::enum_dispatch;
 use facet::Facet;
 use futures::{StreamExt, stream::FuturesUnordered};
-use glacier_commons::game::GlacierGame;
 use indexmap::IndexMap;
 use itertools::Itertools;
 use ranked_semaphore::RankedSemaphore;
 use relative_path::RelativePathBuf;
 use serde::{Deserialize, Serialize};
-use simple_mod_framework_core::{
-	diagnostics::DiagnosticTarget,
-	game::{NominalPartition, REPO_ID, ResourceSpecifier, UNLOCKABLES_ID_FL, UNLOCKABLES_ID_WOA},
-	resource_in,
-	utils::ResultExt
-};
+use simple_mod_framework_core::{diagnostics::DiagnosticTarget, game::ResourceSpecifier, utils::ResultExt};
 use simple_mod_framework_types::{HashMap, ModID, VersionPlatform};
 use specta::Type;
 use tracing::{Instrument, instrument};
 use tryvial::try_fn;
-use uuid::Uuid;
 use xxhash_rust::xxh3::Xxh3Default;
 
 use crate::{
@@ -647,92 +640,6 @@ impl DeployGraph {
 		}
 
 		state.world.finish_progress(progress)?;
-
-		// Finalise unlockables
-		if let Some(res) = state.deployment.resource_states.get(&ResourceSpecifier {
-			id: if state.game.version == GlacierGame::FL {
-				UNLOCKABLES_ID_FL
-			} else {
-				UNLOCKABLES_ID_WOA
-			},
-			partition: NominalPartition("super".into()).real_candidates(&*state.game).unwrap()[0].to_owned()
-		}) && let Some((_, res)) = res.lock().await.front()
-		{
-			let unlockables_data =
-				glacier_bin1::deserialize::<EcoString>(&res.data).wrap_err("Couldn't parse unlockables")?;
-			let asset_id = Uuid::new_v4();
-			state
-				.deployment
-				.server_side_assets
-				.lock()
-				.insert(asset_id, unlockables_data.as_bytes().into());
-			state.deployment.server_side_data.lock().unlockables = Some(asset_id);
-		}
-
-		// Finalise repository
-		if let Some(res) = state.deployment.resource_states.get(&ResourceSpecifier {
-			id: REPO_ID,
-			partition: NominalPartition("super".into()).real_candidates(&*state.game).unwrap()[0].to_owned()
-		}) && let Some((_, res)) = res.lock().await.front()
-		{
-			if state.config.auto_disable_dynres {
-				state.deployment.server_side_data.lock().dynamic_resources_disabled = true;
-			}
-
-			let asset_id = Uuid::new_v4();
-			state
-				.deployment
-				.server_side_assets
-				.lock()
-				.insert(asset_id, res.data.to_owned());
-			state.deployment.server_side_data.lock().repository = Some(asset_id);
-		}
-
-		// Finalise world map metadata
-		let world_map_metadata = state.deployment.world_map_metadata.lock().to_owned();
-		for res in world_map_metadata {
-			if state.deployment.all_relevant_resources.contains_key(&res)
-				&& let Some((_, res)) = state.deployment.resource_states.iter().find(|(k, _)| k.id == res)
-				&& let Some((_, res)) = res.lock().await.front()
-			{
-				let scene = serde_json::from_slice::<serde_json::Value>(&res.data)
-					.wrap_err("World map metadata file was invalid JSON")?
-					.get("scene")
-					.ok_or_eyre("World map metadata file had no scene property")?
-					.as_str()
-					.ok_or_eyre("World map metadata file scene property was not string")?
-					.to_owned();
-
-				let asset_id = Uuid::new_v4();
-				state
-					.deployment
-					.server_side_assets
-					.lock()
-					.insert(asset_id, res.data.to_owned());
-				state
-					.deployment
-					.server_side_data
-					.lock()
-					.world_map_metadata
-					.insert(scene, asset_id);
-			}
-		}
-
-		// Finalise storyconfig
-		if let Some(res) = state.deployment.resource_states.get(&resource_in!(
-			"[assembly:/_pro/online/default/cloudstorage/resources/storyconfig.json].pc_json",
-			"super",
-			&*state.game
-		)) && let Some((_, res)) = res.lock().await.front()
-		{
-			let asset_id = Uuid::new_v4();
-			state
-				.deployment
-				.server_side_assets
-				.lock()
-				.insert(asset_id, res.data.to_owned());
-			state.deployment.server_side_data.lock().story_config = Some(asset_id);
-		}
 	}
 }
 

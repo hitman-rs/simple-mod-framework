@@ -27,8 +27,10 @@ use rpkg_rs::resource::{
 };
 use serde::{Deserialize, Serialize};
 use simple_mod_framework_core::{
-	game::{GameContext, NominalPartition, RealPartition, ResourceSpecifier},
-	intentional_halt,
+	game::{
+		GameContext, NominalPartition, REPO_ID, RealPartition, ResourceSpecifier, UNLOCKABLES_ID_FL, UNLOCKABLES_ID_WOA
+	},
+	intentional_halt, resource_in,
 	rkyv_helpers::AsSerde,
 	utils::ResultExt
 };
@@ -463,22 +465,23 @@ impl<W: World> State<W> {
 			Mutation::SetResourceValue { resource, value } => {
 				let prev_refs = if let Some(states) = self.deployment.resource_states.get(&resource)
 					&& let mut states = states.lock().await
-					&& let Some((_, last_state)) = states.back()
+					&& let Some((last_attr, last_state)) = states.back()
 				{
 					if *last_state == value {
 						// No actual mutation to apply
 						if warn_on_identical {
 							self.world.emit_diagnostic(Diagnostic {
-								kind: DiagnosticKind::ResourceAlreadyIdentical {
-									resource: resource.clone()
+								kind: if last_attr.is_none() {
+									DiagnosticKind::VanillaResourceAlreadyIdentical {
+										resource: resource.clone()
+									}
+								} else {
+									DiagnosticKind::ModdedResourceAlreadyIdentical {
+										resource: resource.clone()
+									}
 								},
 								target: attribution.to_diagnostic_target()
 							})?;
-						}
-
-						if value.metadata.resource_type != "TEMP" && value.metadata.resource_type != "TBLU" {
-							// Not much use for full history
-							states.retain_back(5);
 						}
 
 						states.push_back((Some(attribution.to_owned()), value));
@@ -500,7 +503,7 @@ impl<W: World> State<W> {
 					{
 						// No actual mutation to apply
 						self.world.emit_diagnostic(Diagnostic {
-							kind: DiagnosticKind::ResourceAlreadyIdentical {
+							kind: DiagnosticKind::VanillaResourceAlreadyIdentical {
 								resource: resource.clone()
 							},
 							target: attribution.to_diagnostic_target()
@@ -513,11 +516,6 @@ impl<W: World> State<W> {
 							.expect("No such resource is known")
 							.lock()
 							.await;
-
-						if value.metadata.resource_type != "TEMP" && value.metadata.resource_type != "TBLU" {
-							// Not much use for full history
-							states.retain_back(5);
-						}
 
 						states.push_back((Some(attribution.to_owned()), value));
 
@@ -806,10 +804,96 @@ impl<W: World> State<W> {
 			};
 		}
 	}
+
+	/// Update the server side data and assets with the latest version of the repository, unlockables, story config and world map metadata files.
+	/// Will not remove any existing assets, so shouldn't be called multiple times.
+	#[try_fn]
+	pub async fn update_server_side_data(&self) -> Result<()> {
+		// Finalise unlockables
+		if let Some(res) = self.deployment.resource_states.get(&ResourceSpecifier {
+			id: if self.game.version == GlacierGame::FL {
+				UNLOCKABLES_ID_FL
+			} else {
+				UNLOCKABLES_ID_WOA
+			},
+			partition: NominalPartition("super".into()).real_candidates(&*self.game).unwrap()[0].to_owned()
+		}) && let Some((_, res)) = res.lock().await.front()
+		{
+			let unlockables_data =
+				glacier_bin1::deserialize::<EcoString>(&res.data).wrap_err("Couldn't parse unlockables")?;
+			let asset_id = Uuid::new_v4();
+			self.deployment
+				.server_side_assets
+				.lock()
+				.insert(asset_id, unlockables_data.as_bytes().into());
+			self.deployment.server_side_data.lock().unlockables = Some(asset_id);
+		}
+
+		// Finalise repository
+		if let Some(res) = self.deployment.resource_states.get(&ResourceSpecifier {
+			id: REPO_ID,
+			partition: NominalPartition("super".into()).real_candidates(&*self.game).unwrap()[0].to_owned()
+		}) && let Some((_, res)) = res.lock().await.front()
+		{
+			if self.config.auto_disable_dynres {
+				self.deployment.server_side_data.lock().dynamic_resources_disabled = true;
+			}
+
+			let asset_id = Uuid::new_v4();
+			self.deployment
+				.server_side_assets
+				.lock()
+				.insert(asset_id, res.data.to_owned());
+			self.deployment.server_side_data.lock().repository = Some(asset_id);
+		}
+
+		// Finalise world map metadata
+		let world_map_metadata = self.deployment.world_map_metadata.lock().to_owned();
+		for res in world_map_metadata {
+			if self.deployment.all_relevant_resources.contains_key(&res)
+				&& let Some((_, res)) = self.deployment.resource_states.iter().find(|(k, _)| k.id == res)
+				&& let Some((_, res)) = res.lock().await.front()
+			{
+				let scene = serde_json::from_slice::<serde_json::Value>(&res.data)
+					.wrap_err("World map metadata file was invalid JSON")?
+					.get("scene")
+					.ok_or_eyre("World map metadata file had no scene property")?
+					.as_str()
+					.ok_or_eyre("World map metadata file scene property was not string")?
+					.to_owned();
+
+				let asset_id = Uuid::new_v4();
+				self.deployment
+					.server_side_assets
+					.lock()
+					.insert(asset_id, res.data.to_owned());
+				self.deployment
+					.server_side_data
+					.lock()
+					.world_map_metadata
+					.insert(scene, asset_id);
+			}
+		}
+
+		// Finalise storyconfig
+		if let Some(res) = self.deployment.resource_states.get(&resource_in!(
+			"[assembly:/_pro/online/default/cloudstorage/resources/storyconfig.json].pc_json",
+			"super",
+			&*self.game
+		)) && let Some((_, res)) = res.lock().await.front()
+		{
+			let asset_id = Uuid::new_v4();
+			self.deployment
+				.server_side_assets
+				.lock()
+				.insert(asset_id, res.data.to_owned());
+			self.deployment.server_side_data.lock().story_config = Some(asset_id);
+		}
+	}
 }
 
 impl<W: World + Progress + Output> State<W> {
-	/// Check for resource leaks, port resources, finalise the state and emit output files.
+	/// Check for resource leaks, finalise server-side data, port resources, patch configs and emit output files.
 	#[try_fn]
 	#[instrument(skip_all)]
 	pub async fn finish(
@@ -826,7 +910,10 @@ impl<W: World + Progress + Output> State<W> {
 			.deployment
 			.resource_states
 			.iter_mut()
-			.filter_map(|(x, y)| (Arc::get_mut(y).unwrap().get_mut().len() != 1).then_some(format!("{x:?}")))
+			.filter_map(|(x, y)| {
+				let states = Arc::get_mut(y).unwrap().get_mut();
+				(states.len() != 1 || states[0].0.is_some()).then_some(format!("{x:?}"))
+			})
 			.collect_vec();
 
 		if !leaks.is_empty() {
@@ -837,6 +924,8 @@ impl<W: World + Progress + Output> State<W> {
 				leaks.join(", ")
 			));
 		}
+
+		self.update_server_side_data().await?;
 
 		log::info!("Porting resources");
 		let port_builders = port_resources(&self.world, &self.game, &self.deployment)?;
