@@ -1549,13 +1549,14 @@ pub fn upgrade_v2_content_file(
 
 											Ok((
 												x.to_owned(),
-												MaterialOverride::Color(
+												MaterialOverride::Color(format!(
+													"#{}",
 													value
 														.into_iter()
 														.map(|x| format!("{:02x}", (x * 255.0).round() as u8))
 														.collect::<Vec<_>>()
 														.join("")
-												)
+												))
 											))
 										})
 								)
