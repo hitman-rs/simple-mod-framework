@@ -90,6 +90,8 @@ impl Cache {
 						x.framework_version,
 						*APP_VERSION
 					);
+					let _ = fs::remove_dir_all(root);
+					let _ = fs::create_dir_all(root);
 					None
 				} else if x.game_hash != game_hash {
 					log::trace!(
@@ -97,6 +99,8 @@ impl Cache {
 						x.game_hash,
 						game_hash
 					);
+					let _ = fs::remove_dir_all(root);
+					let _ = fs::create_dir_all(root);
 					None
 				} else {
 					Some(x)
@@ -111,7 +115,7 @@ impl Cache {
 
 		log::trace!("Opening cache storage");
 
-		let storage = fjall::Database::builder("cache")
+		let storage = fjall::Database::builder(root)
 			.open()
 			.wrap_err("Failed to open cache storage")
 			.note("there may be another SMF deployment running")

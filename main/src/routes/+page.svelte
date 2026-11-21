@@ -553,6 +553,7 @@
 							<h2 class="text-xl 2xl:text-2xl font-bold">{m.ExperimentalVersion()}</h2>
 						</div>
 						<div>{m.ExperimentalVersionDesc()} (<code>{experiment}</code>).</div>
+						<div slot="footer"><sl-button variant="primary" onclick={updateFramework}>{m.SwitchToStable()}</sl-button></div>
 					</sl-card>
 				{:else if item.type === "sdkUpdate"}
 					<sl-card class="w-full">

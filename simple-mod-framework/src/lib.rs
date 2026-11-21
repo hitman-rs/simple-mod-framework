@@ -30,7 +30,7 @@ pub static APP_VERSION: LazyLock<Version> =
 
 pub static EXPERIMENT: Option<&'static str> =
 	if built_info::CI_PLATFORM.is_some() && option_env!("SMF_RELEASE_BUILD").is_some() {
-		Some("SMFv3 open beta")
+		None
 	} else if built_info::CI_PLATFORM.is_some() {
 		Some(constcat::concat!(
 			"artifact ",
