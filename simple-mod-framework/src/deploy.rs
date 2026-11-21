@@ -1002,11 +1002,8 @@ pub fn generate_rpkgs<W: World + Progress + Output>(
 
 	staged
 		.into_iter()
-		.map(|(partition, mut staged)| {
+		.map(|(partition, staged)| {
 			let ports = port_builders.remove(&partition).unwrap_or_default();
-
-			// Enforce a consistent order to fix a very strange non-determinism affecting UI icons
-			staged.sort_unstable_by_key(|x| x.metadata.id);
 
 			(partition, staged, ports)
 		})
@@ -1018,7 +1015,7 @@ pub fn generate_rpkgs<W: World + Progress + Output>(
 				.map(|(partition, ports)| (partition, vec![], ports))
 		)
 		.par_bridge()
-		.try_for_each(|(partition_name, resources, ports)| {
+		.try_for_each(|(partition_name, mut resources, ports)| {
 			let _span = tracing::info_span!("Generating patch for partition", ?partition_name).entered();
 
 			if !ports.is_empty() || !resources.is_empty() {
@@ -1030,6 +1027,9 @@ pub fn generate_rpkgs<W: World + Progress + Output>(
 				else {
 					bail!("No such partition {partition_name}")
 				};
+
+				// Enforce a consistent order to fix a very strange non-determinism affecting UI icons
+				resources.sort_unstable_by_key(|x| x.metadata.id);
 
 				let builder = {
 					let _span = tracing::info_span!("Generating builder").entered();
