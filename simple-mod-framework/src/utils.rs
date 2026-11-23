@@ -24,7 +24,7 @@ pub static DEBUG_PROFILE_DIR: LazyLock<PathBuf> = LazyLock::new(|| {
 	let cwd = std::env::current_dir().expect("Can't access current directory");
 	let path = cwd.join("debug");
 
-	if !cwd.join("Simple Mod Framework.exe").exists && !cwd.join("Simple Mod Framework").exists() {
+	if !cwd.join("Simple Mod Framework.exe").exists() && !cwd.join("Simple Mod Framework").exists() {
 		// Don't actually write to the directory
 		return path;
 	}
