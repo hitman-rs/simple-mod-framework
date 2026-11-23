@@ -21,9 +21,13 @@ use rand::{
 use super::{APP_VERSION, EXPERIMENT};
 
 pub static DEBUG_PROFILE_DIR: LazyLock<PathBuf> = LazyLock::new(|| {
-	let path = std::env::current_dir()
-		.expect("Can't access current directory")
-		.join("debug");
+	let cwd = std::env::current_dir().expect("Can't access current directory");
+	let path = cwd.join("debug");
+
+	if !cwd.join("Simple Mod Framework.exe").exists && !cwd.join("Simple Mod Framework").exists() {
+		// Don't actually write to the directory
+		return path;
+	}
 
 	if path.exists() {
 		fs::remove_dir_all(&path).expect("Couldn't remove existing debug profile directory");
@@ -214,15 +218,10 @@ pub fn write_artifact(data: &[u8]) -> EcoString {
 		ARTIFACT_CHARS.chars().choose(&mut rng()).unwrap()
 	);
 
-	fs::write(
-		env::current_dir()
-			.expect("Can't access current directory")
-			.join(DEBUG_PROFILE_DIR.as_path())
-			.join("artifacts")
-			.join(id.as_str()),
-		data
-	)
-	.expect("Couldn't write debug artifact");
+	if DEBUG_PROFILE_DIR.as_path().join("artifacts").exists() {
+		fs::write(DEBUG_PROFILE_DIR.as_path().join("artifacts").join(id.as_str()), data)
+			.expect("Couldn't write debug artifact");
+	}
 
 	id
 }
