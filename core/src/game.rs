@@ -538,7 +538,7 @@ pub fn load_game_files(
 					if clear_mods {
 						fs::remove_file(rpkg.path())
 							.suggestion("make sure the game is fully closed before applying mods")?;
-					} else if !(patch == 300 || (game_version == GlacierGame::H1 && patch == partition.patch_level + 1))
+					} else if !(patch == 100 || (game_version == GlacierGame::H1 && patch == partition.patch_level + 1))
 					{
 						world.emit_diagnostic(Diagnostic {
 							kind: DiagnosticKind::UnrecognizedPatch {
