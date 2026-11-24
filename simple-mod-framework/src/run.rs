@@ -580,6 +580,17 @@ pub async fn deploy(progress: Arc<dyn Progress + Send + Sync>) -> Result<()> {
 			.join("\n")
 	)?;
 
+	let custom_paths = Uuid::new_v4();
+	fs::write(
+		deployment_dir.join(custom_paths.to_string()),
+		glacier_commons::hash_list::CUSTOM_PATHS
+			.pin()
+			.values()
+			.map(|x| x.to_owned())
+			.collect::<Vec<_>>()
+			.join("\n")
+	)?;
+
 	fs::write(
 		deployment_dir.join("summary.json"),
 		serde_json::to_vec(&DeploySummary {
@@ -595,6 +606,7 @@ pub async fn deploy(progress: Arc<dyn Progress + Send + Sync>) -> Result<()> {
 			framework_path: current_dir()?,
 			enums,
 			custom_properties,
+			custom_paths,
 			server_side_data,
 			total_time: start_time.elapsed().as_millis().try_into()?
 		})?

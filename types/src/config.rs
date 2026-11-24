@@ -223,6 +223,7 @@ pub struct DeploySummary {
 	pub enums: HashMap<String, HashMap<String, i64>>,
 
 	pub custom_properties: Uuid,
+	pub custom_paths: Uuid,
 	pub server_side_data: ServerSideData,
 	pub total_time: u32
 }

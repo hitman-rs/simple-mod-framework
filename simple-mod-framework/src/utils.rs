@@ -1,5 +1,4 @@
 use std::{
-	env,
 	fmt::Write as _,
 	fs::{self, File},
 	io::Write as _,
