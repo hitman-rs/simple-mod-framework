@@ -826,6 +826,11 @@ impl GraphOperation for OverwriteAspectEntity {
 		)
 	}
 
+	// Some aspect entities have shared blueprints, so this will warn for the blueprint being unmodified
+	fn warn_on_identical(&self) -> bool {
+		false
+	}
+
 	#[try_fn]
 	async fn evaluate(self, _: Attribution, _: Arc<State<impl World>>) -> Result<Vec<Mutation>> {
 		vec![
