@@ -295,6 +295,9 @@
 [assembly:/_PRO/Scenes/missions/Wet/escalation_magnolia.brick].entitytype
 [assembly:/_PRO/Scenes/missions/Wet/gamechanger_lockeddoors.brick].entitytype
 [assembly:/_PRO/Scenes/missions/Wet/gamechanger_swapcrowbars.brick].entitytype
+[assembly:/_PRO/Scenes/missions/Wet/scene_wet_gladiolus.entity].entitytemplate
+[assembly:/_PRO/Scenes/missions/Wet/scenario_gladiolus_level1.brick].entitytype
+[assembly:/_PRO/Scenes/missions/Wet/scenario_gladiolus_overridestartingloc.brick].entitytype
 // vr bricks
 [assembly:/_pro/scenes/missions/wet/vr_overrides_rat.brick].entitytype
 [assembly:/_pro/scenes/missions/wet/vr_overrides_rat_ps4_vr1.brick].entitytype
@@ -1201,6 +1204,12 @@
 [assembly:/_pro/scenes/missions/rocky/vr_overrides_dugong.brick].entitytype
 [assembly:/_pro/scenes/missions/rocky/vr_overrides_dugong_ps4_vr1.brick].entitytype
 [assembly:/_PRO/scenes/missions/rocky/vr_overrides_low_performance.brick].entitytype
+// elusive targets
+[assembly:/_PRO/Scenes/Missions/Rocky/scene_grog.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Rocky/mission_grog.brick].entitytype
+[assembly:/_pro/scenes/frontend/videodatabase/videodatabase_grog.entity].entitytemplate
+[assembly:/_PRO/Scenes/Missions/Rocky/scene_rambutan_level2.entity].entitytemplate
+[assembly:/_pro/scenes/missions/rocky/vr_overrides_grog_ps4_vr1.brick].entitytype
 // mission : hot_poker
 [assembly:/_pro/scenes/missions/rocky/scene_rocky_hot_poker.entity].entitytemplate
 [assembly:/_pro/scenes/missions/rocky/mission_hot_poker.brick].entitytype
